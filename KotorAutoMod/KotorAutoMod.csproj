@@ -12,6 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="resources\HD_Pazaak_Cards.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="resources\Remove Duplicate TGA-TPC-1127-1-2-1616219725.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

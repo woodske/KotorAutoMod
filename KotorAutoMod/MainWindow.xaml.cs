@@ -1,7 +1,19 @@
 ﻿using Ookii.Dialogs.Wpf;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
-using System.IO.Compression;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
 
 namespace KotorAutoMod
 {
@@ -10,31 +22,32 @@ namespace KotorAutoMod
     /// </summary>
     public partial class MainWindow : Window
     {
+        // Singleton instance of modConfig tracks user selections
+        private static ModConfig modConfig = new ModConfig();
+
+        FormActions formActions = new FormActions(modConfig);
+
         public MainWindow()
         {
             InitializeComponent();
-        }
+            modConfig.selectedMods = Utils.InitializeModList();
 
-        private string folderPath = "";
-
-        private void unzipFiles()
-        {
-            Console.Write(Path.)
-            ZipFile.ExtractToDirectory("Remove Duplicate TGA-TPC-1127-1-2-1616219725.zip", folderPath);
+            ModList.DataContext = modConfig.selectedMods;
         }
 
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new VistaFolderBrowserDialog();
-            dialog.Description = "Please select the swkotor folder.";
-            dialog.UseDescriptionForTitle = true;
+            formActions.HandleSwkotorFolderSelect(this);
+        }
 
-            if ((bool)dialog.ShowDialog(this))
-            {
-                MessageBox.Show(this, $"The selected folder was:{Environment.NewLine}{dialog.SelectedPath}", "Sample folder browser dialog");
-                folderPath = dialog.SelectedPath;
-            }
-            unzipFiles();
+        private void ModCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            formActions.HandleModListCheckboxEvent(sender as CheckBox);
+        }
+
+        private void ModCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            formActions.HandleModListCheckboxEvent(sender as CheckBox);
         }
     }
 }

@@ -6,8 +6,18 @@
         xmlns:local="clr-namespace:KotorAutoMod"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="10,10,10,4">
         <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SelectSwkotorFolderButton_Click"/>
-
+        <ListBox x:Name="ModList" Margin="171,0,0,220"
+   Width="450" Height="200" HorizontalAlignment="Left"
+   ItemsSource="{Binding}" >
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" Margin="2">
+                        <CheckBox x:Name="ModCheckBox" Content="{Binding Name}" IsChecked="{Binding isChecked}" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}" Checked="ModCheckBox_Checked" Unchecked="ModCheckBox_Unchecked"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>
