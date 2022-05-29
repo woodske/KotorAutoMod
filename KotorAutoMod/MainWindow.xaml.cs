@@ -38,16 +38,8 @@ namespace KotorAutoMod
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e)
         {
             formActions.HandleSwkotorFolderSelect(this);
-        }
-
-        private void ModCheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            formActions.HandleModListCheckboxEvent(sender as CheckBox);
-        }
-
-        private void ModCheckBox_Unchecked(object sender, RoutedEventArgs e)
-        {
-            formActions.HandleModListCheckboxEvent(sender as CheckBox);
+            Utils.unzipMods(modConfig.selectedMods, modConfig.swkotorFilePath);
+            System.Diagnostics.Debug.WriteLine("I'm finished");
         }
     }
 }

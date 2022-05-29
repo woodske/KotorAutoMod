@@ -9,10 +9,17 @@
 
   <ItemGroup>
     <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+    <PackageReference Include="SharpCompress" Version="0.31.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="resources\Carth Onasi %28new clothes%29.rar">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="resources\HD_Pazaak_Cards.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="resources\High Quality Skyboxes II-69-2-2-1635070207.7z">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="resources\Remove Duplicate TGA-TPC-1127-1-2-1616219725.zip">

@@ -14,7 +14,7 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
-                        <CheckBox x:Name="ModCheckBox" Content="{Binding Name}" IsChecked="{Binding isChecked}" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}" Checked="ModCheckBox_Checked" Unchecked="ModCheckBox_Unchecked"/>
+                        <CheckBox x:Name="ModCheckBox" Content="{Binding Name}" IsChecked="{Binding isChecked}" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

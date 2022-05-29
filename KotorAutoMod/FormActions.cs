@@ -18,11 +18,6 @@ namespace KotorAutoMod
             modConfig = config;
         }
 
-        public void HandleModListCheckboxEvent(CheckBox checkBox)
-        {
-            System.Diagnostics.Debug.WriteLine(checkBox.Content);
-        }
-
         public void HandleSwkotorFolderSelect(Window window)
         {
             var dialog = new VistaFolderBrowserDialog();

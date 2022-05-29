@@ -1,11 +1,17 @@
-﻿using System;
+﻿using SharpCompress.Archives;
+using SharpCompress.Archives.SevenZip;
+using SharpCompress.Readers.Rar;
+using SharpCompress.Common;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using SharpCompress.Readers;
 
 namespace KotorAutoMod
 {
@@ -15,25 +21,71 @@ namespace KotorAutoMod
         {
             ObservableCollection<Mod> modList = new ObservableCollection<Mod>();
 
-            string? outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string[] files = Directory.GetFiles(getZippedModsFolderPath());
 
-            string[] files = Directory.GetFiles(Path.Combine(outputDirectory, "resources"));
-
-            foreach(string file in files)
+            foreach (string file in files)
             {
-                modList.Add(new Mod(getModName(file)));
+                modList.Add(new Mod(Path.GetFileNameWithoutExtension(file)));
             }
 
             return modList;
         }
 
-        /*
-         * Extracts name of mod from full filepath
-         */
-        private static string getModName(string filePath)
+        private static string getZippedModsFolderPath()
         {
-            string fileNameWithExtension = filePath.Split(Path.DirectorySeparatorChar).Last();
-            return fileNameWithExtension.Split(".").First();
+            string? outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+            return Path.Combine(outputDirectory, "resources");
+        }
+
+        public static void unzipMods(ObservableCollection<Mod> selectedModsList, string outputPath)
+        {
+            string[] files = Directory.GetFiles(getZippedModsFolderPath());
+
+            foreach (string file in files)
+            {
+                if (selectedModsList.Any(mod => mod.Name.Equals(Path.GetFileNameWithoutExtension(file))))
+                {
+                    string fileExtension = Path.GetExtension(file);
+                    string unzipPath = Path.Combine(outputPath, Path.GetFileNameWithoutExtension(file));
+                    Directory.CreateDirectory(unzipPath);
+
+                    switch (fileExtension)
+                    {
+                        case ".7z":                      
+                            using (var archive = SevenZipArchive.Open(file))
+                            {
+                                foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
+                                {
+                                    entry.WriteToDirectory(unzipPath, new ExtractionOptions()
+                                    {
+                                        ExtractFullPath = true,
+                                        Overwrite = true
+                                    });
+                                }
+                            };
+                            break;
+                        default:
+                            using (Stream stream = File.OpenRead(file))
+                            using (var reader = ReaderFactory.Open(stream))
+                            {
+                                while (reader.MoveToNextEntry())
+                                {
+                                    if (!reader.Entry.IsDirectory)
+                                    {
+                                        reader.WriteEntryToDirectory(unzipPath, new ExtractionOptions()
+                                        {
+                                            ExtractFullPath = true,
+                                            Overwrite = true
+                                        });
+                                    }
+                                }
+                            };
+                            break;                   
+                    }
+                }
+            }
+            System.Diagnostics.Debug.WriteLine("All done");
         }
     }
 }
