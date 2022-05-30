@@ -7,8 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Margin="10,10,10,4">
-        <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SelectSwkotorFolderButton_Click"/>
-        <ListBox x:Name="ModList" Margin="171,0,0,220"
+        <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" HorizontalAlignment="Left" VerticalAlignment="Top" Click="SelectSwkotorFolderButton_Click" Margin="563,223,0,0"/>
+        <ListBox x:Name="ModList" Margin="320,10,0,210"
    Width="450" Height="200" HorizontalAlignment="Left"
    ItemsSource="{Binding}" >
             <ListBox.ItemTemplate>
@@ -21,9 +21,9 @@
         </ListBox>
         <Button x:Name="ApplyMods" Content="ApplyMods" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Click="ApplyMods_Click"/>
         <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Click="CompressedModsFolderButton_Click"/>
-        <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="47,142,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
-        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="16,223,0,0" VerticalAlignment="Top" Width="157" Text="Select Screen Resolution" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
+        <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="84,230,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
+        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="32,283,0,0" VerticalAlignment="Top" Width="157" Text="Select Screen Resolution" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
         <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="150" Text="Select Aspect Ratio" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged"/>
-        <TextBlock x:Name="InstructionsTextBlock" HorizontalAlignment="Left" Margin="16,17,0,0" TextWrapping="Wrap" Text="{Binding}" VerticalAlignment="Top" Height="83" Width="135" Background="#FFB0BBAD"/>
+        <TextBlock x:Name="InstructionsTextBlock" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="{Binding}" VerticalAlignment="Top" Height="200" Width="287" Background="#FFB0BBAD"/>
     </Grid>
 </Window>

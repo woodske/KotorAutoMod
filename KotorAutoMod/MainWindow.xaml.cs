@@ -60,7 +60,7 @@ namespace KotorAutoMod
             testModConfig.selectedResolution = "1234x80";
             testModConfig.selectedAspectRatio = "16:9";
 
-            KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), testModConfig, InstructionsTextBlock);
+            UniWS_Patcher_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), testModConfig, InstructionsTextBlock);
         }
 
         private void ValidAspectRatiosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
