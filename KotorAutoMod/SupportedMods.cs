@@ -15,7 +15,7 @@ namespace KotorAutoMod
         public static List<Mod> supportedMods()
         {
             List<Mod> supportedMods = new List<Mod>();
-
+            // quicker TSLpatching
             supportedMods.Add(new Mod(
                 "KOTOR High Resolution Menus",
                 "k1hrm-1.5.7z",
@@ -24,6 +24,10 @@ namespace KotorAutoMod
                 new Uri("https://deadlystream.com/files/file/1159-kotor-high-resolution-menus/?do=download&csrfKey=b79fba11591207dcc00c9593c3eeadc6"),
                 new Uri("https://deadlystream.com/files/file/1159-kotor-high-resolution-menus/")
                 ));
+            
+            
+            
+            
             supportedMods.Add(new Mod(
                 "Kashyyk Control Panel",
                 "[K1]_Control_Panel_For_Kashyyyk_Shadowlands_Forcefield_v1.1.7z",

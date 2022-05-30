@@ -1,14 +1,11 @@
 ﻿using Ookii.Dialogs.Wpf;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Reflection;
 using System.IO;
 using System.Diagnostics;
+using KotorAutoMod.Instructions;
+using System.Windows.Controls;
 
 namespace KotorAutoMod
 {
@@ -33,7 +30,7 @@ namespace KotorAutoMod
                 modConfig.swkotorDirectory = dialog.SelectedPath;
             }
 
-            System.Diagnostics.Debug.WriteLine(modConfig.swkotorDirectory);
+            Debug.WriteLine(modConfig.swkotorDirectory);
         }
 
         public void HandleCompressedModsFolderSelect(Window window)
@@ -48,14 +45,17 @@ namespace KotorAutoMod
                 modConfig.compressedModsDirectory = dialog.SelectedPath;
             }
 
-            System.Diagnostics.Debug.WriteLine(modConfig.compressedModsDirectory);
+            Debug.WriteLine(modConfig.compressedModsDirectory);
         }
 
-        public void HandleApplyModsSelect()
+        public void HandleApplyModsSelect(TextBlock textBlock)
         {
             //todo: skip if swkotor and mod folder isn't selected
 
-            Utils.unzipMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
+            // Apply setup tools
+            KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, textBlock);
+
+            Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
             
             foreach (Mod supportedMod in SupportedMods.supportedMods())
             {
@@ -67,7 +67,7 @@ namespace KotorAutoMod
                     // Invoke the 'applyMod' method in the appropriate instruction class
                     var type = Type.GetType(className);
                     var applyMod = type.GetMethod("applyMod");
-                    object[] parameters = new object[] { modDirectory, modConfig };
+                    object[] parameters = new object[] { modDirectory, modConfig, textBlock };
                     applyMod.Invoke(null, parameters);
                 }
             }

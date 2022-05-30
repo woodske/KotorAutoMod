@@ -13,12 +13,14 @@ using System.Text;
 using System.Threading.Tasks;
 using SharpCompress.Readers;
 using System.Diagnostics;
+using System.Windows;
+using System.Threading;
 
 namespace KotorAutoMod
 {
     internal static class Utils
     {
-        public static void unzipMods(ObservableCollection<Mod> modList, string compressedModsDirectory)
+        public static void extractMods(ObservableCollection<Mod> modList, string compressedModsDirectory)
         {
             string[] files = Directory.GetFiles(compressedModsDirectory);
 
@@ -27,8 +29,8 @@ namespace KotorAutoMod
                 if (modList.Any(mod => mod.ModFileName.Equals(Path.GetFileName(file)) && mod.isChecked))
                 {
                     string fileExtension = Path.GetExtension(file);
-                    string unzipDirectory = Path.Combine(compressedModsDirectory, Path.GetFileNameWithoutExtension(file));
-                    Directory.CreateDirectory(unzipDirectory);
+                    string extractDirectory = Path.Combine(compressedModsDirectory, Path.GetFileNameWithoutExtension(file));
+                    Directory.CreateDirectory(extractDirectory);
 
                     switch (fileExtension)
                     {
@@ -39,7 +41,7 @@ namespace KotorAutoMod
                                 while (reader.MoveToNextEntry())
                                 {
                                     if (!reader.Entry.IsDirectory)
-                                        reader.WriteEntryToDirectory(unzipDirectory, new ExtractionOptions() 
+                                        reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions() 
                                         { 
                                             ExtractFullPath = true, Overwrite = true 
                                         });
@@ -54,7 +56,7 @@ namespace KotorAutoMod
                                 {
                                     if (!reader.Entry.IsDirectory)
                                     {
-                                        reader.WriteEntryToDirectory(unzipDirectory, new ExtractionOptions()
+                                        reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
                                         {
                                             ExtractFullPath = true,
                                             Overwrite = true
@@ -66,7 +68,40 @@ namespace KotorAutoMod
                     }
                 }
             }
-            System.Diagnostics.Debug.WriteLine("All done");
+            Debug.WriteLine("All done unzipping mods");
+        }
+
+        public static string getResourcesDirectory()
+        {
+            string? outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            return Path.Combine(outputDirectory, "resources");
+        }
+
+        public static void extractSetupTools()
+        {
+            string[] compressedSetupTools = Directory.GetFiles(getResourcesDirectory());
+
+            foreach (string compressedSetupTool in compressedSetupTools)
+            {
+                string extractDirectory = Path.Combine(getResourcesDirectory(), Path.GetFileNameWithoutExtension(compressedSetupTool));
+                Directory.CreateDirectory(extractDirectory);
+
+                using (Stream stream = File.OpenRead(compressedSetupTool))
+                using (var reader = ReaderFactory.Open(stream))
+                {
+                    while (reader.MoveToNextEntry())
+                    {
+                        if (!reader.Entry.IsDirectory)
+                        {
+                            reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
+                            {
+                                ExtractFullPath = true,
+                                Overwrite = true
+                            });
+                        }
+                    }
+                };
+            }
         }
 
         /*
@@ -107,18 +142,20 @@ namespace KotorAutoMod
             }
         }
 
-        public static void executeInstall(string executablePath)
+        public static async Task runExecutable(string executablePath)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.CreateNoWindow = false;
-            startInfo.FileName = executablePath;
-            startInfo.WindowStyle = ProcessWindowStyle.Normal;
-
-
-            using (Process exeProcess = Process.Start(startInfo))
+            await Task.Run(() =>
             {
-                exeProcess.WaitForExit();
-            }
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.CreateNoWindow = false;
+                startInfo.FileName = executablePath;
+                startInfo.WindowStyle = ProcessWindowStyle.Normal;
+
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    exeProcess.WaitForExit();
+                }
+            });  
         }
 
         public static string[] getAvailableScreenResolutionSelections(ModConfig modConfig)

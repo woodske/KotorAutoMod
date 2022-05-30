@@ -1,23 +1,6 @@
-﻿using Ookii.Dialogs.Wpf;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Diagnostics;
 using KotorAutoMod.Instructions;
 
 namespace KotorAutoMod
@@ -36,16 +19,22 @@ namespace KotorAutoMod
         {
             InitializeComponent();
             InitializeConfig();
+            InitializeWpf();
+            
+            Utils.extractSetupTools();
         }
 
         private void InitializeConfig()
         {
             //todo: programatically set compressed mods directory
-            modConfig.selectedMods = Utils.getAvailableMods(SupportedMods.supportedMods(), "D:\\compressedMods");
+            modConfig.selectedMods = Utils.getAvailableMods(SupportedMods.supportedMods(), "D:\\compressedMods");       
+        }
 
+        private void InitializeWpf()
+        {
             ModList.DataContext = modConfig.selectedMods;
             ValidAspectRatiosComboBox.ItemsSource = modConfig.validAspectRatios;
-            ValidScreenResolutionsComboBox.ItemsSource = Utils.getAvailableScreenResolutionSelections(modConfig);        
+            ValidScreenResolutionsComboBox.ItemsSource = Utils.getAvailableScreenResolutionSelections(modConfig);
         }
 
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e)
@@ -55,7 +44,7 @@ namespace KotorAutoMod
 
         private void ApplyMods_Click(object sender, RoutedEventArgs e)
         {
-            formActions.HandleApplyModsSelect();
+            formActions.HandleApplyModsSelect(InstructionsTextBlock);
         }
 
         private void CompressedModsFolderButton_Click(object sender, RoutedEventArgs e)
@@ -65,7 +54,13 @@ namespace KotorAutoMod
 
         private void TestModInstall_Click(object sender, RoutedEventArgs e)
         {
-            KOTOR_High_Resoultion_Menus_Instructions.applyMod("D:\\compressedMods\\k1hrm-1.5", modConfig);
+            ModConfig testModConfig = new ModConfig();
+            testModConfig.swkotorDirectory = "D:\\test";
+            testModConfig.compressedModsDirectory = "D:\\compressedMods";
+            testModConfig.selectedResolution = "1234x80";
+            testModConfig.selectedAspectRatio = "16:9";
+
+            KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), testModConfig, InstructionsTextBlock);
         }
 
         private void ValidAspectRatiosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

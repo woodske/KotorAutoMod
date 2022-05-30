@@ -12,4 +12,16 @@
     <PackageReference Include="SharpCompress" Version="0.31.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="resources\4gb_patch.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="resources\KOTOR Editable Executable.rar">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="resources\uniws.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
