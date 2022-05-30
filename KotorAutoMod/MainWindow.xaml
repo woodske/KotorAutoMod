@@ -14,10 +14,15 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Margin="2">
-                        <CheckBox x:Name="ModCheckBox" Content="{Binding Name}" IsChecked="{Binding isChecked}" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"/>
+                        <CheckBox x:Name="ModCheckBox" Content="{Binding ListName}" IsChecked="{Binding isChecked}" Width="{Binding ActualWidth, RelativeSource={RelativeSource FindAncestor, AncestorType=ListBoxItem}}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Button x:Name="ApplyMods" Content="ApplyMods" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Click="ApplyMods_Click"/>
+        <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" HorizontalAlignment="Center" Margin="0,267,0,0" VerticalAlignment="Top" Click="CompressedModsFolderButton_Click"/>
+        <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="56,78,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
+        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding}" HorizontalAlignment="Left" Margin="16,223,0,0" VerticalAlignment="Top" Width="157" Text="Select Screen Resolution" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
+        <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding}" HorizontalAlignment="Center" Margin="0,234,0,0" VerticalAlignment="Top" Width="150" Text="Select Aspect Ratio" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged"/>
     </Grid>
 </Window>

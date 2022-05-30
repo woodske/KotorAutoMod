@@ -12,56 +12,37 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using SharpCompress.Readers;
+using System.Diagnostics;
 
 namespace KotorAutoMod
 {
     internal static class Utils
     {
-        public static ObservableCollection<Mod> InitializeModList()
+        public static void unzipMods(ObservableCollection<Mod> modList, string compressedModsDirectory)
         {
-            ObservableCollection<Mod> modList = new ObservableCollection<Mod>();
-
-            string[] files = Directory.GetFiles(getZippedModsFolderPath());
+            string[] files = Directory.GetFiles(compressedModsDirectory);
 
             foreach (string file in files)
             {
-                modList.Add(new Mod(Path.GetFileNameWithoutExtension(file)));
-            }
-
-            return modList;
-        }
-
-        private static string getZippedModsFolderPath()
-        {
-            string? outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            return Path.Combine(outputDirectory, "resources");
-        }
-
-        public static void unzipMods(ObservableCollection<Mod> selectedModsList, string outputPath)
-        {
-            string[] files = Directory.GetFiles(getZippedModsFolderPath());
-
-            foreach (string file in files)
-            {
-                if (selectedModsList.Any(mod => mod.Name.Equals(Path.GetFileNameWithoutExtension(file))))
+                if (modList.Any(mod => mod.ModFileName.Equals(Path.GetFileName(file)) && mod.isChecked))
                 {
                     string fileExtension = Path.GetExtension(file);
-                    string unzipPath = Path.Combine(outputPath, Path.GetFileNameWithoutExtension(file));
-                    Directory.CreateDirectory(unzipPath);
+                    string unzipDirectory = Path.Combine(compressedModsDirectory, Path.GetFileNameWithoutExtension(file));
+                    Directory.CreateDirectory(unzipDirectory);
 
                     switch (fileExtension)
                     {
                         case ".7z":                      
                             using (var archive = SevenZipArchive.Open(file))
                             {
-                                foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
+                                var reader = archive.ExtractAllEntries();
+                                while (reader.MoveToNextEntry())
                                 {
-                                    entry.WriteToDirectory(unzipPath, new ExtractionOptions()
-                                    {
-                                        ExtractFullPath = true,
-                                        Overwrite = true
-                                    });
+                                    if (!reader.Entry.IsDirectory)
+                                        reader.WriteEntryToDirectory(unzipDirectory, new ExtractionOptions() 
+                                        { 
+                                            ExtractFullPath = true, Overwrite = true 
+                                        });
                                 }
                             };
                             break;
@@ -73,7 +54,7 @@ namespace KotorAutoMod
                                 {
                                     if (!reader.Entry.IsDirectory)
                                     {
-                                        reader.WriteEntryToDirectory(unzipPath, new ExtractionOptions()
+                                        reader.WriteEntryToDirectory(unzipDirectory, new ExtractionOptions()
                                         {
                                             ExtractFullPath = true,
                                             Overwrite = true
@@ -86,6 +67,67 @@ namespace KotorAutoMod
                 }
             }
             System.Diagnostics.Debug.WriteLine("All done");
+        }
+
+        /*
+         * Checks if the compressed mods are available in the selected folder
+         */
+        public static ObservableCollection<Mod> getAvailableMods(List<Mod> supportedModsList, string compressedModsDirectory)
+        {
+            List<string> compressedMods = Directory.GetFiles(compressedModsDirectory).ToList();
+            ObservableCollection<Mod> availableMods = new ObservableCollection<Mod>();
+
+            foreach (string compressedMod in compressedMods)
+            {
+                if (supportedModsList.Any(mod => mod.ModFileName == Path.GetFileName(compressedMod)))
+                {
+                    availableMods.Add(supportedModsList.Single(mod => mod.ModFileName == Path.GetFileName(compressedMod)));
+                }     
+            }
+
+            return availableMods;
+        }
+
+        public static void removeUnzippedFiles(ObservableCollection<Mod> modList)
+        {
+            //todo: implement method
+        }
+
+        public static void moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)
+        {
+            List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
+            string overrideDirectory = Path.Combine(swkotorDirectory, "Override");
+
+            foreach(string modFile in modFiles)
+            {
+                if (excludeList == null || !excludeList.Contains(Path.GetFileName(modFile)))
+                {
+                    File.Copy(modFile, Path.Combine(overrideDirectory, Path.GetFileName(modFile)), true);
+                }
+            }
+        }
+
+        public static void executeInstall(string executablePath)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = false;
+            startInfo.FileName = executablePath;
+            startInfo.WindowStyle = ProcessWindowStyle.Normal;
+
+
+            using (Process exeProcess = Process.Start(startInfo))
+            {
+                exeProcess.WaitForExit();
+            }
+        }
+
+        public static string[] getAvailableScreenResolutionSelections(ModConfig modConfig)
+        {
+            Dictionary<string, string[]> validScreenResolutions = modConfig.validScreenResolutions;
+
+            if (String.IsNullOrEmpty(modConfig.selectedAspectRatio)) return new string[] { };
+
+            return validScreenResolutions[modConfig.selectedAspectRatio];
         }
     }
 }
