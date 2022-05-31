@@ -48,12 +48,14 @@ namespace KotorAutoMod
             Debug.WriteLine(modConfig.compressedModsDirectory);
         }
 
-        public void HandleApplyModsSelect(TextBlock textBlock)
+        public void HandleApplyModsSelect(TextBlock instructionsTextBlock)
         {
             //todo: skip if swkotor and mod folder isn't selected
 
             // Apply setup tools
-            KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, textBlock);
+            KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, instructionsTextBlock);
+            UniWS_Patcher_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, instructionsTextBlock);
+            // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
 
             Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
             
@@ -67,12 +69,10 @@ namespace KotorAutoMod
                     // Invoke the 'applyMod' method in the appropriate instruction class
                     var type = Type.GetType(className);
                     var applyMod = type.GetMethod("applyMod");
-                    object[] parameters = new object[] { modDirectory, modConfig, textBlock };
+                    object[] parameters = new object[] { modDirectory, modConfig, instructionsTextBlock };
                     applyMod.Invoke(null, parameters);
                 }
             }
-            
-            Utils.removeUnzippedFiles(modConfig.selectedMods);
         }
     }
 }

@@ -1,20 +1,14 @@
-﻿using SharpCompress.Archives;
-using SharpCompress.Archives.SevenZip;
-using SharpCompress.Readers.Rar;
+﻿using SharpCompress.Archives.SevenZip;
 using SharpCompress.Common;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
-using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using SharpCompress.Readers;
 using System.Diagnostics;
-using System.Windows;
-using System.Threading;
 
 namespace KotorAutoMod
 {
@@ -109,23 +103,18 @@ namespace KotorAutoMod
          */
         public static ObservableCollection<Mod> getAvailableMods(List<Mod> supportedModsList, string compressedModsDirectory)
         {
-            List<string> compressedMods = Directory.GetFiles(compressedModsDirectory).ToList();
+            List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
             ObservableCollection<Mod> availableMods = new ObservableCollection<Mod>();
 
-            foreach (string compressedMod in compressedMods)
+            foreach (Mod supportedMod in supportedModsList)
             {
-                if (supportedModsList.Any(mod => mod.ModFileName == Path.GetFileName(compressedMod)))
+                if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == supportedMod.ModFileName))
                 {
-                    availableMods.Add(supportedModsList.Single(mod => mod.ModFileName == Path.GetFileName(compressedMod)));
-                }     
+                    availableMods.Add(supportedMod);
+                }
             }
 
             return availableMods;
-        }
-
-        public static void removeUnzippedFiles(ObservableCollection<Mod> modList)
-        {
-            //todo: implement method
         }
 
         public static void moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)

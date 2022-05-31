@@ -15,7 +15,14 @@ namespace KotorAutoMod
         public static List<Mod> supportedMods()
         {
             List<Mod> supportedMods = new List<Mod>();
-            // quicker TSLpatching
+            supportedMods.Add(new Mod(
+                "Quicker TSL Patching",
+                "Script-1214-1-0.zip",
+                "Quicker_TSL_Patching_Instructions",
+                "Creates a symlink to your swkotor folder for easier use of the TSLPatcher. (This is not a mod)",
+                new Uri("https://www.nexusmods.com/Core/Libs/Common/Widgets/DownloadPopUp?id=1464&game_id=234"),
+                new Uri("https://www.nexusmods.com/kotor/mods/1214")
+                ));
             supportedMods.Add(new Mod(
                 "KOTOR High Resolution Menus",
                 "k1hrm-1.5.7z",

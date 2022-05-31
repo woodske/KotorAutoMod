@@ -20,8 +20,7 @@ namespace KotorAutoMod
             InitializeComponent();
             InitializeConfig();
             InitializeWpf();
-            
-            Utils.extractSetupTools();
+            InitializeSetupMods();
         }
 
         private void InitializeConfig()
@@ -35,6 +34,13 @@ namespace KotorAutoMod
             ModList.DataContext = modConfig.selectedMods;
             ValidAspectRatiosComboBox.ItemsSource = modConfig.validAspectRatios;
             ValidScreenResolutionsComboBox.ItemsSource = Utils.getAvailableScreenResolutionSelections(modConfig);
+        }
+
+        private void InitializeSetupMods()
+        {
+            FileUnblocker fileUnblocker = new FileUnblocker();
+            Utils.extractSetupTools();
+            fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
         }
 
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e)
@@ -60,7 +66,7 @@ namespace KotorAutoMod
             testModConfig.selectedResolution = "1234x80";
             testModConfig.selectedAspectRatio = "16:9";
 
-            UniWS_Patcher_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), testModConfig, InstructionsTextBlock);
+           Quicker_TSL_Patching_Instructions.applyMod(Path.Combine(testModConfig.compressedModsDirectory, "Script-1214-1-0"), testModConfig, InstructionsTextBlock);
         }
 
         private void ValidAspectRatiosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
