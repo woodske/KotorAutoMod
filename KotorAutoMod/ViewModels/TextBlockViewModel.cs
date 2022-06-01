@@ -1,0 +1,48 @@
+﻿using System;
+
+namespace KotorAutoMod.ViewModels
+{
+    public class TextBlockViewModel : ObservableObject
+    {
+        private string _instructions;
+
+        private Mod _description;
+
+        public string Instructions
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_instructions))
+                    return "No instructions";
+                return _instructions;
+            }
+            set
+            {
+                _instructions = value;
+                OnPropertyChanged("Instructions");
+            }
+        }
+
+        public Mod Description
+        {
+            get
+            {
+                if (_description == null)
+                    return new Mod(
+                        "Mod list name",
+                        "Mod filename",
+                        "Mod instructions file",
+                        "Mod description",
+                        new Uri("https://www.nexusmods.com/"),
+                        new Uri("https://deadlystream.com/")
+                        );
+                return _description;
+            }
+            set
+            {
+                _description = value;
+                OnPropertyChanged("Description");
+            }
+        }
+    }
+}

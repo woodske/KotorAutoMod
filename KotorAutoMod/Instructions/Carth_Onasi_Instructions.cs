@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Collections.Generic;
 
 namespace KotorAutoMod.Instructions
 {
     internal class Carth_Onasi_Instructions : IInstructions
     {
-        public static void applyMod(string modDirectory, ModConfig modConfig, TextBlock instructionsTextBlock)
+        public void applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
         {
             // Move all except po_carth to the Override folder
             List<string> excludeList = new List<string>();

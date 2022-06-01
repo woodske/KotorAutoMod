@@ -31,6 +31,22 @@ namespace KotorAutoMod
                 new Uri("https://deadlystream.com/files/file/1159-kotor-high-resolution-menus/?do=download&csrfKey=b79fba11591207dcc00c9593c3eeadc6"),
                 new Uri("https://deadlystream.com/files/file/1159-kotor-high-resolution-menus/")
                 ));
+            supportedMods.Add(new Mod(
+                "Main Menu Widescreen Fix",
+                "[K1]_Main_Menu_Widescreen_Fix_v1.2.7z",
+                "Main_Menu_Widescreen_Fix_Instructions",
+                "Adjusts the main menu to fit widescreen",
+                new Uri("https://deadlystream.com/files/file/1173-k1-main-menu-widescreen-fix/?do=download&csrfKey=22ebf721e83a04f4d05a03e4c02f68c1"),
+                new Uri("https://deadlystream.com/files/file/1173-k1-main-menu-widescreen-fix/")
+                ));
+            supportedMods.Add(new Mod(
+                "HD Menus and UI Assets",
+                "HD MENU AND UI Art v 1.0.rar",
+                "HD_Menus_And_UI_Assets_Instructions",
+                "Overhauls menus and UI at a higher resolution",
+                new Uri("https://deadlystream.com/files/file/1457-hd-menus-and-ui-assets/?do=download&csrfKey=22ebf721e83a04f4d05a03e4c02f68c1"),
+                new Uri("https://deadlystream.com/files/file/1457-hd-menus-and-ui-assets/")
+                ));
             
             
             

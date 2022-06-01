@@ -131,20 +131,17 @@ namespace KotorAutoMod
             }
         }
 
-        public static async Task runExecutable(string executablePath)
+        public static void runExecutable(string executablePath)
         {
-            await Task.Run(() =>
-            {
-                ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.CreateNoWindow = false;
-                startInfo.FileName = executablePath;
-                startInfo.WindowStyle = ProcessWindowStyle.Normal;
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = false;
+            startInfo.FileName = executablePath;
+            startInfo.WindowStyle = ProcessWindowStyle.Normal;
 
-                using (Process exeProcess = Process.Start(startInfo))
-                {
-                    exeProcess.WaitForExit();
-                }
-            });  
+            using (Process exeProcess = Process.Start(startInfo))
+            {
+                exeProcess.WaitForExit();
+            }
         }
 
         public static string[] getAvailableScreenResolutionSelections(ModConfig modConfig)

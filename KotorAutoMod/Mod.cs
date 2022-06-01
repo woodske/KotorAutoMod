@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KotorAutoMod
 {
-    internal class Mod
+    public class Mod
     {
         public Mod(string listName, string modFileName, string instructionsName, string description, Uri downloadLink, Uri modPage)
         {
@@ -30,6 +32,5 @@ namespace KotorAutoMod
         public Uri ModPage { get; set; }
 
         public bool isChecked { get; set; } = true;
-
     }
 }

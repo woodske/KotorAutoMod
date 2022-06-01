@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
 
 namespace KotorAutoMod.Instructions
 {
     internal class KOTOR_High_Resoultion_Menus_Instructions : IInstructions
     {
-        public async static void applyMod(string modDirectory, ModConfig modConfig, TextBlock instructionsTextBlock)
+        public void applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
         {
             // Move the three hires_patcher files to the swkotor folder and run the .bat file.
             // Then move the GUI files corresponding to the monitor's aspect ratio and resolution into the Override folder.
@@ -26,7 +20,7 @@ namespace KotorAutoMod.Instructions
                 File.Copy(Path.Combine(modDirectory, file), Path.Combine(modConfig.swkotorDirectory, file), true);
             }
 
-            await Utils.runExecutable(Path.Combine(modConfig.swkotorDirectory, "hires_patcher.bat"));
+            Utils.runExecutable(Path.Combine(modConfig.swkotorDirectory, "hires_patcher.bat"));
 
             string aspectRatioDirectory;
             string resolutionDirectory = $"gui.{modConfig.selectedResolution}";

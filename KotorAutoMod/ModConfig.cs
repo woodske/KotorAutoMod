@@ -21,6 +21,8 @@ namespace KotorAutoMod
 
         public ObservableCollection<Mod> selectedMods { get; set; } = new ObservableCollection<Mod>();
 
+        public List<Mod> missingMods { get; set; } = new List<Mod>();
+
         public const string four_by_three = "4:3";
         public const string sixteen_by_nine = "16:9";
         public const string sixteen_by_ten = "16:10";
