@@ -150,7 +150,7 @@ namespace KotorAutoMod
 
         public static string[] getAvailableScreenResolutionSelections(ModConfig modConfig)
         {
-            Dictionary<string, string[]> validScreenResolutions = modConfig.validScreenResolutions;
+            Dictionary<string, string[]> validScreenResolutions = ModConfig.validScreenResolutions;
 
             if (String.IsNullOrEmpty(modConfig.selectedAspectRatio)) return new string[] { };
 

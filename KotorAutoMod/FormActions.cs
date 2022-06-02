@@ -28,7 +28,7 @@ namespace KotorAutoMod
             this.window = window;
         }
 
-        public void HandleSwkotorFolderSelect(Window window)
+        public void HandleSwkotorFolderSelect()
         {
             var dialog = new VistaFolderBrowserDialog();
             dialog.Description = "Please select the swkotor folder.";
@@ -43,7 +43,7 @@ namespace KotorAutoMod
             Debug.WriteLine(modConfig.swkotorDirectory);
         }
 
-        public void HandleCompressedModsFolderSelect(Window window)
+        public void HandleCompressedModsFolderSelect()
         {
             var dialog = new VistaFolderBrowserDialog();
             dialog.Description = "Please select the folder containing the compressed mods.";
@@ -58,14 +58,39 @@ namespace KotorAutoMod
             Debug.WriteLine(modConfig.compressedModsDirectory);
         }
 
-        public async Task HandleApplyModsSelect(TextBlock instructionsTextBlock, Label eventsLabel)
+        private bool handleApplyModsPreCheck()
         {
-            //todo: skip if swkotor and mod folder isn't selected
+            if (String.IsNullOrEmpty(modConfig.compressedModsDirectory))
+            {
+                MessageBox.Show(window, $"Please select your compressed mods directory");
+                return false;
+            }
+
+            if (String.IsNullOrEmpty(modConfig.swkotorDirectory))
+            {
+                MessageBox.Show(window, $"Please select your swkotor directory");
+                return false;
+            }
+
+            return true;
+        }
+
+        public async Task HandleApplyModsSelect(Label eventsLabel)
+        {
+            if (!handleApplyModsPreCheck()) return;
 
             // Apply setup tools
-            await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
-            await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
-            // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
+            if (modConfig.firstTimeSetup)
+            {
+                Utils.extractSetupTools();
+                
+                await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
+                await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
+                
+                //FileUnblocker fileUnblocker = new FileUnblocker();
+                //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
+                // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
+            }
 
             Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
             

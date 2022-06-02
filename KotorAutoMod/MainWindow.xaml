@@ -63,5 +63,6 @@
         <Label x:Name="EventLabel" Content="{Binding}" Margin="18,232,698,175" Background="#FFF15E5E" />
         <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="104" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF5FA760" Margin="333,0,363,0"/>
         <Button Margin="10,177,690,231" x:Name="UpdateTextBlockAndRunExe" Content="Update TextBlock and run .exe" Click="UpdateTextBlockAndRunExe_Click"></Button>
+        <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsChecked="{Binding firstTimeSetup}"/>
     </Grid>
 </Window>

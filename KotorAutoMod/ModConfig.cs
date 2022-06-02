@@ -15,9 +15,11 @@ namespace KotorAutoMod
 
         public string compressedModsDirectory { get; set; } = string.Empty;
 
-        public string selectedResolution = string.Empty;
+        public string selectedResolution { get; set; } = string.Empty;
 
-        public string selectedAspectRatio = string.Empty;
+        public string selectedAspectRatio { get; set; } = string.Empty;
+
+        public bool firstTimeSetup { get; set; } = true;
 
         public ObservableCollection<Mod> selectedMods { get; set; } = new ObservableCollection<Mod>();
 
@@ -29,9 +31,9 @@ namespace KotorAutoMod
         public const string twentyone_by_nine = "21:9";
         public const string thirtytwo_by_nine = "32:9";
 
-        public string[] validAspectRatios = new[] { four_by_three, sixteen_by_nine, sixteen_by_ten, twentyone_by_nine, thirtytwo_by_nine }; 
+        public static string[] validAspectRatios = new[] { four_by_three, sixteen_by_nine, sixteen_by_ten, twentyone_by_nine, thirtytwo_by_nine }; 
 
-        public Dictionary<string, string[]> validScreenResolutions = new Dictionary<string, string[]> {
+        public static Dictionary<string, string[]> validScreenResolutions = new Dictionary<string, string[]> {
             // 4:3
             {  four_by_three, new [] { "800x600","960x720","1024x768","1280x960","1400x1050","1440x1080","1600x1200","1856x1392","1920x1440","2048x1536","3200x2400","4096x3072" } },
 

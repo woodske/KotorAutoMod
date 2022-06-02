@@ -31,7 +31,8 @@ namespace KotorAutoMod
             InitializeWpf();
             InitializeSetupMods();
 
-            _main.SetInstructions("Initial Instructions");  
+            _main.SetInstructions("Initial Instructions");
+            FirstTimeSetupCheckbox.DataContext = modConfig;
         }
 
         private async void UpdateTextBlockAndRunExe_Click(object sender, RoutedEventArgs e)
@@ -81,40 +82,39 @@ namespace KotorAutoMod
 
         private void InitializeWpf()
         {
-            //ModList.DataContext = modConfig.selectedMods;
             _main.SetAvailableModsList(modConfig.selectedMods);
             _main.SetUnavailableModsList(modConfig.missingMods);
             _main.SetDescription(modConfig.selectedMods[0]);
-            ValidAspectRatiosComboBox.ItemsSource = modConfig.validAspectRatios;
+            ValidAspectRatiosComboBox.ItemsSource = ModConfig.validAspectRatios;
             ValidScreenResolutionsComboBox.ItemsSource = Utils.getAvailableScreenResolutionSelections(modConfig);
         }
 
         private void InitializeSetupMods()
         {
-            FileUnblocker fileUnblocker = new FileUnblocker();
-            Utils.extractSetupTools();
-            fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
+            
         }
 
-        private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleSwkotorFolderSelect(this);
+        private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleSwkotorFolderSelect();
 
-        private async void ApplyMods_Click(object sender, RoutedEventArgs e) => await formActions.HandleApplyModsSelect(InstructionsTextBlock, EventLabel);
+        private async void ApplyMods_Click(object sender, RoutedEventArgs e) => await formActions.HandleApplyModsSelect(EventLabel);
 
-        private void CompressedModsFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleCompressedModsFolderSelect(this);
+        private void CompressedModsFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleCompressedModsFolderSelect();
 
         private async void TestModInstall_Click(object sender, RoutedEventArgs e)
         {
-            ModConfig testModConfig = new ModConfig();
-            testModConfig.swkotorDirectory = "D:\\test";
-            testModConfig.compressedModsDirectory = "D:\\compressedMods";
-            testModConfig.selectedResolution = "1234x80";
-            testModConfig.selectedAspectRatio = "16:9";
+            //ModConfig testModConfig = new ModConfig();
+            //testModConfig.swkotorDirectory = "D:\\test";
+            //testModConfig.compressedModsDirectory = "D:\\compressedMods";
+            //testModConfig.selectedResolution = "1234x80";
+            //testModConfig.selectedAspectRatio = "16:9";
 
-            string folderName = "KOTOR Editable Executable";
+            //string folderName = "KOTOR Editable Executable";
 
-            //KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(testModConfig.compressedModsDirectory, folderName), testModConfig, formActions);
-            _main.SetInstructions("Hello");
-            await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), folderName), testModConfig, formActions);
+            ////KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(testModConfig.compressedModsDirectory, folderName), testModConfig, formActions);
+            //_main.SetInstructions("Hello");
+            //await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), folderName), testModConfig, formActions);
+
+            Debug.WriteLine(modConfig.firstTimeSetup);
         }
 
         private void ValidAspectRatiosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -131,6 +131,5 @@ namespace KotorAutoMod
         private void UnvailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.missingMods);
 
         private void AailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.selectedMods.ToList());
-
     }
 }
