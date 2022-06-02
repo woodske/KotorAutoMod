@@ -9,7 +9,7 @@
     <Grid>
         <DockPanel x:Name="AvailableModsListDockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="230">
             <TextBox x:Name="AvailableModsListTextBox" TextAlignment="Center" Text="Available Mods" DockPanel.Dock="Top" VerticalAlignment="Top" />
-            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding ModList.AvailableModsList}" SelectionChanged="AvailableModsList_SelectionChanged" DockPanel.Dock="Bottom" >
+            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding ModList.AvailableModsList}" MouseLeftButtonUp="AailableModsList_OnClick" DockPanel.Dock="Bottom" >
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -23,7 +23,7 @@
 
         <DockPanel x:Name="UnavailableModsListDockPanel" HorizontalAlignment="Right" VerticalAlignment="Top" Height="150" Width="230">
             <TextBox x:Name="UnavailableModsListTextBox" TextAlignment="Center" Text="Unvailable Mods" DockPanel.Dock="Top" VerticalAlignment="Top" />
-            <ListBox x:Name="UnavailableModsList" ItemsSource="{Binding ModList.UnavailableModsList}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" SelectionChanged="UnvailableModsList_SelectionChanged">
+            <ListBox x:Name="UnavailableModsList" ItemsSource="{Binding ModList.UnavailableModsList}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" MouseLeftButtonUp="UnvailableModsList_OnClick">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -61,7 +61,7 @@
         <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding}" Margin="333,334,308,74" Text="Select Screen Resolution" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
         <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding}" Margin="336,293,336,115" Text="Select Aspect Ratio" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged"/>
         <Label x:Name="EventLabel" Content="{Binding}" Margin="18,232,698,175" Background="#FFF15E5E" />
-        <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="104" Text="{Binding Instructions.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF7A1E7B" Margin="333,0,363,0"/>
+        <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="104" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF5FA760" Margin="333,0,363,0"/>
         <Button Margin="10,177,690,231" x:Name="UpdateTextBlockAndRunExe" Content="Update TextBlock and run .exe" Click="UpdateTextBlockAndRunExe_Click"></Button>
     </Grid>
 </Window>

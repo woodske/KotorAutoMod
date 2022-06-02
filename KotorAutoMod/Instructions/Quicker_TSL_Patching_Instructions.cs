@@ -6,7 +6,7 @@ namespace KotorAutoMod.Instructions
 {
     internal class Quicker_TSL_Patching_Instructions : IInstructions
     {
-        public void applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
+        public async Task applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
         {
             // Run the executable
             formActions.updateInstructions("Follow the instructions provided by the tool");
@@ -17,7 +17,7 @@ namespace KotorAutoMod.Instructions
 
             using (Process exeProcess = Process.Start(startInfo))
             {
-                exeProcess.WaitForExit();
+                await exeProcess.WaitForExitAsync();
             }
 
             formActions.updateInstructions("");

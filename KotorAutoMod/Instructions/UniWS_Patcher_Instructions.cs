@@ -1,10 +1,11 @@
 ﻿using System.IO;
+using System.Threading.Tasks;
 
 namespace KotorAutoMod.Instructions
 {
     internal class UniWS_Patcher_Instructions : IInstructions
     {
-        public void applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
+        public async Task applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
         {
             // Run the executable and point it towards your swkotor folder and select the 1024x768 interface. Enter your monitor’s resolution in the boxes and click patch.
             formActions.updateInstructions($"In the Games dropdown select 'Star Wars: KOTOR (1024x768 interface).\n" +
@@ -14,7 +15,7 @@ namespace KotorAutoMod.Instructions
                 $"Click Patch");
 
             string uniwsExecutable = Path.Combine(modDirectory, "uniws.exe");
-            Utils.runExecutable(uniwsExecutable);
+            await Utils.runExecutable(uniwsExecutable);
 
             formActions.updateInstructions("");
         }

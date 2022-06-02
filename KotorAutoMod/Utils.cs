@@ -117,21 +117,25 @@ namespace KotorAutoMod
             return availableMods;
         }
 
-        public static void moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)
+        public async static Task moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)
         {
             List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
             string overrideDirectory = Path.Combine(swkotorDirectory, "Override");
 
-            foreach(string modFile in modFiles)
+            await Task.Run(() =>
             {
-                if (excludeList == null || !excludeList.Contains(Path.GetFileName(modFile)))
+                foreach (string modFile in modFiles)
                 {
-                    File.Copy(modFile, Path.Combine(overrideDirectory, Path.GetFileName(modFile)), true);
+                    if (excludeList == null || !excludeList.Contains(Path.GetFileName(modFile)))
+                    {
+                        File.Copy(modFile, Path.Combine(overrideDirectory, Path.GetFileName(modFile)), true);
+                    }
                 }
-            }
+            });
+           
         }
 
-        public static void runExecutable(string executablePath)
+        public async static Task runExecutable(string executablePath)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.CreateNoWindow = false;
@@ -140,7 +144,7 @@ namespace KotorAutoMod
 
             using (Process exeProcess = Process.Start(startInfo))
             {
-                exeProcess.WaitForExit();
+                await exeProcess.WaitForExitAsync();
             }
         }
 

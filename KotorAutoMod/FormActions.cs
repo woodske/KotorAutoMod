@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Threading.Tasks;
 using KotorAutoMod.ViewModels;
 using System.Windows.Data;
+using System.Collections.Generic;
 
 namespace KotorAutoMod
 {
@@ -20,13 +21,11 @@ namespace KotorAutoMod
 
         private Window window;
 
-        private TextBlock textBlock;
-        public FormActions(ModConfig modConfig, MainViewModel _main, Window window, TextBlock textBlock)
+        public FormActions(ModConfig modConfig, MainViewModel _main, Window window)
         {
             this.modConfig = modConfig;
             this._main = _main;
             this.window = window;
-            this.textBlock = textBlock;
         }
 
         public void HandleSwkotorFolderSelect(Window window)
@@ -59,13 +58,13 @@ namespace KotorAutoMod
             Debug.WriteLine(modConfig.compressedModsDirectory);
         }
 
-        public void HandleApplyModsSelect(TextBlock instructionsTextBlock, Label eventsLabel)
+        public async Task HandleApplyModsSelect(TextBlock instructionsTextBlock, Label eventsLabel)
         {
             //todo: skip if swkotor and mod folder isn't selected
 
             // Apply setup tools
-            new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
-            new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
+            await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
+            await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
             // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
 
             Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
@@ -84,7 +83,7 @@ namespace KotorAutoMod
                     var applyMod = type.GetMethod("applyMod");
                     var classInstance = Activator.CreateInstance(type);
                     object[] parameters = new object[] { modDirectory, modConfig, this };
-                    applyMod.Invoke(classInstance, parameters);
+                    await (Task)applyMod.Invoke(classInstance, parameters);
 
                     eventsLabel.Content = "";
                 }
@@ -93,9 +92,13 @@ namespace KotorAutoMod
 
         public void updateInstructions(string message)
         {
-            // Force instructions TextBlock to update
             _main.SetInstructions(message);
-            textBlock.GetBindingExpression(TextBlock.TextProperty).UpdateSource();
+        }
+
+        public void HandleModDescriptionSelection(ListBox listBox, List<Mod> modList)
+        {
+            Mod selectedMod = modList[listBox.SelectedIndex];
+            _main.SetDescription(selectedMod);
         }
     }
 }
