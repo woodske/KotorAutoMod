@@ -85,8 +85,12 @@ namespace KotorAutoMod
             _main.SetAvailableModsList(modConfig.selectedMods);
             _main.SetUnavailableModsList(modConfig.missingMods);
             _main.SetDescription(modConfig.selectedMods[0]);
-            ValidAspectRatiosComboBox.ItemsSource = ModConfig.validAspectRatios;
-            ValidScreenResolutionsComboBox.ItemsSource = Utils.getAvailableScreenResolutionSelections(modConfig);
+            _main.SetValidAspectRatios(ModConfig.validAspectRatios);
+            _main.SetValidScreenResolutions(Utils.getAvailableScreenResolutionSelections(modConfig));
+            
+            bool needAspectRatioAndResolution = Utils.needAspectRatioAndResolution(modConfig);
+            _main.SetShowValidAspectRatios(needAspectRatioAndResolution);
+            _main.SetShowValidScreenResolutions(needAspectRatioAndResolution);
         }
 
         private void InitializeSetupMods()

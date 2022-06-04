@@ -58,8 +58,8 @@
         <Button x:Name="ApplyMods" Content="ApplyMods" Margin="55,293,743,115" Click="ApplyMods_Click"/>
         <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Margin="686,293,10,115" Click="CompressedModsFolderButton_Click"/>
         <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="745,226,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
-        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding}" Margin="333,334,308,74" Text="Select Screen Resolution" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
-        <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding}" Margin="336,293,336,115" Text="Select Aspect Ratio" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged"/>
+        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ComboBox.ValidScreenResolutions}" Margin="333,334,308,74" Text="Select Screen Resolution" VerticalAlignment="Bottom" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
+        <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ComboBox.ValidAspectRatios}" Visibility="{Binding ComboBox.ShowValidAspectRatios}" Text="Select Aspect Ratio" VerticalAlignment="Bottom" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged"/>
         <Label x:Name="EventLabel" Content="{Binding}" Margin="18,232,698,175" Background="#FFF15E5E" />
         <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="104" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF5FA760" Margin="333,0,363,0"/>
         <Button Margin="10,177,690,231" x:Name="UpdateTextBlockAndRunExe" Content="Update TextBlock and run .exe" Click="UpdateTextBlockAndRunExe_Click"></Button>

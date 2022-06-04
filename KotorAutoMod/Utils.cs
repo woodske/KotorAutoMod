@@ -156,5 +156,18 @@ namespace KotorAutoMod
 
             return validScreenResolutions[modConfig.selectedAspectRatio];
         }
+
+        /**
+         * Check to see if user needs to select aspect ratio and resolution
+         */
+        public static bool needAspectRatioAndResolution(ModConfig modConfig)
+        {
+            List<string> modListNamesThatNeedAspectRatioAndResolution = new List<string>();
+            modListNamesThatNeedAspectRatioAndResolution.Add("KOTOR High Resolution Menus");
+
+            if (modConfig.firstTimeSetup || modConfig.selectedMods.Select(selectedMod => selectedMod.ListName).Intersect(modListNamesThatNeedAspectRatioAndResolution).Any()) return true;
+
+            return false;
+        }
     }
 }
