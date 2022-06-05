@@ -32,27 +32,6 @@ namespace KotorAutoMod
             InitializeConfig();
             InitializeWpf();
             InitializeSetupMods();
-
-            _main.SetInstructions("Initial Instructions");
-            FirstTimeSetupCheckbox.DataContext = modConfig;
-        }
-
-        private async void UpdateTextBlockAndRunExe_Click(object sender, RoutedEventArgs e)
-        {
-            _main.SetInstructions("Before Exe - I want this to show up");
-
-            string executablePath = Path.Combine(Utils.getResourcesDirectory(), "uniws", "uniws.exe");
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.CreateNoWindow = false;
-            startInfo.FileName = executablePath;
-            startInfo.WindowStyle = ProcessWindowStyle.Normal;
-
-            using (Process exeProcess = Process.Start(startInfo))
-            {
-                await exeProcess.WaitForExitAsync();
-            }
-
-            _main.SetInstructions("After Exe");
         }
 
         private void InitializeConfig()
@@ -93,6 +72,9 @@ namespace KotorAutoMod
             bool needAspectRatioAndResolution = Utils.needAspectRatioAndResolution(modConfig);
             _main.SetShowValidAspectRatios(needAspectRatioAndResolution);
             _main.SetShowValidScreenResolutions(needAspectRatioAndResolution);
+
+            FirstTimeSetupCheckbox.DataContext = modConfig;
+            _main.SetInstructions("Instructions for executables will appear here");
         }
 
         private void InitializeSetupMods()
@@ -102,7 +84,7 @@ namespace KotorAutoMod
 
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleSwkotorFolderSelect();
 
-        private async void ApplyMods_Click(object sender, RoutedEventArgs e) => await formActions.HandleApplyModsSelect(EventLabel);
+        private async void ApplyMods_Click(object sender, RoutedEventArgs e) => await formActions.HandleApplyModsSelect();
 
         private void CompressedModsFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleCompressedModsFolderSelect();
 

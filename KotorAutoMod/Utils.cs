@@ -9,12 +9,13 @@ using System.Reflection;
 using System.Threading.Tasks;
 using SharpCompress.Readers;
 using System.Diagnostics;
+using KotorAutoMod.ViewModels;
 
 namespace KotorAutoMod
 {
     internal static class Utils
     {
-        public static void extractMods(ObservableCollection<Mod> modList, string compressedModsDirectory)
+        public static async Task extractMods(ObservableCollection<Mod> modList, string compressedModsDirectory, MainViewModel _main)
         {
             string[] files = Directory.GetFiles(compressedModsDirectory);
 
@@ -26,44 +27,50 @@ namespace KotorAutoMod
                     string extractDirectory = Path.Combine(compressedModsDirectory, Path.GetFileNameWithoutExtension(file));
                     Directory.CreateDirectory(extractDirectory);
 
-                    switch (fileExtension)
+                    _main.IterateProgressBarValue($"Extracting {Path.GetFileNameWithoutExtension(file)}");
+                    Debug.WriteLine($"Extracting {Path.GetFileNameWithoutExtension(file)}");
+
+                    await Task.Run(() =>
                     {
-                        case ".7z":
-                            using (var archive = SevenZipArchive.Open(file))
-                            {
-                                var reader = archive.ExtractAllEntries();
-                                while (reader.MoveToNextEntry())
+                        switch (fileExtension)
+                        {
+                            case ".7z":
+                                using (var archive = SevenZipArchive.Open(file))
                                 {
-                                    if (!reader.Entry.IsDirectory)
-                                        reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
-                                        {
-                                            ExtractFullPath = true,
-                                            Overwrite = true
-                                        });
-                                }
-                            };
-                            break;
-                        default:
-                            using (Stream stream = File.OpenRead(file))
-                            using (var reader = ReaderFactory.Open(stream))
-                            {
-                                while (reader.MoveToNextEntry())
-                                {
-                                    if (!reader.Entry.IsDirectory)
+                                    var reader = archive.ExtractAllEntries();
+                                    while (reader.MoveToNextEntry())
                                     {
-                                        reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
-                                        {
-                                            ExtractFullPath = true,
-                                            Overwrite = true
-                                        });
+                                        if (!reader.Entry.IsDirectory)
+                                            reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
+                                            {
+                                                ExtractFullPath = true,
+                                                Overwrite = true
+                                            });
                                     }
-                                }
-                            };
-                            break;
-                    }
+                                };
+                                break;
+                            default:
+                                using (Stream stream = File.OpenRead(file))
+                                using (var reader = ReaderFactory.Open(stream))
+                                {
+                                    while (reader.MoveToNextEntry())
+                                    {
+                                        if (!reader.Entry.IsDirectory)
+                                        {
+                                            reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
+                                            {
+                                                ExtractFullPath = true,
+                                                Overwrite = true
+                                            });
+                                        }
+                                    }
+                                };
+                                break;
+                        }
+                    });
                 }
             }
-            Debug.WriteLine("All done unzipping mods");
+            Debug.WriteLine("All done extracting mods");
         }
 
         public static string getResourcesDirectory()

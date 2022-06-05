@@ -75,7 +75,7 @@ namespace KotorAutoMod
             return true;
         }
 
-        public async Task HandleApplyModsSelect(Label eventsLabel)
+        public async Task HandleApplyModsSelect()
         {
             if (!handleApplyModsPreCheck()) return;
 
@@ -97,16 +97,16 @@ namespace KotorAutoMod
                 // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
             }
 
-            Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
+            await Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory, _main);
 
             foreach (Mod supportedMod in SupportedMods.supportedMods())
             {
                 if (modConfig.selectedMods.Any(selectedMod => selectedMod.ListName == supportedMod.ListName && selectedMod.isChecked))
                 {
-                    eventsLabel.Content = $"Apply mod: {supportedMod.ListName}";
-
                     string modDirectory = Path.Combine(modConfig.compressedModsDirectory, Path.GetFileNameWithoutExtension(supportedMod.ModFileName));
                     string className = $"KotorAutoMod.Instructions.{supportedMod.InstructionsName}";
+
+                    _main.IterateProgressBarValue($"Applying mod: {supportedMod.ListName}");
 
                     // Invoke the 'applyMod' method in the appropriate instruction class
                     var type = Type.GetType(className);
@@ -114,8 +114,6 @@ namespace KotorAutoMod
                     var classInstance = Activator.CreateInstance(type);
                     object[] parameters = new object[] { modDirectory, modConfig, this };
                     await (Task)applyMod.Invoke(classInstance, parameters);
-
-                    eventsLabel.Content = "";
                 }
             }
         }

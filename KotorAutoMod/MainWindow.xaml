@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KotorAutoMod"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="900">
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="550" Width="1100">
     <Grid>
-        <DockPanel x:Name="AvailableModsListDockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="150" Width="230">
-            <TextBox x:Name="AvailableModsListTextBox" TextAlignment="Center" Text="Available Mods" DockPanel.Dock="Top" VerticalAlignment="Top" />
-            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding ModList.AvailableModsList}" MouseLeftButtonUp="AailableModsList_OnClick" DockPanel.Dock="Bottom" >
+        <StackPanel x:Name="AvailableModsListDockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
+            <TextBox x:Name="AvailableModsListTextBox" TextAlignment="Center" Text="Available Mods" VerticalAlignment="Top" Height="20" />
+            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding ModList.AvailableModsList}" MouseLeftButtonUp="AailableModsList_OnClick" Height="180">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -19,11 +20,15 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </DockPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="ApplyMods" Content="Apply mods" Click="ApplyMods_Click" Width="120" Height="30" Margin="10"/>
+                <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding firstTimeSetup}"/>
+            </StackPanel>
+        </StackPanel>
 
-        <DockPanel x:Name="UnavailableModsListDockPanel" HorizontalAlignment="Right" VerticalAlignment="Top" Height="150" Width="230">
-            <TextBox x:Name="UnavailableModsListTextBox" TextAlignment="Center" Text="Unvailable Mods" DockPanel.Dock="Top" VerticalAlignment="Top" />
-            <ListBox x:Name="UnavailableModsList" ItemsSource="{Binding ModList.UnavailableModsList}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" MouseLeftButtonUp="UnvailableModsList_OnClick">
+        <StackPanel x:Name="UnavailableModsListDockPanel" HorizontalAlignment="Right" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
+            <TextBox x:Name="UnavailableModsListTextBox" TextAlignment="Center" Text="Unvailable Mods" Height="20" />
+            <ListBox x:Name="UnavailableModsList" ItemsSource="{Binding ModList.UnavailableModsList}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" MouseLeftButtonUp="UnvailableModsList_OnClick" Height="180">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -32,11 +37,12 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </DockPanel>
+            <Button x:Name="DownloadUnavailableMods" Content="Download unavailable mods" Width="170" Height="30" Margin="10"/>
+        </StackPanel>
 
-        <DockPanel x:Name="DescriptionDockPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Height="150" Width="400">
-            <TextBox x:Name="DescriptionTextBlockTextBox" TextAlignment="Center" Text="Mod Description" DockPanel.Dock="Top" VerticalAlignment="Top" />
-            <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Background="#FFB0BBAD" DockPanel.Dock="Bottom">
+        <StackPanel x:Name="DescriptionDockPanel" HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Top" Height="250" Width="500" Margin="10">
+            <TextBox x:Name="DescriptionTextBlockTextBox" TextAlignment="Center" Text="Mod Description" VerticalAlignment="Top" Height="20" />
+            <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Background="#FFB0BBAD" Height="180">
                 <Run Text="Mod name: " />
                 <Run Text="{Binding TextBlock.Description.ListName}" />
                 <LineBreak/>
@@ -64,19 +70,28 @@
                 <Run Text="Direct download: " />
                 <Hyperlink NavigateUri="{Binding TextBlock.Description.DownloadLink}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
             </TextBlock>
-        </DockPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="10,10,0,0"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" Click="SelectSwkotorFolderButton_Click" Width="130" Height="30"/>
+                <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Click="CompressedModsFolderButton_Click" Width="200" Height="30"/>
+            </StackPanel>
+        </StackPanel>
 
-        <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" Click="SelectSwkotorFolderButton_Click" Margin="694,177,24,233"/>
-        <Button x:Name="ApplyMods" Content="ApplyMods" Margin="55,293,743,115" Click="ApplyMods_Click"/>
-        <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Margin="686,293,10,115" Click="CompressedModsFolderButton_Click"/>
-        <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="745,226,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
-        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ComboBox.ValidScreenResolutions}" Margin="333,334,308,74" Text="Select Screen Resolution" VerticalAlignment="Bottom" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
-        <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ComboBox.ValidAspectRatios}" Visibility="{Binding ComboBox.ShowValidAspectRatios}" Text="Select Aspect Ratio" VerticalAlignment="Bottom" HorizontalAlignment="Center" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged"/>
-        <Label x:Name="EventLabel" Content="{Binding}" Margin="18,232,698,175" Background="#FFF15E5E" />
-        <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="104" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF5FA760" Margin="333,0,363,0"/>
-        <Button Margin="10,177,690,231" x:Name="UpdateTextBlockAndRunExe" Content="Update TextBlock and run .exe" Click="UpdateTextBlockAndRunExe_Click"></Button>
-        <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsChecked="{Binding firstTimeSetup}"/>
-        <ProgressBar x:Name="ModProgressBar" Minimum="0" Maximum="{Binding ProgressBar.Maxium}" Value="{Binding ProgressBar.Value}" Margin="18,349,652,43"/>
-        <TextBox Height="50" Text="{Binding ProgressBar.Text}" Margin="298,360,297,24" />
+        <StackPanel x:Name="ProgressDockPanel" HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Bottom" Height="250" Width="270" Margin="10">
+            <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="150" Background="#FF5FA760"/>
+            <ProgressBar x:Name="ModProgressBar" Minimum="0" Maximum="{Binding ProgressBar.Maxium}" Value="{Binding ProgressBar.Value}" Height="20" Margin="0,10,0,10"/>
+            <TextBox Height="50" Text="{Binding ProgressBar.Text}" />
+        </StackPanel>
+
+
+
+
+        <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="908,463,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
+        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ComboBox.ValidScreenResolutions}" Margin="870,325,0,0" Text="Select Screen Resolution" VerticalAlignment="Top" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
+        <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ComboBox.ValidAspectRatios}" Visibility="{Binding ComboBox.ShowValidAspectRatios}" Text="Select Aspect Ratio" VerticalAlignment="Top" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged" Margin="884,387,0,0"/>
     </Grid>
 </Window>
