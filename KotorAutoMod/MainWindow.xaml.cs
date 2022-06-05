@@ -1,11 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using KotorAutoMod.Instructions;
 using KotorAutoMod.ViewModels;
 
@@ -49,7 +51,7 @@ namespace KotorAutoMod
             {
                 await exeProcess.WaitForExitAsync();
             }
-                        
+
             _main.SetInstructions("After Exe");
         }
 
@@ -68,7 +70,7 @@ namespace KotorAutoMod
             modConfig.missingMods = SupportedMods.supportedMods().Where(supportedMod => !availableMods.ToList().Exists(availableMod => availableMod.ListName.Equals(supportedMod.ListName))).ToList();
 
             Debug.WriteLine("Available Mods");
-            foreach(Mod mod in modConfig.selectedMods)
+            foreach (Mod mod in modConfig.selectedMods)
             {
                 Debug.WriteLine(mod.ListName);
             }
@@ -87,7 +89,7 @@ namespace KotorAutoMod
             _main.SetDescription(modConfig.selectedMods[0]);
             _main.SetValidAspectRatios(ModConfig.validAspectRatios);
             _main.SetValidScreenResolutions(Utils.getAvailableScreenResolutionSelections(modConfig));
-            
+
             bool needAspectRatioAndResolution = Utils.needAspectRatioAndResolution(modConfig);
             _main.SetShowValidAspectRatios(needAspectRatioAndResolution);
             _main.SetShowValidScreenResolutions(needAspectRatioAndResolution);
@@ -95,7 +97,7 @@ namespace KotorAutoMod
 
         private void InitializeSetupMods()
         {
-            
+
         }
 
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleSwkotorFolderSelect();
@@ -118,7 +120,7 @@ namespace KotorAutoMod
             //_main.SetInstructions("Hello");
             //await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), folderName), testModConfig, formActions);
 
-            Debug.WriteLine(modConfig.firstTimeSetup);
+            //Debug.WriteLine(modConfig.firstTimeSetup);
         }
 
         private void ValidAspectRatiosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -127,13 +129,19 @@ namespace KotorAutoMod
             ValidScreenResolutionsComboBox.ItemsSource = Utils.getAvailableScreenResolutionSelections(modConfig);
         }
 
-        private void ValidScreenResolutionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            modConfig.selectedResolution = (string)ValidScreenResolutionsComboBox.SelectedItem;
-        }
+        private void ValidScreenResolutionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => modConfig.selectedResolution = (string)ValidScreenResolutionsComboBox.SelectedItem;
 
         private void UnvailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.missingMods);
 
         private void AailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.selectedMods.ToList());
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.UseShellExecute = true;
+            startInfo.FileName = e.Uri.AbsoluteUri;
+            Process.Start(startInfo);
+            e.Handled = true;
+        }
     }
 }

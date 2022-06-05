@@ -28,16 +28,17 @@ namespace KotorAutoMod
 
                     switch (fileExtension)
                     {
-                        case ".7z":                      
+                        case ".7z":
                             using (var archive = SevenZipArchive.Open(file))
                             {
                                 var reader = archive.ExtractAllEntries();
                                 while (reader.MoveToNextEntry())
                                 {
                                     if (!reader.Entry.IsDirectory)
-                                        reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions() 
-                                        { 
-                                            ExtractFullPath = true, Overwrite = true 
+                                        reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
+                                        {
+                                            ExtractFullPath = true,
+                                            Overwrite = true
                                         });
                                 }
                             };
@@ -58,7 +59,7 @@ namespace KotorAutoMod
                                     }
                                 }
                             };
-                            break;                   
+                            break;
                     }
                 }
             }
@@ -132,7 +133,7 @@ namespace KotorAutoMod
                     }
                 }
             });
-           
+
         }
 
         public async static Task runExecutable(string executablePath)
@@ -168,6 +169,19 @@ namespace KotorAutoMod
             if (modConfig.firstTimeSetup || modConfig.selectedMods.Select(selectedMod => selectedMod.ListName).Intersect(modListNamesThatNeedAspectRatioAndResolution).Any()) return true;
 
             return false;
+        }
+
+        public static int getProgressBarMaximum(ModConfig modConfig)
+        {
+            int maximum = 0;
+
+            // Extract setup tool + 2 setup mods
+            if (modConfig.firstTimeSetup) maximum += 3;
+
+            // One tick for unzipping and one tick for applying mod
+            maximum += modConfig.selectedMods.Count * 2;
+
+            return maximum;
         }
     }
 }

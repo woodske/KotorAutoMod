@@ -37,20 +37,32 @@
         <DockPanel x:Name="DescriptionDockPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Height="150" Width="400">
             <TextBox x:Name="DescriptionTextBlockTextBox" TextAlignment="Center" Text="Mod Description" DockPanel.Dock="Top" VerticalAlignment="Top" />
             <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Background="#FFB0BBAD" DockPanel.Dock="Bottom">
-                <Run Text="List name: " />
+                <Run Text="Mod name: " />
                 <Run Text="{Binding TextBlock.Description.ListName}" />
                 <LineBreak/>
-                <Run Text="Filename: " />
-                <Run Text="{Binding TextBlock.Description.ModFileName}" />
+                
+                <Run Text="Author: " />
+                <Run Text="{Binding TextBlock.Description.Author}" />
                 <LineBreak/>
+                
+                <Run Text="Importance: " />
+                <Run Text="{Binding TextBlock.Description.Importance}" />               
+                <LineBreak/>
+                
                 <Run Text="Description: " />
                 <Run Text="{Binding TextBlock.Description.Description}" />
                 <LineBreak/>
-                <Run Text="Source page: " />
-                <Hyperlink NavigateUri="{Binding TextBlock.Description.DownloadLink}">Link</Hyperlink>
+                
+                <Run Text="Filename: " />
+                <Run Text="{Binding TextBlock.Description.ModFileName}" />
                 <LineBreak/>
+                
+                <Run Text="Source page: " />
+                <Hyperlink NavigateUri="{Binding TextBlock.Description.ModPage}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
+                <LineBreak/>
+                
                 <Run Text="Direct download: " />
-                <Hyperlink NavigateUri="{Binding TextBlock.Description.DownloadLink}">Link</Hyperlink>
+                <Hyperlink NavigateUri="{Binding TextBlock.Description.DownloadLink}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
             </TextBlock>
         </DockPanel>
 
@@ -64,5 +76,7 @@
         <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Height="104" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Background="#FF5FA760" Margin="333,0,363,0"/>
         <Button Margin="10,177,690,231" x:Name="UpdateTextBlockAndRunExe" Content="Update TextBlock and run .exe" Click="UpdateTextBlockAndRunExe_Click"></Button>
         <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Bottom" HorizontalAlignment="Left" IsChecked="{Binding firstTimeSetup}"/>
+        <ProgressBar x:Name="ModProgressBar" Minimum="0" Maximum="{Binding ProgressBar.Maxium}" Value="{Binding ProgressBar.Value}" Margin="18,349,652,43"/>
+        <TextBox Height="50" Text="{Binding ProgressBar.Text}" Margin="298,360,297,24" />
     </Grid>
 </Window>

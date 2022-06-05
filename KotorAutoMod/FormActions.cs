@@ -32,7 +32,7 @@ namespace KotorAutoMod
         {
             var dialog = new VistaFolderBrowserDialog();
             dialog.Description = "Please select the swkotor folder.";
-            dialog.UseDescriptionForTitle = true;      
+            dialog.UseDescriptionForTitle = true;
 
             if ((bool)dialog.ShowDialog(window))
             {
@@ -79,21 +79,26 @@ namespace KotorAutoMod
         {
             if (!handleApplyModsPreCheck()) return;
 
+            _main.SetProgressBarMaximum(Utils.getProgressBarMaximum(modConfig));
+
             // Apply setup tools
             if (modConfig.firstTimeSetup)
             {
+                _main.IterateProgressBarValue("Extracting setup tools");
                 Utils.extractSetupTools();
-                
+
+                _main.IterateProgressBarValue("Applying KOTOR exe setup tools");
                 await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
+                _main.IterateProgressBarValue("Applying Universal Widescreen patcher");
                 await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
-                
+
                 //FileUnblocker fileUnblocker = new FileUnblocker();
                 //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
                 // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
             }
 
             Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory);
-            
+
             foreach (Mod supportedMod in SupportedMods.supportedMods())
             {
                 if (modConfig.selectedMods.Any(selectedMod => selectedMod.ListName == supportedMod.ListName && selectedMod.isChecked))

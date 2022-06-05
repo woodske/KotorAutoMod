@@ -10,9 +10,20 @@ namespace KotorAutoMod
 {
     public class Mod
     {
-        public Mod(string listName, string modFileName, string instructionsName, string description, Uri downloadLink, Uri modPage)
+        public Mod(
+            string listName,
+            string author,
+            string importance,
+            string modFileName,
+            string instructionsName,
+            string description,
+            Uri downloadLink,
+            Uri modPage
+            )
         {
             ListName = listName;
+            Author = author;
+            Importance = importance;
             ModFileName = modFileName;
             InstructionsName = instructionsName;
             Description = description;
@@ -20,6 +31,10 @@ namespace KotorAutoMod
             ModPage = modPage;
         }
         public string ListName { get; set; }
+
+        public string Author { get; set; }
+
+        public string Importance { get; set; }
 
         public string ModFileName { get; set; }
 

@@ -18,7 +18,7 @@ namespace KotorAutoMod.ViewModels
             set
             {
                 _availableModsList = value;
-                OnPropertyChanged("AvailableModsList");
+                OnPropertyChanged(nameof(AvailableModsList));
             }
         }
 
@@ -31,7 +31,7 @@ namespace KotorAutoMod.ViewModels
             set
             {
                 _unavailableModsList = value;
-                OnPropertyChanged("UnavailableModsList");
+                OnPropertyChanged(nameof(UnavailableModsList));
             }
         }
     }

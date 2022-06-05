@@ -19,7 +19,7 @@ namespace KotorAutoMod.ViewModels
             set
             {
                 _instructions = value;
-                OnPropertyChanged("Instructions");
+                OnPropertyChanged(nameof(Instructions));
             }
         }
 
@@ -30,6 +30,8 @@ namespace KotorAutoMod.ViewModels
                 if (_description == null)
                     return new Mod(
                         "Mod list name",
+                        "Author",
+                        "Importance",
                         "Mod filename",
                         "Mod instructions file",
                         "Mod description",
@@ -41,7 +43,7 @@ namespace KotorAutoMod.ViewModels
             set
             {
                 _description = value;
-                OnPropertyChanged("Description");
+                OnPropertyChanged(nameof(Description));
             }
         }
     }

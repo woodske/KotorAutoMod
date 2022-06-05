@@ -13,9 +13,10 @@
         public string[] ValidAspectRatios
         {
             get { return _validAspectRatios; }
-            set { 
+            set
+            {
                 _validAspectRatios = value;
-                OnPropertyChanged("ValidAspectRatios");
+                OnPropertyChanged(nameof(ValidAspectRatios));
             }
         }
 
@@ -25,7 +26,7 @@
             set
             {
                 _validScreenResolutions = value;
-                OnPropertyChanged("ValidScreenResolutions");
+                OnPropertyChanged(nameof(ValidScreenResolutions));
             }
         }
 
@@ -35,7 +36,7 @@
             set
             {
                 _showValidAspectRatios = value;
-                OnPropertyChanged("ShowValidAspectRatios");
+                OnPropertyChanged(nameof(ShowValidAspectRatios));
             }
         }
 
@@ -45,7 +46,7 @@
             set
             {
                 _showValidScreenResolutions = value;
-                OnPropertyChanged("ShowValidScreenResolutions");
+                OnPropertyChanged(nameof(ShowValidScreenResolutions));
             }
         }
     }
