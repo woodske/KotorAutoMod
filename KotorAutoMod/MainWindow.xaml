@@ -9,39 +9,43 @@
         Title="MainWindow" Height="550" Width="1100">
     <Grid>
         <StackPanel x:Name="AvailableModsListDockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
-            <TextBox x:Name="AvailableModsListTextBox" TextAlignment="Center" Text="Available Mods" VerticalAlignment="Top" Height="20" />
-            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding ModList.AvailableModsList}" MouseLeftButtonUp="AailableModsList_OnClick" Height="180">
+            <TextBox x:Name="AvailableModsListTextBox" TextAlignment="Center" Text="Available Mods" VerticalAlignment="Top" Height="20" BorderThickness="0"/>
+            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" MouseLeftButtonUp="AailableModsList_OnClick" Height="180">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
-                            <CheckBox x:Name="ModCheckBox" VerticalAlignment="Center" IsChecked="{Binding isChecked}"/>
+                            <CheckBox x:Name="AvailableModCheckBox" VerticalAlignment="Center" IsChecked="{Binding isChecked}"/>
                             <Label Content="{Binding ListName}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="ApplyMods" Content="Apply mods" Click="ApplyMods_Click" Width="120" Height="30" Margin="10"/>
-                <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding firstTimeSetup}"/>
+                <Button x:Name="ApplyMods" Content="Apply mods" Width="120" Height="30" Margin="10" Command="{Binding AvailableModsViewModel.ApplyModsCommand}"/>
+                <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding AvailableModsViewModel.FirstTimeSetupIsChecked}"/>
             </StackPanel>
         </StackPanel>
 
-        <StackPanel x:Name="UnavailableModsListDockPanel" HorizontalAlignment="Right" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
-            <TextBox x:Name="UnavailableModsListTextBox" TextAlignment="Center" Text="Unvailable Mods" Height="20" />
-            <ListBox x:Name="UnavailableModsList" ItemsSource="{Binding ModList.UnavailableModsList}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" MouseLeftButtonUp="UnvailableModsList_OnClick" Height="180">
+        <StackPanel x:Name="MissingModsListDockPanel" HorizontalAlignment="Right" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
+            <StackPanel Orientation="Horizontal">
+                <CheckBox x:Name="MissingModsSelectAllCheckbox" Content="Select All" IsChecked="{Binding MissingModsViewModel.SelectAllMissingModsIsChecked}" Command="{Binding MissingModsViewModel.SelectAllMissingModsCommand}"/>
+                <TextBox x:Name="MissingModsListTextBox" TextAlignment="Center" Text="Missing Mods" Height="20" Margin="20,0,0,0" BorderThickness="0"/>
+            </StackPanel>
+            <ListBox x:Name="MissingModsList" ItemsSource="{Binding MissingModsViewModel.MissingMods}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" MouseLeftButtonUp="UnvailableModsList_OnClick" Height="180">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
+                            <CheckBox x:Name="MissingModsCheckbox" VerticalAlignment="Center" IsChecked="{Binding isChecked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{Binding MissingModsViewModel.CheckMissingModsCommand}"/>
                             <Label Content="{Binding ListName}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button x:Name="DownloadUnavailableMods" Content="Download unavailable mods" Width="170" Height="30" Margin="10"/>
+            <Button x:Name="DownloadUnavailableMods" Content="Download missing mods" Width="170" Height="30" Margin="10" Command="{Binding MissingModsViewModel.DownloadMissingModsCommand}"/>
         </StackPanel>
 
         <StackPanel x:Name="DescriptionDockPanel" HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Top" Height="250" Width="500" Margin="10">
-            <TextBox x:Name="DescriptionTextBlockTextBox" TextAlignment="Center" Text="Mod Description" VerticalAlignment="Top" Height="20" />
+            <TextBox x:Name="DescriptionTextBlockTextBox" TextAlignment="Center" Text="Mod Description" VerticalAlignment="Top" Height="20" BorderThickness="0"/>
             <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Background="#FFB0BBAD" Height="180">
                 <Run Text="Mod name: " />
                 <Run Text="{Binding TextBlock.Description.ListName}" />

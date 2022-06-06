@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using KotorAutoMod.Models;
+using System.Threading.Tasks;
 
 namespace KotorAutoMod
 {

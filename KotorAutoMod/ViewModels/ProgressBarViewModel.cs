@@ -1,6 +1,8 @@
-﻿namespace KotorAutoMod.ViewModels
+﻿using GalaSoft.MvvmLight;
+
+namespace KotorAutoMod.ViewModels
 {
-    public class ProgressBarViewModel : ObservableObject
+    public class ProgressBarViewModel : ViewModelBase
     {
         private int _value = 0;
 

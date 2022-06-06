@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using SharpCompress.Readers;
 using System.Diagnostics;
 using KotorAutoMod.ViewModels;
+using KotorAutoMod.Models;
 
 namespace KotorAutoMod
 {
@@ -107,7 +108,7 @@ namespace KotorAutoMod
         }
 
         /*
-         * Checks if the compressed mods are available in the selected folder
+         * Finds which mods are in the compressed mods directory
          */
         public static ObservableCollection<Mod> getAvailableMods(List<Mod> supportedModsList, string compressedModsDirectory)
         {
@@ -123,6 +124,37 @@ namespace KotorAutoMod
             }
 
             return availableMods;
+        }
+
+        /*
+         * Gets list of mods that are not in the compressed mods directory
+         */
+        public static ObservableCollection<Mod> getMissingMods(ObservableCollection<Mod> availableModsList)
+        {
+            ObservableCollection<Mod> missingModsList = new ObservableCollection<Mod>();
+
+            foreach (Mod supportedMod in SupportedMods.supportedMods())
+            {
+                if (!availableModsList.ToList().Exists(availableMod => availableMod.ListName.Equals(supportedMod.ListName)))
+                {
+                    supportedMod.isChecked = false;
+                    missingModsList.Add(supportedMod);
+                }
+            }
+
+            return missingModsList;
+        }
+
+        public static void setAvailableMods(ObservableCollection<TestModViewModel> mods, string compressedModsDirectory)
+        {
+            List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
+            foreach (TestModViewModel mod in mods)
+            {
+                if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == mod.ModFileName))
+                {
+                    mod.isAvailable = true;
+                }
+            }
         }
 
         public async static Task moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)

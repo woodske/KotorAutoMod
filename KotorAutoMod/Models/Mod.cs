@@ -47,5 +47,7 @@ namespace KotorAutoMod
         public Uri ModPage { get; set; }
 
         public bool isChecked { get; set; } = true;
+
+        public bool isAvailable { get; set; } = false;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using KotorAutoMod.Models;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
 

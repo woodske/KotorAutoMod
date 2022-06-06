@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using SharpCompress;
 
-namespace KotorAutoMod
+namespace KotorAutoMod.Models
 {
     internal class ModConfig
     {
@@ -23,7 +23,7 @@ namespace KotorAutoMod
 
         public ObservableCollection<Mod> selectedMods { get; set; } = new ObservableCollection<Mod>();
 
-        public List<Mod> missingMods { get; set; } = new List<Mod>();
+        public ObservableCollection<Mod> missingMods { get; set; } = new ObservableCollection<Mod>();
 
         public const string four_by_three = "4:3";
         public const string sixteen_by_nine = "16:9";
@@ -31,7 +31,7 @@ namespace KotorAutoMod
         public const string twentyone_by_nine = "21:9";
         public const string thirtytwo_by_nine = "32:9";
 
-        public static string[] validAspectRatios = new[] { four_by_three, sixteen_by_nine, sixteen_by_ten, twentyone_by_nine, thirtytwo_by_nine }; 
+        public static string[] validAspectRatios = new[] { four_by_three, sixteen_by_nine, sixteen_by_ten, twentyone_by_nine, thirtytwo_by_nine };
 
         public static Dictionary<string, string[]> validScreenResolutions = new Dictionary<string, string[]> {
             // 4:3

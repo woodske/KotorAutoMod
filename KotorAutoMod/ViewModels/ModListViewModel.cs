@@ -3,11 +3,11 @@ using System.Collections.ObjectModel;
 
 namespace KotorAutoMod.ViewModels
 {
-    public class ModListViewModel : ObservableObject
+    public class ModListViewModel : ViewModelBase
     {
         private ObservableCollection<Mod> _availableModsList;
 
-        private List<Mod> _unavailableModsList;
+        private ObservableCollection<Mod> _missingModsList;
 
         public ObservableCollection<Mod> AvailableModsList
         {
@@ -22,16 +22,16 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
-        public List<Mod> UnavailableModsList
+        public ObservableCollection<Mod> MissingModsList
         {
             get
             {
-                return _unavailableModsList;
+                return _missingModsList;
             }
             set
             {
-                _unavailableModsList = value;
-                OnPropertyChanged(nameof(UnavailableModsList));
+                _missingModsList = value;
+                OnPropertyChanged(nameof(MissingModsList));
             }
         }
     }

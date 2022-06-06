@@ -2,7 +2,7 @@
 
 namespace KotorAutoMod.ViewModels
 {
-    public class TextBlockViewModel : ObservableObject
+    public class TextBlockViewModel : ViewModelBase
     {
         private string _instructions;
 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using KotorAutoMod.ViewModels;
 using System.Windows.Data;
 using System.Collections.Generic;
+using KotorAutoMod.Models;
 
 namespace KotorAutoMod
 {
@@ -125,8 +126,8 @@ namespace KotorAutoMod
 
         public void HandleModDescriptionSelection(ListBox listBox, List<Mod> modList)
         {
-            Mod selectedMod = modList[listBox.SelectedIndex];
-            _main.SetDescription(selectedMod);
+            //Mod selectedMod = modList[listBox.SelectedIndex];
+            //_main.SetDescription(selectedMod);
         }
     }
 }

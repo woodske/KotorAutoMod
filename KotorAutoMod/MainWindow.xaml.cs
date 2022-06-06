@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using KotorAutoMod.Instructions;
+using KotorAutoMod.Models;
 using KotorAutoMod.ViewModels;
 
 namespace KotorAutoMod
@@ -20,16 +21,24 @@ namespace KotorAutoMod
     {
         private static ModConfig modConfig = new ModConfig();
 
-        MainViewModel _main = new MainViewModel();
+        ObservableCollection<TestModViewModel> mods = new ObservableCollection<TestModViewModel>();
+
+        MainViewModel _main;
 
         FormActions? formActions;
 
         public MainWindow()
         {
             InitializeComponent();
+            InitializeConfig();
+
+            Debug.WriteLine("hello");
+
+            SupportedMods.supportedMods().ForEach(supportedMod => mods.Add(new TestModViewModel(supportedMod)));
+            Utils.setAvailableMods(mods, modConfig.compressedModsDirectory);
+            _main = new MainViewModel(mods);
             DataContext = _main;
 
-            InitializeConfig();
             InitializeWpf();
             InitializeSetupMods();
         }
@@ -46,7 +55,7 @@ namespace KotorAutoMod
             formActions = new FormActions(modConfig, _main, this);
             ObservableCollection<Mod> availableMods = Utils.getAvailableMods(SupportedMods.supportedMods(), "D:\\compressedMods");
             modConfig.selectedMods = availableMods;
-            modConfig.missingMods = SupportedMods.supportedMods().Where(supportedMod => !availableMods.ToList().Exists(availableMod => availableMod.ListName.Equals(supportedMod.ListName))).ToList();
+            modConfig.missingMods = Utils.getMissingMods(availableMods);
 
             Debug.WriteLine("Available Mods");
             foreach (Mod mod in modConfig.selectedMods)
@@ -64,7 +73,7 @@ namespace KotorAutoMod
         private void InitializeWpf()
         {
             _main.SetAvailableModsList(modConfig.selectedMods);
-            _main.SetUnavailableModsList(modConfig.missingMods);
+            _main.SetMissingModsList(modConfig.missingMods);
             _main.SetDescription(modConfig.selectedMods[0]);
             _main.SetValidAspectRatios(ModConfig.validAspectRatios);
             _main.SetValidScreenResolutions(Utils.getAvailableScreenResolutionSelections(modConfig));
@@ -113,7 +122,7 @@ namespace KotorAutoMod
 
         private void ValidScreenResolutionsComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) => modConfig.selectedResolution = (string)ValidScreenResolutionsComboBox.SelectedItem;
 
-        private void UnvailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.missingMods);
+        private void UnvailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.missingMods.ToList());
 
         private void AailableModsList_OnClick(object sender, System.Windows.Input.MouseButtonEventArgs e) => formActions.HandleModDescriptionSelection((ListBox)sender, modConfig.selectedMods.ToList());
 
@@ -124,6 +133,16 @@ namespace KotorAutoMod
             startInfo.FileName = e.Uri.AbsoluteUri;
             Process.Start(startInfo);
             e.Handled = true;
+        }
+
+        private void MissingModsSelectAllCheckboxChanged(object sender, RoutedEventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            foreach (Mod missingMod in modConfig.missingMods)
+            {
+                missingMod.isChecked = (bool)checkbox.IsChecked;
+                Debug.WriteLine(missingMod.isChecked);
+            }
         }
     }
 }

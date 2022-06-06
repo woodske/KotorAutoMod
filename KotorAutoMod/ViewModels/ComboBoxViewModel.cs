@@ -1,6 +1,6 @@
 ﻿namespace KotorAutoMod.ViewModels
 {
-    public class ComboBoxViewModel : ObservableObject
+    public class ComboBoxViewModel : ViewModelBase
     {
         private string[] _validAspectRatios = new string[] { };
 
