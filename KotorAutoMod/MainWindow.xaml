@@ -23,7 +23,7 @@
             </ListBox>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="ApplyMods" Content="Apply mods" Width="120" Height="30" Margin="10" Command="{Binding AvailableModsViewModel.ApplyModsCommand}"/>
-                <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding AvailableModsViewModel.FirstTimeSetupIsChecked}"/>
+                <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
@@ -35,7 +35,7 @@
                 <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Command="{Binding ModConfigViewModel.SelectCompressedModsFolderCommand}" Width="200" Height="30"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableScreenResolutions}" SelectedValue="{Binding ModConfigViewModel.SelectedScreenResolution}" Text="Screen Resolution" IsEditable="True" IsReadOnly="True"/>
+                <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableScreenResolutions}" SelectedValue="{Binding ModConfigViewModel.SelectedResolution}" Text="Screen Resolution" IsEditable="True" IsReadOnly="True"/>
                 <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableAspectRatios}" SelectedValue="{Binding ModConfigViewModel.SelectedAspectRatio}" Text="Aspect Ratio" IsEditable="True" IsReadOnly="True">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">

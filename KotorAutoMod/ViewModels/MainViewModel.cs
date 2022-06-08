@@ -26,7 +26,7 @@ namespace KotorAutoMod.ViewModels
 
         public DescriptionViewModel DescriptionViewModel { get; private set; }
 
-        public MainViewModel(ObservableCollection<ModViewModel> mods, ModConfigViewModel modConfigViewModel, ModStore modStore)
+        public MainViewModel(ModStore modStore)
         {
             TextBlock = new TextBlockViewModel();
             ModList = new ModListViewModel();
@@ -34,7 +34,7 @@ namespace KotorAutoMod.ViewModels
             ProgressBar = new ProgressBarViewModel();
             MissingModsViewModel = new MissingModsViewModel(modStore);
             AvailableModsViewModel = new AvailableModsViewModel(modStore);
-            ModConfigViewModel = modConfigViewModel;
+            ModConfigViewModel = new ModConfigViewModel(modStore);
             DescriptionViewModel = new DescriptionViewModel();
         }
 

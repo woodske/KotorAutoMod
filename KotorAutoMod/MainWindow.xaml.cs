@@ -36,7 +36,7 @@ namespace KotorAutoMod
 
             SupportedMods.supportedMods().ForEach(supportedMod => mods.Add(new ModViewModel(supportedMod)));
             Utils.setAvailableMods(mods, modConfig.compressedModsDirectory);
-            _main = new MainViewModel(mods, new ModConfigViewModel(), new Stores.ModStore());
+            _main = new MainViewModel(new Stores.ModStore());
             DataContext = _main;
 
             InitializeWpf();

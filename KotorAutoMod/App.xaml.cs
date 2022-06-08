@@ -18,14 +18,11 @@ namespace KotorAutoMod
     {
         private ObservableCollection<ModViewModel> _mods;
 
-        private ModConfigViewModel _config;
-
         private ModStore _modStore;
         public App()
         {
             _modStore = new ModStore();
             _mods = new ObservableCollection<ModViewModel>();
-            _config = new ModConfigViewModel();
             SupportedMods.supportedMods().ForEach(supportedMod => _mods.Add(new ModViewModel(supportedMod)));
             _mods[0].isAvailable = true;
         }
@@ -35,7 +32,7 @@ namespace KotorAutoMod
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(_mods, _config, _modStore)
+                DataContext = new MainViewModel(_modStore)
             };
             _modStore.updateModsList(_mods);
             MainWindow.Show();

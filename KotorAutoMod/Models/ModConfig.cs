@@ -9,7 +9,7 @@ using SharpCompress;
 
 namespace KotorAutoMod.Models
 {
-    internal class ModConfig
+    public class ModConfig
     {
         public string swkotorDirectory { get; set; } = string.Empty;
 

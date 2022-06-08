@@ -14,8 +14,6 @@ namespace KotorAutoMod.ViewModels
         private readonly ModStore _modStore;
         private ObservableCollection<ModViewModel> _availableMods;
 
-        private bool _firstTimeSetupIsChecked = true;
-
         public ICommand ApplyModsCommand { get; }
 
         public AvailableModsViewModel(ModStore modStore)
@@ -29,16 +27,6 @@ namespace KotorAutoMod.ViewModels
         private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
         {
             AvailableMods = mods;
-        }
-
-        public bool FirstTimeSetupIsChecked
-        {
-            get { return _firstTimeSetupIsChecked; }
-            set
-            {
-                _firstTimeSetupIsChecked = value;
-                OnPropertyChanged(nameof(FirstTimeSetupIsChecked));
-            }
         }
 
         public IEnumerable<ModViewModel> AvailableMods

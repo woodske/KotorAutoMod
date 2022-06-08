@@ -1,5 +1,6 @@
 ﻿using KotorAutoMod.Commands;
 using KotorAutoMod.Models;
+using KotorAutoMod.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,8 @@ namespace KotorAutoMod.ViewModels
 {
     public class ModConfigViewModel : ViewModelBase
     {
+        private ModStore _modStore;
+
         private string _swkotorDirectory = string.Empty;
 
         private string _compressedModsDirectory = string.Empty;
@@ -21,29 +24,34 @@ namespace KotorAutoMod.ViewModels
 
         private string[] _availableScreenResolutions = new string[] { };
 
-        private bool _showDisplaySelectionDropdown;
-        public bool ShowDisplaySelectionDropdown
-        {
-            get
-            {
-                return _showDisplaySelectionDropdown;
-            }
-            set
-            {
-                _showDisplaySelectionDropdown = value;
-                OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
-            }
-        }
+        private string _showDisplaySelectionDropdown;
+
+        private bool _firstTimeSetupIsChecked = true;
+
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectCompressedModsFolderCommand { get; }
-
         public ICommand SelectAspectRatioCommand { get; }
 
-        public ModConfigViewModel()
+        public ModConfigViewModel(ModStore modStore)
         {
+            _modStore = modStore;
             SelectSwkotorFolderCommand = new SelectSwkotorFolderCommand(this);
             SelectCompressedModsFolderCommand = new SelectCompressedModsFolderCommand(this);
             SelectAspectRatioCommand = new SelectAspectRatioCommand(this);
+
+            _modStore.updateModConfig(this);
+        }
+
+        public ModConfig GetModConfig()
+        {
+            ModConfig modConfig = new ModConfig();
+            modConfig.swkotorDirectory = SwkotorDirectory;
+            modConfig.compressedModsDirectory = CompressedModsDirectory;
+            modConfig.selectedResolution = SelectedResolution;
+            modConfig.selectedAspectRatio = SelectedAspectRatio;
+            modConfig.firstTimeSetup = FirstTimeSetupIsChecked;
+
+            return modConfig;
         }
 
         public string SwkotorDirectory
@@ -98,6 +106,16 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
+        public bool FirstTimeSetupIsChecked
+        {
+            get { return _firstTimeSetupIsChecked; }
+            set
+            {
+                _firstTimeSetupIsChecked = value;
+                OnPropertyChanged(nameof(FirstTimeSetupIsChecked));
+            }
+        }
+
         public string[] AvailableAspectRatios
         {
             get
@@ -123,6 +141,19 @@ namespace KotorAutoMod.ViewModels
             {
                 _availableScreenResolutions = value;
                 OnPropertyChanged(nameof(AvailableScreenResolutions));
+            }
+        }
+
+        public string ShowDisplaySelectionDropdown
+        {
+            get
+            {
+                return _showDisplaySelectionDropdown;
+            }
+            set
+            {
+                _showDisplaySelectionDropdown = value;
+                OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
             }
         }
     }
