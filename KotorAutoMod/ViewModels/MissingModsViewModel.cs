@@ -1,4 +1,5 @@
 ﻿using KotorAutoMod.Commands;
+using KotorAutoMod.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,7 +13,9 @@ namespace KotorAutoMod.ViewModels
 {
     public class MissingModsViewModel : ViewModelBase
     {
-        private ObservableCollection<TestModViewModel> _missingMods;
+        private ObservableCollection<ModViewModel> _missingMods;
+
+        private ModStore _modStore;
 
         public ICommand SelectAllMissingModsCommand { get; }
 
@@ -20,11 +23,17 @@ namespace KotorAutoMod.ViewModels
 
         private bool _selectAllMissingModsIsChecked = false;
 
-        public MissingModsViewModel(ObservableCollection<TestModViewModel> mods)
+        public MissingModsViewModel(ModStore modStore)
         {
-            _missingMods = mods;
-            SelectAllMissingModsCommand = new SelectAllMissingModsCommand(this, mods);
-            DownloadMissingModsCommand = new DownloadMissingModsCommand(mods);
+            _modStore = modStore;
+            SelectAllMissingModsCommand = new SelectAllMissingModsCommand(this, modStore);
+            DownloadMissingModsCommand = new DownloadMissingModsCommand(modStore);
+            _modStore.ModListUpdated += OnModsUpdated;
+        }
+
+        private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
+        {
+            MissingMods = mods;
         }
 
         public bool SelectAllMissingModsIsChecked
@@ -37,7 +46,7 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
-        public IEnumerable<TestModViewModel> MissingMods
+        public IEnumerable<ModViewModel> MissingMods
         {
             get
             {
@@ -53,7 +62,7 @@ namespace KotorAutoMod.ViewModels
 
             set
             {
-                _missingMods = (ObservableCollection<TestModViewModel>)value;
+                _missingMods = (ObservableCollection<ModViewModel>)value;
                 OnPropertyChanged(nameof(MissingMods));
             }
         }

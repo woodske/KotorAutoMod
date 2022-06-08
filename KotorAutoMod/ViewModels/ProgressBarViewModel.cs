@@ -1,6 +1,4 @@
-﻿using GalaSoft.MvvmLight;
-
-namespace KotorAutoMod.ViewModels
+﻿namespace KotorAutoMod.ViewModels
 {
     public class ProgressBarViewModel : ViewModelBase
     {

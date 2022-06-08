@@ -1,4 +1,5 @@
-﻿using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.Stores;
+using KotorAutoMod.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -8,13 +9,20 @@ namespace KotorAutoMod.Commands
 {
     public class ApplyModsCommand : CommandBase
     {
-        private ObservableCollection<TestModViewModel> _mods;
+        private ModStore _modStore;
+        private ObservableCollection<ModViewModel> _mods;
         private AvailableModsViewModel _availableModsViewModel;
 
-        public ApplyModsCommand(AvailableModsViewModel availableModsViewModel, ObservableCollection<TestModViewModel> mods)
+        public ApplyModsCommand(AvailableModsViewModel availableModsViewModel, ModStore modStore)
+        {
+            _modStore = modStore;
+            _availableModsViewModel = availableModsViewModel;
+            _modStore.ModListUpdated += OnModsUpdated;
+        }
+
+        private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
         {
             _mods = mods;
-            _availableModsViewModel = availableModsViewModel;
         }
 
         public override void Execute(object? parameter)

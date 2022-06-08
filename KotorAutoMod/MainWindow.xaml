@@ -1,5 +1,6 @@
 ﻿<Window x:Class="KotorAutoMod.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -8,9 +9,9 @@
         ResizeMode="NoResize"
         Title="MainWindow" Height="550" Width="1100">
     <Grid>
-        <StackPanel x:Name="AvailableModsListDockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
+        <StackPanel x:Name="AvailableModsListDockPanel" HorizontalAlignment="Left" VerticalAlignment="Top" Height="500" Width="270" Margin="10">
             <TextBox x:Name="AvailableModsListTextBox" TextAlignment="Center" Text="Available Mods" VerticalAlignment="Top" Height="20" BorderThickness="0"/>
-            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" MouseLeftButtonUp="AailableModsList_OnClick" Height="180">
+            <ListBox x:Name="AvailableModsList" ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" SelectedValue="{Binding DescriptionViewModel.Mod}" Height="180">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
@@ -24,6 +25,25 @@
                 <Button x:Name="ApplyMods" Content="Apply mods" Width="120" Height="30" Margin="10" Command="{Binding AvailableModsViewModel.ApplyModsCommand}"/>
                 <CheckBox x:Name="FirstTimeSetupCheckbox" Content="First Time Setup" VerticalAlignment="Center" HorizontalAlignment="Left" IsChecked="{Binding AvailableModsViewModel.FirstTimeSetupIsChecked}"/>
             </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="Margin" Value="10,10,0,10"/>
+                    </Style>
+                </StackPanel.Resources>
+                <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" Command="{Binding ModConfigViewModel.SelectSwkotorFolderCommand}" Width="130" Height="30"/>
+                <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Command="{Binding ModConfigViewModel.SelectCompressedModsFolderCommand}" Width="200" Height="30"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableScreenResolutions}" SelectedValue="{Binding ModConfigViewModel.SelectedScreenResolution}" Text="Screen Resolution" IsEditable="True" IsReadOnly="True"/>
+                <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableAspectRatios}" SelectedValue="{Binding ModConfigViewModel.SelectedAspectRatio}" Text="Aspect Ratio" IsEditable="True" IsReadOnly="True">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding ModConfigViewModel.SelectAspectRatioCommand}"/>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ComboBox>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel x:Name="MissingModsListDockPanel" HorizontalAlignment="Right" VerticalAlignment="Top" Height="250" Width="270" Margin="10">
@@ -31,12 +51,12 @@
                 <CheckBox x:Name="MissingModsSelectAllCheckbox" Content="Select All" IsChecked="{Binding MissingModsViewModel.SelectAllMissingModsIsChecked}" Command="{Binding MissingModsViewModel.SelectAllMissingModsCommand}"/>
                 <TextBox x:Name="MissingModsListTextBox" TextAlignment="Center" Text="Missing Mods" Height="20" Margin="20,0,0,0" BorderThickness="0"/>
             </StackPanel>
-            <ListBox x:Name="MissingModsList" ItemsSource="{Binding MissingModsViewModel.MissingMods}" SelectedValue="{Binding ListName}" DockPanel.Dock="Bottom" MouseLeftButtonUp="UnvailableModsList_OnClick" Height="180">
+            <ListBox x:Name="MissingModsList" ItemsSource="{Binding MissingModsViewModel.MissingMods}" SelectedValue="{Binding DescriptionViewModel.Mod}" Height="180">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
                             <CheckBox x:Name="MissingModsCheckbox" VerticalAlignment="Center" IsChecked="{Binding isChecked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{Binding MissingModsViewModel.CheckMissingModsCommand}"/>
-                            <Label Content="{Binding ListName}"/>
+                            <Label Content="{Binding ListName}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -48,44 +68,35 @@
             <TextBox x:Name="DescriptionTextBlockTextBox" TextAlignment="Center" Text="Mod Description" VerticalAlignment="Top" Height="20" BorderThickness="0"/>
             <TextBlock x:Name="DescriptionTextBlock" TextWrapping="Wrap" Background="#FFB0BBAD" Height="180">
                 <Run Text="Mod name: " />
-                <Run Text="{Binding TextBlock.Description.ListName}" />
+                <Run Text="{Binding DescriptionViewModel.Mod.ListName, Mode=OneWay}" />
                 <LineBreak/>
                 
                 <Run Text="Author: " />
-                <Run Text="{Binding TextBlock.Description.Author}" />
+                <Run Text="{Binding DescriptionViewModel.Mod.Author, Mode=OneWay}" />
                 <LineBreak/>
                 
                 <Run Text="Importance: " />
-                <Run Text="{Binding TextBlock.Description.Importance}" />               
+                <Run Text="{Binding DescriptionViewModel.Mod.Importance, Mode=OneWay}" />               
                 <LineBreak/>
                 
                 <Run Text="Description: " />
-                <Run Text="{Binding TextBlock.Description.Description}" />
+                <Run Text="{Binding DescriptionViewModel.Mod.Description, Mode=OneWay}" />
                 <LineBreak/>
                 
                 <Run Text="Filename: " />
-                <Run Text="{Binding TextBlock.Description.ModFileName}" />
+                <Run Text="{Binding DescriptionViewModel.Mod.ModFileName, Mode=OneWay}" />
                 <LineBreak/>
                 
                 <Run Text="Source page: " />
-                <Hyperlink NavigateUri="{Binding TextBlock.Description.ModPage}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
+                <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
                 <LineBreak/>
                 
                 <Run Text="Direct download: " />
-                <Hyperlink NavigateUri="{Binding TextBlock.Description.DownloadLink}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
+                <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.DownloadLink, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
             </TextBlock>
-            <StackPanel Orientation="Horizontal">
-                <StackPanel.Resources>
-                    <Style TargetType="{x:Type Button}">
-                        <Setter Property="Margin" Value="10,10,0,0"/>
-                    </Style>
-                </StackPanel.Resources>
-                <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" Click="SelectSwkotorFolderButton_Click" Width="130" Height="30"/>
-                <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Click="CompressedModsFolderButton_Click" Width="200" Height="30"/>
-            </StackPanel>
         </StackPanel>
 
-        <StackPanel x:Name="ProgressDockPanel" HorizontalAlignment="Left" Orientation="Vertical" VerticalAlignment="Bottom" Height="250" Width="270" Margin="10">
+        <StackPanel x:Name="ProgressDockPanel" HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Bottom" Height="250" Width="270" Margin="10">
             <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding TextBlock.Instructions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="150" Background="#FF5FA760"/>
             <ProgressBar x:Name="ModProgressBar" Minimum="0" Maximum="{Binding ProgressBar.Maxium}" Value="{Binding ProgressBar.Value}" Height="20" Margin="0,10,0,10"/>
             <TextBox Height="50" Text="{Binding ProgressBar.Text}" />
@@ -95,7 +106,5 @@
 
 
         <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="908,463,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
-        <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ComboBox.ValidScreenResolutions}" Margin="870,325,0,0" Text="Select Screen Resolution" VerticalAlignment="Top" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidScreenResolutionsComboBox_SelectionChanged"/>
-        <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ComboBox.ValidAspectRatios}" Visibility="{Binding ComboBox.ShowValidAspectRatios}" Text="Select Aspect Ratio" VerticalAlignment="Top" HorizontalAlignment="Left" IsEditable="True" IsReadOnly="True" SelectionChanged="ValidAspectRatiosComboBox_SelectionChanged" Margin="884,387,0,0"/>
     </Grid>
 </Window>

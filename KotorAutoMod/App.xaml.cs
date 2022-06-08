@@ -1,4 +1,5 @@
-﻿using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.Stores;
+using KotorAutoMod.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,11 +16,17 @@ namespace KotorAutoMod
     /// </summary>
     public partial class App : Application
     {
-        private ObservableCollection<TestModViewModel> _mods;
+        private ObservableCollection<ModViewModel> _mods;
+
+        private ModConfigViewModel _config;
+
+        private ModStore _modStore;
         public App()
         {
-            _mods = new ObservableCollection<TestModViewModel>();
-            SupportedMods.supportedMods().ForEach(supportedMod => _mods.Add(new TestModViewModel(supportedMod)));
+            _modStore = new ModStore();
+            _mods = new ObservableCollection<ModViewModel>();
+            _config = new ModConfigViewModel();
+            SupportedMods.supportedMods().ForEach(supportedMod => _mods.Add(new ModViewModel(supportedMod)));
             _mods[0].isAvailable = true;
         }
 
@@ -28,8 +35,9 @@ namespace KotorAutoMod
 
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel(_mods)
+                DataContext = new MainViewModel(_mods, _config, _modStore)
             };
+            _modStore.updateModsList(_mods);
             MainWindow.Show();
 
             base.OnStartup(e);

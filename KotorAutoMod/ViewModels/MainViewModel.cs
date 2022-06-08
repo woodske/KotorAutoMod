@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using KotorAutoMod.Stores;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -18,32 +18,25 @@ namespace KotorAutoMod.ViewModels
 
         public ProgressBarViewModel ProgressBar { get; private set; }
 
-        //public CheckBoxViewModel CheckBox { get; private set; }
-
-        public RelayCommand CheckAllMissingModsCommand { get; private set; }
-
-        public TestModListViewModel TestModListViewModel { get; private set; }
-
         public MissingModsViewModel MissingModsViewModel { get; private set; }
 
         public AvailableModsViewModel AvailableModsViewModel { get; private set; }
 
-        public MainViewModel(ObservableCollection<TestModViewModel> mods)
+        public ModConfigViewModel ModConfigViewModel { get; private set; }
+
+        public DescriptionViewModel DescriptionViewModel { get; private set; }
+
+        public MainViewModel(ObservableCollection<ModViewModel> mods, ModConfigViewModel modConfigViewModel, ModStore modStore)
         {
             TextBlock = new TextBlockViewModel();
             ModList = new ModListViewModel();
             ComboBox = new ComboBoxViewModel();
             ProgressBar = new ProgressBarViewModel();
-            //CheckBox = new CheckBoxViewModel();
-            TestModListViewModel = new TestModListViewModel(mods);
-            MissingModsViewModel = new MissingModsViewModel(mods);
-            AvailableModsViewModel = new AvailableModsViewModel(mods);
+            MissingModsViewModel = new MissingModsViewModel(modStore);
+            AvailableModsViewModel = new AvailableModsViewModel(modStore);
+            ModConfigViewModel = modConfigViewModel;
+            DescriptionViewModel = new DescriptionViewModel();
         }
-
-        //public void SetSelectAllMissingCheckBox(bool isChecked)
-        //{
-        //    CheckBox.SelectAllMissingModsChecked = isChecked;
-        //}
 
         public void SetInstructions(string instructions)
         {

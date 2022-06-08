@@ -145,10 +145,10 @@ namespace KotorAutoMod
             return missingModsList;
         }
 
-        public static void setAvailableMods(ObservableCollection<TestModViewModel> mods, string compressedModsDirectory)
+        public static void setAvailableMods(ObservableCollection<ModViewModel> mods, string compressedModsDirectory)
         {
             List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
-            foreach (TestModViewModel mod in mods)
+            foreach (ModViewModel mod in mods)
             {
                 if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == mod.ModFileName))
                 {

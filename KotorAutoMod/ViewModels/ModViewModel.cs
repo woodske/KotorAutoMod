@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KotorAutoMod.ViewModels
 {
-    public class TestModViewModel : ViewModelBase
+    public class ModViewModel : ViewModelBase
     {
         private readonly Mod _mod;
 
@@ -37,7 +37,7 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
-        public TestModViewModel(Mod mod)
+        public ModViewModel(Mod mod)
         {
             _mod = mod;
         }

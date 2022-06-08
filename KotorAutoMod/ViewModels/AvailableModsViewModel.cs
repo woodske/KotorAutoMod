@@ -1,4 +1,6 @@
 ﻿using KotorAutoMod.Commands;
+using KotorAutoMod.Stores;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -8,16 +10,25 @@ namespace KotorAutoMod.ViewModels
 {
     public class AvailableModsViewModel : ViewModelBase
     {
-        private ObservableCollection<TestModViewModel> _availableMods;
+
+        private readonly ModStore _modStore;
+        private ObservableCollection<ModViewModel> _availableMods;
 
         private bool _firstTimeSetupIsChecked = true;
 
         public ICommand ApplyModsCommand { get; }
 
-        public AvailableModsViewModel(ObservableCollection<TestModViewModel> mods)
+        public AvailableModsViewModel(ModStore modStore)
         {
-            _availableMods = mods;
-            ApplyModsCommand = new ApplyModsCommand(this, mods);
+            _modStore = modStore;
+            ApplyModsCommand = new ApplyModsCommand(this, modStore);
+
+            _modStore.ModListUpdated += OnModsUpdated;
+        }
+
+        private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
+        {
+            AvailableMods = mods;
         }
 
         public bool FirstTimeSetupIsChecked
@@ -30,7 +41,7 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
-        public IEnumerable<TestModViewModel> AvailableMods
+        public IEnumerable<ModViewModel> AvailableMods
         {
             get
             {
@@ -39,7 +50,7 @@ namespace KotorAutoMod.ViewModels
 
             set
             {
-                _availableMods = (ObservableCollection<TestModViewModel>)value;
+                _availableMods = (ObservableCollection<ModViewModel>)value;
                 OnPropertyChanged(nameof(AvailableMods));
             }
         }

@@ -21,7 +21,7 @@ namespace KotorAutoMod
     {
         private static ModConfig modConfig = new ModConfig();
 
-        ObservableCollection<TestModViewModel> mods = new ObservableCollection<TestModViewModel>();
+        ObservableCollection<ModViewModel> mods = new ObservableCollection<ModViewModel>();
 
         MainViewModel _main;
 
@@ -34,9 +34,9 @@ namespace KotorAutoMod
 
             Debug.WriteLine("hello");
 
-            SupportedMods.supportedMods().ForEach(supportedMod => mods.Add(new TestModViewModel(supportedMod)));
+            SupportedMods.supportedMods().ForEach(supportedMod => mods.Add(new ModViewModel(supportedMod)));
             Utils.setAvailableMods(mods, modConfig.compressedModsDirectory);
-            _main = new MainViewModel(mods);
+            _main = new MainViewModel(mods, new ModConfigViewModel(), new Stores.ModStore());
             DataContext = _main;
 
             InitializeWpf();
