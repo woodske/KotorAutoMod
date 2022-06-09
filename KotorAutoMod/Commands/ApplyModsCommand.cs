@@ -49,10 +49,13 @@ namespace KotorAutoMod.Commands
 
         public override bool CanExecute(object? parameter)
         {
+            bool needsSelectedAspectRatioAndResolutionValues = _modConfig.needsAspectRatioAndResolution()
+                ? (String.IsNullOrEmpty(_modConfig.SelectedAspectRatio) || String.IsNullOrEmpty(_modConfig.SelectedResolution))
+                : false;
+
             return !String.IsNullOrEmpty(_modConfig.SwkotorDirectory)
                 && !String.IsNullOrEmpty(_modConfig.CompressedModsDirectory)
-                && !String.IsNullOrEmpty(_modConfig.SelectedAspectRatio)
-                && !String.IsNullOrEmpty(_modConfig.SelectedResolution)
+                && !needsSelectedAspectRatioAndResolutionValues
                 && base.CanExecute(parameter);
         }
 

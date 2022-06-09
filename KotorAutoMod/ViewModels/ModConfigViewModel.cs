@@ -162,7 +162,7 @@ namespace KotorAutoMod.ViewModels
         }
 
         // We need aspect ratio and screen resolution for first time setup and high resolution menus mod
-        private bool needsAspectRatioAndResolution()
+        public bool needsAspectRatioAndResolution()
         {
             return FirstTimeSetupIsChecked || _mods.Any(mod => mod.ListName == "KOTOR High Resolution Menus" && mod.isAvailable);
         }
