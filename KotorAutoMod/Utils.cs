@@ -11,24 +11,25 @@ using SharpCompress.Readers;
 using System.Diagnostics;
 using KotorAutoMod.ViewModels;
 using KotorAutoMod.Models;
+using KotorAutoMod.Instructions;
 
 namespace KotorAutoMod
 {
     internal static class Utils
     {
-        public static async Task extractMods(ObservableCollection<Mod> modList, string compressedModsDirectory, MainViewModel _main)
+        public static async Task extractMods(IEnumerable<ModViewModel> mods, string compressedModsDirectory)
         {
             string[] files = Directory.GetFiles(compressedModsDirectory);
 
             foreach (string file in files)
             {
-                if (modList.Any(mod => mod.ModFileName.Equals(Path.GetFileName(file)) && mod.isChecked))
+                if (mods.Any(mod => mod.ModFileName.Equals(Path.GetFileName(file)) && mod.isChecked))
                 {
                     string fileExtension = Path.GetExtension(file);
                     string extractDirectory = Path.Combine(compressedModsDirectory, Path.GetFileNameWithoutExtension(file));
                     Directory.CreateDirectory(extractDirectory);
 
-                    _main.IterateProgressBarValue($"Extracting {Path.GetFileNameWithoutExtension(file)}");
+                    //_main.IterateProgressBarValue($"Extracting {Path.GetFileNameWithoutExtension(file)}");
                     Debug.WriteLine($"Extracting {Path.GetFileNameWithoutExtension(file)}");
 
                     await Task.Run(() =>
@@ -245,6 +246,47 @@ namespace KotorAutoMod
             maximum += modConfig.selectedMods.Count * 2;
 
             return maximum;
+        }
+
+        public static async Task applyMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
+        {
+            //_main.SetProgressBarMaximum(Utils.getProgressBarMaximum(modConfig));
+
+            // Apply setup tools
+            if (modConfig.FirstTimeSetupIsChecked)
+            {
+                //_main.IterateProgressBarValue("Extracting setup tools");
+                Utils.extractSetupTools();
+
+                //_main.IterateProgressBarValue("Applying KOTOR exe setup tools");
+                await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig);
+                //_main.IterateProgressBarValue("Applying Universal Widescreen patcher");
+                await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig);
+
+                //FileUnblocker fileUnblocker = new FileUnblocker();
+                //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
+                // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
+            }
+
+            await Utils.extractMods(selectedMods, modConfig.CompressedModsDirectory);
+
+            foreach (Mod supportedMod in SupportedMods.supportedMods())
+            {
+                if (selectedMods.Any(selectedMod => selectedMod.ListName == supportedMod.ListName && selectedMod.isChecked))
+                {
+                    string modDirectory = Path.Combine(modConfig.CompressedModsDirectory, Path.GetFileNameWithoutExtension(supportedMod.ModFileName));
+                    string className = $"KotorAutoMod.Instructions.{supportedMod.InstructionsName}";
+
+                    //_main.IterateProgressBarValue($"Applying mod: {supportedMod.ListName}");
+
+                    // Invoke the 'applyMod' method in the appropriate instruction class
+                    var type = Type.GetType(className);
+                    var applyMod = type.GetMethod("applyMod");
+                    var classInstance = Activator.CreateInstance(type);
+                    object[] parameters = new object[] { modDirectory, modConfig };
+                    await (Task)applyMod.Invoke(classInstance, parameters);
+                }
+            }
         }
     }
 }

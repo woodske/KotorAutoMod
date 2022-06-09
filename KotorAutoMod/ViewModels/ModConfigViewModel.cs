@@ -3,6 +3,7 @@ using KotorAutoMod.Models;
 using KotorAutoMod.Stores;
 using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 
@@ -26,6 +27,9 @@ namespace KotorAutoMod.ViewModels
 
         private bool _firstTimeSetupIsChecked;
 
+        private string _instructions;
+
+
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectCompressedModsFolderCommand { get; }
         public ICommand SelectAspectRatioCommand { get; }
@@ -33,8 +37,8 @@ namespace KotorAutoMod.ViewModels
         public ModConfigViewModel(ModStore modStore)
         {
             _modStore = modStore;
-            SelectSwkotorFolderCommand = new SelectSwkotorFolderCommand(this, _modStore);
-            SelectCompressedModsFolderCommand = new SelectCompressedModsFolderCommand(this);
+            SelectSwkotorFolderCommand = new SelectSwkotorFolderCommand(this);
+            SelectCompressedModsFolderCommand = new SelectCompressedModsFolderCommand(this, _modStore);
             SelectAspectRatioCommand = new SelectAspectRatioCommand(this);
 
             _modStore.updateModConfig(this);
@@ -146,6 +150,19 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
+        public string Instructions
+        {
+            get
+            {
+                return _instructions;
+            }
+            set
+            {
+                _instructions = value;
+                OnPropertyChanged(nameof(Instructions));
+            }
+        }
+
         public string ShowDisplaySelectionDropdown
         {
             get
@@ -164,13 +181,25 @@ namespace KotorAutoMod.ViewModels
         // We need aspect ratio and screen resolution for first time setup and high resolution menus mod
         public bool needsAspectRatioAndResolution()
         {
-            return FirstTimeSetupIsChecked || _mods.Any(mod => mod.ListName == "KOTOR High Resolution Menus" && mod.isAvailable);
+            return FirstTimeSetupIsChecked || _mods.Any(mod => mod.ListName == "KOTOR High Resolution Menus" && mod.isAvailable && mod.isChecked);
         }
 
         private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
         {
             _mods = mods;
             OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
+            foreach (var mod in _mods)
+            {
+                mod.PropertyChanged += OnModPropertyChanged;
+            }
+        }
+
+        private void OnModPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ModViewModel.isChecked))
+            {
+                OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
+            }
         }
 
         public override void Dispose()

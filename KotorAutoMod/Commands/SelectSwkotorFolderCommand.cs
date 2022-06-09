@@ -16,10 +16,9 @@ namespace KotorAutoMod.Commands
         private ModConfigViewModel _modConfigViewModel;
         private ModStore _modStore;
 
-        public SelectSwkotorFolderCommand(ModConfigViewModel modConfigViewModel, ModStore modStore)
+        public SelectSwkotorFolderCommand(ModConfigViewModel modConfigViewModel)
         {
             _modConfigViewModel = modConfigViewModel;
-            _modStore = modStore;
         }
 
         public override void Execute(object? parameter)
@@ -35,8 +34,6 @@ namespace KotorAutoMod.Commands
             }
 
             Debug.WriteLine(_modConfigViewModel.SwkotorDirectory);
-
-            _modStore.updateModsList(Utils.getMods(_modConfigViewModel.SwkotorDirectory));
         }
     }
 }

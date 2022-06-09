@@ -93,7 +93,7 @@ namespace KotorAutoMod
 
         private void SelectSwkotorFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleSwkotorFolderSelect();
 
-        private async void ApplyMods_Click(object sender, RoutedEventArgs e) => await formActions.HandleApplyModsSelect();
+        //private async void ApplyMods_Click(object sender, RoutedEventArgs e) => await formActions.HandleApplyModsSelect();
 
         private void CompressedModsFolderButton_Click(object sender, RoutedEventArgs e) => formActions.HandleCompressedModsFolderSelect();
 

@@ -1,8 +1,10 @@
 ﻿using KotorAutoMod.Stores;
 using KotorAutoMod.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -39,7 +41,6 @@ namespace KotorAutoMod.Commands
             {
                 OnCanExecutedChanged();
             }
-
         }
 
         private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
@@ -61,7 +62,8 @@ namespace KotorAutoMod.Commands
 
         protected override async Task ExecuteAsync(object parameter)
         {
-            MessageBox.Show("Hello");
+            IEnumerable<ModViewModel> selectedMods = _mods.ToList().Where(mod => mod.isAvailable && mod.isChecked);
+            await Utils.applyMods(_modConfig, selectedMods);
         }
 
         public override void Dispose()

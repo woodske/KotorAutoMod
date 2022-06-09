@@ -76,48 +76,46 @@ namespace KotorAutoMod
             return true;
         }
 
-        public async Task HandleApplyModsSelect()
-        {
-            if (!handleApplyModsPreCheck()) return;
+        //public async Task HandleApplyModsSelect()
+        //{
+        //    _main.SetProgressBarMaximum(Utils.getProgressBarMaximum(modConfig));
 
-            _main.SetProgressBarMaximum(Utils.getProgressBarMaximum(modConfig));
+        //    // Apply setup tools
+        //    if (modConfig.firstTimeSetup)
+        //    {
+        //        _main.IterateProgressBarValue("Extracting setup tools");
+        //        Utils.extractSetupTools();
 
-            // Apply setup tools
-            if (modConfig.firstTimeSetup)
-            {
-                _main.IterateProgressBarValue("Extracting setup tools");
-                Utils.extractSetupTools();
+        //        _main.IterateProgressBarValue("Applying KOTOR exe setup tools");
+        //        await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
+        //        _main.IterateProgressBarValue("Applying Universal Widescreen patcher");
+        //        await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
 
-                _main.IterateProgressBarValue("Applying KOTOR exe setup tools");
-                await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, this);
-                _main.IterateProgressBarValue("Applying Universal Widescreen patcher");
-                await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, this);
+        //        //FileUnblocker fileUnblocker = new FileUnblocker();
+        //        //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
+        //        // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
+        //    }
 
-                //FileUnblocker fileUnblocker = new FileUnblocker();
-                //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
-                // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
-            }
+        //    await Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory, _main);
 
-            await Utils.extractMods(modConfig.selectedMods, modConfig.compressedModsDirectory, _main);
+        //    foreach (Mod supportedMod in SupportedMods.supportedMods())
+        //    {
+        //        if (modConfig.selectedMods.Any(selectedMod => selectedMod.ListName == supportedMod.ListName && selectedMod.isChecked))
+        //        {
+        //            string modDirectory = Path.Combine(modConfig.compressedModsDirectory, Path.GetFileNameWithoutExtension(supportedMod.ModFileName));
+        //            string className = $"KotorAutoMod.Instructions.{supportedMod.InstructionsName}";
 
-            foreach (Mod supportedMod in SupportedMods.supportedMods())
-            {
-                if (modConfig.selectedMods.Any(selectedMod => selectedMod.ListName == supportedMod.ListName && selectedMod.isChecked))
-                {
-                    string modDirectory = Path.Combine(modConfig.compressedModsDirectory, Path.GetFileNameWithoutExtension(supportedMod.ModFileName));
-                    string className = $"KotorAutoMod.Instructions.{supportedMod.InstructionsName}";
+        //            _main.IterateProgressBarValue($"Applying mod: {supportedMod.ListName}");
 
-                    _main.IterateProgressBarValue($"Applying mod: {supportedMod.ListName}");
-
-                    // Invoke the 'applyMod' method in the appropriate instruction class
-                    var type = Type.GetType(className);
-                    var applyMod = type.GetMethod("applyMod");
-                    var classInstance = Activator.CreateInstance(type);
-                    object[] parameters = new object[] { modDirectory, modConfig, this };
-                    await (Task)applyMod.Invoke(classInstance, parameters);
-                }
-            }
-        }
+        //            // Invoke the 'applyMod' method in the appropriate instruction class
+        //            var type = Type.GetType(className);
+        //            var applyMod = type.GetMethod("applyMod");
+        //            var classInstance = Activator.CreateInstance(type);
+        //            object[] parameters = new object[] { modDirectory, modConfig, this };
+        //            await (Task)applyMod.Invoke(classInstance, parameters);
+        //        }
+        //    }
+        //}
 
         public void updateInstructions(string message)
         {

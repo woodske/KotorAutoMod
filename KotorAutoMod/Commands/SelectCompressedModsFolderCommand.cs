@@ -1,4 +1,5 @@
-﻿using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.Stores;
+using KotorAutoMod.ViewModels;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Diagnostics;
@@ -9,10 +10,12 @@ namespace KotorAutoMod.Commands
     public class SelectCompressedModsFolderCommand : CommandBase
     {
         private ModConfigViewModel _modConfigViewModel;
+        private ModStore _modStore;
 
-        public SelectCompressedModsFolderCommand(ModConfigViewModel modConfigViewModel)
+        public SelectCompressedModsFolderCommand(ModConfigViewModel modConfigViewModel, ModStore modStore)
         {
             _modConfigViewModel = modConfigViewModel;
+            _modStore = modStore;
         }
 
         public override void Execute(object? parameter)
@@ -28,6 +31,8 @@ namespace KotorAutoMod.Commands
             }
 
             Debug.WriteLine(_modConfigViewModel.CompressedModsDirectory);
+
+            _modStore.updateModsList(Utils.getMods(_modConfigViewModel.CompressedModsDirectory));
         }
     }
 }

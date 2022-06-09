@@ -1,4 +1,5 @@
 ﻿using KotorAutoMod.Models;
+using KotorAutoMod.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +9,7 @@ namespace KotorAutoMod.Instructions
 {
     internal class KOTOR_High_Resoultion_Menus_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfig modConfig, FormActions formActions)
+        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig)
         {
             // Move the three hires_patcher files to the swkotor folder and run the .bat file.
             // Then move the GUI files corresponding to the monitor's aspect ratio and resolution into the Override folder.
@@ -19,17 +20,17 @@ namespace KotorAutoMod.Instructions
 
             foreach (string file in filesToMove)
             {
-                File.Copy(Path.Combine(modDirectory, file), Path.Combine(modConfig.swkotorDirectory, file), true);
+                File.Copy(Path.Combine(modDirectory, file), Path.Combine(modConfig.SwkotorDirectory, file), true);
             }
 
-            formActions.updateInstructions("Follow bat instructions");
+            //formActions.updateInstructions("Follow bat instructions");
 
-            await Utils.runExecutable(Path.Combine(modConfig.swkotorDirectory, "hires_patcher.bat"));
+            await Utils.runExecutable(Path.Combine(modConfig.SwkotorDirectory, "hires_patcher.bat"));
 
             string aspectRatioDirectory;
-            string resolutionDirectory = $"gui.{modConfig.selectedResolution}";
+            string resolutionDirectory = $"gui.{modConfig.SelectedResolution}";
 
-            switch (modConfig.selectedAspectRatio)
+            switch (modConfig.SelectedAspectRatio)
             {
                 case ModConfig.four_by_three:
                     aspectRatioDirectory = "4-by-3";
@@ -50,7 +51,7 @@ namespace KotorAutoMod.Instructions
                     throw new Exception("Aspect ratio not selected");
             }
 
-            await Utils.moveAllToOverrideDirectory(Path.Combine(modDirectory, aspectRatioDirectory, resolutionDirectory), modConfig.swkotorDirectory);
+            await Utils.moveAllToOverrideDirectory(Path.Combine(modDirectory, aspectRatioDirectory, resolutionDirectory), modConfig.SwkotorDirectory);
         }
     }
 }
