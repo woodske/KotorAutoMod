@@ -82,5 +82,15 @@ namespace KotorAutoMod.Commands
                 OnCanExecutedChanged();
             }
         }
+
+        public override void Dispose()
+        {
+            _modStore.ModListUpdated -= OnModsUpdated;
+            foreach (var mod in _mods)
+            {
+                mod.PropertyChanged -= OnViewModelPropertyChanged;
+            }
+            base.Dispose();
+        }
     }
 }

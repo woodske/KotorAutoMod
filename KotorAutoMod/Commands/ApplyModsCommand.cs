@@ -26,7 +26,7 @@ namespace KotorAutoMod.Commands
         private void OnModConfigUpdate(ModConfigViewModel modConfig)
         {
             _modConfig = modConfig;
-            modConfig.PropertyChanged += OnModConfigPropertyChanged;
+            _modConfig.PropertyChanged += OnModConfigPropertyChanged;
         }
 
         private void OnModConfigPropertyChanged(object? sender, PropertyChangedEventArgs e)
@@ -59,6 +59,14 @@ namespace KotorAutoMod.Commands
         protected override async Task ExecuteAsync(object parameter)
         {
             MessageBox.Show("Hello");
+        }
+
+        public override void Dispose()
+        {
+            _modStore.ModListUpdated -= OnModsUpdated;
+            _modStore.ModConfigUpdated -= OnModConfigUpdate;
+            _modConfig.PropertyChanged -= OnModConfigPropertyChanged;
+            base.Dispose();
         }
     }
 }

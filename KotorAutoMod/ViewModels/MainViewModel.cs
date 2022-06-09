@@ -36,6 +36,8 @@ namespace KotorAutoMod.ViewModels
             AvailableModsViewModel = new AvailableModsViewModel(modStore);
             ModConfigViewModel = new ModConfigViewModel(modStore);
             DescriptionViewModel = new DescriptionViewModel();
+
+            modStore.updateModsList(new ObservableCollection<ModViewModel>());
         }
 
         public void SetInstructions(string instructions)

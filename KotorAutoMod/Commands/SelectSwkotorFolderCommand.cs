@@ -1,4 +1,5 @@
-﻿using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.Stores;
+using KotorAutoMod.ViewModels;
 using Ookii.Dialogs.Wpf;
 using System;
 using System.Collections.Generic;
@@ -13,10 +14,12 @@ namespace KotorAutoMod.Commands
     internal class SelectSwkotorFolderCommand : CommandBase
     {
         private ModConfigViewModel _modConfigViewModel;
+        private ModStore _modStore;
 
-        public SelectSwkotorFolderCommand(ModConfigViewModel modConfigViewModel)
+        public SelectSwkotorFolderCommand(ModConfigViewModel modConfigViewModel, ModStore modStore)
         {
             _modConfigViewModel = modConfigViewModel;
+            _modStore = modStore;
         }
 
         public override void Execute(object? parameter)
@@ -32,6 +35,8 @@ namespace KotorAutoMod.Commands
             }
 
             Debug.WriteLine(_modConfigViewModel.SwkotorDirectory);
+
+            _modStore.updateModsList(Utils.getMods(_modConfigViewModel.SwkotorDirectory));
         }
     }
 }

@@ -107,6 +107,30 @@ namespace KotorAutoMod
             }
         }
 
+        public static ObservableCollection<ModViewModel> getMods(string compressedModsDirectory)
+        {
+            ObservableCollection<ModViewModel> mods = new ObservableCollection<ModViewModel>();
+
+            List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
+
+            foreach (Mod supportedMod in SupportedMods.supportedMods())
+            {
+                ModViewModel modViewModel = new ModViewModel(supportedMod);
+                if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == supportedMod.ModFileName))
+                {
+                    modViewModel.isAvailable = true;
+                }
+                else
+                {
+                    modViewModel.isAvailable = false;
+                }
+
+                mods.Add(modViewModel);
+            }
+
+            return mods;
+        }
+
         /*
          * Finds which mods are in the compressed mods directory
          */

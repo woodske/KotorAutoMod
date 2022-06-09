@@ -40,5 +40,7 @@ namespace KotorAutoMod.Commands
         }
 
         protected abstract Task ExecuteAsync(object parameter);
+
+        public virtual void Dispose() { }
     }
 }

@@ -66,5 +66,11 @@ namespace KotorAutoMod.ViewModels
                 OnPropertyChanged(nameof(MissingMods));
             }
         }
+
+        public override void Dispose()
+        {
+            _modStore.ModListUpdated -= OnModsUpdated;
+            base.Dispose();
+        }
     }
 }

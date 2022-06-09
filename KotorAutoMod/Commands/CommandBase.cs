@@ -22,5 +22,7 @@ namespace KotorAutoMod.Commands
         {
             CanExecuteChanged?.Invoke(this, EventArgs.Empty);
         }
+
+        public virtual void Dispose() { }
     }
 }

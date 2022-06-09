@@ -2,10 +2,8 @@
 using KotorAutoMod.Models;
 using KotorAutoMod.Stores;
 using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace KotorAutoMod.ViewModels
@@ -13,6 +11,8 @@ namespace KotorAutoMod.ViewModels
     public class ModConfigViewModel : ViewModelBase
     {
         private ModStore _modStore;
+
+        private ObservableCollection<ModViewModel> _mods;
 
         private string _swkotorDirectory = string.Empty;
 
@@ -24,9 +24,7 @@ namespace KotorAutoMod.ViewModels
 
         private string[] _availableScreenResolutions = new string[] { };
 
-        private string _showDisplaySelectionDropdown;
-
-        private bool _firstTimeSetupIsChecked = true;
+        private bool _firstTimeSetupIsChecked;
 
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectCompressedModsFolderCommand { get; }
@@ -35,11 +33,12 @@ namespace KotorAutoMod.ViewModels
         public ModConfigViewModel(ModStore modStore)
         {
             _modStore = modStore;
-            SelectSwkotorFolderCommand = new SelectSwkotorFolderCommand(this);
+            SelectSwkotorFolderCommand = new SelectSwkotorFolderCommand(this, _modStore);
             SelectCompressedModsFolderCommand = new SelectCompressedModsFolderCommand(this);
             SelectAspectRatioCommand = new SelectAspectRatioCommand(this);
 
             _modStore.updateModConfig(this);
+            _modStore.ModListUpdated += OnModsUpdated;
         }
 
         public ModConfig GetModConfig()
@@ -108,7 +107,10 @@ namespace KotorAutoMod.ViewModels
 
         public bool FirstTimeSetupIsChecked
         {
-            get { return _firstTimeSetupIsChecked; }
+            get
+            {
+                return _firstTimeSetupIsChecked;
+            }
             set
             {
                 _firstTimeSetupIsChecked = value;
@@ -148,13 +150,33 @@ namespace KotorAutoMod.ViewModels
         {
             get
             {
-                return _showDisplaySelectionDropdown;
+                if (needsAspectRatioAndResolution())
+                {
+                    return "Visible";
+                }
+                else
+                {
+                    return "Hidden";
+                }
             }
-            set
-            {
-                _showDisplaySelectionDropdown = value;
-                OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
-            }
+        }
+
+        // We need aspect ratio and screen resolution for first time setup and high resolution menus mod
+        private bool needsAspectRatioAndResolution()
+        {
+            return FirstTimeSetupIsChecked || _mods.Any(mod => mod.ListName == "KOTOR High Resolution Menus" && mod.isAvailable);
+        }
+
+        private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
+        {
+            _mods = mods;
+            OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
+        }
+
+        public override void Dispose()
+        {
+            _modStore.ModListUpdated -= OnModsUpdated;
+            base.Dispose();
         }
     }
 }
