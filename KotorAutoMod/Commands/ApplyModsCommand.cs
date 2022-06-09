@@ -46,6 +46,18 @@ namespace KotorAutoMod.Commands
         private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
         {
             _mods = mods;
+            foreach (var mod in _mods)
+            {
+                mod.PropertyChanged += OnModPropertyChanged;
+            }
+        }
+
+        private void OnModPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ModViewModel.isChecked))
+            {
+                OnCanExecutedChanged();
+            }
         }
 
         public override bool CanExecute(object? parameter)
@@ -71,6 +83,10 @@ namespace KotorAutoMod.Commands
             _modStore.ModListUpdated -= OnModsUpdated;
             _modStore.ModConfigUpdated -= OnModConfigUpdate;
             _modConfig.PropertyChanged -= OnModConfigPropertyChanged;
+            foreach (var mod in _mods)
+            {
+                mod.PropertyChanged -= OnModPropertyChanged;
+            }
             base.Dispose();
         }
     }

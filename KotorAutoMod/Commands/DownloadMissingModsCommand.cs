@@ -30,7 +30,7 @@ namespace KotorAutoMod.Commands
             _mods = mods;
             foreach (var mod in _mods)
             {
-                mod.PropertyChanged += OnViewModelPropertyChanged;
+                mod.PropertyChanged += OnModPropertyChanged;
             }
         }
 
@@ -75,7 +75,7 @@ namespace KotorAutoMod.Commands
             return _mods.Any(mod => !mod.isAvailable && mod.isChecked) && base.CanExecute(parameter);
         }
 
-        private void OnViewModelPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        private void OnModPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(ModViewModel.isChecked))
             {
@@ -88,7 +88,7 @@ namespace KotorAutoMod.Commands
             _modStore.ModListUpdated -= OnModsUpdated;
             foreach (var mod in _mods)
             {
-                mod.PropertyChanged -= OnViewModelPropertyChanged;
+                mod.PropertyChanged -= OnModPropertyChanged;
             }
             base.Dispose();
         }
