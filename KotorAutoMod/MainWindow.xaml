@@ -23,7 +23,7 @@
             </ListBox>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="ApplyMods" Content="Apply mods" Width="120" Height="30" Margin="10" Command="{Binding AvailableModsViewModel.ApplyModsCommand}"/>
-                <CheckBox x:Name="FirstTimeSetupCheckbox" IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked, UpdateSourceTrigger=PropertyChanged}" Content="First Time Setup" VerticalAlignment="Center" />
+                <CheckBox x:Name="FirstTimeSetupCheckbox" IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked, UpdateSourceTrigger=Explicit}" Content="First Time Setup" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
@@ -98,8 +98,8 @@
 
         <StackPanel x:Name="ProgressDockPanel" HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Bottom" Height="250" Width="270" Margin="10">
             <TextBlock x:Name="InstructionsTextBlock" TextWrapping="Wrap" VerticalAlignment="Center" Text="{Binding ModConfigViewModel.Instructions}" Height="150" Background="#FF5FA760"/>
-            <ProgressBar x:Name="ModProgressBar" Minimum="0" Maximum="{Binding ProgressBar.Maxium}" Value="{Binding ProgressBar.Value}" Height="20" Margin="0,10,0,10"/>
-            <TextBox Height="50" Text="{Binding ProgressBar.Text}" />
+            <ProgressBar x:Name="ModProgressBar" Minimum="0" Maximum="{Binding ModConfigViewModel.ProgressBarMaximum}" Value="{Binding ModConfigViewModel.ProgressBarValue}" Height="20" Margin="0,10,0,10"/>
+            <TextBox Height="50" Text="{Binding ModConfigViewModel.ActiveTask}" />
         </StackPanel>
 
 

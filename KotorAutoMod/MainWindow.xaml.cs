@@ -99,19 +99,15 @@ namespace KotorAutoMod
 
         private async void TestModInstall_Click(object sender, RoutedEventArgs e)
         {
-            //ModConfig testModConfig = new ModConfig();
-            //testModConfig.swkotorDirectory = "D:\\test";
-            //testModConfig.compressedModsDirectory = "D:\\compressedMods";
-            //testModConfig.selectedResolution = "1234x80";
-            //testModConfig.selectedAspectRatio = "16:9";
+            //ModConfigViewModel testModConfig = new ModConfigViewModel(new Stores.ModStore());
+            //testModConfig.SwkotorDirectory = "D:\\test";
+            //testModConfig.CompressedModsDirectory = "D:\\compressedMods";
 
-            //string folderName = "KOTOR Editable Executable";
+            //string folderName = "Script-1214-1-0";
 
-            ////KOTOR_Editable_Executable_Instructions.applyMod(Path.Combine(testModConfig.compressedModsDirectory, folderName), testModConfig, formActions);
-            //_main.SetInstructions("Hello");
-            //await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), folderName), testModConfig, formActions);
+            ////await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), folderName), testModConfig);
+            //await new Quicker_TSL_Patching_Instructions().applyMod(Path.Combine(testModConfig.CompressedModsDirectory, folderName), testModConfig);
 
-            //Debug.WriteLine(modConfig.firstTimeSetup);
         }
 
         private void ValidAspectRatiosComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

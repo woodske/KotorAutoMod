@@ -29,6 +29,11 @@ namespace KotorAutoMod.ViewModels
 
         private string _instructions;
 
+        private int _progressBarMaximum = 1;
+
+        private int _progressBarValue = 0;
+
+        private string _activeTask = string.Empty;
 
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectCompressedModsFolderCommand { get; }
@@ -163,6 +168,45 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
+        public int ProgressBarMaximum
+        {
+            get
+            {
+                return _progressBarMaximum;
+            }
+            set
+            {
+                _progressBarMaximum = value;
+                OnPropertyChanged(nameof(ProgressBarMaximum));
+            }
+        }
+
+        public int ProgressBarValue
+        {
+            get
+            {
+                return _progressBarValue;
+            }
+            set
+            {
+                _progressBarValue = value;
+                OnPropertyChanged(nameof(ProgressBarValue));
+            }
+        }
+
+        public string ActiveTask
+        {
+            get
+            {
+                return _activeTask;
+            }
+            set
+            {
+                _activeTask = value;
+                OnPropertyChanged(nameof(ActiveTask));
+            }
+        }
+
         public string ShowDisplaySelectionDropdown
         {
             get
@@ -200,6 +244,13 @@ namespace KotorAutoMod.ViewModels
             {
                 OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
             }
+        }
+
+        public void updateTaskProgress(string instructions, string activeTask)
+        {
+            Instructions = instructions;
+            ActiveTask = activeTask;
+            ProgressBarValue++;
         }
 
         public override void Dispose()
