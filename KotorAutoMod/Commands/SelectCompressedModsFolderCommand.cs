@@ -1,9 +1,7 @@
 ﻿using KotorAutoMod.Stores;
 using KotorAutoMod.ViewModels;
 using Ookii.Dialogs.Wpf;
-using System;
 using System.Diagnostics;
-using System.Windows;
 
 namespace KotorAutoMod.Commands
 {

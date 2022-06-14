@@ -1,5 +1,4 @@
-﻿using KotorAutoMod.Models;
-using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.ViewModels;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;

@@ -1,5 +1,4 @@
-﻿using KotorAutoMod.Models;
-using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.ViewModels;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
