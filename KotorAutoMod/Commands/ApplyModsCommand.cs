@@ -14,12 +14,10 @@ namespace KotorAutoMod.Commands
         private ModStore _modStore;
         private ModConfigViewModel _modConfig;
         private ObservableCollection<ModViewModel> _mods;
-        private AvailableModsViewModel _availableModsViewModel;
 
-        public ApplyModsCommand(AvailableModsViewModel availableModsViewModel, ModStore modStore)
+        public ApplyModsCommand(ModStore modStore)
         {
             _modStore = modStore;
-            _availableModsViewModel = availableModsViewModel;
             _modStore.ModListUpdated += OnModsUpdated;
             _modStore.ModConfigUpdated += OnModConfigUpdate;
         }

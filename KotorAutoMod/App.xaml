@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:KotorAutoMod"
              >
     <Application.Resources>
-
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Margin" Value="10,10,0,10"/>
+            <Setter Property="Padding" Value="10, 5" />
+        </Style>
+        <Style TargetType="{x:Type ComboBox}">
+            <Setter Property="Margin" Value="10,10,0,10"/>
+            <Setter Property="Padding" Value="10, 5" />
+        </Style>
     </Application.Resources>
 </Application>

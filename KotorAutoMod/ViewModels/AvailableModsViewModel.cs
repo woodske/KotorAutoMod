@@ -18,7 +18,7 @@ namespace KotorAutoMod.ViewModels
         public AvailableModsViewModel(ModStore modStore)
         {
             _modStore = modStore;
-            ApplyModsCommand = new ApplyModsCommand(this, modStore);
+            ApplyModsCommand = new ApplyModsCommand(modStore);
 
             _modStore.ModListUpdated += OnModsUpdated;
         }
