@@ -12,7 +12,7 @@
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
             Height="250" 
-            Width="270" 
+            Width="280" 
             Margin="10">
             <TextBox 
                 TextAlignment="Center" 
@@ -49,25 +49,27 @@
             HorizontalAlignment="Left" 
             VerticalAlignment="Bottom" 
             Height="200" 
-            Width="330" 
+            Width="280" 
             Margin="10">
             <StackPanel Orientation="Vertical">
                 <CheckBox 
                     IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" 
                     Content="First Time Setup" 
                     VerticalAlignment="Center" 
-                    Margin="10, 10, 10, 10"/>
+                    Margin="5"/>
                 <StackPanel Orientation="Horizontal">
                     <Button 
                         Content="Select swkotor folder" 
                         Command="{Binding ModConfigViewModel.SelectSwkotorFolderCommand}" 
                         HorizontalAlignment="Left"
-                        Width="150"/>
+                        Width="130"
+                        Margin="5"/>
                     <Button 
                         Content="Select mods folder" 
                         Command="{Binding ModConfigViewModel.SelectCompressedModsFolderCommand}" 
                         HorizontalAlignment="Left"
-                        Width="150"/>
+                        Width="130"
+                        Margin="5"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <ComboBox 
@@ -78,7 +80,7 @@
                         IsEditable="True" 
                         IsReadOnly="True" 
                         HorizontalAlignment="Left"
-                        Width="150">
+                        Width="130">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding ModConfigViewModel.SelectAspectRatioCommand}"/>
@@ -93,7 +95,7 @@
                         IsEditable="True" 
                         IsReadOnly="True" 
                         HorizontalAlignment="Left"
-                        Width="150"/>
+                        Width="130"/>
                 </StackPanel>
             </StackPanel>
         </StackPanel>
@@ -102,7 +104,7 @@
             HorizontalAlignment="Right" 
             VerticalAlignment="Top" 
             Height="250" 
-            Width="270" 
+            Width="280" 
             Margin="10">
             <StackPanel Orientation="Horizontal">
                 <CheckBox 
@@ -158,29 +160,33 @@
             <TextBlock 
                 TextWrapping="Wrap" 
                 Background="#FFB0BBAD" 
-                Height="180">
-                <Run Text="Mod name: " />
-                <Run Text="{Binding DescriptionViewModel.Mod.ListName, Mode=OneWay}" />
+                Height="180"
+                Padding="5"
+                FontSize="13">
+                <Run Text="Mod name: " FontWeight="Bold"/>
+                <Run Text="{Binding DescriptionViewModel.Mod.ListName, Mode=OneWay}"/>
                 <LineBreak/>
                 
-                <Run Text="Author: " />
+                <Run Text="Author: " FontWeight="Bold"/>
                 <Run Text="{Binding DescriptionViewModel.Mod.Author, Mode=OneWay}" />
                 <LineBreak/>
                 
-                <Run Text="Importance: " />
+                <Run Text="Importance: " FontWeight="Bold"/>
                 <Run Text="{Binding DescriptionViewModel.Mod.Importance, Mode=OneWay}" />               
                 <LineBreak/>
                 
-                <Run Text="Filename: " />
+                <Run Text="Filename: " FontWeight="Bold"/>
                 <Run Text="{Binding DescriptionViewModel.Mod.ModFileName, Mode=OneWay}" />
                 <LineBreak/>
                 
-                <Run Text="Source page: " />
-                <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
+                <Run Text="Source page: " FontWeight="Bold"/>
+                <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">
+                    <TextBlock Text="{Binding DescriptionViewModel.Mod.ModPage}"/>
+                </Hyperlink>
                 <LineBreak/>
                 <LineBreak/>
                 
-                <Run Text="Description: " />
+                <Run Text="Description: " FontWeight="Bold"/>
                 <Run Text="{Binding DescriptionViewModel.Mod.Description, Mode=OneWay}" />
                 <LineBreak/>
             </TextBlock>
@@ -190,24 +196,31 @@
             HorizontalAlignment="Center" 
             Orientation="Vertical" 
             VerticalAlignment="Bottom" 
-            Height="250" 
-            Width="270" 
+            Height="200" 
+            Width="470" 
             Margin="10">
-            <TextBlock 
+            <Border BorderThickness="1" BorderBrush="Black">
+                <TextBlock 
                 TextWrapping="Wrap" 
                 VerticalAlignment="Center" 
                 Text="{Binding ModConfigViewModel.Instructions}" 
-                Height="150" 
-                Background="#FF5FA760"/>
+                Height="100"
+                Padding="5"/>
+            </Border>
+            <TextBox 
+                Height="20"
+                Margin="10"
+                BorderThickness="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="Auto"
+                Text="{Binding ModConfigViewModel.ActiveTask}" />
             <ProgressBar 
                 Minimum="0" 
                 Maximum="{Binding ModConfigViewModel.ProgressBarMaximum}" 
                 Value="{Binding ModConfigViewModel.ProgressBarValue}" 
                 Height="20" 
-                Margin="0,10,0,10"/>
-            <TextBox 
-                Height="50" 
-                Text="{Binding ModConfigViewModel.ActiveTask}" />
+                Margin="10"/>
         </StackPanel>
     </Grid>
 </Window>
