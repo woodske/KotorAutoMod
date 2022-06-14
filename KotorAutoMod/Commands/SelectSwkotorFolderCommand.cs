@@ -14,7 +14,6 @@ namespace KotorAutoMod.Commands
     internal class SelectSwkotorFolderCommand : CommandBase
     {
         private ModConfigViewModel _modConfigViewModel;
-        private ModStore _modStore;
 
         public SelectSwkotorFolderCommand(ModConfigViewModel modConfigViewModel)
         {
@@ -29,7 +28,6 @@ namespace KotorAutoMod.Commands
 
             if ((bool)dialog.ShowDialog())
             {
-                MessageBox.Show($"The selected folder was:{Environment.NewLine}{dialog.SelectedPath}");
                 _modConfigViewModel.SwkotorDirectory = dialog.SelectedPath;
             }
 

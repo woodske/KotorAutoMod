@@ -26,7 +26,6 @@ namespace KotorAutoMod.Commands
 
             if ((bool)dialog.ShowDialog())
             {
-                MessageBox.Show($"The selected folder was:{Environment.NewLine}{dialog.SelectedPath}");
                 _modConfigViewModel.CompressedModsDirectory = dialog.SelectedPath;
             }
 
