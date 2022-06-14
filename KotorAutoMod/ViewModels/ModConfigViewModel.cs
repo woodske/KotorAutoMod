@@ -25,7 +25,7 @@ namespace KotorAutoMod.ViewModels
 
         private string[] _availableScreenResolutions = new string[] { };
 
-        private bool _firstTimeSetupIsChecked;
+        private bool _firstTimeSetupIsChecked = true;
 
         private string _instructions;
 
@@ -48,18 +48,7 @@ namespace KotorAutoMod.ViewModels
 
             _modStore.updateModConfig(this);
             _modStore.ModListUpdated += OnModsUpdated;
-        }
-
-        public ModConfig GetModConfig()
-        {
-            ModConfig modConfig = new ModConfig();
-            modConfig.swkotorDirectory = SwkotorDirectory;
-            modConfig.compressedModsDirectory = CompressedModsDirectory;
-            modConfig.selectedResolution = SelectedResolution;
-            modConfig.selectedAspectRatio = SelectedAspectRatio;
-            modConfig.firstTimeSetup = FirstTimeSetupIsChecked;
-
-            return modConfig;
+            this.PropertyChanged += OnModConfigUpdated;
         }
 
         public string SwkotorDirectory
@@ -246,9 +235,16 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
-        public void updateTaskProgress(string instructions, string activeTask)
+        private void OnModConfigUpdated(object? sender, PropertyChangedEventArgs e)
         {
-            Instructions = instructions;
+            if (e.PropertyName == nameof(ModConfigViewModel.FirstTimeSetupIsChecked))
+            {
+                OnPropertyChanged(nameof(ShowDisplaySelectionDropdown));
+            }
+        }
+
+        public void updateTaskProgress(string activeTask)
+        {
             ActiveTask = activeTask;
             ProgressBarValue++;
         }
@@ -256,6 +252,7 @@ namespace KotorAutoMod.ViewModels
         public override void Dispose()
         {
             _modStore.ModListUpdated -= OnModsUpdated;
+            this.PropertyChanged -= OnModConfigUpdated;
             foreach (var mod in _mods)
             {
                 mod.PropertyChanged -= OnModPropertyChanged;

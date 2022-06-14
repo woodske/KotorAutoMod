@@ -25,17 +25,15 @@
                 <Button x:Name="ApplyMods" Content="Apply mods" Width="120" Height="30" Margin="10" Command="{Binding AvailableModsViewModel.ApplyModsCommand}"/>
                 <CheckBox x:Name="FirstTimeSetupCheckBox" IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" Content="First Time Setup" VerticalAlignment="Center" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Vertical">
                 <StackPanel.Resources>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="Margin" Value="10,10,0,10"/>
+                        <Setter Property="HorizontalAlignment" Value="Left" />
                     </Style>
                 </StackPanel.Resources>
                 <Button x:Name="SelectSwkotorFolderButton" Content="Select swkotor folder" Command="{Binding ModConfigViewModel.SelectSwkotorFolderCommand}" Width="130" Height="30"/>
                 <Button x:Name="CompressedModsFolderButton" Content="Select compressed mods folder" Command="{Binding ModConfigViewModel.SelectCompressedModsFolderCommand}" Width="200" Height="30"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableScreenResolutions}" SelectedValue="{Binding ModConfigViewModel.SelectedResolution}" Visibility="{Binding ModConfigViewModel.ShowDisplaySelectionDropdown}" Text="Screen Resolution" IsEditable="True" IsReadOnly="True"/>
                 <ComboBox x:Name="ValidAspectRatiosComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableAspectRatios}" SelectedValue="{Binding ModConfigViewModel.SelectedAspectRatio}" Visibility="{Binding ModConfigViewModel.ShowDisplaySelectionDropdown}" Text="Aspect Ratio" IsEditable="True" IsReadOnly="True">
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
@@ -43,6 +41,7 @@
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </ComboBox>
+                <ComboBox x:Name="ValidScreenResolutionsComboBox" ItemsSource="{Binding ModConfigViewModel.AvailableScreenResolutions}" SelectedValue="{Binding ModConfigViewModel.SelectedResolution}" Visibility="{Binding ModConfigViewModel.ShowDisplaySelectionDropdown}" Text="Screen Resolution" IsEditable="True" IsReadOnly="True"/>
             </StackPanel>
         </StackPanel>
 
@@ -55,7 +54,7 @@
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="2">
-                            <CheckBox x:Name="MissingModsCheckbox" VerticalAlignment="Center" IsChecked="{Binding isChecked, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Command="{Binding MissingModsViewModel.CheckMissingModsCommand}"/>
+                            <CheckBox x:Name="MissingModsCheckbox" VerticalAlignment="Center" IsChecked="{Binding isChecked}" Command="{Binding MissingModsViewModel.CheckMissingModsCommand}"/>
                             <Label Content="{Binding ListName}" />
                         </StackPanel>
                     </DataTemplate>

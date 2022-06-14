@@ -11,8 +11,7 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(string modDirectory, ModConfigViewModel modConfig)
         {
             // Run the executable
-            modConfig.ProgressBarMaximum = 2;
-            modConfig.updateTaskProgress("Follow the instructions provided by the tool", "Running Quicker TSL Patching tool");
+            modConfig.Instructions = "Follow the instructions provided by the tool";
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = Path.Combine(modDirectory, "KotOR_Linker.vbs");
@@ -22,9 +21,6 @@ namespace KotorAutoMod.Instructions
             {
                 await exeProcess.WaitForExitAsync();
             }
-
-            modConfig.updateTaskProgress("", "");
-
         }
     }
 }

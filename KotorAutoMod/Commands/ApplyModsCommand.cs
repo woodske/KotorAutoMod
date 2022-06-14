@@ -54,7 +54,7 @@ namespace KotorAutoMod.Commands
 
         private void OnModPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ModViewModel.isChecked))
+            if (e.PropertyName == nameof(ModViewModel.isChecked) || e.PropertyName == nameof(ModConfigViewModel.FirstTimeSetupIsChecked))
             {
                 OnCanExecutedChanged();
             }
@@ -75,7 +75,10 @@ namespace KotorAutoMod.Commands
         protected override async Task ExecuteAsync(object parameter)
         {
             IEnumerable<ModViewModel> selectedMods = _mods.Where(mod => mod.isAvailable && mod.isChecked);
+            _modConfig.ProgressBarMaximum = Utils.getProgressBarMaximum(_modConfig, selectedMods);
+            _modConfig.ProgressBarValue = 0;
             await Utils.applyMods(_modConfig, selectedMods);
+            _modConfig.updateTaskProgress("Finished");
         }
 
         public override void Dispose()
