@@ -74,7 +74,7 @@ namespace KotorAutoMod.Commands
 
         protected override async Task ExecuteAsync(object parameter)
         {
-            IEnumerable<ModViewModel> selectedMods = _mods.ToList().Where(mod => mod.isAvailable && mod.isChecked);
+            IEnumerable<ModViewModel> selectedMods = _mods.Where(mod => mod.isAvailable && mod.isChecked);
             await Utils.applyMods(_modConfig, selectedMods);
         }
 

@@ -82,7 +82,6 @@ namespace KotorAutoMod
             _main.SetShowValidAspectRatios(needAspectRatioAndResolution);
             _main.SetShowValidScreenResolutions(needAspectRatioAndResolution);
 
-            FirstTimeSetupCheckbox.DataContext = modConfig;
             _main.SetInstructions("Instructions for executables will appear here");
         }
 

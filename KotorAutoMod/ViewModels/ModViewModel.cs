@@ -16,8 +16,8 @@ namespace KotorAutoMod.ViewModels
         public string ModFileName => _mod.ModFileName;
         public string InstructionsName => _mod.InstructionsName;
         public string Description => _mod.Description;
-        public Uri DownloadLink => _mod.DownloadLink;
         public Uri ModPage => _mod.ModPage;
+        public string AdditionalInformation => _mod.AdditionalInformation;
         public bool isChecked
         {
             get => _mod.isChecked;

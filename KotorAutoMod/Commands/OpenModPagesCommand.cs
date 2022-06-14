@@ -11,13 +11,13 @@ using System.Windows;
 
 namespace KotorAutoMod.Commands
 {
-    internal class DownloadMissingModsCommand : CommandBase
+    internal class OpenModPagesCommand : AsyncCommandBase
     {
         private ObservableCollection<ModViewModel> _mods;
 
         private ModStore _modStore;
 
-        public DownloadMissingModsCommand(ModStore modStore)
+        public OpenModPagesCommand(ModStore modStore)
         {
             _modStore = modStore;
 
@@ -34,40 +34,10 @@ namespace KotorAutoMod.Commands
             }
         }
 
-        public override void Execute(object? parameter)
+        protected override async Task ExecuteAsync(object parameter)
         {
-            ObservableCollection<ModViewModel> newMods = new ObservableCollection<ModViewModel>();
-            ModViewModel newMod1 = new ModViewModel(new Mod(
-                "asdf",
-                "asdf",
-                "asdf",
-                "asdf",
-                "asdf",
-                "asdf",
-                new Uri("https://www.nexusmods.com/Core/Libs/Common/Widgets/DownloadPopUp?id=1464&game_id=234"),
-                new Uri("https://www.nexusmods.com/kotor/mods/1214")
-                ));
-
-            ModViewModel newMod2 = new ModViewModel(new Mod(
-                "123",
-                "123",
-                "123",
-                "123",
-                "123",
-                "123",
-                new Uri("https://www.nexusmods.com/Core/Libs/Common/Widgets/DownloadPopUp?id=1464&game_id=234"),
-                new Uri("https://www.nexusmods.com/kotor/mods/1214")
-                ));
-
-            newMod1.isAvailable = true;
-            newMod2.isAvailable = false;
-
-            newMods.Add(newMod1);
-            newMods.Add(newMod2);
-
-
-
-            _modStore.updateModsList(newMods);
+            IEnumerable<ModViewModel> selectedMods = _mods.Where(mod => !mod.isAvailable && mod.isChecked);
+            await Utils.openModLinks(selectedMods);
         }
 
         public override bool CanExecute(object? parameter)

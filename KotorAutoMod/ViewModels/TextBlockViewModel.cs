@@ -35,8 +35,7 @@ namespace KotorAutoMod.ViewModels
                         "Mod filename",
                         "Mod instructions file",
                         "Mod description",
-                        new Uri("https://www.nexusmods.com/"),
-                        new Uri("https://deadlystream.com/")
+                        new Uri("https://www.nexusmods.com/")
                         );
                 return _description;
             }

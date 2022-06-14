@@ -17,8 +17,8 @@ namespace KotorAutoMod
             string modFileName,
             string instructionsName,
             string description,
-            Uri downloadLink,
-            Uri modPage
+            Uri modPage,
+            string additionalInstructions = ""
             )
         {
             ListName = listName;
@@ -27,8 +27,8 @@ namespace KotorAutoMod
             ModFileName = modFileName;
             InstructionsName = instructionsName;
             Description = description;
-            DownloadLink = downloadLink;
             ModPage = modPage;
+            AdditionalInformation = additionalInstructions;
         }
         public string ListName { get; set; }
 
@@ -42,9 +42,9 @@ namespace KotorAutoMod
 
         public string Description { get; set; }
 
-        public Uri DownloadLink { get; set; }
-
         public Uri ModPage { get; set; }
+
+        public string AdditionalInformation { get; set; }
 
         public bool isChecked { get; set; } = true;
 

@@ -23,7 +23,7 @@
             </ListBox>
             <StackPanel Orientation="Horizontal">
                 <Button x:Name="ApplyMods" Content="Apply mods" Width="120" Height="30" Margin="10" Command="{Binding AvailableModsViewModel.ApplyModsCommand}"/>
-                <CheckBox x:Name="FirstTimeSetupCheckbox" IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked, UpdateSourceTrigger=Explicit}" Content="First Time Setup" VerticalAlignment="Center" />
+                <CheckBox x:Name="FirstTimeSetupCheckBox" IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" Content="First Time Setup" VerticalAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel.Resources>
@@ -61,7 +61,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button x:Name="DownloadUnavailableMods" Content="Download missing mods" Width="170" Height="30" Margin="10" Command="{Binding MissingModsViewModel.DownloadMissingModsCommand}"/>
+            <Button x:Name="OpenModPages" Content="Open Mod Pages" Width="170" Height="30" Margin="10" Command="{Binding MissingModsViewModel.OpenModPagesCommand}"/>
         </StackPanel>
 
         <StackPanel x:Name="DescriptionDockPanel" HorizontalAlignment="Center" Orientation="Vertical" VerticalAlignment="Top" Height="250" Width="500" Margin="10">
@@ -89,10 +89,6 @@
                 
                 <Run Text="Source page: " />
                 <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
-                <LineBreak/>
-                
-                <Run Text="Direct download: " />
-                <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.DownloadLink, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">Link</Hyperlink>
             </TextBlock>
         </StackPanel>
 
@@ -103,8 +99,7 @@
         </StackPanel>
 
 
-
-
         <Button x:Name="TestModInstall" Content="TestModInstall" HorizontalAlignment="Left" Margin="908,463,0,0" VerticalAlignment="Top" Click="TestModInstall_Click"/>
+
     </Grid>
 </Window>

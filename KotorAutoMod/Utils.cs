@@ -288,5 +288,21 @@ namespace KotorAutoMod
                 }
             }
         }
+
+        // Opens direct download link in browser for given mods
+        public static async Task openModLinks(IEnumerable<ModViewModel> selectedMods)
+        {
+            foreach (ModViewModel selectedMod in selectedMods)
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo();
+                startInfo.FileName = selectedMod.ModPage.ToString();
+                startInfo.UseShellExecute = true;
+
+                using (Process exeProcess = Process.Start(startInfo))
+                {
+                    await exeProcess.WaitForExitAsync();
+                }
+            }
+        }
     }
 }

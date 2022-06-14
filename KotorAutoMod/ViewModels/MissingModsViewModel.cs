@@ -19,7 +19,7 @@ namespace KotorAutoMod.ViewModels
 
         public ICommand SelectAllMissingModsCommand { get; }
 
-        public ICommand DownloadMissingModsCommand { get; }
+        public ICommand OpenModPagesCommand { get; }
 
         private bool _selectAllMissingModsIsChecked = false;
 
@@ -27,7 +27,7 @@ namespace KotorAutoMod.ViewModels
         {
             _modStore = modStore;
             SelectAllMissingModsCommand = new SelectAllMissingModsCommand(this, modStore);
-            DownloadMissingModsCommand = new DownloadMissingModsCommand(modStore);
+            OpenModPagesCommand = new OpenModPagesCommand(modStore);
             _modStore.ModListUpdated += OnModsUpdated;
         }
 
