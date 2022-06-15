@@ -200,12 +200,14 @@
             Width="470" 
             Margin="10">
             <Border BorderThickness="1" BorderBrush="Black">
-                <TextBlock 
-                TextWrapping="Wrap" 
-                VerticalAlignment="Center" 
-                Text="{Binding ModConfigViewModel.Instructions}" 
-                Height="100"
-                Padding="5"/>
+                <TextBox 
+                    TextWrapping="Wrap" 
+                    VerticalAlignment="Center" 
+                    Text="{Binding ModConfigViewModel.Instructions}" 
+                    Height="100"
+                    Padding="5"
+                    ScrollViewer.VerticalScrollBarVisibility="Auto"
+                    ScrollViewer.CanContentScroll="True"/>
             </Border>
             <TextBox 
                 Height="20"
