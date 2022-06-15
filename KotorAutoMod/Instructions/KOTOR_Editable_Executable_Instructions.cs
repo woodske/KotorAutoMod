@@ -7,19 +7,21 @@ namespace KotorAutoMod.Instructions
 {
     internal class KOTOR_Editable_Executable_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig)
+        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Move exectuable to swkotor folder
             string swkotorEditableExe = Path.Combine(modDirectory, "KOTOR Editable Executable", "swkotor.exe");
             File.Copy(swkotorEditableExe, Path.Combine(modConfig.SwkotorDirectory, "swkotor.exe"), true);
 
             // Open swconfig and change resolution to 1280x1084 and enable V-sync
-            //formActions.updateInstructions("Select 1280x1084 resolution and enable V-sync");
+            modConfig.Instructions = "Select 1280x1024 resolution.\n" +
+                "Enable V-Sync.\n" +
+                "Hit 'Apply' then 'Close'";
 
             string swconfigExecutable = Path.Combine(modConfig.SwkotorDirectory, "swconfig.exe");
             await Utils.runExecutable(swconfigExecutable);
 
-            //formActions.updateInstructions("");
+            modConfig.Instructions = "";
 
             // Open swkotor.ini and change the game's resolution to your resolution
             string swkotorIniFile = Path.Combine(modConfig.SwkotorDirectory, "swkotor.ini");

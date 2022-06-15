@@ -76,6 +76,7 @@ namespace KotorAutoMod.Commands
             _modConfig.ProgressBarValue = 0;
             await Utils.applyMods(_modConfig, selectedMods);
             _modConfig.updateTaskProgress("Finished");
+            _modConfig.Instructions = "Finished modding, enjoy KotoR!";
         }
 
         public override void Dispose()

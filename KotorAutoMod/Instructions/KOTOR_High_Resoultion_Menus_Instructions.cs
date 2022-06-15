@@ -9,7 +9,7 @@ namespace KotorAutoMod.Instructions
 {
     internal class KOTOR_High_Resoultion_Menus_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig)
+        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Move the three hires_patcher files to the swkotor folder and run the .bat file.
             // Then move the GUI files corresponding to the monitor's aspect ratio and resolution into the Override folder.
@@ -23,7 +23,14 @@ namespace KotorAutoMod.Instructions
                 File.Copy(Path.Combine(modDirectory, file), Path.Combine(modConfig.SwkotorDirectory, file), true);
             }
 
-            //formActions.updateInstructions("Follow bat instructions");
+            string width = modConfig.SelectedResolution.Split("x")[0];
+            string height = modConfig.SelectedResolution.Split("x")[1];
+            modConfig.Instructions = $"Follow bat instructions for {mod.ListName}\n" +
+                $"Enter {width} for your width.\n" +
+                $"Enter {height} for you height.\n" +
+                "Hit Enter when prompted to have the dialog letterbox proportions adjusted\n" +
+                "Hit Enter when prompted for the name of the swkotor.exe file\n" +
+                "Press any key to exit the script";
 
             await Utils.runExecutable(Path.Combine(modConfig.SwkotorDirectory, "hires_patcher.bat"));
 
@@ -51,6 +58,7 @@ namespace KotorAutoMod.Instructions
                     throw new Exception("Aspect ratio not selected");
             }
 
+            Utils.copyFilesToOverrideInstructions(modConfig, mod);
             await Utils.moveAllToOverrideDirectory(Path.Combine(modDirectory, aspectRatioDirectory, resolutionDirectory), modConfig.SwkotorDirectory);
         }
     }

@@ -5,6 +5,6 @@ namespace KotorAutoMod
 {
     internal interface IInstructions
     {
-        public Task applyMod(string modDirectory, ModConfigViewModel modConfig);
+        public Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod);
     }
 }

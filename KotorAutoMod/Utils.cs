@@ -186,10 +186,10 @@ namespace KotorAutoMod
                 Utils.extractSetupTools();
 
                 modConfig.updateTaskProgress("Applying KOTOR exe setup tools");
-                await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig);
+                await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, null);
 
                 modConfig.updateTaskProgress("Applying Universal Widescreen patcher");
-                await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig);
+                await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, null);
 
                 //FileUnblocker fileUnblocker = new FileUnblocker();
                 //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
@@ -198,22 +198,19 @@ namespace KotorAutoMod
 
             await Utils.extractMods(modConfig, selectedMods);
 
-            foreach (Mod supportedMod in SupportedMods.supportedMods())
+            foreach (ModViewModel selectedMod in selectedMods)
             {
-                if (selectedMods.Any(selectedMod => selectedMod.ListName == supportedMod.ListName && selectedMod.isChecked))
-                {
-                    string modDirectory = Path.Combine(modConfig.CompressedModsDirectory, Path.GetFileNameWithoutExtension(supportedMod.ModFileName));
-                    string className = $"KotorAutoMod.Instructions.{supportedMod.InstructionsName}";
+                string modDirectory = Path.Combine(modConfig.CompressedModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName));
+                string className = $"KotorAutoMod.Instructions.{selectedMod.InstructionsName}";
 
-                    modConfig.updateTaskProgress($"Applying mod: {supportedMod.ListName}");
+                modConfig.updateTaskProgress($"Applying mod: {selectedMod.ListName}");
 
-                    // Invoke the 'applyMod' method in the appropriate instruction class
-                    var type = Type.GetType(className);
-                    var applyMod = type.GetMethod("applyMod");
-                    var classInstance = Activator.CreateInstance(type);
-                    object[] parameters = new object[] { modDirectory, modConfig };
-                    await (Task)applyMod.Invoke(classInstance, parameters);
-                }
+                // Invoke the 'applyMod' method in the appropriate instruction class
+                var type = Type.GetType(className);
+                var applyMod = type.GetMethod("applyMod");
+                var classInstance = Activator.CreateInstance(type);
+                object[] parameters = new object[] { modDirectory, modConfig, selectedMod };
+                await (Task)applyMod.Invoke(classInstance, parameters);
             }
         }
 
@@ -231,6 +228,23 @@ namespace KotorAutoMod
                     await exeProcess.WaitForExitAsync();
                 }
             }
+        }
+
+        public static void tslPatcherInstructions(ModConfigViewModel modConfig, ModViewModel mod)
+        {
+            string message = $"Use the TSLPatcher for {mod.ListName}\n\n" +
+                "Click 'Install Mod' and select your swkotor folder\n" +
+                modConfig.SwkotorDirectory;
+
+            modConfig.Instructions = message;
+        }
+
+        public static void copyFilesToOverrideInstructions(ModConfigViewModel modConfig, ModViewModel mod)
+        {
+            string message = $"Copying files from {mod.ListName} to the Override folder.\n" +
+                "No actions needed";
+
+            modConfig.Instructions = message;
         }
     }
 }

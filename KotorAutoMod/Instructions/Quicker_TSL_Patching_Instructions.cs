@@ -7,10 +7,10 @@ namespace KotorAutoMod.Instructions
 {
     internal class Quicker_TSL_Patching_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig)
+        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the executable
-            modConfig.Instructions = "Follow the instructions provided by the tool";
+            modConfig.Instructions = $"Follow the instructions provided by the {mod.ListName} tool";
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = Path.Combine(modDirectory, "KotOR_Linker.vbs");
