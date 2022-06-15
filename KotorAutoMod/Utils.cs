@@ -132,56 +132,6 @@ namespace KotorAutoMod
             return mods;
         }
 
-        /*
-         * Finds which mods are in the compressed mods directory
-         */
-        public static ObservableCollection<Mod> getAvailableMods(List<Mod> supportedModsList, string compressedModsDirectory)
-        {
-            List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
-            ObservableCollection<Mod> availableMods = new ObservableCollection<Mod>();
-
-            foreach (Mod supportedMod in supportedModsList)
-            {
-                if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == supportedMod.ModFileName))
-                {
-                    availableMods.Add(supportedMod);
-                }
-            }
-
-            return availableMods;
-        }
-
-        /*
-         * Gets list of mods that are not in the compressed mods directory
-         */
-        public static ObservableCollection<Mod> getMissingMods(ObservableCollection<Mod> availableModsList)
-        {
-            ObservableCollection<Mod> missingModsList = new ObservableCollection<Mod>();
-
-            foreach (Mod supportedMod in SupportedMods.supportedMods())
-            {
-                if (!availableModsList.ToList().Exists(availableMod => availableMod.ListName.Equals(supportedMod.ListName)))
-                {
-                    supportedMod.isChecked = false;
-                    missingModsList.Add(supportedMod);
-                }
-            }
-
-            return missingModsList;
-        }
-
-        public static void setAvailableMods(ObservableCollection<ModViewModel> mods, string compressedModsDirectory)
-        {
-            List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
-            foreach (ModViewModel mod in mods)
-            {
-                if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == mod.ModFileName))
-                {
-                    mod.isAvailable = true;
-                }
-            }
-        }
-
         public async static Task moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)
         {
             List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
@@ -213,28 +163,6 @@ namespace KotorAutoMod
             }
         }
 
-        public static string[] getAvailableScreenResolutionSelections(ModConfig modConfig)
-        {
-            Dictionary<string, string[]> validScreenResolutions = ModConfig.validScreenResolutions;
-
-            if (String.IsNullOrEmpty(modConfig.selectedAspectRatio)) return new string[] { };
-
-            return validScreenResolutions[modConfig.selectedAspectRatio];
-        }
-
-        /**
-         * Check to see if user needs to select aspect ratio and resolution
-         */
-        public static bool needAspectRatioAndResolution(ModConfig modConfig)
-        {
-            List<string> modListNamesThatNeedAspectRatioAndResolution = new List<string>();
-            modListNamesThatNeedAspectRatioAndResolution.Add("KOTOR High Resolution Menus");
-
-            if (modConfig.firstTimeSetup || modConfig.selectedMods.Select(selectedMod => selectedMod.ListName).Intersect(modListNamesThatNeedAspectRatioAndResolution).Any()) return true;
-
-            return false;
-        }
-
         public static int getProgressBarMaximum(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
             int maximum = 0;
@@ -248,6 +176,7 @@ namespace KotorAutoMod
             return maximum + 1;
         }
 
+        // Extract mods and run the instructions for selected mods
         public static async Task applyMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
             // Apply setup tools

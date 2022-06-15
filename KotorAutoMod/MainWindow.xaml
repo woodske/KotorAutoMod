@@ -102,6 +102,30 @@
                         HorizontalAlignment="Left"
                         Width="130"/>
                 </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                        Text="Swkotor folder: "
+                        Padding="2"
+                        FontWeight="Bold"/>
+                    <TextBlock 
+                        Text="{Binding ModConfigViewModel.SwkotorDirectory}"
+                        ToolTip="{Binding ModConfigViewModel.SwkotorDirectory}"
+                        Padding="2"
+                        Width="181"
+                        TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock 
+                        Text="Mods folder: "
+                        Padding="2"
+                        FontWeight="Bold" />
+                    <TextBlock 
+                        Text="{Binding ModConfigViewModel.CompressedModsDirectory}"
+                        ToolTip="{Binding ModConfigViewModel.CompressedModsDirectory}"
+                        Padding="2"
+                        Width="198"
+                        TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
 
