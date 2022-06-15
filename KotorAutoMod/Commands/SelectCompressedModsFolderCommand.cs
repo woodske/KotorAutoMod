@@ -7,13 +7,18 @@ namespace KotorAutoMod.Commands
 {
     public class SelectCompressedModsFolderCommand : CommandBase
     {
-        private ModConfigViewModel _modConfigViewModel;
+        private ModConfigViewModel _modConfig;
         private ModStore _modStore;
 
-        public SelectCompressedModsFolderCommand(ModConfigViewModel modConfigViewModel, ModStore modStore)
+        public SelectCompressedModsFolderCommand(ModStore modStore)
         {
-            _modConfigViewModel = modConfigViewModel;
             _modStore = modStore;
+            _modStore.ModConfigUpdated += OnModConfigUpdate;
+        }
+
+        private void OnModConfigUpdate(ModConfigViewModel modConfig)
+        {
+            _modConfig = modConfig;
         }
 
         public override void Execute(object? parameter)
@@ -24,12 +29,18 @@ namespace KotorAutoMod.Commands
 
             if ((bool)dialog.ShowDialog())
             {
-                _modConfigViewModel.CompressedModsDirectory = dialog.SelectedPath;
+                _modConfig.CompressedModsDirectory = dialog.SelectedPath;
             }
 
-            Debug.WriteLine(_modConfigViewModel.CompressedModsDirectory);
+            Debug.WriteLine(_modConfig.CompressedModsDirectory);
 
-            _modStore.updateModsList(Utils.getMods(_modConfigViewModel.CompressedModsDirectory));
+            _modStore.updateModsList(Utils.getMods(_modConfig.CompressedModsDirectory));
+        }
+
+        public override void Dispose()
+        {
+            _modStore.ModConfigUpdated -= OnModConfigUpdate;
+            base.Dispose();
         }
     }
 }

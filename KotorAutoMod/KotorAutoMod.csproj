@@ -8,19 +8,28 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
-		<PackageReference Include="SharpCompress" Version="0.31.0" />
-		<PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+	  <None Remove="Resources\revan-star-wars.gif" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<None Update="resources\4gb_patch.zip">
+		<PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+		<PackageReference Include="SharpCompress" Version="0.32.0" />
+		<PackageReference Include="System.Windows.Interactivity.WPF" Version="2.0.20525" />
+		<PackageReference Include="WpfAnimatedGif" Version="2.0.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Resources\revan-star-wars.gif" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Resources\4gb_patch.zip">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="resources\KOTOR Editable Executable.rar">
+		<None Update="Resources\KOTOR Editable Executable.rar">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="resources\uniws.zip">
+		<None Update="Resources\uniws.zip">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>

@@ -78,7 +78,7 @@ namespace KotorAutoMod
         public static string getResourcesDirectory()
         {
             string? outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            return Path.Combine(outputDirectory, "resources");
+            return Path.Combine(outputDirectory, "Resources");
         }
 
         public static void extractSetupTools()

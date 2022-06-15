@@ -4,9 +4,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="MainWindow" Height="550" Width="1100">
+        Title="KOTOR Auto Mod" Height="550" Width="1100">
     <Grid Margin="10, 10">
         <StackPanel 
             HorizontalAlignment="Left" 
@@ -16,10 +17,10 @@
             Margin="10">
             <TextBox 
                 TextAlignment="Center" 
-                Text="Available Mods" 
-                VerticalAlignment="Top" 
+                Text="Available Mods"  
                 Height="20" 
-                BorderThickness="0"/>
+                BorderThickness="0"
+                IsReadOnly="True"/>
             <ListBox 
                 ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" 
                 SelectedValue="{Binding DescriptionViewModel.Mod}" 
@@ -52,6 +53,10 @@
             Width="280" 
             Margin="10">
             <StackPanel Orientation="Vertical">
+                <Label 
+                    Content="Configuration"
+                    HorizontalAlignment="Center"
+                    />
                 <CheckBox 
                     IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" 
                     Content="First Time Setup" 
@@ -116,7 +121,8 @@
                     Text="Missing Mods" 
                     Height="20" 
                     Margin="20,0,0,0" 
-                    BorderThickness="0"/>
+                    BorderThickness="0"
+                    IsReadOnly="True"/>
             </StackPanel>
             <ListBox 
                 ItemsSource="{Binding MissingModsViewModel.MissingMods}" 
@@ -138,7 +144,7 @@
             </ListBox>
             <Button 
                 Content="Open Mod Pages" 
-                Width="170" 
+                Width="120" 
                 Height="30" 
                 Margin="10" 
                 Command="{Binding MissingModsViewModel.OpenModPagesCommand}"/>
@@ -190,6 +196,12 @@
                 <Run Text="{Binding DescriptionViewModel.Mod.Description, Mode=OneWay}" />
                 <LineBreak/>
             </TextBlock>
+            <Button
+                Content="Refresh Mods" 
+                Width="120" 
+                Height="30" 
+                Margin="10" 
+                Command="{Binding ModConfigViewModel.RefreshModsCommand}"/>
         </StackPanel>
 
         <StackPanel 
@@ -199,6 +211,10 @@
             Height="200" 
             Width="470" 
             Margin="10">
+            <Label 
+                Content="Instructions"
+                HorizontalAlignment="Center"
+                Margin="0,0,0,3"/>
             <Border BorderThickness="1" BorderBrush="Black">
                 <TextBox 
                     TextWrapping="Wrap" 
@@ -211,7 +227,7 @@
             </Border>
             <TextBox 
                 Height="20"
-                Margin="10"
+                Margin="5"
                 BorderThickness="0"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -222,7 +238,14 @@
                 Maximum="{Binding ModConfigViewModel.ProgressBarMaximum}" 
                 Value="{Binding ModConfigViewModel.ProgressBarValue}" 
                 Height="20" 
-                Margin="10"/>
+                Margin="5"/>
         </StackPanel>
+
+        <Image 
+            gif:ImageBehavior.AnimatedSource="Resources/revan-star-wars.gif"
+            VerticalAlignment="Bottom"
+            HorizontalAlignment="Right"
+            Height="200"
+            Margin="30, 20, 50, 10"/>
     </Grid>
 </Window>

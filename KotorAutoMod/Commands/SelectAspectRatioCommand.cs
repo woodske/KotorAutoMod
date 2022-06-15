@@ -1,20 +1,34 @@
 ﻿using KotorAutoMod.Models;
+using KotorAutoMod.Stores;
 using KotorAutoMod.ViewModels;
 
 namespace KotorAutoMod.Commands
 {
     internal class SelectAspectRatioCommand : CommandBase
     {
-        private ModConfigViewModel _modConfigViewModel;
+        private ModConfigViewModel _modConfig;
+        private ModStore _modStore;
 
-        public SelectAspectRatioCommand(ModConfigViewModel modConfigViewModel)
+        public SelectAspectRatioCommand(ModStore modStore)
         {
-            _modConfigViewModel = modConfigViewModel;
+            _modStore = modStore;
+            _modStore.ModConfigUpdated += OnModConfigUpdate;
+        }
+
+        private void OnModConfigUpdate(ModConfigViewModel modConfig)
+        {
+            _modConfig = modConfig;
         }
 
         public override void Execute(object? parameter)
         {
-            _modConfigViewModel.AvailableScreenResolutions = ModConfig.validScreenResolutions[_modConfigViewModel.SelectedAspectRatio];
+            _modConfig.AvailableScreenResolutions = ModConfig.validScreenResolutions[_modConfig.SelectedAspectRatio];
+        }
+
+        public override void Dispose()
+        {
+            _modStore.ModConfigUpdated -= OnModConfigUpdate;
+            base.Dispose();
         }
     }
 }

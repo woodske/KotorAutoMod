@@ -1,4 +1,5 @@
-﻿using KotorAutoMod.ViewModels;
+﻿using KotorAutoMod.Stores;
+using KotorAutoMod.ViewModels;
 using Ookii.Dialogs.Wpf;
 using System.Diagnostics;
 
@@ -6,11 +7,18 @@ namespace KotorAutoMod.Commands
 {
     internal class SelectSwkotorFolderCommand : CommandBase
     {
-        private ModConfigViewModel _modConfigViewModel;
+        private ModConfigViewModel _modConfig;
+        private ModStore _modStore;
 
-        public SelectSwkotorFolderCommand(ModConfigViewModel modConfigViewModel)
+        public SelectSwkotorFolderCommand(ModStore modStore)
         {
-            _modConfigViewModel = modConfigViewModel;
+            _modStore = modStore;
+            _modStore.ModConfigUpdated += OnModConfigUpdate;
+        }
+
+        private void OnModConfigUpdate(ModConfigViewModel modConfig)
+        {
+            _modConfig = modConfig;
         }
 
         public override void Execute(object? parameter)
@@ -21,10 +29,16 @@ namespace KotorAutoMod.Commands
 
             if ((bool)dialog.ShowDialog())
             {
-                _modConfigViewModel.SwkotorDirectory = dialog.SelectedPath;
+                _modConfig.SwkotorDirectory = dialog.SelectedPath;
             }
 
-            Debug.WriteLine(_modConfigViewModel.SwkotorDirectory);
+            Debug.WriteLine(_modConfig.SwkotorDirectory);
+        }
+
+        public override void Dispose()
+        {
+            _modStore.ModConfigUpdated -= OnModConfigUpdate;
+            base.Dispose();
         }
     }
 }
