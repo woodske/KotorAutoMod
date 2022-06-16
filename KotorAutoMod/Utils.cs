@@ -114,7 +114,7 @@ namespace KotorAutoMod
 
             List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
 
-            foreach (Mod supportedMod in SupportedMods.supportedMods())
+            foreach (Mod supportedMod in SupportedMods.supportedMods)
             {
                 ModViewModel modViewModel = new ModViewModel(supportedMod);
                 if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == supportedMod.ModFileName))
