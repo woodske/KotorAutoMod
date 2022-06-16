@@ -33,11 +33,12 @@ namespace KotorAutoMod.Commands
             modConfig.SelectedAspectRatio = "16:10";
             //modConfig.SelectedResolution = "2560x1440";
 
-            string modName = "HD NPC Portraits";
+            string modName = "HD UI Elements";
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
-            string modDirectory = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
+            string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
+            string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new HD_NPC_Portraits_Instructions().applyMod(new List<string> { modDirectory }, modConfig, selectedMod);
+            await new HD_UI_Elements_Instructions().applyMod(new List<string> { modDirectory1, modDirectory2 }, modConfig, selectedMod);
 
         }
     }

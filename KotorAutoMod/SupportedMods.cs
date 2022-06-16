@@ -76,6 +76,15 @@ namespace KotorAutoMod
                 "Updates NPC portraits with HD portraits",
                 new Uri("https://deadlystream.com/files/file/1213-hd-npc-portraits/")
                 ),
+            new Mod(
+                "HD UI Elements",
+                "Sdub",
+                Recommended,
+                new string[] { "Random HD UI Elements.zip", "T3M4 Request.zip" },
+                "HD_UI_Elements_Instructions",
+                "Adds HD icons for party selection planets on the galaxy map",
+                new Uri("https://deadlystream.com/files/file/1909-random-hd-ui-elements/")
+                ),
 
             new Mod(
                 "Kashyyk Control Panel",
@@ -83,7 +92,7 @@ namespace KotorAutoMod
                 Recommended,
                 new string[] { "[K1]_Control_Panel_For_Kashyyyk_Shadowlands_Forcefield_v1.1.7z" },
                 "Kashyyk_Control_Panel_Instructions",
-                "Adds control panel to Kahyyk force field",
+                "Adds control panel to Kashyyk force field",
                 new Uri("https://deadlystream.com/files/file/1427-control-panel-for-kashyyyk-shadowlands-forcefield/")
                 ),
             new Mod(
