@@ -9,7 +9,7 @@ namespace KotorAutoMod.Instructions
 {
     internal class KOTOR_High_Resoultion_Menus_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod)
+        public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Move the three hires_patcher files to the swkotor folder and run the .bat file.
             // Then move the GUI files corresponding to the monitor's aspect ratio and resolution into the Override folder.
@@ -20,7 +20,7 @@ namespace KotorAutoMod.Instructions
 
             foreach (string file in filesToMove)
             {
-                File.Copy(Path.Combine(modDirectory, file), Path.Combine(modConfig.SwkotorDirectory, file), true);
+                File.Copy(Path.Combine(readyMods[0], file), Path.Combine(modConfig.SwkotorDirectory, file), true);
             }
 
             string width = modConfig.SelectedResolution.Split("x")[0];
@@ -59,7 +59,7 @@ namespace KotorAutoMod.Instructions
             }
 
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            await Utils.moveAllToOverrideDirectory(Path.Combine(modDirectory, aspectRatioDirectory, resolutionDirectory), modConfig.SwkotorDirectory);
+            await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], aspectRatioDirectory, resolutionDirectory), modConfig.SwkotorDirectory);
         }
     }
 }

@@ -29,12 +29,12 @@ namespace KotorAutoMod.Commands
 
             if ((bool)dialog.ShowDialog())
             {
-                _modConfig.CompressedModsDirectory = dialog.SelectedPath;
+                _modConfig.ModsDirectory = dialog.SelectedPath;
             }
 
-            Debug.WriteLine(_modConfig.CompressedModsDirectory);
+            Debug.WriteLine(_modConfig.ModsDirectory);
 
-            _modStore.updateModsList(Utils.getMods(_modConfig.CompressedModsDirectory));
+            _modStore.updateModsList(Utils.getMods(_modConfig.ModsDirectory));
         }
 
         public override void Dispose()

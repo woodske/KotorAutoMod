@@ -59,7 +59,7 @@
                     />
                 <CheckBox 
                     IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" 
-                    Content="First Time Setup" 
+                    Content="Widescreen Setup" 
                     VerticalAlignment="Center" 
                     Margin="5"/>
                 <StackPanel Orientation="Horizontal">
@@ -120,8 +120,8 @@
                         Padding="2"
                         FontWeight="Bold" />
                     <TextBlock 
-                        Text="{Binding ModConfigViewModel.CompressedModsDirectory}"
-                        ToolTip="{Binding ModConfigViewModel.CompressedModsDirectory}"
+                        Text="{Binding ModConfigViewModel.ModsDirectory}"
+                        ToolTip="{Binding ModConfigViewModel.ModsDirectory}"
                         Padding="2"
                         Width="198"
                         TextTrimming="CharacterEllipsis"/>
@@ -129,7 +129,7 @@
             </StackPanel>
             <Button 
                 Content="Test Mod"
-                Visibility="Visible"
+                Visibility="Hidden"
                 Command="{Binding ModConfigViewModel.TestModCommand}"/>
         </StackPanel>
 
@@ -210,7 +210,7 @@
                 <LineBreak/>
                 
                 <Run Text="Filename: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.ModFileName, Mode=OneWay}" />
+                <Run Text="{Binding DescriptionViewModel.Mod.CombinedModFileName, Mode=OneWay}" />
                 <LineBreak/>
                 
                 <Run Text="Source page: " FontWeight="Bold"/>

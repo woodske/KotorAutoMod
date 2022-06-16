@@ -17,27 +17,31 @@ namespace KotorAutoMod
 {
     internal static class Utils
     {
+        public static string[] supportedCompressedFileExtensions = new string[] { ".7z", ".zip", ".rar" };
         public static async Task extractMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
-            string[] files = Directory.GetFiles(modConfig.CompressedModsDirectory);
-
-            foreach (string file in files)
+            foreach (ModViewModel selectedMod in selectedMods)
             {
-                if (selectedMods.Any(mod => mod.ModFileName.Equals(Path.GetFileName(file)) && mod.isChecked))
+                foreach (string modFile in selectedMod.ModFileName)
                 {
-                    string fileExtension = Path.GetExtension(file);
-                    string extractDirectory = Path.Combine(modConfig.CompressedModsDirectory, Path.GetFileNameWithoutExtension(file));
+                    string fileExtension = Path.GetExtension(modFile);
+                    if (!supportedCompressedFileExtensions.Contains(fileExtension))
+                    {
+                        break;
+                    }
+                    string extractDirectory = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFile));
+                    string modPath = Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile));
                     Directory.CreateDirectory(extractDirectory);
 
-                    modConfig.updateTaskProgress($"Extracting {Path.GetFileNameWithoutExtension(file)}");
-                    Debug.WriteLine($"Extracting {Path.GetFileNameWithoutExtension(file)}");
+                    modConfig.updateTaskProgress($"Extracting {Path.GetFileNameWithoutExtension(modFile)}");
+                    Debug.WriteLine($"Extracting {Path.GetFileNameWithoutExtension(modFile)}");
 
                     await Task.Run(() =>
                     {
                         switch (fileExtension)
                         {
                             case ".7z":
-                                using (var archive = SevenZipArchive.Open(file))
+                                using (var archive = SevenZipArchive.Open(modPath))
                                 {
                                     var reader = archive.ExtractAllEntries();
                                     while (reader.MoveToNextEntry())
@@ -52,7 +56,7 @@ namespace KotorAutoMod
                                 };
                                 break;
                             default:
-                                using (Stream stream = File.OpenRead(file))
+                                using (Stream stream = File.OpenRead(modPath))
                                 using (var reader = ReaderFactory.Open(stream))
                                 {
                                     while (reader.MoveToNextEntry())
@@ -72,6 +76,7 @@ namespace KotorAutoMod
                     });
                 }
             }
+
             Debug.WriteLine("All done extracting mods");
         }
 
@@ -108,23 +113,26 @@ namespace KotorAutoMod
             }
         }
 
-        public static ObservableCollection<ModViewModel> getMods(string compressedModsDirectory)
+        public static ObservableCollection<ModViewModel> getMods(string modsDirectory)
         {
             ObservableCollection<ModViewModel> mods = new ObservableCollection<ModViewModel>();
 
-            List<string> compressedModsList = Directory.GetFiles(compressedModsDirectory).ToList();
+            List<string> modsList = Directory.GetFiles(modsDirectory).ToList();
 
             foreach (Mod supportedMod in SupportedMods.supportedMods)
             {
+                bool hasAllModFiles = true;
+                foreach (string modFile in supportedMod.ModFileName)
+                {
+                    if (!modsList.Contains(Path.Combine(modsDirectory, modFile)))
+                    {
+                        hasAllModFiles = false;
+                        break;
+                    }
+                }
+
                 ModViewModel modViewModel = new ModViewModel(supportedMod);
-                if (compressedModsList.Any(compressedModPath => Path.GetFileName(compressedModPath) == supportedMod.ModFileName))
-                {
-                    modViewModel.isAvailable = true;
-                }
-                else
-                {
-                    modViewModel.isAvailable = false;
-                }
+                modViewModel.isAvailable = hasAllModFiles;
 
                 mods.Add(modViewModel);
             }
@@ -186,21 +194,35 @@ namespace KotorAutoMod
                 Utils.extractSetupTools();
 
                 modConfig.updateTaskProgress("Applying KOTOR exe setup tools");
-                await new KOTOR_Editable_Executable_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable"), modConfig, null);
+                await new KOTOR_Editable_Executable_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable") }, modConfig, null);
 
                 modConfig.updateTaskProgress("Applying Universal Widescreen patcher");
-                await new UniWS_Patcher_Instructions().applyMod(Path.Combine(Utils.getResourcesDirectory(), "uniws"), modConfig, null);
+                await new UniWS_Patcher_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "uniws") }, modConfig, null);
 
                 //FileUnblocker fileUnblocker = new FileUnblocker();
                 //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
                 // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
             }
 
+            modConfig.Instructions = "Extracting mods... this may take a few minutes.";
             await Utils.extractMods(modConfig, selectedMods);
 
             foreach (ModViewModel selectedMod in selectedMods)
             {
-                string modDirectory = Path.Combine(modConfig.CompressedModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName));
+                List<string> readyMods = new List<string>();
+                foreach (string modFile in selectedMod.ModFileName)
+                {
+                    string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFile));
+                    if (Directory.Exists(modFilePath))
+                    {
+                        readyMods.Add(modFilePath);
+                    }
+                    else
+                    {
+                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile)));
+                    }
+                }
+
                 string className = $"KotorAutoMod.Instructions.{selectedMod.InstructionsName}";
 
                 modConfig.updateTaskProgress($"Applying mod: {selectedMod.ListName}");
@@ -209,7 +231,7 @@ namespace KotorAutoMod
                 var type = Type.GetType(className);
                 var applyMod = type.GetMethod("applyMod");
                 var classInstance = Activator.CreateInstance(type);
-                object[] parameters = new object[] { modDirectory, modConfig, selectedMod };
+                object[] parameters = new object[] { readyMods, modConfig, selectedMod };
                 await (Task)applyMod.Invoke(classInstance, parameters);
             }
         }

@@ -24,20 +24,20 @@ namespace KotorAutoMod.Commands
         {
             ModConfigViewModel modConfig = new ModConfigViewModel(_modStore);
 
-            modConfig.CompressedModsDirectory = "D:\\compressedMods\\";
+            modConfig.ModsDirectory = "D:\\compressedMods\\";
             modConfig.SwkotorDirectory = "D:\\test\\";
             modConfig.FirstTimeSetupIsChecked = false;
 
-            _modStore.updateModsList(Utils.getMods(modConfig.CompressedModsDirectory));
+            _modStore.updateModsList(Utils.getMods(modConfig.ModsDirectory));
 
             modConfig.SelectedAspectRatio = "16:10";
             //modConfig.SelectedResolution = "2560x1440";
 
-            string modName = "HD Loadscreens (4:3)";
+            string modName = "HD NPC Portraits";
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
-            string modDirectory = Path.Combine(modConfig.CompressedModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName));
+            string modDirectory = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
 
-            await new HD_Loadscreens_Instructions().applyMod(modDirectory, modConfig, selectedMod);
+            await new HD_NPC_Portraits_Instructions().applyMod(new List<string> { modDirectory }, modConfig, selectedMod);
 
         }
     }

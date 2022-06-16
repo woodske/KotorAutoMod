@@ -8,7 +8,7 @@ namespace KotorAutoMod
             string listName,
             string author,
             string importance,
-            string modFileName,
+            string[] modFileName,
             string instructionsName,
             string description,
             Uri modPage,
@@ -30,7 +30,7 @@ namespace KotorAutoMod
 
         public string Importance { get; set; }
 
-        public string ModFileName { get; set; }
+        public string[] ModFileName { get; set; }
 
         public string InstructionsName { get; set; }
 

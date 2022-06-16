@@ -1,17 +1,21 @@
 ﻿using KotorAutoMod.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace KotorAutoMod.Instructions
 {
-    internal class Main_Menu_Widescreen_Fix_Instructions : IInstructions
+    internal class HD_NPC_Portraits_Instructions : IInstructions
     {
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
-            // Move all from For Override to the Override folder
+            // Move all to the override folder, ignore the version 1 looks
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], "[K1]_Main_Menu_Widescreen_Fix_v1.2", "For Override"), modConfig.SwkotorDirectory);
+
+            await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], "hd_npc_portraits", "Override"), modConfig.SwkotorDirectory);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace KotorAutoMod.ViewModels
 
         private string _swkotorDirectory = string.Empty;
 
-        private string _compressedModsDirectory = string.Empty;
+        private string _modsDirectory = string.Empty;
 
         private string _selectedResolution = string.Empty;
 
@@ -68,16 +68,16 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
-        public string CompressedModsDirectory
+        public string ModsDirectory
         {
             get
             {
-                return _compressedModsDirectory;
+                return _modsDirectory;
             }
             set
             {
-                _compressedModsDirectory = value;
-                OnPropertyChanged(nameof(CompressedModsDirectory));
+                _modsDirectory = value;
+                OnPropertyChanged(nameof(ModsDirectory));
             }
         }
 
@@ -268,7 +268,7 @@ namespace KotorAutoMod.ViewModels
         private static string getInitialInstructions()
         {
             return "\u2022 On the left are some configurations needed before running the KOTOR Auto Mod tool.\n\n" +
-                "\u2022 Check the 'first time setup' box if this is a fresh install and you want the tool to setup the game for widescreen (highly recommended).\n\n" +
+                "\u2022 Check the 'Widescreen Setup' box if this is a fresh install and you want the tool to setup the game for widescreen (highly recommended, some mods may not work without this).\n\n" +
                 "\u2022 Select the folder that your swkotor exe live in as well as the folder where all of your compressed mods live.\n\n" +
                 "\u2022 After choosing your compressed mods folder, the mods that are available and compatible with this tool will show up on the left.\n\n" +
                 "\u2022 Mods that were not located will show on the right. You will need to download the compressed mod at the link in the mod description and put it in your mods folder. Some mods have multiple files so make sure it matches the filename in the mod description.\n\n" +

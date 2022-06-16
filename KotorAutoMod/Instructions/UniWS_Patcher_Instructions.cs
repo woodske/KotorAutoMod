@@ -1,4 +1,5 @@
 ﻿using KotorAutoMod.ViewModels;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -6,7 +7,7 @@ namespace KotorAutoMod.Instructions
 {
     internal class UniWS_Patcher_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod)
+        public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the executable and point it towards your swkotor folder and select the 1024x768 interface. Enter your monitor’s resolution in the boxes and click patch.
             string width = modConfig.SelectedResolution.Split("x")[0];
@@ -20,7 +21,7 @@ namespace KotorAutoMod.Instructions
                 $"Click Patch and wait for the prompt for a successful patch.\n" +
                 "Close the Universal Widescreen Patcher tool.";
 
-            string uniwsExecutable = Path.Combine(modDirectory, "uniws.exe");
+            string uniwsExecutable = Path.Combine(readyMods[0], "uniws.exe");
             await Utils.runExecutable(uniwsExecutable);
         }
     }

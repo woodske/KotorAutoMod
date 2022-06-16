@@ -31,7 +31,7 @@ namespace KotorAutoMod.Commands
         private void OnModConfigPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(ModConfigViewModel.SwkotorDirectory)
-                || e.PropertyName == nameof(ModConfigViewModel.CompressedModsDirectory)
+                || e.PropertyName == nameof(ModConfigViewModel.ModsDirectory)
                 || e.PropertyName == nameof(ModConfigViewModel.SelectedAspectRatio)
                 || e.PropertyName == nameof(ModConfigViewModel.SelectedResolution)
                 )
@@ -64,7 +64,7 @@ namespace KotorAutoMod.Commands
                 : false;
 
             return !String.IsNullOrEmpty(_modConfig.SwkotorDirectory)
-                && !String.IsNullOrEmpty(_modConfig.CompressedModsDirectory)
+                && !String.IsNullOrEmpty(_modConfig.ModsDirectory)
                 && !needsSelectedAspectRatioAndResolutionValues
                 && base.CanExecute(parameter);
         }

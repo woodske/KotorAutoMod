@@ -28,7 +28,7 @@ namespace KotorAutoMod.Commands
 
         private void OnModConfigPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ModConfigViewModel.CompressedModsDirectory))
+            if (e.PropertyName == nameof(ModConfigViewModel.ModsDirectory))
             {
                 OnCanExecutedChanged();
             }
@@ -36,12 +36,12 @@ namespace KotorAutoMod.Commands
 
         public override void Execute(object? parameter)
         {
-            _modStore.updateModsList(Utils.getMods(_modConfig.CompressedModsDirectory)); ;
+            _modStore.updateModsList(Utils.getMods(_modConfig.ModsDirectory)); ;
         }
 
         public override bool CanExecute(object? parameter)
         {
-            return !String.IsNullOrEmpty(_modConfig.CompressedModsDirectory)
+            return !String.IsNullOrEmpty(_modConfig.ModsDirectory)
                 && base.CanExecute(parameter);
         }
 

@@ -1,4 +1,5 @@
 ﻿using KotorAutoMod.ViewModels;
+using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -7,10 +8,10 @@ namespace KotorAutoMod.Instructions
 {
     internal class KOTOR_Editable_Executable_Instructions : IInstructions
     {
-        public async Task applyMod(string modDirectory, ModConfigViewModel modConfig, ModViewModel mod)
+        public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Move exectuable to swkotor folder
-            string swkotorEditableExe = Path.Combine(modDirectory, "KOTOR Editable Executable", "swkotor.exe");
+            string swkotorEditableExe = Path.Combine(readyMods[0], "KOTOR Editable Executable", "swkotor.exe");
             File.Copy(swkotorEditableExe, Path.Combine(modConfig.SwkotorDirectory, "swkotor.exe"), true);
 
             // Open swconfig and change resolution to 1280x1084 and enable V-sync
