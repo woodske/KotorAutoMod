@@ -39,6 +39,7 @@ namespace KotorAutoMod.ViewModels
         public ICommand SelectCompressedModsFolderCommand { get; }
         public ICommand SelectAspectRatioCommand { get; }
         public ICommand RefreshModsCommand { get; }
+        public ICommand TestModCommand { get; }
 
         public ModConfigViewModel(ModStore modStore)
         {
@@ -47,6 +48,7 @@ namespace KotorAutoMod.ViewModels
             SelectCompressedModsFolderCommand = new SelectCompressedModsFolderCommand(_modStore);
             SelectAspectRatioCommand = new SelectAspectRatioCommand(_modStore);
             RefreshModsCommand = new RefreshModsCommand(_modStore);
+            TestModCommand = new TestModCommand(_modStore);
 
             _modStore.updateModConfig(this);
             _modStore.ModListUpdated += OnModsUpdated;

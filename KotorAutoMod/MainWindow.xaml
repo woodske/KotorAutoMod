@@ -127,6 +127,10 @@
                         TextTrimming="CharacterEllipsis"/>
                 </StackPanel>
             </StackPanel>
+            <Button 
+                Content="Test Mod"
+                Visibility="Visible"
+                Command="{Binding ModConfigViewModel.TestModCommand}"/>
         </StackPanel>
 
         <StackPanel 
