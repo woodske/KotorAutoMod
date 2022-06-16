@@ -140,7 +140,7 @@ namespace KotorAutoMod
             return mods;
         }
 
-        public async static Task moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null)
+        public async static Task moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null, bool overwrite = true)
         {
             List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
             string overrideDirectory = Path.Combine(swkotorDirectory, "Override");
@@ -151,7 +151,11 @@ namespace KotorAutoMod
                 {
                     if (excludeList == null || !excludeList.Contains(Path.GetFileName(modFile)))
                     {
-                        File.Copy(modFile, Path.Combine(overrideDirectory, Path.GetFileName(modFile)), true);
+                        try
+                        {
+                            File.Copy(modFile, Path.Combine(overrideDirectory, Path.GetFileName(modFile)), overwrite);
+                        }
+                        catch (System.IO.IOException e) { } //Don't throw error if overwrite is false
                     }
                 }
             });

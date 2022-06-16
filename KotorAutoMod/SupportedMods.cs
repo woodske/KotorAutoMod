@@ -85,6 +85,17 @@ namespace KotorAutoMod
                 "Adds HD icons for party selection planets on the galaxy map",
                 new Uri("https://deadlystream.com/files/file/1909-random-hd-ui-elements/")
                 ),
+            new Mod(
+                "Pazaak UI",
+                "MadDerp",
+                Recommended,
+                new string[] { "PurePazaakAndStuff_1.3-1281-1-3-1560209417.zip" },
+                "Pazaak_UI_Instructions",
+                "Upgrades Pazaak UI and other icons",
+                new Uri("https://www.nexusmods.com/kotor/mods/1281")
+                ),
+
+
 
             new Mod(
                 "Kashyyk Control Panel",
