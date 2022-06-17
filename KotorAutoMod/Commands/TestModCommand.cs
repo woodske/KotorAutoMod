@@ -33,13 +33,12 @@ namespace KotorAutoMod.Commands
             modConfig.SelectedAspectRatio = "16:9";
             modConfig.SelectedResolution = "1920x1080";
 
-            string modName = "Pazaak UI";
+            string modName = "HD Legal Screen";
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Pazaak_UI_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
-
+            await new HD_Legal_Screen_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

@@ -49,6 +49,7 @@ namespace KotorAutoMod
                 "Overhauls menus and UI at a higher resolution",
                 new Uri("https://deadlystream.com/files/file/1457-hd-menus-and-ui-assets/")
                 ),
+            // HD Loadscreens x2
             new Mod(
                 "HD Loadscreens (16:9)",
                 "ajdrenter",
@@ -94,7 +95,79 @@ namespace KotorAutoMod
                 "Upgrades Pazaak UI and other icons",
                 new Uri("https://www.nexusmods.com/kotor/mods/1281")
                 ),
-
+            new Mod(
+                "Upscaled Computer",
+                "Dark Hope, Sdub, & Effix",
+                Optional,
+                new string[] { "Upscaled Computer.rar" },
+                "Upscaled_Computer_Instructions",
+                "Upscales computer interface",
+                new Uri("https://deadlystream.com/files/file/2025-upscaled-computer/")
+                ),
+            new Mod(
+                "HD Icon Pack",
+                "JackInTheBox",
+                Recommended,
+                new string[] { "KoToR1IconMOD.rar" },
+                "HD_Icon_Pack_Instructions",
+                "Adds HD item UI icons",
+                new Uri("https://deadlystream.com/files/file/1699-kotor1-hd-icon-pack-ver10/")
+                ),
+            // Remastered Cutscenes x5
+            new Mod(
+                "HD Cutscenes (720)",
+                "Naelavok",
+                Essential,
+                new string[] { "720.zip" },
+                "HD_Cutscenes_Instructions",
+                "Adds remastered HD cutscenes",
+                new Uri("https://deadlystream.com/files/file/1517-kotor-1-remastered-ai-upscaled-cutscenes/")
+                ),
+            new Mod(
+                "HD Cutscenes (768)",
+                "Naelavok",
+                Essential,
+                new string[] { "768.zip" },
+                "HD_Cutscenes_Instructions",
+                "Adds remastered HD cutscenes",
+                new Uri("https://deadlystream.com/files/file/1517-kotor-1-remastered-ai-upscaled-cutscenes/")
+                ),
+            new Mod(
+                "HD Cutscenes (1080)",
+                "Naelavok",
+                Essential,
+                new string[] { "1080.zip" },
+                "HD_Cutscenes_Instructions",
+                "Adds remastered HD cutscenes",
+                new Uri("https://deadlystream.com/files/file/1517-kotor-1-remastered-ai-upscaled-cutscenes/")
+                ),
+            new Mod(
+                "HD Cutscenes (1440)",
+                "Naelavok",
+                Essential,
+                new string[] { "1440.zip" },
+                "HD_Cutscenes_Instructions",
+                "Adds remastered HD cutscenes",
+                new Uri("https://deadlystream.com/files/file/1517-kotor-1-remastered-ai-upscaled-cutscenes/")
+                ),
+            new Mod(
+                "HD Cutscenes (2160)",
+                "Naelavok",
+                Essential,
+                new string[] { "2160 P1.zip", "2160 P2.zip" },
+                "HD_Cutscenes_Instructions",
+                "Adds remastered HD cutscenes",
+                new Uri("https://deadlystream.com/files/file/1517-kotor-1-remastered-ai-upscaled-cutscenes/")
+                ),
+            new Mod(
+                "HD Legal Screen",
+                "Ashton Scorpius",
+                Optional,
+                new string[] { "K1 HD Legal Widescreen 1080p.7z" },
+                "HD_Legal_Screen_Instructions",
+                "Converts the legal screen to widescreen",
+                new Uri("https://deadlystream.com/files/file/1861-k1-hd-legal-screen/")
+                ),
 
 
             new Mod(

@@ -159,7 +159,27 @@ namespace KotorAutoMod
                     }
                 }
             });
+        }
 
+        public async static Task moveAllToMoviesDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null, bool overwrite = true)
+        {
+            List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
+            string movieDirectory = Path.Combine(swkotorDirectory, "movies");
+
+            await Task.Run(() =>
+            {
+                foreach (string modFile in modFiles)
+                {
+                    if (excludeList == null || !excludeList.Contains(Path.GetFileName(modFile)))
+                    {
+                        try
+                        {
+                            File.Copy(modFile, Path.Combine(movieDirectory, Path.GetFileName(modFile)), overwrite);
+                        }
+                        catch (System.IO.IOException e) { } //Don't throw error if overwrite is false
+                    }
+                }
+            });
         }
 
         public async static Task runExecutable(string executablePath)
