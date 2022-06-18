@@ -131,6 +131,12 @@ namespace KotorAutoMod
                     }
                 }
 
+                // Default mod to unchecked
+                if (supportedMod.ListName == "Larger Text Fonts")
+                {
+                    supportedMod.isChecked = false;
+                }
+
                 ModViewModel modViewModel = new ModViewModel(supportedMod);
                 modViewModel.isAvailable = hasAllModFiles;
 

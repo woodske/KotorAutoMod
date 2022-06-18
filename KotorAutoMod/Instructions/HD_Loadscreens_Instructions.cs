@@ -14,19 +14,27 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Move all files to the Override folder. Check that the selected apsect ratio matches the mod.
+            bool applyMod = true;
             string expectedAspectRatio = mod.ModFileName[0].Contains("16x9") ? "16:9" : "4:3";
             if (modConfig.SelectedAspectRatio != expectedAspectRatio)
             {
-                string message = $"Unable to apply mod {mod.ListName}. Your selected aspect ratio is {modConfig.SelectedAspectRatio} and this mod requires {expectedAspectRatio}.\n\n" +
-                    "All other mods will continue to be applied after closing this dialog.";
-                MessageBox.Show(message, "Mod error", MessageBoxButton.OK, MessageBoxImage.Error);
+                string message = $"Attempting to apply mod {mod.ListName}. Your selected aspect ratio is {modConfig.SelectedAspectRatio} and this mod requires {expectedAspectRatio}.\n\n" +
+                    "Press 'Yes' if you want to apply this mod anyways, press 'No' to skip this mod and continue applying the rest.";
+                MessageBoxResult messageBoxResult = MessageBox.Show(message, "Incorrect aspect ratio", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+                if (messageBoxResult == MessageBoxResult.No)
+                {
+                    applyMod = false;
+                }
             }
 
-            Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            string[] folders = new string[] { "bos", "jc2mando", "jorak", "kotor" };
-            foreach (string folder in folders)
+            if (applyMod)
             {
-                await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], folder), modConfig.SwkotorDirectory);
+                Utils.copyFilesToOverrideInstructions(modConfig, mod);
+                string[] folders = new string[] { "bos", "jc2mando", "jorak", "kotor" };
+                foreach (string folder in folders)
+                {
+                    await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], folder), modConfig.SwkotorDirectory);
+                }
             }
         }
     }

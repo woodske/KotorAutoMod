@@ -30,15 +30,15 @@ namespace KotorAutoMod.Commands
 
             _modStore.updateModsList(Utils.getMods(modConfig.ModsDirectory));
 
-            modConfig.SelectedAspectRatio = "16:9";
+            modConfig.SelectedAspectRatio = "4:3";
             modConfig.SelectedResolution = "1920x1080";
 
-            string modName = "HD Legal Screen";
+            string modName = "Larger Text Fonts";
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new HD_Legal_Screen_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Larger_Text_Fonts_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

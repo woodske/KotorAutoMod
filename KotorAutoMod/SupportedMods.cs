@@ -168,7 +168,24 @@ namespace KotorAutoMod
                 "Converts the legal screen to widescreen",
                 new Uri("https://deadlystream.com/files/file/1861-k1-hd-legal-screen/")
                 ),
-
+            new Mod(
+                "Widescreen Cockpit and Racing",
+                "MadDerp",
+                Recommended,
+                new string[] { "ws models for swkotor-1211-0-22-1550195260.zip" },
+                "Widescreen_Cockpit_And_Racing_Instructions",
+                "Adjusts models for swoop racing and Ebon Hawk",
+                new Uri("https://www.nexusmods.com/kotor/mods/1211")
+                ),
+            new Mod(
+                "Larger Text Fonts",
+                "sovietshipgirl",
+                Recommended,
+                new string[] { "LargerTextFontsK1.7z" },
+                "Larger_Text_Fonts_Instructions",
+                "Increases text fonts for higher resolutions. Only use this if you are playing in ultrawide or 4k.",
+                new Uri("https://deadlystream.com/files/file/1891-larger-text-fonts-for-kotor-1/")
+                ),
 
             new Mod(
                 "Kashyyk Control Panel",
