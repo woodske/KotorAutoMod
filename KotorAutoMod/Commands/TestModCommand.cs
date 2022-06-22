@@ -42,7 +42,7 @@ namespace KotorAutoMod.Commands
 
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Weapon_Base_Stats_Rebalance_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Saber_Throw_Knockdown_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

@@ -346,7 +346,66 @@ namespace KotorAutoMod
                 "In vanilla, blasters are underpowered compared to melee weapons. This mod increases the damage output from blasters so they are similar to their KOTOR 2 counterparts.",
                 new Uri("https://deadlystream.com/files/file/1248-weapon-base-stats-re-balance-k1/")
                 ),
-
+            new Mod(
+                "Persuade Unlocked",
+                "Sdub",
+                Gameplay,
+                Recommended,
+                new string[] { "Persuade Unlocked 1.1.zip" },
+                "Persuade_Unlocked_Instructions",
+                "Persuade is arguably the most important class in KOTOR. Sadly, it is only a class talent for scoundrels even though it is solely used by the player and all classes benefit from it. This mod makes it a class skill to all three classes.",
+                new Uri("https://deadlystream.com/files/file/1900-persuade-unlocked/")
+                ),
+            new Mod(
+                "Sneak Attack X Restoration",
+                "N-DReW25",
+                Gameplay,
+                Optional,
+                new string[] { "Sneak Attack 10 Restoration.zip" },
+                "Sneak_Attack_X_Restoration_Instructions",
+                "There was originally a tenth tier of Sneak Attack available. This mod restores it.",
+                new Uri("https://deadlystream.com/files/file/1124-sneak-attack-10-restoration/")
+                ),
+            new Mod(
+                "Improved Feat Gain",
+                "Mellowtron11",
+                Gameplay,
+                Recommended,
+                new string[] { "KOTOR 1 Improved Feat Gain Mod.zip" },
+                "Improved_Feat_Gain_Instructions",
+                "The feat gains per level of the Jedi Sentinel and Jedi Guardian are atrociously slow. This mod improves their gains so they are more in line with their KOTOR 2 progression.",
+                new Uri("https://deadlystream.com/files/file/1490-kotor-1-improved-feat-gain-mod-10/")
+                ),
+            new Mod(
+                "Improved Grenades",
+                "jc2",
+                Gameplay,
+                Recommended,
+                new string[] { "Improved Grenades.7z" },
+                "Improved_Grenades_Instructions",
+                "Grenades don’t do much damage, especially when facing higher level enemies. This mod adds the user’s demolitions skill as a damage bonus and increases the damage radius slightly so they are more useful for you and for enemies.",
+                new Uri("https://deadlystream.com/files/file/1191-improved-grenades/")
+                ),
+            new Mod(
+                "Health Regeneration",
+                "MVacc224",
+                Gameplay,
+                Recommended,
+                new string[] { "Health Regeneration.zip" },
+                "Health_Regeneration_Instructions",
+                "Ever bothered by the fact that you can’t regenerate health outside of combat and the only way is to return to the hideout/Ebon Hawk? Well, now you can!",
+                new Uri("https://deadlystream.com/files/file/458-health-regeneration/")
+                ),
+            new Mod(
+                "Saber Throw Knockdown",
+                "uwadmin12",
+                Gameplay,
+                Recommended,
+                new string[] { "saberthrow_kd.zip" },
+                "Saber_Throw_Knockdown_Instructions",
+                "The throw lightsaber power isn’t as nearly as useful as others. This mod gives it a little extra power by adding a knockdown effect.",
+                new Uri("https://deadlystream.com/files/file/1487-k1-saber-throw-knockdown-effect/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
