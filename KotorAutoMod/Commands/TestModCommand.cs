@@ -33,12 +33,12 @@ namespace KotorAutoMod.Commands
             modConfig.SelectedAspectRatio = "4:3";
             modConfig.SelectedResolution = "1920x1080";
 
-            string modName = "JC's Minor Fixes";
+            string modName = "Party Model Fixes";
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new JCs_Minor_Fixes_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Party_Model_Fixes_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

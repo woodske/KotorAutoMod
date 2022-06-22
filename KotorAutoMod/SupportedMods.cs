@@ -193,7 +193,7 @@ namespace KotorAutoMod
                 new string[] { "KotOR_Dialogue_Fixes_4_0.zip" },
                 "Dialouge_Fixes_Instructions",
                 "Fixes typos and grammatical issues",
-                new Uri("https://www.nexusmods.com/kotor/mods/1463")
+                new Uri("https://deadlystream.com/files/file/1313-kotor-dialogue-fixes/")
                 ),
             new Mod(
                 "KOTOR 1 Community Patch",
@@ -212,6 +212,15 @@ namespace KotorAutoMod
                 "JCs_Minor_Fixes_Instructions",
                 "A few QoL improvements",
                 new Uri("https://deadlystream.com/files/file/1333-jcs-minor-fixes-for-k1/")
+                ),
+            new Mod(
+                "Party Model Fixes",
+                "redrob41",
+                Recommended,
+                new string[] { "K1 Party Model fixes and HD Bastila by RedRob41.7z" },
+                "Party_Model_Fixes_Instructions",
+                "Fixes UV mapping for party member textures",
+                new Uri("https://deadlystream.com/files/file/1273-party-model-fixes-and-hd-bastila/")
                 ),
 
 
