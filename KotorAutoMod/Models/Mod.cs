@@ -7,6 +7,7 @@ namespace KotorAutoMod
         public Mod(
             string listName,
             string author,
+            string type,
             string importance,
             string[] modFileName,
             string instructionsName,
@@ -17,6 +18,7 @@ namespace KotorAutoMod
         {
             ListName = listName;
             Author = author;
+            Type = type;
             Importance = importance;
             ModFileName = modFileName;
             InstructionsName = instructionsName;
@@ -27,6 +29,8 @@ namespace KotorAutoMod
         public string ListName { get; set; }
 
         public string Author { get; set; }
+
+        public string Type { get; set; }
 
         public string Importance { get; set; }
 

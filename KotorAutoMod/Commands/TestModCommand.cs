@@ -33,12 +33,16 @@ namespace KotorAutoMod.Commands
             modConfig.SelectedAspectRatio = "4:3";
             modConfig.SelectedResolution = "1920x1080";
 
-            string modName = "Party Model Fixes";
-            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
+            // Manually select mod
+            //string modName = "Children NPC Fixes";
+            //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
+
+            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
+
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Party_Model_Fixes_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Weapon_Base_Stats_Rebalance_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

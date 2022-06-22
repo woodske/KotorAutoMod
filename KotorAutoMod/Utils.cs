@@ -285,7 +285,7 @@ namespace KotorAutoMod
         public static void tslPatcherInstructions(ModConfigViewModel modConfig, ModViewModel mod)
         {
             string message = $"Use the TSLPatcher for {mod.ListName}\n\n" +
-                "Click 'Install Mod' and select your swkotor folder\n" +
+                $"Click 'Install Mod' and select your swkotor folder ({modConfig.SwkotorDirectory})\n" +
                 modConfig.SwkotorDirectory;
 
             modConfig.Instructions = message;
