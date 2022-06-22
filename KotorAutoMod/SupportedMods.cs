@@ -186,6 +186,36 @@ namespace KotorAutoMod
                 "Increases text fonts for higher resolutions. Only use this if you are playing in ultrawide or 4k.",
                 new Uri("https://deadlystream.com/files/file/1891-larger-text-fonts-for-kotor-1/")
                 ),
+            new Mod(
+                "Dialouge Fixes",
+                "Salk",
+                Recommended,
+                new string[] { "KotOR_Dialogue_Fixes_4_0.zip" },
+                "Dialouge_Fixes_Instructions",
+                "Fixes typos and grammatical issues",
+                new Uri("https://www.nexusmods.com/kotor/mods/1463")
+                ),
+            new Mod(
+                "KOTOR 1 Community Patch",
+                "Many; maintained by A Future Pilot",
+                Essential,
+                new string[] { "K1_Community_Patch_v1.9.2.zip" },
+                "Kotor_1_Community_Patch_Instructions",
+                "Compilation of many bugfix mods",
+                new Uri("https://deadlystream.com/files/file/1258-kotor-1-community-patch/")
+                ),
+            new Mod(
+                "JC's Minor Fixes",
+                "JCarter426",
+                Recommended,
+                new string[] { "JC's Minor Fixes for K1 v1.1.zip" },
+                "JCs_Minor_Fixes_Instructions",
+                "A few QoL improvements",
+                new Uri("https://deadlystream.com/files/file/1333-jcs-minor-fixes-for-k1/")
+                ),
+
+
+
 
             new Mod(
                 "Kashyyk Control Panel",
