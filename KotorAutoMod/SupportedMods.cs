@@ -18,6 +18,7 @@ namespace KotorAutoMod
         const string QoL = "QoL";
         const string Graphics = "Graphics Improvements";
         const string Gameplay = "Gameplay Improvements";
+        const string Immersion = "Immersion";
 
         /*
          * Managed list of supported mods. This maintains the order in which the mods are applyed to the game.
@@ -405,6 +406,86 @@ namespace KotorAutoMod
                 "Saber_Throw_Knockdown_Instructions",
                 "The throw lightsaber power isn’t as nearly as useful as others. This mod gives it a little extra power by adding a knockdown effect.",
                 new Uri("https://deadlystream.com/files/file/1487-k1-saber-throw-knockdown-effect/")
+                ),
+            new Mod(
+                "Force Enlightenment",
+                "uwadmin12",
+                Gameplay,
+                Recommended,
+                new string[] { "k1_enlightenment.zip" },
+                "Force_Enlightenment_Instructions",
+                "I couldn’t be the only one disappointed by how similar most of the light side powers were in K1. This mod adds an adaptation of Force Enlightenment from KOTOR 2 where the best of Speed, Aura, and Valor are all activated at reduced cost to increase their usefulness.",
+                new Uri("https://deadlystream.com/files/file/1483-k1-force-enlightenment-power/")
+                ),
+            new Mod(
+                "Balanced Pazaak",
+                "A Future Pilot",
+                Gameplay,
+                Recommended,
+                new string[] { "Balanced Pazaak.zip" },
+                "Balanced_Pazaak_Instructions",
+                "Pazaak is pretty rigged. This mod aims to make it as fair as possible by altering opponents' decks.",
+                new Uri("https://deadlystream.com/files/file/1270-balanced-pazaak/")
+                ),
+            new Mod(
+                "No Random Fighter Battles",
+                "Antonia",
+                Gameplay,
+                Recommended,
+                new string[] { "NO_Fighters.zip" },
+                "No_Random_Fighter_Battles_Instructions",
+                "When traveling from planet to planet, it always got irritating to be ambushed constantly by Sith fighters from nowhere and play the same minigame repeatedly. This mod removes the minigames when traveling except for story-related ones.",
+                new Uri("https://deadlystream.com/files/file/807-no-random-fighter-battles/")
+                ),
+            new Mod(
+                "Davik's Upgradeable Armor",
+                "N-DReW25",
+                Gameplay,
+                Optional,
+                new string[] { "Davik&#39;s Upgradable Armor Mod.zip" },
+                "Daviks_Upgradeable_Armor_Instructions",
+                "Davik’s armor is unique, but unfortunately it isn’t upgradeable. Since most of the items in the game are upgradeable, why wouldn’t Davik’s be?",
+                new Uri("https://deadlystream.com/files/file/890-daviks-upgradable-armor-mod/")
+                ),
+            new Mod(
+                "Weapons and Armor Restored",
+                "TK-664",
+                Gameplay,
+                Recommended,
+                new string[] { "KOTOR_WNAU_V1_3.rar" },
+                "Weapons_and_Armor_Restored_Instructions",
+                "Several items are in the game files but don’t actually appear in the game. This mod restores as many as possible in locations that make sense throughout the game.",
+                new Uri("https://deadlystream.com/files/file/1921-weapons-armor-uncut/")
+                ),
+            new Mod(
+                "Vulkar Lab Bench",
+                "DarthParametric",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Black_Vulkar_Base_Engine_Lab_Bench_For_Swoop_Accelerator.7z" },
+                "Vulkar_Lab_Bench_Instructions",
+                "The prototype swoop accelerator the Vulkars stole was idiotically placed on the floor. This mod positions it on a bench and fixes some issues with the area.",
+                new Uri("https://deadlystream.com/files/file/1747-black-vulkar-base-engine-lab-bench-for-swoop-accelerator/")
+                ),
+            new Mod(
+                "JC's Vision Enhancement",
+                "JCarter426",
+                Immersion,
+                Recommended,
+                new string[] { "JC's Vision Enhancement for K1 v1.2.zip" },
+                "JC's_Vision_Enhancement_Instructions",
+                "The force visions the player has throughout the game have two inconsistencies. On Taris, the first vision is seen in the Ebon Hawn and all visions have the player sleeping in whatever they have equipped. This mod fixes both oversights.",
+                new Uri("https://deadlystream.com/files/file/1402-jcs-vision-enhancement-for-k1/")
+                ),
+            new Mod(
+                "JC's Cloaked Robes",
+                "JCarter426",
+                Immersion,
+                Recommended,
+                new string[] { "JC's Fashion Line I - Cloaked Jedi Robes for K1 v1.4.7z" },
+                "JC's_Cloaked_Robes_Instructions",
+                "Ever tired of the look of KOTOR 1’s robes and wished they actually looked like Jedi robes? This mod ports the robes from KOTOR 2 that more closely resemble the OT’s and recolors them to KOTOR 1’s colors. ",
+                new Uri("https://deadlystream.com/files/file/1378-jcs-fashion-line-i-cloaked-jedi-robes-for-k1/")
                 ),
             //new Mod(
             //    "HD Carth Onasi",

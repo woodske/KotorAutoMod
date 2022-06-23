@@ -282,11 +282,16 @@ namespace KotorAutoMod
             }
         }
 
-        public static void tslPatcherInstructions(ModConfigViewModel modConfig, ModViewModel mod)
+        public static void tslPatcherInstructions(ModConfigViewModel modConfig, ModViewModel mod, string addtionalMessage = "")
         {
             string message = $"Use the TSLPatcher for {mod.ListName}\n\n" +
-                $"Click 'Install Mod' and select your swkotor folder ({modConfig.SwkotorDirectory})\n" +
+                $"Click 'Install Mod' and select your swkotor folder\n" +
                 modConfig.SwkotorDirectory;
+
+            if (!string.IsNullOrEmpty(addtionalMessage))
+            {
+                message = message + "\n\n" + addtionalMessage;
+            }
 
             modConfig.Instructions = message;
         }
