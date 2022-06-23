@@ -487,6 +487,36 @@ namespace KotorAutoMod
                 "Ever tired of the look of KOTOR 1’s robes and wished they actually looked like Jedi robes? This mod ports the robes from KOTOR 2 that more closely resemble the OT’s and recolors them to KOTOR 1’s colors. ",
                 new Uri("https://deadlystream.com/files/file/1378-jcs-fashion-line-i-cloaked-jedi-robes-for-k1/")
                 ),
+            new Mod(
+                "Dark Jedi Wear Robes",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Dark_Jedi_Wear_Robes_for_JC's_Cloaked_Robes_v1.01.7z" },
+                "Dark_Jedi_Wear_Robes_Instructions",
+                "This one grants all of the Dark Jedi in the game robes from JC’s mod.",
+                new Uri("https://deadlystream.com/files/file/1411-dark-jedi-wear-robes-for-jcs-cloaked-jedi-robes-mod/")
+                ),
+            new Mod(
+                "Unique Qel-Droma Robes",
+                "Effix",
+                Immersion,
+                Recommended,
+                new string[] { "Effixian's Qel-Droma Robes Reskin for JC's Cloaked Jedi Robes.zip" },
+                "Unique_Qel-Droma_Robes_Instructions",
+                "Gives Qel-Droma robes their own unique texture",
+                new Uri("https://deadlystream.com/files/file/2019-effixians-qel-droma-robes-reskin-for-jcs-cloaked-jedi-robes/")
+                ),
+            new Mod(
+                "Rakghoul Fiend",
+                "ebmar",
+                Gameplay,
+                Optional,
+                new string[] { "[K1]_Rakghoul_Fiend_v1.0.0.7z" },
+                "Rakghoul_Fiend_Instructions",
+                "There wasn’t much difference between Rakghoul Fiends and their regular variants. This mod gives Fiends a unique appearance and adjusts their attributes so they are more difficult to defeat.",
+                new Uri("https://deadlystream.com/files/file/1445-k1-rakghoul-fiend/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
