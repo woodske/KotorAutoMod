@@ -12,7 +12,7 @@ namespace KotorAutoMod.Instructions
     {
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
-            // Move all files to override
+            // Move all files to override then apply patch
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
             await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], "Sharina Fizark Restoration 1.1", "Override"), modConfig.SwkotorDirectory);
             await Task.Run(() => File.Copy(readyMods[1], Path.Combine(modConfig.SwkotorDirectory, "Override", Path.GetFileName(readyMods[1])), true));

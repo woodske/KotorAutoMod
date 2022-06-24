@@ -639,6 +639,66 @@ namespace KotorAutoMod
                 new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/sharina-fizark-restoration-1"),
                 "Patch found here: https://drive.google.com/file/d/1bw6uS4vl2JcmNIfDYe8c2nhz4ewV8bPB/view"
                 ),
+            new Mod(
+                "Helena Shan Improvement",
+                "VarsityPuppet",
+                Immersion,
+                Recommended,
+                new string[] { "Helena_Shan_Improvement.zip" },
+                "Helena_Shan_Improvement_Instructions",
+                "Helena Shan looks absolutely nothing like Bastila even though Bastila clearly said she looks like her mother. This mod gives Helena a unique appearance so there is resemblance between her and her daughter.",
+                new Uri("https://deadlystream.com/files/file/1218-helena-shan-improvement/")
+                ),
+            new Mod(
+                "Taris Dueling Arena Adjustments",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Taris_Dueling_Arena_Adjustment_v1.3.7z" },
+                "Taris_Dueling_Arena_Adjustments_Instructions",
+                "The dueling arena on Taris has horribly low-poly sprites and several issues (like the player doesn’t face their opponent). This mod fixes them and makes other adjustments to the area.",
+                new Uri("https://deadlystream.com/files/file/1404-taris-dueling-arena-adjustment/")
+                ),
+            new Mod(
+                "Taris Escape Sequence Adjustments",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Taris_Escape_Sequence_Adjustments_v1.2.7z" },
+                "Taris_Escape_Sequence_Adjustments_Instructions",
+                "Makes several much needed changes and fixes to the escape sequence from Taris.",
+                new Uri("https://deadlystream.com/files/file/1192-taris-escape-sequence-adjustments/")
+                ),
+            new Mod(
+                "Dark Side Ending Adjustments",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Dark_Side_Ending_Cutscene_Enhancement.7z" },
+                "Dark_Side_Ending_Adjustments_Instructions",
+                "Improves the DS ending scene by adding in better sprites and other adjustments.",
+                new Uri("https://deadlystream.com/files/file/1958-dark-side-ending-cutscene-enhancement/")
+                ),
+            new Mod(
+                "Light Side Ending Masters",
+                "N-DReW25",
+                Immersion,
+                Optional,
+                new string[] { "Ending Fix 1.1.zip" },
+                "Light_Side_Ending_Masters_Instructions",
+                "During the ending ceremony for the LS ending, there are random Jedi NPCs using player heads. This mod replaces them with Vrook, Zhar, and Dorak.",
+                new Uri("https://deadlystream.com/files/file/1376-light-side-ending-masters/")
+                ),
+            new Mod(
+                "Tutorial Remover",
+                "darthbdaman",
+                Immersion,
+                Recommended,
+                new string[] { "Tutorial Remover.7z" },
+                "Tutorial_Remover_Instructions",
+                "Tired of Trask’s shouting tutorials at you? This mod removes Trask altogether so it’s just you fighting your way off the Endar Spire.",
+                new Uri("https://deadlystream.com/files/file/1158-tutorial-remover/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
