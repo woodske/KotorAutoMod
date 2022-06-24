@@ -517,6 +517,16 @@ namespace KotorAutoMod
                 "There wasn’t much difference between Rakghoul Fiends and their regular variants. This mod gives Fiends a unique appearance and adjusts their attributes so they are more difficult to defeat.",
                 new Uri("https://deadlystream.com/files/file/1445-k1-rakghoul-fiend/")
                 ),
+            new Mod(
+                "Galaxy Map Fix Pack",
+                "Kexikus",
+                Immersion,
+                Optional,
+                new string[] { "K1 Galaxy Map Fix Pack.zip", "HR Menu Patch.zip" },
+                "Galaxy_Map_Fix_Pack_Instructions",
+                "Fixes the positioning of planets on the Ebon Hawk’s galaxy map so they are in their canonical positions.",
+                new Uri("https://deadlystream.com/files/file/1068-k1-galaxy-map-fix-pack/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",

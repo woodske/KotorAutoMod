@@ -30,7 +30,7 @@ namespace KotorAutoMod.Commands
 
             _modStore.updateModsList(Utils.getMods(modConfig.ModsDirectory));
 
-            modConfig.SelectedAspectRatio = "4:3";
+            modConfig.SelectedAspectRatio = "16:9";
             modConfig.SelectedResolution = "1920x1080";
 
             // Manually select mod
@@ -40,9 +40,9 @@ namespace KotorAutoMod.Commands
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
 
-            //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
+            string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Rakghoul_Fiend_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Galaxy_Map_Fix_Pack_Instructions().applyMod(new List<string> { modDirectory1, modDirectory2 }, modConfig, selectedMod);
         }
     }
 }
