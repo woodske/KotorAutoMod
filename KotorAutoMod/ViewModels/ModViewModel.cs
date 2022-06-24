@@ -8,6 +8,7 @@ namespace KotorAutoMod.ViewModels
 
         public string ListName => _mod.ListName;
         public string Author => _mod.Author;
+        public string Type => _mod.Type;
         public string Importance => _mod.Importance;
         public string[] ModFileName => _mod.ModFileName;
         public string CombinedModFileName => string.Join(" && ", _mod.ModFileName);

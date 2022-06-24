@@ -205,6 +205,10 @@
                 <Run Text="{Binding DescriptionViewModel.Mod.Author, Mode=OneWay}" />
                 <LineBreak/>
                 
+                <Run Text="Type: " FontWeight="Bold"/>
+                <Run Text="{Binding DescriptionViewModel.Mod.Type, Mode=OneWay}" />
+                <LineBreak/>
+                
                 <Run Text="Importance: " FontWeight="Bold"/>
                 <Run Text="{Binding DescriptionViewModel.Mod.Importance, Mode=OneWay}" />               
                 <LineBreak/>
@@ -250,6 +254,7 @@
                     Text="{Binding ModConfigViewModel.Instructions}" 
                     Height="100"
                     Padding="5"
+                    IsReadOnly="True"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                     ScrollViewer.CanContentScroll="True"/>
             </Border>
