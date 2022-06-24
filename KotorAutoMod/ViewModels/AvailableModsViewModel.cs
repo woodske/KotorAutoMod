@@ -11,14 +11,19 @@ namespace KotorAutoMod.ViewModels
     {
 
         private readonly ModStore _modStore;
+
         private ObservableCollection<ModViewModel> _availableMods;
 
+        private bool _selectAllAvailableModsIsChecked;
+
         public ICommand ApplyModsCommand { get; }
+        public ICommand SelectAllAvailableModsCommand { get; }
 
         public AvailableModsViewModel(ModStore modStore)
         {
             _modStore = modStore;
             ApplyModsCommand = new ApplyModsCommand(modStore);
+            SelectAllAvailableModsCommand = new SelectAllAvailableModsCommand(this, modStore);
 
             _modStore.ModListUpdated += OnModsUpdated;
         }
@@ -39,6 +44,19 @@ namespace KotorAutoMod.ViewModels
             {
                 _availableMods = (ObservableCollection<ModViewModel>)value;
                 OnPropertyChanged(nameof(AvailableMods));
+            }
+        }
+
+        public bool SelectAllAvailableModsIsChecked
+        {
+            get
+            {
+                return _selectAllAvailableModsIsChecked;
+            }
+            set
+            {
+                _selectAllAvailableModsIsChecked = value;
+                OnPropertyChanged(nameof(SelectAllAvailableModsIsChecked));
             }
         }
 

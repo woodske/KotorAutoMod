@@ -13,17 +13,17 @@ namespace KotorAutoMod.ViewModels
 
         private ModStore _modStore;
 
-        public ICommand SelectAllMissingModsCommand { get; }
-
-        public ICommand OpenModPagesCommand { get; }
-
         private bool _selectAllMissingModsIsChecked = false;
+
+        public ICommand SelectAllMissingModsCommand { get; }
+        public ICommand OpenModPagesCommand { get; }
 
         public MissingModsViewModel(ModStore modStore)
         {
             _modStore = modStore;
             SelectAllMissingModsCommand = new SelectAllMissingModsCommand(this, modStore);
             OpenModPagesCommand = new OpenModPagesCommand(modStore);
+
             _modStore.ModListUpdated += OnModsUpdated;
         }
 

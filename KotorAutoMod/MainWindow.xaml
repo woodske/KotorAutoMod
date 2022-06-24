@@ -15,12 +15,19 @@
             Height="250" 
             Width="280" 
             Margin="10">
-            <TextBox 
-                TextAlignment="Center" 
-                Text="Available Mods"  
-                Height="20" 
-                BorderThickness="0"
-                IsReadOnly="True"/>
+            <StackPanel Orientation="Horizontal">
+                <CheckBox 
+                    Content="Select All" 
+                    IsChecked="{Binding AvailableModsViewModel.SelectAllAvailableModsIsChecked}" 
+                    Command="{Binding AvailableModsViewModel.SelectAllAvailableModsCommand}"/>
+                <TextBox 
+                    TextAlignment="Center" 
+                    Text="Available Mods"  
+                    Height="20"
+                    Margin="20 0 0 0"
+                    BorderThickness="0"
+                    IsReadOnly="True"/>
+            </StackPanel>
             <ListBox 
                 ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" 
                 SelectedValue="{Binding DescriptionViewModel.Mod}" 

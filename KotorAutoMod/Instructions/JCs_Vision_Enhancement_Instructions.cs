@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace KotorAutoMod.Instructions
 {
-    internal class JC_s_Vision_Enhancement_Instructions : IInstructions
+    internal class JCs_Vision_Enhancement_Instructions : IInstructions
     {
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {

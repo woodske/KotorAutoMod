@@ -313,7 +313,7 @@ namespace KotorAutoMod
                 Bug,
                 Recommended,
                 new string[] { "JC's Security Spikes for K1 v1.2.zip" },
-                "JC's_Security_Spikes_Instructions",
+                "JCs_Security_Spikes_Instructions",
                 "Security spikes sadly don’t work on the PC version of KOTOR likely due to GUI changes when porting it from the Xbox. This mod adds in a potential workaround. The player can either use them as a consumable item that boosts their security skill or replace them with credits.",
                 new Uri("https://deadlystream.com/files/file/1439-jcs-security-spikes-for-k1/")
                 ),
@@ -333,7 +333,7 @@ namespace KotorAutoMod
                 QoL,
                 Recommended,
                 new string[] { "JC's Republic Soldier Fix for K1 v1.3.zip" },
-                "JC's_Republic_Soldier_Fix_Instructions",
+                "JCs_Republic_Soldier_Fix_Instructions",
                 "The vanilla clothing for the soldiers is absolutely atrocious. This mod replaces the default soldier clothing with the Republic soldier’s uniforms as well as providing higher resolution versions for them.",
                 new Uri("https://deadlystream.com/files/file/1180-jcs-republic-soldier-fix-for-k1/")
                 ),
@@ -473,7 +473,7 @@ namespace KotorAutoMod
                 Immersion,
                 Recommended,
                 new string[] { "JC's Vision Enhancement for K1 v1.2.zip" },
-                "JC's_Vision_Enhancement_Instructions",
+                "JCs_Vision_Enhancement_Instructions",
                 "The force visions the player has throughout the game have two inconsistencies. On Taris, the first vision is seen in the Ebon Hawn and all visions have the player sleeping in whatever they have equipped. This mod fixes both oversights.",
                 new Uri("https://deadlystream.com/files/file/1402-jcs-vision-enhancement-for-k1/")
                 ),
@@ -483,7 +483,7 @@ namespace KotorAutoMod
                 Immersion,
                 Recommended,
                 new string[] { "JC's Fashion Line I - Cloaked Jedi Robes for K1 v1.4.7z" },
-                "JC's_Cloaked_Robes_Instructions",
+                "JCs_Cloaked_Robes_Instructions",
                 "Ever tired of the look of KOTOR 1’s robes and wished they actually looked like Jedi robes? This mod ports the robes from KOTOR 2 that more closely resemble the OT’s and recolors them to KOTOR 1’s colors. ",
                 new Uri("https://deadlystream.com/files/file/1378-jcs-fashion-line-i-cloaked-jedi-robes-for-k1/")
                 ),
@@ -586,6 +586,16 @@ namespace KotorAutoMod
                 "Ajunta_Pall_Unique_Appearance_Instructions",
                 "It was quite disappointing how Ajunta Pall was basically a generic Dark Jedi with a shield in vanilla. This mod not only gives him a canon-accurate unique appearance but changes his voice.",
                 new Uri("https://deadlystream.com/files/file/1276-spectral-ajunta-pall-canonical-appearance/")
+                ),
+            new Mod(
+                "Ajunta Pall's Blade",
+                "ebmar",
+                Recommended,
+                Immersion,
+                new string[] { "[K1]_Legends_Ajunta_Pall's_Blade_v1.0.2b.7z" },
+                "Ajunta_Palls_Blade_Instructions",
+                "Pall had quite a famous sword. This mod gives it a new rendition so it’s unique.",
+                new Uri("https://deadlystream.com/files/file/1338-k1-legends-ajunta-palls-blade/")
                 ),
             //new Mod(
             //    "HD Carth Onasi",
