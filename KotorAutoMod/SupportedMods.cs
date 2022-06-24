@@ -527,6 +527,66 @@ namespace KotorAutoMod
                 "Fixes the positioning of planets on the Ebon Hawk’s galaxy map so they are in their canonical positions.",
                 new Uri("https://deadlystream.com/files/file/1068-k1-galaxy-map-fix-pack/")
                 ),
+            new Mod(
+                "Selven Legends",
+                "ebmar",
+                Gameplay,
+                Recommended,
+                new string[] { "[K1]_Selven_'Legends'_v1.3.7z" },
+                "Selven_Legends_Instructions",
+                "For the most dangerous assassin on Taris, Selven really didn't live up to her reputation. This mod overhauls her stats, loot, and appearance so she is much stronger and is well worth the bounty.",
+                new Uri("https://deadlystream.com/files/file/1308-k1-selven-legends/")
+                ),
+            new Mod(
+                "Janice Nall Legends",
+                "ebmar",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Legends_Janice_Nall_and_the_Incomplete_Droids_v1.1.1.7z" },
+                "Janice_Nall_Legends_Instructions",
+                "Gives Janice Nall a unique appearance.",
+                new Uri("https://deadlystream.com/files/file/1424-k1-janice-nall-legends-and-the-incomplete-droids/")
+                ),
+            new Mod(
+                "Marlena Venn Legends",
+                "ebmar",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Legends_Marlena_Venn_v1.1.0.7z" },
+                "Marlena_Venn_Legends_Instructions",
+                "Gives the disgruntled Marlena Venn a unique appearance.",
+                new Uri("https://deadlystream.com/files/file/1463-k1-marlena-venn-legends/")
+                ),
+            new Mod(
+                "Lyn Sekla Legends",
+                "ebmar",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Lyn_Sekla_'Legends'_v1.0.1.7z" },
+                "Lyn_Sekla_Legends_Instructions",
+                "Gives Lyn Sekla her own unique appearance.",
+                new Uri("https://deadlystream.com/files/file/1325-k1-lyn-sekla-legends/")
+                ),
+            new Mod(
+                "Shaleena Original Head Restoration",
+                "StellarExile",
+                Immersion,
+                Optional,
+                new string[] { "Shaleena Head Restoration.zip" },
+                "Shaleena_Original_Head_Restoration_Instructions",
+                "Shaleena was originally supposed to have a unique head. This mod restores it.",
+                new Uri("https://deadlystream.com/files/file/1896-shaleena-original-head-restoration/")
+                ),
+            new Mod(
+                "Ajunta Pall Unique Appearance",
+                "VarsityPuppet",
+                Immersion,
+                Recommended,
+                new string[] { "Spectral_Ajunta_Pall_Canon_Appearance.zip" },
+                "Ajunta_Pall_Unique_Appearance_Instructions",
+                "It was quite disappointing how Ajunta Pall was basically a generic Dark Jedi with a shield in vanilla. This mod not only gives him a canon-accurate unique appearance but changes his voice.",
+                new Uri("https://deadlystream.com/files/file/1276-spectral-ajunta-pall-canonical-appearance/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
