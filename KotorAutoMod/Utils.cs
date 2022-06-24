@@ -242,14 +242,24 @@ namespace KotorAutoMod
                 List<string> readyMods = new List<string>();
                 foreach (string modFile in selectedMod.ModFileName)
                 {
-                    string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFile));
-                    if (Directory.Exists(modFilePath))
+                    // Some mods are single file downloads, add them here.
+                    string[] singleFileMods = new string[] { "dan14_sherruk.utc", "dan13_zzshari.utc" };
+                    if (singleFileMods.Any(singleFileMod => singleFileMod.Contains(modFile)))
                     {
-                        readyMods.Add(modFilePath);
+                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile)));
+                        modConfig.ProgressBarMaximum--;
                     }
                     else
                     {
-                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile)));
+                        string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFile));
+                        if (Directory.Exists(modFilePath))
+                        {
+                            readyMods.Add(modFilePath);
+                        }
+                        else
+                        {
+                            readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile)));
+                        }
                     }
                 }
 

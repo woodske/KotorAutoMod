@@ -19,6 +19,7 @@ namespace KotorAutoMod
         const string Graphics = "Graphics Improvements";
         const string Gameplay = "Gameplay Improvements";
         const string Immersion = "Immersion";
+        const string Restored = "Restored Content";
 
         /*
          * Managed list of supported mods. This maintains the order in which the mods are applyed to the game.
@@ -596,6 +597,47 @@ namespace KotorAutoMod
                 "Ajunta_Palls_Blade_Instructions",
                 "Pall had quite a famous sword. This mod gives it a new rendition so it’s unique.",
                 new Uri("https://deadlystream.com/files/file/1338-k1-legends-ajunta-palls-blade/")
+                ),
+            new Mod(
+                "Sherruk With Lightsabers",
+                "Milo49, edited by StellarExile",
+                Immersion,
+                Recommended,
+                new string[] { "dan14_sherruk.utc" },
+                "Sherruk_With_Lightsabers_Instructions",
+                "Sherruk had lightsaber trophies from all the Jedi he killed but didn’t have them equipped. This mod gives him the lightsabers to add a little more life to the fight and ensures you are well rewarded for defeating him. This mod was originally made by Shem, but many (including myself) felt it was too game-breaking.",
+                new Uri("https://drive.google.com/file/d/1Rny2eT_-9Vr3mYJLGDFE2qceXA4dEaEx/view")
+                ),
+            new Mod(
+                "Juhani Lightsaber Fix",
+                "Mellowtron11",
+                Immersion,
+                Optional,
+                new string[] { "Juhani Lightsaber Fix Mod.zip" },
+                "Juhani_Lightsaber_Fix_Instructions",
+                "Gives Juhani a blue lightsaber during the duel on Dantooine. It doesn’t really make sense why she would bother to change the color to red.",
+                new Uri("https://deadlystream.com/files/file/1453-juhani-lightsaber-fix/")
+                ),
+            new Mod(
+                "Deadeye Duncan Restoration",
+                "Seamhainn",
+                Restored,
+                Optional,
+                new string[] { "Duncan on Manaan.7z" },
+                "Deadeye_Duncan_Restoration_Instructions",
+                "Deadeye Duncan was originally supposed to appear on Manaan with some pretty funny dialogue. This mod restores him.",
+                new Uri("https://mega.nz/file/IR4QASTa#V28cTdgcNTMPwPrNbMElbnNVHkqhkKu7vJgL7PWVZ0U")
+                ),
+            new Mod(
+                "Sharina Fizark Restoration & Patch",
+                "Sekan, patch by StellarExile",
+                Restored,
+                Optional,
+                new string[] { "sharina_fizark_restoration_1.1.zip", "dan13_zzshari.utc" },
+                "Sharina_Fizark_Restoration_And_Patch_Instructions",
+                "Sharina Fizark, the woman you can help on Tatooine, was originally supposed to appear on Dantooine once the quest was completed. This mod restores her and some cut dialogue.",
+                new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/sharina-fizark-restoration-1"),
+                "Patch found here: https://drive.google.com/file/d/1bw6uS4vl2JcmNIfDYe8c2nhz4ewV8bPB/view"
                 ),
             //new Mod(
             //    "HD Carth Onasi",

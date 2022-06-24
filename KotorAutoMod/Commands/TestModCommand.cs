@@ -42,7 +42,7 @@ namespace KotorAutoMod.Commands
 
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Ajunta_Palls_Blade_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Deadeye_Duncan_Restoration_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }
