@@ -859,6 +859,56 @@ namespace KotorAutoMod
                 "Reskins the Republic Mod Armor to be slightly more lore friendly.",
                 new Uri("https://deadlystream.com/files/file/1906-republic-mod-armor-reskin/")
                 ),
+            new Mod(
+                "Rescaled Trandoshans",
+                "DarthParametric",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Trandoshans_Rescale.7z" },
+                "Rescaled_Trandoshans_Instructions",
+                "Rescales the game’s Trandoshans so they are as tall as Wookies as described in Star Wars canon.",
+                new Uri("https://deadlystream.com/files/file/947-trandoshans-rescaled-for-k1/")
+                ),
+            new Mod(
+                "Czerka Overhaul",
+                "garm343",
+                Immersion,
+                Recommended,
+                new string[] { "Czerka Armor and Appearance Fix 1.4.zip" },
+                "Czerka_Overhaul_Instructions",
+                "The Czerka uniforms in KOTOR 1 were pretty bland and all the officers used the same uniform. Some didn’t even wear them at all (mostly aliens). This mod adds a tiered system of uniforms and armor based on ranking and gives aliens proper uniforms. Some of the armor is even obtainable in-game.",
+                new Uri("https://deadlystream.com/files/file/1999-revised-czerka-armor-and-appearance-fix/")
+                ),
+            new Mod(
+                "Cantina Song",
+                "ebmar",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Song_for_the_Cantina_v1.0.3.7z" },
+                "Cantina_Song_Instructions",
+                "The ambience in the cantinas were bland in vanilla. This mod grants Javyar’s Cantina a tune to spice it up a little.",
+                new Uri("https://deadlystream.com/files/file/1294-k1-song-for-the-cantina/")
+                ),
+            new Mod(
+                "Animated Swoop Monitors",
+                "ebmar",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Animated_Swoop_Screen_[TSLPort].7z" },
+                "Animated_Swoop_Monitors_Instructions",
+                "Animates the swoop monitors on Tatooine.",
+                new Uri("https://deadlystream.com/files/file/1398-k1-animated-swoop-screen-tslport/")
+                ),
+            new Mod(
+                "Bandon Reskin",
+                "Silveredge9",
+                Graphics,
+                Optional,
+                new string[] { "darth_bandon_head_reskin.rar" },
+                "Bandon_Reskin_Instructions",
+                "Reskins Bandon’s head to make him look more dark-sided, and it does it very nicely.",
+                new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/darth-bandon-head-reskin")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
