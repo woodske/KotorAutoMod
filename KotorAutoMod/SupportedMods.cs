@@ -749,6 +749,56 @@ namespace KotorAutoMod
                 "Senni Vek was the original initiator of the GenoHaradan questline, so why didn’t he appear during the final showdown with Hulas? This mod restores him to the final battle on Tatooine.",
                 new Uri("https://deadlystream.com/files/file/1090-senni-vek-restoration/")
                 ),
+            new Mod(
+                "Sith Soldier Texture Restoration",
+                "A Future Pilot",
+                Immersion,
+                Optional,
+                new string[] { "Sith Soldier Texture Restoration-v2.4.zip" },
+                "Sith_Soldier_Texture_Restoration_Instructions",
+                "There is an unused texture in the game files for Sith Elite Troopers. This mod restores it to differentiate between Elite and Heavy troopers so Elite troopers no longer wear red armor.",
+                new Uri("https://deadlystream.com/files/file/1289-sith-soldier-texture-restoration/")
+                ),
+            new Mod(
+                "Female Republic Soldier Restoration",
+                "N-DReW25",
+                Immersion,
+                Optional,
+                new string[] { "Female Republic Soldier RestorationA.7z" },
+                "Female_Republic_Soldier_Restoration_Instructions",
+                "Female republic soldiers were cut despite being in the game files. This mod restores them in several places.",
+                new Uri("https://deadlystream.com/files/file/2022-female-republic-soldier-restoration/")
+                ),
+            new Mod(
+                "Korriban Workbench",
+                "InSidious",
+                Gameplay,
+                Optional,
+                new string[] { "di_kaw2.7z" },
+                "Korriban_Workbench_Instructions",
+                "Being an academy, Korriban ought to have a workbench just like Dantooine did. This mod adds one to the academy.",
+                new Uri("https://deadlystream.com/files/file/375-korriban-academy-workbench/")
+                ),
+            new Mod(
+                "Diversified Wounded Republic Soldiers",
+                "DarthParametric",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Diversified_Wounded_Republic_Soldiers_On_Taris_v1.3.7z" },
+                "Diversified_Wounded_Republic_Soldiers_Instructions",
+                "The wounded soldiers on Taris all use the same head model. This mod adds diversity by giving each a different head.",
+                new Uri("https://deadlystream.com/files/file/1179-diversified-wounded-republic-soldiers-on-taris/")
+                ),
+            new Mod(
+                "Diversified Jedi Captives",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Diversified_Jedi_Captives_on_the_SF_v1.2.2.7z", "[K1]_Diversified_Jedi_Captives_on_the_SF_JC_TSL_Robes_Compatibility_Patch.7z" },
+                "Diversified_Jedi_Captives_Instructions",
+                "Like the wounded soldiers, all of Malak’s Jedi captives on the Star Forge all use the same head. Furthermore, Malak says the PC should recognize from Dantooine (even though they didn’t appear there.). This mod gives each captive a unique appearance and includes an option to include them on Dantooine.",
+                new Uri("https://deadlystream.com/files/file/1199-diversified-jedi-captives-on-the-star-forge/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
