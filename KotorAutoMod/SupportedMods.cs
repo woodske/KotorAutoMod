@@ -909,6 +909,66 @@ namespace KotorAutoMod
                 "Reskins Bandon’s head to make him look more dark-sided, and it does it very nicely.",
                 new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/darth-bandon-head-reskin")
                 ),
+            new Mod(
+                "Holocron Icon Replacement",
+                "InSidious",
+                Immersion,
+                Optional,
+                new string[] { "DI_HIR_20.7z" },
+                "Holocron_Icon_Replacement_Instructions",
+                "When you find Bastila’s holocron on Tatooine, and Lashowe’s on Korriban, you’ll find their icons look nothing like holocrons. This mod fixes the problem by giving both their own unique icons.",
+                new Uri("https://deadlystream.com/files/file/149-holocron-icon-replacement/")
+                ),
+            new Mod(
+                "Custom Selkath Animation",
+                "Alvar007",
+                Immersion,
+                Optional,
+                new string[] { "Custom Selkath Animation.rar" },
+                "Custom_Selkath_Animation_Instructions",
+                "The Selkath had an unused animation slot. This mod fills the slot by giving them a unique animation",
+                new Uri("https://deadlystream.com/files/file/1555-custom-selkath-animation/")
+                ),
+            new Mod(
+                "Elder Droid Unique VO",
+                "ebmar",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Legends_-_Elder_Droids_Unique_VO_v1.0.0.7z" },
+                "Elder_Droid_Unique_VO_Instructions",
+                "The droid in the elder compound on Lehon uses the generic droid VO in vanilla. This mod gives it a unique VO similar to the Elder Rakata.",
+                new Uri("https://deadlystream.com/files/file/1531-k1-legends-elder-droids-unique-vo/")
+                ),
+            new Mod(
+                "Movie Style Endgame Holograms",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Movie-Style_Holograms_for_End_Game_Cutscenes_v1.1.7z" },
+                "Movie_Style_Endgame_Holograms_Instructions",
+                "Ever bothered by the fact that KOTOR 1’s holograms look nothing like KOTOR 2’s? This mod replaces the vanilla greenish holograms with movie-style ones more in line with KOTOR 2.",
+                new Uri("https://deadlystream.com/files/file/1342-movie-style-holograms-for-end-game-cutscenes/")
+                ),
+            new Mod(
+                "Movie Style Rakatan Holograms",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Movie-Style_Rakatan_Holograms_v1.2.1.7z" },
+                "Movie_Style_Rakatan_Holograms_Instructions",
+                "An addition to the previous mod which changes the Rakatan holograms.",
+                new Uri("https://deadlystream.com/files/file/1346-movie-style-rakatan-holograms/")
+                ),
+            new Mod(
+                "Movie Style Holograms for Twisted Rancor Trio",
+                "DarthParametric",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Movie-Style_Holograms_For_Twisted_Rancor_Trio_Puzzle.7z" },
+                "Movie_Style_Holograms_for_Twisted_Rancor_Trio_Instructions",
+                "Alters the holograms for the Twisted Rancor Trio puzzle to be movie-style as well as restores some dialogue to the puzzle.",
+                new Uri("https://deadlystream.com/files/file/1736-movie-style-holograms-for-twisted-rancor-trio-puzzle/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",

@@ -42,7 +42,7 @@ namespace KotorAutoMod.Commands
 
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Bandon_Reskin_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Movie_Style_Holograms_for_Twisted_Rancor_Trio_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }
