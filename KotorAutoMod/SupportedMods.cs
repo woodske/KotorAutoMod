@@ -299,13 +299,13 @@ namespace KotorAutoMod
                 new Uri("https://deadlystream.com/files/file/2029-robe-description-fixes/")
                 ),
             new Mod(
-                "Kashyyk Control Panel",
+                "Kashyyyk Control Panel",
                 "DarthParametric",
                 Bug,
                 Recommended,
                 new string[] { "[K1]_Control_Panel_For_Kashyyyk_Shadowlands_Forcefield_v1.1.7z" },
-                "Kashyyk_Control_Panel_Instructions",
-                "Adds control panel to Kashyyk force field",
+                "Kashyyyk_Control_Panel_Instructions",
+                "Adds control panel to Kashyyyk force field",
                 new Uri("https://deadlystream.com/files/file/1427-control-panel-for-kashyyyk-shadowlands-forcefield/")
                 ),
             new Mod(
@@ -968,6 +968,96 @@ namespace KotorAutoMod
                 "Movie_Style_Holograms_for_Twisted_Rancor_Trio_Instructions",
                 "Alters the holograms for the Twisted Rancor Trio puzzle to be movie-style as well as restores some dialogue to the puzzle.",
                 new Uri("https://deadlystream.com/files/file/1736-movie-style-holograms-for-twisted-rancor-trio-puzzle/")
+                ),
+            new Mod(
+                "Sunry Murder Recording Enhancement",
+                "Fallen Guardian",
+                Immersion,
+                Optional,
+                new string[] { "SMRE Version 3.0.zip" },
+                "Sunry_Murder_Recording_Enhancement_Instructions",
+                "During Sunry’s murder investigation, you likely came across the incriminating evidence in the Republic embassy. However, it never actually showed him committing the crime. This mod provides an actual recording of him committing the act.",
+                new Uri("https://deadlystream.com/files/file/324-sunry-murder-recording-enhancement/")
+                ),
+            new Mod(
+                "Dantooine Training Sabers",
+                "Kexikus",
+                Immersion,
+                Optional,
+                new string[] { "DanTrainingLS.zip" },
+                "Dantooine_Training_Sabers_Instructions",
+                "Replaces the swords seen during the Dantooine training sequence with training sabers.",
+                new Uri("https://deadlystream.com/files/file/704-dantooine-training-lightsabers/")
+                ),
+            new Mod(
+                "NPC Alignment Fix",
+                "TK-664",
+                Gameplay,
+                Optional,
+                new string[] { "NPC_Alignment_Fix_v1_1.rar" },
+                "NPC_Alignment_Fix_Instructions",
+                "Several NPCs don’t have proper alignments (e.g. many Dark Jedi are neutral). This mod adjusts the alignment of several NPCs so they make more sense.",
+                new Uri("https://deadlystream.com/files/file/1866-npc-alignment-fix/")
+                ),
+            new Mod(
+                "High Quality Skyboxes",
+                "Kexikus",
+                Graphics,
+                Recommended,
+                new string[] { "HQSkyboxesII_K1.7z" },
+                "High_Quality_Skyboxes_Instructions",
+                "Overhauls nearly every skybox in the game with a higher-resolution version.",
+                new Uri("https://deadlystream.com/files/file/723-high-quality-skyboxes-ii/")
+                ),
+            new Mod(
+                "High Quality Starfields",
+                "Kexikus",
+                Graphics,
+                Recommended,
+                new string[] { "K1_HDStarsAndNebulas_1_3.zip" },
+                "High_Quality_Starfields_Instructions",
+                "Replaces the default starfields with higher resolution versions.",
+                new Uri("https://deadlystream.com/files/file/491-kotor-high-quality-starfields-and-nebulas/")
+                ),
+            new Mod(
+                "High Quality Cockpit Skyboxes",
+                "Sithspecter",
+                Graphics,
+                Recommended,
+                new string[] { "High Quality Cockpit Skyboxes XL.zip" },
+                "High_Quality_Cockpit_Skyboxes_Instructions",
+                "Improves the Ebon Hawk’s skyboxes with higher resolution versions",
+                new Uri("https://deadlystream.com/files/file/938-high-quality-cockpit-skyboxes/")
+                ),
+            new Mod(
+                "High Poly Grenades",
+                "MadDerp",
+                Graphics,
+                Optional,
+                new string[] { "hp_grenades-0-4-1209-0-4-1547556830.zip" },
+                "High_Poly_Grenades_Instructions",
+                "The vanilla grenades are so low-poly they look like deflated spheroids. This mod increases their poly count they actually look like grenades.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1209")
+                ),
+            new Mod(
+                "High Quality Blasters",
+                "Sithspecter",
+                Graphics,
+                Recommended,
+                new string[] { "High Quality Blasters 1.1.zip" },
+                "High_Quality_Blasters_Instructions",
+                "Substantially improves the quality of the blasters in-game.",
+                new Uri("https://deadlystream.com/files/file/861-high-quality-blasters/")
+                ),
+            new Mod(
+                "HD Gaffi Sticks",
+                "Kexikus",
+                Graphics,
+                Optional,
+                new string[] { "Gaffi Stick Improvement.zip" },
+                "HD_Gaffi_Sticks_Instructions",
+                "Improves the textures for the gaffi sticks with a unique texture for the chieftain.",
+                new Uri("https://deadlystream.com/files/file/312-gaffi-stick-improvement/")
                 ),
             //new Mod(
             //    "HD Carth Onasi",

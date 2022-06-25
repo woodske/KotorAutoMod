@@ -1,17 +1,20 @@
 ﻿using KotorAutoMod.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace KotorAutoMod.Instructions
 {
-    internal class Kashyyk_Control_Panel_Instructions : IInstructions
+    internal class NPC_Alignment_Fix_Instructions : IInstructions
     {
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
             Utils.tslPatcherInstructions(modConfig, mod);
-            await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Control_Panel_For_Kashyyyk_Shadowlands_Forcefield_v1.1", "INSTALL"));
+            await Utils.runExecutable(Path.Combine(readyMods[0], "TSLPatcher"));
         }
     }
 }
