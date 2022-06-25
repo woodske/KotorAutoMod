@@ -809,6 +809,56 @@ namespace KotorAutoMod
                 "Diversifies the Jedi NPCs on the Star Forge using assets ported from SWTOR.",
                 new Uri("https://deadlystream.com/files/file/1964-jedi-diversity-on-the-star-forge/")
                 ),
+            new Mod(
+                "Dodonna's Transmission",
+                "danil-ch",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Dodonna's_Transmission_v1.1.rar" },
+                "Dodonnas_Transmission_Instructions",
+                "During Dodonna’s LS transmission, the player is absent. This mod restores the player to the scene.",
+                new Uri("https://deadlystream.com/files/file/1101-dodonna%E2%80%99s-transmission/")
+                ),
+            new Mod(
+                "Party on the Leviathan",
+                "Fair Strides",
+                Restored,
+                Optional,
+                new string[] { "Leviathan Party.7z" },
+                "Party_on_the_Leviathan_Instructions",
+                "Apparently Juhani had some dialogue on the Leviathan that was cut for PCs. This mod restores it.",
+                new Uri("https://deadlystream.com/files/file/567-party-on-the-leviathan/")
+                ),
+            new Mod(
+                "Ported Alien Voiceovers",
+                "Ashton Scorpius",
+                Immersion,
+                Recommended,
+                new string[] { "K1 PAVOR v1.3.1.7z" },
+                "Ported_Alien_Voiceovers_Instructions",
+                "In vanilla several aliens shred VOs (like Nikto and Twi’lek). In KOTOR 2, these aliens had their own unique VOs. This mod ports the VOs from KOTOR 2 so each alien now has their own.",
+                new Uri("https://deadlystream.com/files/file/1426-k1-ported-alien-vo-replacements/")
+                ),
+            new Mod(
+                "Iriaz Restoration",
+                "Cerez",
+                Restored,
+                Optional,
+                new string[] { "iriaz.zip" },
+                "Iriaz_Restoration_Instructions",
+                "Iriaz were originally supposed to be on Dantooine but were cut. This mod restores them to add a little more life to the planet.",
+                new Uri("https://deadlystream.com/files/file/1354-iriaz-on-dantooine/")
+                ),
+            new Mod(
+                "Republic Mod Armor Reskin",
+                "PirateOfRohan",
+                Immersion,
+                Optional,
+                new string[] { "Republic Mod Armor Reskin.zip" },
+                "Republic_Mod_Armor_Reskin_Instructions",
+                "Reskins the Republic Mod Armor to be slightly more lore friendly.",
+                new Uri("https://deadlystream.com/files/file/1906-republic-mod-armor-reskin/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
