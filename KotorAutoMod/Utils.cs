@@ -240,25 +240,31 @@ namespace KotorAutoMod
             foreach (ModViewModel selectedMod in selectedMods)
             {
                 List<string> readyMods = new List<string>();
-                foreach (string modFile in selectedMod.ModFileName)
+                foreach (string modFileName in selectedMod.ModFileName)
                 {
-                    // Some mods are single file downloads, add them here.
-                    string[] singleFileMods = new string[] { "dan14_sherruk.utc", "dan13_zzshari.utc" };
-                    if (singleFileMods.Any(singleFileMod => singleFileMod.Contains(modFile)))
+                    // Some mods have single file downloads, add them here.
+                    string[] singleFileMods = new string[] { "dan14_sherruk.utc", "dan13_zzshari.utc", "N_DarthMalak01.tga" };
+                    if (singleFileMods.Any(singleFileMod => singleFileMod.Contains(modFileName)))
                     {
-                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile)));
-                        modConfig.ProgressBarMaximum--;
+                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFileName)));
+
+                        // Mods with multiple downloads that include a single file and folder should not decrement the progress bar max
+                        string[] singleFileModsWithFolders = new string[] { "N_DarthMalak01.tga" };
+                        if (!singleFileModsWithFolders.Any(singleFileModWithFolders => singleFileModWithFolders.Contains(modFileName)))
+                        {
+                            modConfig.ProgressBarMaximum--;
+                        }
                     }
                     else
                     {
-                        string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFile));
+                        string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFileName));
                         if (Directory.Exists(modFilePath))
                         {
                             readyMods.Add(modFilePath);
                         }
                         else
                         {
-                            readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile)));
+                            readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFileName)));
                         }
                     }
                 }

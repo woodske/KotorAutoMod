@@ -42,7 +42,7 @@ namespace KotorAutoMod.Commands
 
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new HD_Gaffi_Sticks_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new JCs_Blaster_Visual_Effects_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

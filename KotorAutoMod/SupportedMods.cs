@@ -1059,6 +1059,66 @@ namespace KotorAutoMod
                 "Improves the textures for the gaffi sticks with a unique texture for the chieftain.",
                 new Uri("https://deadlystream.com/files/file/312-gaffi-stick-improvement/")
                 ),
+            new Mod(
+                "New Grass",
+                "MadDerp",
+                Graphics,
+                Optional,
+                new string[] { "grass_HD-1207-0-7.zip" },
+                "New_Grass_Instructions",
+                "Improves grass and background textures on Taris, Kashyyyk. Dantooine & Manaan",
+                new Uri("https://www.nexusmods.com/kotor/mods/1207")
+                ),
+            new Mod(
+                "VP's High Poly Lightsabers",
+                "Fallen Guardian",
+                Graphics,
+                Recommended,
+                new string[] { "VP&#39;s Hi Poly Tin Cans - KotOR 1 1.1.zip" },
+                "VPs_High_Poly_Lightsabers_Instructions",
+                "Improves the models of lightsabers by increasing their poly count.",
+                new Uri("https://deadlystream.com/files/file/299-vps-hi-poly-tin-cans-kotor-1/")
+                ),
+            new Mod(
+                "Alternate Lightsaber Textures",
+                "DarthParametric",
+                Graphics,
+                Recommended,
+                new string[] { "[K1]_Alternative_Textures_for_VP's_Tin_Cans.7z" },
+                "Alternate_Lightsaber_Textures_Instructions",
+                "Provides textures for the VP's High Poly Lightsabers mod.",
+                new Uri("https://deadlystream.com/files/file/1957-alternative-textures-for-vps-tin-cans/")
+                ),
+            new Mod(
+                "JC's Lightsaber Visual Effects",
+                "JCarter426",
+                Graphics,
+                Recommended,
+                new string[] { "JC's Lightsaber Visual Effects for K1 v1.2.zip" },
+                "JCs_Lightsaber_Visual_Effects_Instructions",
+                "Improves the lightsaber visual effects in-game using effects created by tools that people who work on the Star Wars movies use.",
+                new Uri("https://deadlystream.com/files/file/1316-jcs-lightsaber-visual-effects-for-k1/")
+                ),
+            new Mod(
+                "JC's Blaster Visual Effects",
+                "JCarter426",
+                Graphics,
+                Optional,
+                new string[] { "JC's Blaster Visual Effects for K1.zip" },
+                "JCs_Blaster_Visual_Effects_Instructions",
+                "Improves the quality of the blaster bolts in-game.",
+                new Uri("https://deadlystream.com/files/file/1271-jcs-blaster-visual-effects-for-k1/")
+                ),
+            new Mod(
+                "HD Darth Malak",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Malak.rar", "N_DarthMalak01.tga" },
+                "HD_Darth_Malak_Instructions",
+                "Impressively improves the quality of Darth Malak.",
+                new Uri("https://deadlystream.com/files/file/980-hd-darth-malak/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
