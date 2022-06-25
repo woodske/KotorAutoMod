@@ -1119,6 +1119,26 @@ namespace KotorAutoMod
                 "Impressively improves the quality of Darth Malak.",
                 new Uri("https://deadlystream.com/files/file/980-hd-darth-malak/")
                 ),
+            new Mod(
+                "Better Male Twi'lek Heads",
+                "Ashton Scorpius",
+                Graphics,
+                Recommended,
+                new string[] { "K1 Twilek Heads v1.3.2.7z" },
+                "Better_Male_Twilek_Heads_Instructions",
+                "The male Twi’leks in KOTOR have terrible painted-on ears. This mod gives them geometrical ears using assets from TOR.",
+                new Uri("https://deadlystream.com/files/file/1430-k1-better-twilek-male-heads/")
+                ),
+            new Mod(
+                "High Resolution Beam Effects",
+                "InSidious",
+                Graphics,
+                Optional,
+                new string[] { "DI_HRBM_2.7z" },
+                "High_Resolution_Beam_Effects_Instructions",
+                "Improves the resolution of the beam effects in game (lightning, drain life, death field).",
+                new Uri("https://deadlystream.com/files/file/260-k1-hi-res-beam-effects/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
