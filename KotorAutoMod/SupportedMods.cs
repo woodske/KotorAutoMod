@@ -799,6 +799,16 @@ namespace KotorAutoMod
                 "Like the wounded soldiers, all of Malak’s Jedi captives on the Star Forge all use the same head. Furthermore, Malak says the PC should recognize from Dantooine (even though they didn’t appear there.). This mod gives each captive a unique appearance and includes an option to include them on Dantooine.",
                 new Uri("https://deadlystream.com/files/file/1199-diversified-jedi-captives-on-the-star-forge/")
                 ),
+            new Mod(
+                "Jedi Diversity",
+                "DarthParametric",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Jedi_Diversity_On_The_Star_Forge.7z" },
+                "Jedi_Diversity_Instructions",
+                "Diversifies the Jedi NPCs on the Star Forge using assets ported from SWTOR.",
+                new Uri("https://deadlystream.com/files/file/1964-jedi-diversity-on-the-star-forge/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
