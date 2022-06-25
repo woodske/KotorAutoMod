@@ -699,6 +699,56 @@ namespace KotorAutoMod
                 "Tired of Trask’s shouting tutorials at you? This mod removes Trask altogether so it’s just you fighting your way off the Endar Spire.",
                 new Uri("https://deadlystream.com/files/file/1158-tutorial-remover/")
                 ),
+            new Mod(
+                "Logical Datapads",
+                "Sdub & ebmar",
+                Immersion,
+                Recommended,
+                new string[] { "Logical Datapads.7z" },
+                "Logical_Datapads_Instructions",
+                "Datapads are very useful plot items, but there was no real way to tell them apart until now. This mod gives each their own unique title based on their contents (i.e. Hidden Bek Rancor Plan) to make it easier to discern what they are.",
+                new Uri("https://deadlystream.com/files/file/2008-logical-datapads/")
+                ),
+            new Mod(
+                "Leviathan Differentiated Dialogue",
+                "Revanator",
+                Immersion,
+                Recommended,
+                new string[] { "Leviathan Differentiated Dialogue.7z" },
+                "Leviathan_Differentiated_Dialogue_Instructions",
+                "On the Leviathan when you play as a companion, you’ll encounter the Rodian prisoner who offers you the ice breaker. The problem is the dialogue is the same for all companions. This mod gives each companion their own unique dialogue based on their personalities.",
+                new Uri("https://deadlystream.com/files/file/895-leviathan-differentiated-dialogue/")
+                ),
+            new Mod(
+                "JC's Robe Adjustment",
+                "JCarter426",
+                Immersion,
+                Recommended,
+                new string[] { "JC's Robe Adjustment for K1 v1.2.zip" },
+                "JCs_Robe_Adjustment_Instructions",
+                "Why did the player have to wait until they finished the Grove mission until they got their Jedi robes? This mod gives the player their robes as soon as they have built their lightsaber.",
+                new Uri("https://deadlystream.com/files/file/1475-jcs-robe-adjustment-for-k1/")
+                ),
+            new Mod(
+                "JC's Back in Black",
+                "JCartrer426",
+                Immersion,
+                Recommended,
+                new string[] { "JC's Korriban - Back in Black for K1 v2.3.zip" },
+                "JCs_Back_in_Black_Instructions",
+                "The Sith on Korriban never wore the Dark Jedi robes they should have. This mod ensures all Sith students and masters (including Uthar) wear robes instead of officer uniforms.",
+                new Uri("https://deadlystream.com/files/file/1293-jcs-korriban-back-in-black-for-k1/")
+                ),
+            new Mod(
+                "Senni Vek Restoration",
+                "N-DReW25",
+                Immersion,
+                Optional,
+                new string[] { "Senni Vek Restoration.zip" },
+                "Senni_Vek_Restoration_Instructions",
+                "Senni Vek was the original initiator of the GenoHaradan questline, so why didn’t he appear during the final showdown with Hulas? This mod restores him to the final battle on Tatooine.",
+                new Uri("https://deadlystream.com/files/file/1090-senni-vek-restoration/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
