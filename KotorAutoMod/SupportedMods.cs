@@ -1249,16 +1249,138 @@ namespace KotorAutoMod
                 "Retextures Gammoreans to much higher resolution with added detail.",
                 new Uri("https://deadlystream.com/files/file/1023-quanons-gammorean-reskin-pack/")
                 ),
-            //new Mod(
-            //    "HD Carth Onasi",
-            //    "Dark Hope",
-            //    Graphics,
-            //    Recommended,
-            //    new string[] { "Carth Onasi.rar" },
-            //    "Carth_Onasi_Instructions",
-            //    "Improves the quality of Carth",
-            //    new Uri("https://deadlystream.com/files/file/1133-hd-carth-onasi/")
-            //    )
+            new Mod(
+                "HD Mission Vao and Patch",
+                "Quanon & Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "MissionHD.rar", "P_MissionH01.txi" },
+                "HD_Mission_Vao_and_Patch_Instructions",
+                "Drastically improves the quality of Mission.",
+                new Uri("https://deadlystream.com/files/file/956-mission-vao-hd-by-quanon/"),
+                "Patch found here: https://drive.google.com/file/d/1KD3ZZ3TACKEBs1wrw03omi9s28S57ET_/view"
+                ),
+            new Mod(
+                "HD Canderous Ordo and Patch",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Canderous Ordo.rar", "P_CandBB01.txi" },
+                "HD_Canderous_Ordo_and_Patch_Instructions",
+                "Drastically improves the quality of Canderous.",
+                new Uri("https://deadlystream.com/files/file/1123-hd-canderous-ordo/"),
+                "Patch found here: https://drive.google.com/file/d/1O5H8Dkpp_Gz_-4qCuDqALXzogPkZ3QOI/view"
+                ),
+            new Mod(
+                "HD Zaalbar",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "ZaalbarHD.rar" },
+                "HD_Zaalbar_Instructions",
+                "Improves the texture of Zaalbar.",
+                new Uri("https://deadlystream.com/files/file/2031-zaalbar-hd/")
+                ),
+            new Mod(
+                "Jolee Bindo HD",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Quanons Jolee Reskin 1.1.rar" },
+                "Jolee_Bindo_HD_Instructions",
+                "Improves the textures for Jolee.",
+                new Uri("https://deadlystream.com/files/file/1113-quanons-jolee-reskin/")
+                ),
+            new Mod(
+                "HD Carth Onasi",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Carth Onasi.rar" },
+                "Carth_Onasi_Instructions",
+                "Improves the quality of Carth",
+                new Uri("https://deadlystream.com/files/file/1133-hd-carth-onasi/")
+                ),
+            new Mod(
+                "HD Bastila Shan",
+                "Dark Hope & Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Bastila HD.rar" },
+                "HD_Bastila_Shan_Instructions",
+                "Improves the quality of Bastila.",
+                new Uri("https://deadlystream.com/files/file/978-bastila-shan-hd-by-quanon-and-dark-hopa/")
+                ),
+            new Mod(
+                "Juhani Real Cathar Head",
+                "miro42",
+                Immersion,
+                Recommended,
+                new string[] { "juhaniCathar_head.zip" },
+                "Juhani_Real_Cathar_Head_Instructions",
+                "Juhani looks nothing like a Cathar should, at least according to the comics. This mod edits her model and texture so she actually looks like one.",
+                new Uri("https://deadlystream.com/files/file/702-juhani-real-cathar-head/")
+                ),
+            new Mod(
+                "Quanon's HK-47",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Quanons_HK47_Reskin.rar" },
+                "Quanons_HK47_Instructions",
+                "Drastically improves the skin of HK-47.",
+                new Uri("https://deadlystream.com/files/file/1001-quanons-hk-47-reskin/")
+                ),
+            new Mod(
+                "HD Yuthura Ban",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Yuthura Ban.rar" },
+                "HD_Yuthura_Ban_Instructions",
+                "Improves the quality of Yuthura’s textures.",
+                new Uri("https://deadlystream.com/files/file/1054-hd-yuthura-ban/")
+                ),
+            new Mod(
+                "HD Pazaak Cards",
+                "CarthOnasty",
+                Graphics,
+                Optional,
+                new string[] { "HD_Pazaak_Cards.zip" },
+                "HD_Pazaak_Cards_Instructions",
+                "Improves the quality of Pazaak cards in the game.",
+                new Uri("https://deadlystream.com/files/file/1361-hd-pazaak-cards/")
+                ),
+            new Mod(
+                "HD Scoundrel Uniform",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "scoundrel.rar" },
+                "HD_Scoundrel_Uniform_Instructions",
+                "Improves the quality of the default clothing for the scoundrel.",
+                new Uri("https://deadlystream.com/files/file/1479-k1-scoundrel-uniform-hd-international-global-mod/")
+                ),
+            new Mod(
+                "HD Scout Uniform",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "[K1] Scout uniform HD International Global mod.rar" },
+                "HD_Scout_Uniform_Instructions",
+                "Improves the quality of the default clothing for the scout.",
+                new Uri("https://deadlystream.com/files/file/1382-k1-scout-uniform-hd-international-global-mod/")
+                ),
+            new Mod(
+                "Republic Soldier's New Shade",
+                "ebmar",
+                Graphics,
+                Recommended,
+                new string[] { "[K1]_Republic_Soldier's_New_Shade_v1.1.1.7z" },
+                "Republic_Soldiers_New_Shade_Instructions",
+                "Gives the Republic soldier uniform some shine on the trim and helmet.",
+                new Uri("https://deadlystream.com/files/file/1365-k1-republic-soldiers-new-shade/")
+                ),
         };
     }
 }

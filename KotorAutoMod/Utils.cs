@@ -243,13 +243,13 @@ namespace KotorAutoMod
                 foreach (string modFileName in selectedMod.ModFileName)
                 {
                     // Some mods have single file downloads, add them here.
-                    string[] singleFileMods = new string[] { "dan14_sherruk.utc", "dan13_zzshari.utc", "N_DarthMalak01.tga" };
+                    string[] singleFileMods = new string[] { "dan14_sherruk.utc", "dan13_zzshari.utc", "N_DarthMalak01.tga", "P_MissionH01.txi", "P_CandBB01.txi" };
                     if (singleFileMods.Any(singleFileMod => singleFileMod.Contains(modFileName)))
                     {
                         readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFileName)));
 
                         // Mods with multiple downloads that include a single file and folder should not decrement the progress bar max
-                        string[] singleFileModsWithFolders = new string[] { "N_DarthMalak01.tga" };
+                        string[] singleFileModsWithFolders = new string[] { "N_DarthMalak01.tga", "P_MissionH01.txi", "P_CandBB01.txi" };
                         if (!singleFileModsWithFolders.Any(singleFileModWithFolders => singleFileModWithFolders.Contains(modFileName)))
                         {
                             modConfig.ProgressBarMaximum--;
