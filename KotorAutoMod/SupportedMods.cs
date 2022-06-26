@@ -1461,6 +1461,196 @@ namespace KotorAutoMod
                 "Drastically improves the quality of the player head PFHB02.",
                 new Uri("https://deadlystream.com/files/file/1752-pfhb02-hd/")
                 ),
+            new Mod(
+                "PFHA04 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHA04 HD.rar" },
+                "PFHA04_HD_Instructions",
+                "Drastically improves the quality of the player head PFHA04.",
+                new Uri("https://deadlystream.com/files/file/1753-pfha04-hd/")
+                ),
+            new Mod(
+                "PFHB04 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHB04 HD.rar" },
+                "PFHB04_HD_Instructions",
+                "Drastically improves the quality of the player head PFHB04.",
+                new Uri("https://deadlystream.com/files/file/1755-pfhb04-hd/")
+                ),
+            new Mod(
+                "PFHC03 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHC03.rar" },
+                "PFHC03_HD_Instructions",
+                "Drastically improves the quality of the player head PFHC03.",
+                new Uri("https://deadlystream.com/files/file/1784-pfhc03-hd/")
+                ),
+            new Mod(
+                "PFHB03 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "HD PFHB03.rar" },
+                "PFHB03_HD_Instructions",
+                "Drastically improves the quality of the player head PFHB03.",
+                new Uri("https://deadlystream.com/files/file/1799-hd-pfhb03/")
+                ),
+            new Mod(
+                "PFHA05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "HD PFHA05.rar" },
+                "PFHA05_HD_Instructions",
+                "Drastically improves the quality of the player head PFHA05.",
+                new Uri("https://deadlystream.com/files/file/1800-hd-pfha05/")
+                ),
+            new Mod(
+                "PMHC02 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHC02 HD.rar" },
+                "PMHC02_HD_Instructions",
+                "Drastically improves the quality of the player head PMHC02.",
+                new Uri("https://deadlystream.com/files/file/1825-pmhc02-hd/")
+                ),
+            new Mod(
+                "PMHB01 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHB01 HD.rar" },
+                "PMHB01_HD_Instructions",
+                "Drastically improves the quality of the player head PMHB01.",
+                new Uri("https://deadlystream.com/files/file/1826-pmhb01-hd/")
+                ),
+            new Mod(
+                "PMHC03 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHC03 HD.rar" },
+                "PMHC03_HD_Instructions",
+                "Drastically improves the quality of the player head PMHC03.",
+                new Uri("https://deadlystream.com/files/file/1832-pmhc03-hd/")
+                ),
+            new Mod(
+                "PMHAO1 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHA01 HD.rar" },
+                "PMHAO1_HD_Instructions",
+                "Drastically improves the quality of the player head PMHAO1.",
+                new Uri("https://deadlystream.com/files/file/1837-pmha01-hd/")
+                ),
+            new Mod(
+                "PMHC01 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHC01 HD.rar" },
+                "PMHC01_HD_Instructions",
+                "Drastically improves the quality of the player head PMHC01.",
+                new Uri("https://deadlystream.com/files/file/979-pmhc01-hd/")
+                ),
+            new Mod(
+                "PMHA04 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHA04 HD.rar" },
+                "PMHA04_HD_Instructions",
+                "Drastically improves the quality of the player head PMHA04.",
+                new Uri("https://deadlystream.com/files/file/1852-pmha04-hd/")
+                ),
+            new Mod(
+                "PMHB04 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHB04 HD.rar" },
+                "PMHB04_HD_Instructions",
+                "Drastically improves the quality of the player head PMHB04.",
+                new Uri("https://deadlystream.com/files/file/1858-pmhb04-hd/")
+                ),
+            new Mod(
+                "PMHC05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHC05 HD.rar" },
+                "PMHC05_HD_Instructions",
+                "Drastically improves the quality of the player head PMHC05.",
+                new Uri("https://deadlystream.com/files/file/1841-pmhc05-hd/")
+                ),
+            new Mod(
+                "PMA02 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHA02 HD.rar" },
+                "PMA02_HD_Instructions",
+                "Drastically improves the quality of the player head PMHC05.",
+                new Uri("https://deadlystream.com/files/file/1843-pmha02-hd/")
+                ),
+            new Mod(
+                "PMHC04 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHC04 HD.rar" },
+                "PMHC04_HD_Instructions",
+                "Drastically improves the quality of the player head PMHC04.",
+                new Uri("https://deadlystream.com/files/file/1859-pmhc04-hd/")
+                ),
+            new Mod(
+                "PMHB05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHB05 HD.rar" },
+                "PMHB05_HD_Instructions",
+                "Drastically improves the quality of the player head PMHB05.",
+                new Uri("https://deadlystream.com/files/file/1828-pmhb05-hd/")
+                ),
+            new Mod(
+                "PMHA03 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHA03 HD.rar" },
+                "PMHA03_HD_Instructions",
+                "Drastically improves the quality of the player head PMHA03.",
+                new Uri("https://deadlystream.com/files/file/983-pmha03-hd/")
+                ),
+            new Mod(
+                "PMHB03 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHB03 HD.rar" },
+                "PMHB03_HD_Instructions",
+                "Drastically improves the quality of the player head PMHB03.",
+                new Uri("https://deadlystream.com/files/file/1836-pmhb03-hd/")
+                ),
+            new Mod(
+                "PMHA05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PMHA05 HD.rar" },
+                "PMHA05_HD_Instructions",
+                "Drastically improves the quality of the player head PMHA05.",
+                new Uri("https://deadlystream.com/files/file/1857-pmha05-hd/")
+                ),
         };
     }
 }
