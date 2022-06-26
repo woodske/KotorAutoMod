@@ -1381,6 +1381,56 @@ namespace KotorAutoMod
                 "Gives the Republic soldier uniform some shine on the trim and helmet.",
                 new Uri("https://deadlystream.com/files/file/1365-k1-republic-soldiers-new-shade/")
                 ),
+            new Mod(
+                "PFHB05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHB05HD.rar" },
+                "PFHB05_HD_Instructions",
+                "Drastically improves the quality of the player head PFHB05 HD",
+                new Uri("https://deadlystream.com/files/file/1725-pfhb05-hd/")
+                ),
+            new Mod(
+                "PFHA02 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHA02 HD.rar" },
+                "PFHA02_HD_Instructions",
+                "Drastically improves the quality of the player head PFHA02.",
+                new Uri("https://deadlystream.com/files/file/1737-pfha02-hd/")
+                ),
+            new Mod(
+                "PFHB01 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHB01 HD.rar" },
+                "PFHB01_HD_Instructions",
+                "Drastically improves the quality of the player head PFHB01.",
+                new Uri("https://deadlystream.com/files/file/1735-pfhb01-hd/")
+                ),
+            new Mod(
+                "PFHC05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHC05 HD.rar" },
+                "PFHC05_HD_Instructions",
+                "Drastically improves the quality of the player head PFHC05.",
+                new Uri("https://deadlystream.com/files/file/1738-pfhc05-hd/")
+                ),
+            new Mod(
+                "PFHA01 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHA01 HD.rar" },
+                "PFHA01_HD_Instructions",
+                "Drastically improves the quality of the player head PFHA01.",
+                new Uri("https://deadlystream.com/files/file/1739-pfha01-hd/")
+                ),
         };
     }
 }
