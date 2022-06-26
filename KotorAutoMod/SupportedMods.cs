@@ -1431,6 +1431,36 @@ namespace KotorAutoMod
                 "Drastically improves the quality of the player head PFHA01.",
                 new Uri("https://deadlystream.com/files/file/1739-pfha01-hd/")
                 ),
+            new Mod(
+                "PFHC02 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHC02 HD.rar" },
+                "PFHC02_HD_Instructions",
+                "Drastically improves the quality of the player head PFHC02.",
+                new Uri("https://deadlystream.com/files/file/1740-pfhc02-hd/")
+                ),
+            new Mod(
+                "PFHA03 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHA03 HD.rar" },
+                "PFHA03_HD_Instructions",
+                "Drastically improves the quality of the player head PFHA03.",
+                new Uri("https://deadlystream.com/files/file/1749-pfha03-hd/")
+                ),
+            new Mod(
+                "PFHB02 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHB02 HD.rar" },
+                "PFHB02_HD_Instructions",
+                "Drastically improves the quality of the player head PFHB02.",
+                new Uri("https://deadlystream.com/files/file/1752-pfhb02-hd/")
+                ),
         };
     }
 }
