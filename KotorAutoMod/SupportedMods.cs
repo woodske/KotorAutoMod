@@ -1139,6 +1139,116 @@ namespace KotorAutoMod
                 "Improves the resolution of the beam effects in game (lightning, drain life, death field).",
                 new Uri("https://deadlystream.com/files/file/260-k1-hi-res-beam-effects/")
                 ),
+            new Mod(
+                "HD Fire & Ice",
+                "Cinder Skye",
+                Graphics,
+                Optional,
+                new string[] { "FireandIceHDWhee.zip" },
+                "HD_Fire_And_Ice_Instructions",
+                "Replaces fire and ice effects from grenades with HD ones.",
+                new Uri("https://deadlystream.com/files/file/455-hd-fire-and-ice-whee/")
+                ),
+            new Mod(
+                "K2 Green Crystal",
+                "N-DReW25",
+                UI,
+                Optional,
+                new string[] { "Green Crystal K2 to K1.zip" },
+                "K2_Green_Crystal_Instructions",
+                "KOTOR 2’s green crystal is much better than 1’s and it is reused as the viridian icon. This mod ports the icon from K2 for consistency.",
+                new Uri("https://deadlystream.com/files/file/1283-green-crystal-from-k2-to-k1/")
+                ),
+            new Mod(
+                "Alternate Stasis Icon",
+                "StellarExile",
+                UI,
+                Optional,
+                new string[] { "Stasis Icon.zip" },
+                "Alternate_Stasis_Icon_Instructions",
+                "Apparently there was supposed to be another stasis icon in the game. In my opinion, this one much better matches the progression of the icons and may have even been the originally intended one.",
+                new Uri("https://deadlystream.com/files/file/2000-alternate-stasis-icon/")
+                ),
+            new Mod(
+                "HD Twi'lek Female",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "hd_twilek_female.rar" },
+                "HD_Twilek_Female_Instructions",
+                "Dramatically improves the textures for Twi’lek females.",
+                new Uri("https://deadlystream.com/files/file/982-hd-twilek-female/")
+                ),
+            new Mod(
+                "HD Hutts",
+                "Emperor Turnip",
+                Graphics,
+                Optional,
+                new string[] { "Emperor Turnip&#39;s HD Hutts.rar" },
+                "HD_Hutts_Instructions",
+                "Improves the textures for Hutts.",
+                new Uri("https://deadlystream.com/files/file/1188-emperor-turnips-hd-hutts/")
+                ),
+            new Mod(
+                "HD Gizka",
+                "Emperor Turnip",
+                Graphics,
+                Optional,
+                new string[] { "Emperor Turnip&#39;s Gizka.rar" },
+                "HD_Gizka_Instructions",
+                "Improves the textures for Gizka.",
+                new Uri("https://deadlystream.com/files/file/1190-emperor-turnips-hd-gizka/")
+                ),
+            new Mod(
+                "HD Ships",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "hd_kt_400_military_droid_carrier_and_lethisk_class_armed_freighter.rar" },
+                "HD_Ships_Instructions",
+                "Improves the resolution of several ships.",
+                new Uri("https://deadlystream.com/files/file/1125-hd-kt-400-military-droid-carrier-and-lethisk-class-armed-freighter/")
+                ),
+            new Mod(
+                "Star Map Revamp",
+                "CarthOnasty",
+                Graphics,
+                Recommended,
+                new string[] { "Star-Map_Revamp_1-1.zip" },
+                "Star_Map_Revamp_Instructions",
+                "Improves the textures of the Rakatan Star Maps.",
+                new Uri("https://deadlystream.com/files/file/1262-star-map-revamp/")
+                ),
+            new Mod(
+                "HD Calo Nord",
+                "Emperor Turnip",
+                Graphics,
+                Optional,
+                new string[] { "HD Calo Nord by Emperor Turnip.rar" },
+                "HD_Calo_Nord_Instructions",
+                "Improves the quality of Calo Nord.",
+                new Uri("https://deadlystream.com/files/file/1198-hd-calo-nord-by-emperor-turnip/")
+                ),
+            new Mod(
+                "HD Wookies",
+                "Curtis1973",
+                Graphics,
+                Optional,
+                new string[] { "Wookie Pack High Resolution-1136-Final.zip" },
+                "HD_Wookies_Instructions",
+                "Improves the resolution of the Wookie textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1136")
+                ),
+            new Mod(
+                "HD Gammoreans",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Quanon_Gammoreans.rar" },
+                "HD_Gammoreans_Instructions",
+                "Retextures Gammoreans to much higher resolution with added detail.",
+                new Uri("https://deadlystream.com/files/file/1023-quanons-gammorean-reskin-pack/")
+                ),
             //new Mod(
             //    "HD Carth Onasi",
             //    "Dark Hope",
