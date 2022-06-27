@@ -1651,6 +1651,37 @@ namespace KotorAutoMod
                 "Drastically improves the quality of the player head PMHC05.",
                 new Uri("https://deadlystream.com/files/file/1841-pmhc05-hd/")
                 ),
+            new Mod(
+                "HD Men's Underwear",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Men's underwear HD.rar" },
+                "HD_Mens_Underwear_Instructions",
+                "Drastically improves the quality of the undergarments for male PCs.",
+                new Uri("https://deadlystream.com/files/file/1874-mens-underwear-hd/")
+                ),
+            new Mod(
+                "HD Women's Underwear",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Women underwear.rar" },
+                "HD_Womens_Underwear_Instructions",
+                "Drastically improves the quality of the undergarments for female PCs.",
+                new Uri("https://deadlystream.com/files/file/1794-women-underwear/")
+                ),
+            new Mod(
+                "Vanilla Masks Overhaul",
+                "xander2077",
+                Graphics,
+                Recommended,
+                new string[] { "KoToR Vanilla Masks Overhaul.7z" },
+                "Vanilla_Masks_Overhaul_Instructions",
+                "All the vanilla masks have decent textures but are pretty low-resolution. This mod replaces each with a higher-resolution version and it does a wonderful job of it.",
+                new Uri("https://deadlystream.com/files/file/867-vanilla-masks-overhaul/"),
+                "Download the 5.1 mb version"
+                ),
         };
     }
 }
