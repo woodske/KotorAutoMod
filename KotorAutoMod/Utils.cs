@@ -319,5 +319,13 @@ namespace KotorAutoMod
 
             modConfig.Instructions = message;
         }
+
+        public static void openUrl(Uri uri)
+        {
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.UseShellExecute = true;
+            startInfo.FileName = uri.AbsoluteUri;
+            Process.Start(startInfo);
+        }
     }
 }

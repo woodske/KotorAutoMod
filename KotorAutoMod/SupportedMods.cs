@@ -8,6 +8,7 @@ namespace KotorAutoMod
         // Tiers
         const string Essential = "Essential";
         const string Recommended = "Recommended";
+        const string Suggested = "Suggested";
         const string Optional = "Optional";
 
         // Types
@@ -1772,6 +1773,56 @@ namespace KotorAutoMod
                 "HD_Ships_And_Stations_Instructions",
                 "Provides new HD textures for the Star Forge, Yavin station, and the Endar Spire.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1370")
+                ),
+            new Mod(
+                "Placeables Specularity Tweaks",
+                "ebmar",
+                Graphics,
+                Optional,
+                new string[] { "[K1]_Placeables_Specularity_Tweaks_v0.1.0.7z" },
+                "Placeables_Specularity_Tweaks_Instructions",
+                "Adjusts the specularity of several placeables (footlockers, metal boxes etc.) to give them a shining effect.",
+                new Uri("https://deadlystream.com/files/file/1359-k1-placeables-specularity-tweaks/")
+                ),
+            new Mod(
+                "Animated Ebon Hawk Monitors",
+                "Sith Holocron",
+                Graphics,
+                Optional,
+                new string[] { "SH_EH_Animated_Monitors.7z" },
+                "Animated_Ebon_Hawk_Monitors_Instructions",
+                "Animates the monitors on the Ebon Hawk.",
+                new Uri("https://deadlystream.com/files/file/848-animated-ebon-hawk-monitors-not-including-galaxy-map/")
+                ),
+            new Mod(
+                "Ebon Hawk Repairs",
+                "PapaZinos",
+                Bug,
+                Recommended,
+                new string[] { "Ultimate_Ebon_Hawk_Repairs_For_K1_Animation_Fix_v1.0.2.7z" },
+                "Ebon_Hawk_Repairs_Instructions",
+                "The Ebon Hawk is chock full of lightmap issues and holes. This mod fixes as many as possible",
+                new Uri("https://deadlystream.com/files/file/2036-ultimate-ebon-hawk-repairs-for-k1/?tab=reviews&sort=newest#review-6503")
+                ),
+            new Mod(
+                "Ebon Hawk High Resolution",
+                "Vurt",
+                Graphics,
+                Suggested,
+                new string[] { "vurt_k1_eh_retexture_v10.rar" },
+                "Ebon_Hawk_High_Resolution_Instructions",
+                "Reskins the exterior of the Hawk to high resolution.",
+                new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/vurt-s-k1-hi-res-ebon-hawk-retexture")
+                ),
+            new Mod(
+                "Character Overhaul",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Character Overhaul -REDUX- (FULL) - TGA Version-1282-4-1-1628534742.rar" },
+                "Character_Overhaul_Instructions",
+                "An HD upscale that improves nearly every character texture in the game. Note that we will not be using all the textures as some of them are used by other mods.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
                 ),
         };
     }
