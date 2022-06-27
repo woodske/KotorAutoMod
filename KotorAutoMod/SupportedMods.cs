@@ -22,6 +22,8 @@ namespace KotorAutoMod
         const string Immersion = "Immersion";
         const string Restored = "Restored Content";
         const string Patch = "Patch";
+        const string Added = "Added Content";
+        const string Story = "Story Change";
 
         /*
          * Managed list of supported mods. This maintains the order in which the mods are applyed to the game.
@@ -1839,6 +1841,26 @@ namespace KotorAutoMod
                 "Character_Overhaul_Patches_Instructions",
                 "Some compatibility patches for the character overhaul.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
+                ),
+            new Mod(
+                "JC's Jedi Tailor",
+                "JCarter426",
+                Added,
+                Recommended,
+                new string[] { "JC's Jedi Tailor for K1 v1.4.zip" },
+                "JCs_Jedi_Tailor_Instructions",
+                "Were you ever annoyed that you couldn’t change the color of your Jedi robes? Well, now you can! This mod adds in a unique merchant on Dantooine capable of changing the color of Jedi robes for you and your party members.",
+                new Uri("https://deadlystream.com/files/file/1477-jcs-jedi-tailor-for-k1/")
+                ),
+            new Mod(
+                "Bendak Bounty Non Dark Side Option",
+                "Thrak Farelle",
+                Story,
+                Recommended,
+                new string[] { "tar02_duelorg021.dlg" },
+                "Bendak_Bounty_Non_Dark_Side_Option_Instructions",
+                "During Bendak’s bounty quest, the player would inevitably gain dark side points. This mod adds in an alternative route for LS players that allows them to fight Bendak to stop his slayings rather than for money.",
+                new Uri("https://drive.google.com/file/d/1NuewBFq390wkZuBkbJzN-mN4sIRlvXGd/view")
                 ),
         };
     }
