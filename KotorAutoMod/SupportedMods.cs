@@ -1733,6 +1733,46 @@ namespace KotorAutoMod
                 "Overhauls Tatooine with new HD textures.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1364")
                 ),
+            new Mod(
+                "Old Republic Skin Overhaul",
+                "multiple",
+                Graphics,
+                Recommended,
+                new string[] { "Tatooine v1.0-68-1-0.7z" },
+                "Old_Republic_Skin_Overhaul_Instructions",
+                "A reskin for several areas in-game. However, we’ll only be using the one for Tatooine.",
+                new Uri("https://www.nexusmods.com/kotor/mods/68")
+                ),
+            new Mod(
+                "Lehon HD",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Unknown World High Resolution - TGA Version-1369-1-1-1613465520.rar" },
+                "Lehon_HD_Instructions",
+                "Overhauls Lehon with new HD textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1369")
+                ),
+            new Mod(
+                "Korriban HD",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Korriban High Resolution - TPC Version-1367-1-1-1607600772.rar" },
+                "Korriban_HD_Instructions",
+                "Improves the textures for Korriban.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1367")
+                ),
+            new Mod(
+                "HD Ships & Stations",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Endar Spire-Star Forgre-Yavin Station - TPC Version-1370-1-0-1607439060.rar" },
+                "HD_Ships_And_Stations_Instructions",
+                "Provides new HD textures for the Star Forge, Yavin station, and the Endar Spire.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1370")
+                ),
         };
     }
 }
