@@ -40,7 +40,7 @@ namespace KotorAutoMod.Commands
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
 
-            await new Bendak_Bounty_Non_Dark_Side_Option_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Remove_Duplicate_Files_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

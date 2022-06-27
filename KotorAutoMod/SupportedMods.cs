@@ -1862,6 +1862,56 @@ namespace KotorAutoMod
                 "During Bendak’s bounty quest, the player would inevitably gain dark side points. This mod adds in an alternative route for LS players that allows them to fight Bendak to stop his slayings rather than for money.",
                 new Uri("https://drive.google.com/file/d/1NuewBFq390wkZuBkbJzN-mN4sIRlvXGd/view")
                 ),
+            new Mod(
+                "JC's Extra Saber Colors",
+                "JCarter426",
+                Added,
+                Recommended,
+                new string[] { "JC's Extra Saber Colors For K1 with VPHPTC v1.1.zip" },
+                "JCs_Extra_Saber_Colors_Instructions",
+                "I was absolutely enthralled when I first played KOTOR 2 by the number of new lightsaber colors. This mod adds those colors back in KOTOR 1 in a variety of locations using JC’s special effects!",
+                new Uri("https://deadlystream.com/files/file/1754-jcs-extra-saber-colors-for-k1/")
+                ),
+            new Mod(
+                "HD Icons for Extra Saber Colors",
+                "StellarExile & Effix",
+                UI,
+                Recommended,
+                new string[] { "HD Icons for JC's Saber Colors.7z" },
+                "HD_Icons_for_Extra_Saber_Colors_Instructions",
+                "A patch for the above mod to make it consistent with JackInTheBox’s HD Icons.",
+                new Uri("https://deadlystream.com/files/file/2005-hd-icons-for-jcs-extra-saber-colors/")
+                ),
+            new Mod(
+                "GenoHaradan Light Side",
+                "DarthRevan101",
+                Added,
+                Recommended,
+                new string[] { "Genoharadan - Light Side.rar" },
+                "GenoHaradan_Light_Side_Instructions",
+                "I always loved the Genoharadan side quests, but was disappointed you could never follow a light side route. This mod allows LS players to spare the lives of the targets to make for a most interesting ending. ",
+                new Uri("https://deadlystream.com/files/file/1031-genoharadan-light-side/")
+                ),
+            new Mod(
+                "Crashed Republic Cruiser",
+                "LDR",
+                Added,
+                Recommended,
+                new string[] { "ldr_repshipunknownworld.zip" },
+                "Crashed_Republic_Cruiser_Instructions",
+                "This recent expansion pack allows you to explore the wrecked cruiser on Lehon. It’s complete with its own modules and voiced lines",
+                new Uri("https://deadlystream.com/files/file/1878-a-crashed-republic-cruiser-on-a-nameless-world/")
+                ),
+            new Mod(
+                "Remove Duplicate Files",
+                "Flachzangen",
+                QoL,
+                Essential,
+                new string[] { "Remove Duplicate TGA-TPC-1127-1-2-1616219725.zip" },
+                "Remove_Duplicate_Files_Instructions",
+                "This is not really a mod, but rather a tool which will remove duplicate files from the override folder. We’ll use it to remove duplicate files from mods.",
+                new Uri("https://www.nexusmods.com/kotor2/mods/1127")
+                ),
         };
     }
 }
