@@ -1682,6 +1682,57 @@ namespace KotorAutoMod
                 new Uri("https://deadlystream.com/files/file/867-vanilla-masks-overhaul/"),
                 "Download the 5.1 mb version"
                 ),
+            new Mod(
+                "HD Taris and Patch",
+                "ShiningRedHD, patch by StellarExile",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Taris High Resolution - TPC Version-1360-2-2-1613057746.rar", "LTS_lobwal03.zip" },
+                "HD_Taris_and_Patch_Instructions",
+                "Overhauls the planet of Taris with new HD textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1360"),
+                "Download patch here: https://drive.google.com/file/d/1utSPMbZC8keFdClLzelJoC4qdRStNj3e/view"
+                ),
+            new Mod(
+                "HD Manaan",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Manaan High Resolution - TGA Version-1366-1-0-1607345982.rar" },
+                "HD_Manaan_Instructions",
+                "Overhauls Manaan with new HD textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1366")
+                ),
+            new Mod(
+                "HD Dantooine",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Dantooine High Resolution - TPC Version-1368-1-1-1607550040.rar" },
+                "HD_Dantooine_Instructions",
+                "Overhauls Dantooine with new HD textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1368")
+                ),
+            new Mod(
+                "HD Kashyyyk",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Kashyyyk High Resolution - TPC Version-1365-1-1-1607596812.rar" },
+                "HD_Kashyyyk_Instructions",
+                "Overhauls Kashyyyk with new HD textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1365")
+                ),
+            new Mod(
+                "HD Tatooine",
+                "ShiningRedHD",
+                Graphics,
+                Recommended,
+                new string[] { "Ultimate Tatooine High Resolution - TPC Version-1364-1-1-1607594654.rar" },
+                "HD_Tatooine_Instructions",
+                "Overhauls Tatooine with new HD textures.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1364")
+                ),
         };
     }
 }

@@ -42,7 +42,7 @@ namespace KotorAutoMod.Commands
 
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Vanilla_Masks_Overhaul_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new HD_Tatooine_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }
