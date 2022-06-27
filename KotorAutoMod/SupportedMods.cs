@@ -21,6 +21,7 @@ namespace KotorAutoMod
         const string Gameplay = "Gameplay Improvements";
         const string Immersion = "Immersion";
         const string Restored = "Restored Content";
+        const string Patch = "Patch";
 
         /*
          * Managed list of supported mods. This maintains the order in which the mods are applyed to the game.
@@ -1822,6 +1823,21 @@ namespace KotorAutoMod
                 new string[] { "Ultimate Character Overhaul -REDUX- (FULL) - TGA Version-1282-4-1-1628534742.rar" },
                 "Character_Overhaul_Instructions",
                 "An HD upscale that improves nearly every character texture in the game. Note that we will not be using all the textures as some of them are used by other mods.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
+                ),
+            new Mod(
+                "Character Overhaul Patches",
+                "ShiningRedHD",
+                Patch,
+                Recommended,
+                new string[] {
+                    "JC's Minor Fixes - Compatibility Patch-1282-4-1-1629713341.rar",
+                    "KOTOR 1 Community Patch - Compatibility Patch-1282-4-1-1629713397.rar",
+                    "Republic Soldier's New Shade - Compatibility Patch-1282-4-1-1629713494.rar",
+                    "Miscellaneous Compatibility Patches-1282-4-1-1629713437.rar"
+                },
+                "Character_Overhaul_Patches_Instructions",
+                "Some compatibility patches for the character overhaul.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
                 ),
         };

@@ -40,9 +40,12 @@ namespace KotorAutoMod.Commands
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
 
-            //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
+            string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
+            string modDirectory3 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[2]));
+            string modDirectory4 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[3]));
 
-            await new Character_Overhaul_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+
+            await new Character_Overhaul_Patches_Instructions().applyMod(new List<string> { modDirectory1, modDirectory2, modDirectory3, modDirectory4 }, modConfig, selectedMod);
         }
     }
 }
