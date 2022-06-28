@@ -1,17 +1,15 @@
-﻿using SharpCompress.Archives.SevenZip;
-using SharpCompress.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using SharpCompress.Readers;
 using System.Diagnostics;
 using KotorAutoMod.ViewModels;
 using KotorAutoMod.Models;
 using KotorAutoMod.Instructions;
+using SevenZipExtractor;
 
 namespace KotorAutoMod
 {
@@ -22,6 +20,7 @@ namespace KotorAutoMod
         {
             foreach (ModViewModel selectedMod in selectedMods)
             {
+                int modCount = 1;
                 foreach (string modFile in selectedMod.ModFileName)
                 {
                     string fileExtension = Path.GetExtension(modFile);
@@ -33,48 +32,18 @@ namespace KotorAutoMod
                     string modPath = Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile));
                     Directory.CreateDirectory(extractDirectory);
 
-                    modConfig.updateTaskProgress($"Extracting {Path.GetFileNameWithoutExtension(modFile)}");
+                    modConfig.updateTaskProgress($"Extracting {modCount}/{selectedMods.Count()}: {Path.GetFileName(modFile)}");
                     Debug.WriteLine($"Extracting {Path.GetFileNameWithoutExtension(modFile)}");
 
                     await Task.Run(() =>
                     {
-                        switch (fileExtension)
+                        using (ArchiveFile archiveFile = new ArchiveFile(modPath))
                         {
-                            case ".7z":
-                                using (var archive = SevenZipArchive.Open(modPath))
-                                {
-                                    var reader = archive.ExtractAllEntries();
-                                    while (reader.MoveToNextEntry())
-                                    {
-                                        if (!reader.Entry.IsDirectory)
-                                            reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
-                                            {
-                                                ExtractFullPath = true,
-                                                Overwrite = true
-                                            });
-                                    }
-                                };
-                                break;
-                            default:
-                                using (Stream stream = File.OpenRead(modPath))
-                                using (var reader = ReaderFactory.Open(stream))
-                                {
-                                    while (reader.MoveToNextEntry())
-                                    {
-                                        if (!reader.Entry.IsDirectory)
-                                        {
-                                            reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
-                                            {
-                                                ExtractFullPath = true,
-                                                Overwrite = true
-                                            });
-                                        }
-                                    }
-                                };
-                                break;
+                            archiveFile.Extract(extractDirectory);
                         }
                     });
                 }
+                modCount++;
             }
 
             Debug.WriteLine("All done extracting mods");
@@ -95,21 +64,10 @@ namespace KotorAutoMod
                 string extractDirectory = Path.Combine(getResourcesDirectory(), Path.GetFileNameWithoutExtension(compressedSetupTool));
                 Directory.CreateDirectory(extractDirectory);
 
-                using (Stream stream = File.OpenRead(compressedSetupTool))
-                using (var reader = ReaderFactory.Open(stream))
+                using (ArchiveFile archiveFile = new ArchiveFile(compressedSetupTool))
                 {
-                    while (reader.MoveToNextEntry())
-                    {
-                        if (!reader.Entry.IsDirectory)
-                        {
-                            reader.WriteEntryToDirectory(extractDirectory, new ExtractionOptions()
-                            {
-                                ExtractFullPath = true,
-                                Overwrite = true
-                            });
-                        }
-                    }
-                };
+                    archiveFile.Extract(extractDirectory);
+                }
             }
         }
 
@@ -239,6 +197,7 @@ namespace KotorAutoMod
 
             foreach (ModViewModel selectedMod in selectedMods)
             {
+                int modCount = 1;
                 List<string> readyMods = new List<string>();
                 foreach (string modFileName in selectedMod.ModFileName)
                 {
@@ -271,7 +230,7 @@ namespace KotorAutoMod
 
                 string className = $"KotorAutoMod.Instructions.{selectedMod.InstructionsName}";
 
-                modConfig.updateTaskProgress($"Applying mod: {selectedMod.ListName}");
+                modConfig.updateTaskProgress($"Applying mod {modCount}/{selectedMods.Count()}: {selectedMod.ListName}");
 
                 // Invoke the 'applyMod' method in the appropriate instruction class
                 var type = Type.GetType(className);
@@ -279,6 +238,7 @@ namespace KotorAutoMod
                 var classInstance = Activator.CreateInstance(type);
                 object[] parameters = new object[] { readyMods, modConfig, selectedMod };
                 await (Task)applyMod.Invoke(classInstance, parameters);
+                modCount++;
             }
         }
 

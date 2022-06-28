@@ -34,13 +34,13 @@ namespace KotorAutoMod.Commands
             modConfig.SelectedResolution = "1920x1080";
 
             // Manually select mod
-            //string modName = "Children NPC Fixes";
-            //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
+            string modName = "Improved Grenades";
+            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
 
-            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
+            //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
 
-            await new Remove_Duplicate_Files_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Improved_Grenades_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

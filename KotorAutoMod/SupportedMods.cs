@@ -508,7 +508,7 @@ namespace KotorAutoMod
                 Immersion,
                 Recommended,
                 new string[] { "Effixian's Qel-Droma Robes Reskin for JC's Cloaked Jedi Robes.zip" },
-                "Unique_Qel-Droma_Robes_Instructions",
+                "Unique_Qel_Droma_Robes_Instructions",
                 "Gives Qel-Droma robes their own unique texture",
                 new Uri("https://deadlystream.com/files/file/2019-effixians-qel-droma-robes-reskin-for-jcs-cloaked-jedi-robes/")
                 ),

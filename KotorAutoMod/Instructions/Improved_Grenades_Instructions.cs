@@ -14,7 +14,7 @@ namespace KotorAutoMod.Instructions
         {
             // Move all files from Vanilla Increased Radius + Demo to override
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], "Improved Grenades", "Vanilla Increased Radius +Demo"), modConfig.SwkotorDirectory, new List<string> { "ReadChangeLog.txt" });
+            await Utils.moveAllToOverrideDirectory(Path.Combine(readyMods[0], "Improved Grenades", "Improved Grenades", "Vanilla Increased Radius +Demo"), modConfig.SwkotorDirectory, new List<string> { "ReadChangeLog.txt" });
         }
     }
 }
