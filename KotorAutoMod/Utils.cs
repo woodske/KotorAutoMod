@@ -18,9 +18,9 @@ namespace KotorAutoMod
         public static string[] supportedCompressedFileExtensions = new string[] { ".7z", ".zip", ".rar" };
         public static async Task extractMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
+            int modCount = 1;
             foreach (ModViewModel selectedMod in selectedMods)
             {
-                int modCount = 1;
                 foreach (string modFile in selectedMod.ModFileName)
                 {
                     string fileExtension = Path.GetExtension(modFile);
@@ -194,10 +194,10 @@ namespace KotorAutoMod
 
             modConfig.Instructions = "Extracting mods... this may take a few minutes.";
             await Utils.extractMods(modConfig, selectedMods);
+            int modCount = 1;
 
             foreach (ModViewModel selectedMod in selectedMods)
             {
-                int modCount = 1;
                 List<string> readyMods = new List<string>();
                 foreach (string modFileName in selectedMod.ModFileName)
                 {
