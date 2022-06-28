@@ -2,8 +2,10 @@
 using KotorAutoMod.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace KotorAutoMod.Instructions
 {
@@ -25,14 +27,19 @@ namespace KotorAutoMod.Instructions
 
             string width = modConfig.SelectedResolution.Split("x")[0];
             string height = modConfig.SelectedResolution.Split("x")[1];
-            modConfig.Instructions = $"Follow bat instructions for {mod.ListName}\n" +
+            modConfig.Instructions =
+                "Find the hires_patcher.bat file and run it.\n" +
+                //$"Follow bat instructions for {mod.ListName}\n" +
                 $"Enter {width} for your width.\n" +
                 $"Enter {height} for you height.\n" +
                 "Hit Enter when prompted to have the dialog letterbox proportions adjusted\n" +
                 "Hit Enter when prompted for the name of the swkotor.exe file\n" +
                 "Press any key to exit the script";
 
-            await Utils.runExecutable(Path.Combine(modConfig.SwkotorDirectory, "hires_patcher.bat"));
+            //await Utils.runExecutable(Path.Combine(modConfig.SwkotorDirectory, "hires_patcher.bat"));
+            Process.Start("explorer.exe", modConfig.SwkotorDirectory);
+
+            MessageBox.Show("Follow the instructions in the instructions box then press OK when done", "KOTOR High Resolution Menus", MessageBoxButton.OK);
 
             string aspectRatioDirectory;
             string resolutionDirectory = $"gui.{modConfig.SelectedResolution}";
