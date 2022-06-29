@@ -16,6 +16,9 @@ namespace KotorAutoMod
     internal static class Utils
     {
         public static string[] supportedCompressedFileExtensions = new string[] { ".7z", ".zip", ".rar" };
+        /*
+         * Extracts compressed mods. The extract folder will have the same name and live in the same folder as the compressed mods.
+         */
         public static async Task extractMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
             int modCount = 1;
@@ -49,12 +52,18 @@ namespace KotorAutoMod
             Debug.WriteLine("All done extracting mods");
         }
 
+        /*
+         * Gets directory for files in the Resources folder
+         */
         public static string getResourcesDirectory()
         {
             string? outputDirectory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             return Path.Combine(outputDirectory, "Resources");
         }
 
+        /*
+         * Extracts compressed files from the Resource directory
+         */
         public static void extractSetupTools()
         {
             string[] compressedSetupTools = Directory.GetFiles(getResourcesDirectory());
@@ -71,6 +80,9 @@ namespace KotorAutoMod
             }
         }
 
+        /*
+         * Initializes mod list and sets checked and isAvailable based on if the compressed mods are present
+         */
         public static ObservableCollection<ModViewModel> getMods(string modsDirectory)
         {
             ObservableCollection<ModViewModel> mods = new ObservableCollection<ModViewModel>();
@@ -105,6 +117,9 @@ namespace KotorAutoMod
             return mods;
         }
 
+        /*
+         * Util for mods that just need to copy files to override
+         */
         public async static Task moveAllToOverrideDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null, bool overwrite = true)
         {
             List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
@@ -126,6 +141,9 @@ namespace KotorAutoMod
             });
         }
 
+        /*
+         * Util for mods that just need to copy files to movies
+         */
         public async static Task moveAllToMoviesDirectory(string modDirectory, string swkotorDirectory, List<string>? excludeList = null, bool overwrite = true)
         {
             List<string> modFiles = Directory.GetFiles(modDirectory).ToList();
@@ -147,6 +165,9 @@ namespace KotorAutoMod
             });
         }
 
+        /*
+         * Runs executables, primarily TSLPatcher
+         */
         public async static Task runExecutable(string executablePath)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -160,6 +181,9 @@ namespace KotorAutoMod
             }
         }
 
+        /*
+         * Determines the progress bar maximum value. This may be tweaked in the applyMods function.
+         */
         public static int getProgressBarMaximum(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
             int maximum = 0;
@@ -173,7 +197,9 @@ namespace KotorAutoMod
             return maximum + 1;
         }
 
-        // Extract mods and run the instructions for selected mods
+        /* 
+         * Extract mods and run the instructions for selected mods
+         */
         public static async Task applyMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
             // Apply setup tools
@@ -243,7 +269,9 @@ namespace KotorAutoMod
             }
         }
 
-        // Opens direct download link in browser for given mods
+        /* 
+         * Opens direct download link in browser for given mods
+         */
         public static async Task openModLinks(IEnumerable<ModViewModel> selectedMods)
         {
             foreach (ModViewModel selectedMod in selectedMods)
@@ -259,6 +287,9 @@ namespace KotorAutoMod
             }
         }
 
+        /*
+         * Basic instructions for mods that use TSLPatcher
+         */
         public static void tslPatcherInstructions(ModConfigViewModel modConfig, ModViewModel mod, string addtionalMessage = "")
         {
             string message = $"Use the TSLPatcher for {mod.ListName}\n\n" +
@@ -273,6 +304,9 @@ namespace KotorAutoMod
             modConfig.Instructions = message;
         }
 
+        /*
+         * Basic instructions for mods that move files to override
+         */
         public static void copyFilesToOverrideInstructions(ModConfigViewModel modConfig, ModViewModel mod)
         {
             string message = $"Copying files from {mod.ListName} to the Override folder.\n" +
@@ -281,6 +315,9 @@ namespace KotorAutoMod
             modConfig.Instructions = message;
         }
 
+        /*
+         * Opens URL, used for mods that require a choice
+         */
         public static void openUrl(Uri uri)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
@@ -289,6 +326,9 @@ namespace KotorAutoMod
             Process.Start(startInfo);
         }
 
+        /*
+         * Filter mods based on filter options in the WPF app
+         */
         public static IEnumerable<ModViewModel> filterMods(IEnumerable<ModViewModel> mods, ModConfigViewModel modConfig)
         {
             // type filter
