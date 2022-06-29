@@ -32,7 +32,7 @@
             <ListBox 
                 ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" 
                 SelectedValue="{Binding DescriptionViewModel.Mod}" 
-                Height="180">
+                Height="190">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel 
@@ -137,14 +137,14 @@
             </StackPanel>
             <Button 
                 Content="Test Mod"
-                Visibility="Visible"
+                Visibility="Hidden"
                 Command="{Binding ModConfigViewModel.TestModCommand}"/>
         </StackPanel>
 
         <StackPanel 
             HorizontalAlignment="Right" 
             VerticalAlignment="Top" 
-            Height="250" 
+            Height="280" 
             Width="280" 
             Margin="10">
             <TextBox 
@@ -164,7 +164,7 @@
             <ListBox 
                 ItemsSource="{Binding MissingModsViewModel.MissingMods}" 
                 SelectedValue="{Binding DescriptionViewModel.Mod}" 
-                Height="180">
+                Height="190">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel 
@@ -191,17 +191,10 @@
             HorizontalAlignment="Center" 
             Orientation="Vertical" 
             VerticalAlignment="Top" 
-            Height="250" 
+            Height="280" 
             Width="470" 
             Margin="10">
-            <TextBox 
-                TextAlignment="Center" 
-                Text="Mod Description" 
-                VerticalAlignment="Top" 
-                Height="20" 
-                BorderThickness="0"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Filters:" />
                 <ComboBox 
                     ItemsSource="{Binding ModConfigViewModel.Types}" 
                     SelectedValue="{Binding ModConfigViewModel.SelectedType}" 
@@ -209,7 +202,10 @@
                     IsEditable="True" 
                     IsReadOnly="True" 
                     HorizontalAlignment="Left"
-                    Width="130">
+                    FontSize="10"
+                    Padding="1"
+                    Width="150"
+                    Height="25">
                 </ComboBox>
                 <ComboBox 
                     ItemsSource="{Binding ModConfigViewModel.ImportanceTiers}" 
@@ -218,15 +214,22 @@
                     IsEditable="True" 
                     IsReadOnly="True" 
                     HorizontalAlignment="Left"
-                    Width="130">
+                    FontSize="10"
+                    Padding="1"
+                    Width="150"
+                    Height="25">
                 </ComboBox>
                 <TextBox 
-                    Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}" />
+                    Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                    Width="140"
+                    VerticalContentAlignment="Center"
+                    Margin="5"
+                    Height="25"/>
             </StackPanel>
             <TextBlock 
                 TextWrapping="Wrap" 
                 Background="#FFB0BBAD" 
-                Height="180"
+                Height="190"
                 Padding="5"
                 FontSize="13">
                 <Run Text="Mod name: " FontWeight="Bold"/>
