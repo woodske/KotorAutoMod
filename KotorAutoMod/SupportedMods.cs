@@ -645,7 +645,7 @@ namespace KotorAutoMod
                 "Sharina_Fizark_Restoration_And_Patch_Instructions",
                 "Sharina Fizark, the woman you can help on Tatooine, was originally supposed to appear on Dantooine once the quest was completed. This mod restores her and some cut dialogue.",
                 new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/sharina-fizark-restoration-1"),
-                "Patch found here: https://drive.google.com/file/d/1bw6uS4vl2JcmNIfDYe8c2nhz4ewV8bPB/view"
+                "Download patch here:\nhttps://drive.google.com/file/d/1bw6uS4vl2JcmNIfDYe8c2nhz4ewV8bPB/view"
                 ),
             new Mod(
                 "Helena Shan Improvement",
@@ -1699,7 +1699,7 @@ namespace KotorAutoMod
                 "HD_Taris_and_Patch_Instructions",
                 "Overhauls the planet of Taris with new HD textures.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1360"),
-                "Download patch here: https://drive.google.com/file/d/1utSPMbZC8keFdClLzelJoC4qdRStNj3e/view"
+                "Download patch here:\nhttps://drive.google.com/file/d/1utSPMbZC8keFdClLzelJoC4qdRStNj3e/view"
                 ),
             new Mod(
                 "HD Manaan",

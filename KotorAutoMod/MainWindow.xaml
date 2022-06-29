@@ -232,7 +232,9 @@
                     Margin="5"
                     Height="25"/>
             </StackPanel>
-            <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="190">
+            <ScrollViewer 
+                HorizontalScrollBarVisibility="Disabled" 
+                Height="190">
                 <TextBlock 
                     TextWrapping="Wrap" 
                     Background="#FFB0BBAD" 
@@ -259,8 +261,12 @@
                     <LineBreak/>
                 
                     <Run Text="Source page: " FontWeight="Bold"/>
-                    <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">
-                        <TextBlock Text="{Binding DescriptionViewModel.Mod.ModPage}"/>
+                    <Hyperlink 
+                        NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" 
+                        RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock 
+                            Text="{Binding DescriptionViewModel.Mod.ModPage}"
+                            FontSize="10"/>
                     </Hyperlink>
                     <LineBreak/>
                     <LineBreak/>
@@ -268,6 +274,12 @@
                     <Run Text="Description: " FontWeight="Bold"/>
                     <Run Text="{Binding DescriptionViewModel.Mod.Description, Mode=OneWay}" />
                     <LineBreak/>
+
+                    <TextBox 
+                        Text="{Binding DescriptionViewModel.Mod.AdditionalInformation, Mode=OneWay}"
+                        IsReadOnly="True"
+                        Background="#FFB0BBAD"
+                        BorderThickness="0"/>
                 </TextBlock>
             </ScrollViewer>
             <Button
