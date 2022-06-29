@@ -21,7 +21,9 @@
                 Height="20"
                 Margin="20 0 0 0"
                 BorderThickness="0"
-                IsReadOnly="True"/>
+                IsReadOnly="True"
+                FontSize="16"
+                FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal">
                 <CheckBox 
                     Content="Select All" 
@@ -57,13 +59,15 @@
         <StackPanel 
             HorizontalAlignment="Left" 
             VerticalAlignment="Bottom" 
-            Height="200" 
+            Height="230" 
             Width="280" 
             Margin="10">
             <StackPanel Orientation="Vertical">
                 <Label 
                     Content="Configuration"
                     HorizontalAlignment="Center"
+                    FontSize="16"
+                    FontWeight="Bold"
                     />
                 <CheckBox 
                     IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" 
@@ -153,7 +157,9 @@
                 Height="20" 
                 Margin="20,0,0,0" 
                 BorderThickness="0"
-                IsReadOnly="True"/>
+                IsReadOnly="True"
+                FontSize="16"
+                FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal">
                 <CheckBox 
                     Content="Select All" 
@@ -221,48 +227,49 @@
                 </ComboBox>
                 <TextBox 
                     Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}" 
-                    Width="140"
+                    Width="130"
                     VerticalContentAlignment="Center"
                     Margin="5"
                     Height="25"/>
             </StackPanel>
-            <TextBlock 
-                TextWrapping="Wrap" 
-                Background="#FFB0BBAD" 
-                Height="190"
-                Padding="5"
-                FontSize="13">
-                <Run Text="Mod name: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.ListName, Mode=OneWay}"/>
-                <LineBreak/>
+            <ScrollViewer HorizontalScrollBarVisibility="Disabled" Height="190">
+                <TextBlock 
+                    TextWrapping="Wrap" 
+                    Background="#FFB0BBAD" 
+                    Padding="5"
+                    FontSize="13">
+                    <Run Text="Mod name: " FontWeight="Bold"/>
+                    <Run Text="{Binding DescriptionViewModel.Mod.ListName, Mode=OneWay}"/>
+                    <LineBreak/>
                 
-                <Run Text="Author: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.Author, Mode=OneWay}" />
-                <LineBreak/>
+                    <Run Text="Author: " FontWeight="Bold"/>
+                    <Run Text="{Binding DescriptionViewModel.Mod.Author, Mode=OneWay}" />
+                    <LineBreak/>
                 
-                <Run Text="Type: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.Type, Mode=OneWay}" />
-                <LineBreak/>
+                    <Run Text="Type: " FontWeight="Bold"/>
+                    <Run Text="{Binding DescriptionViewModel.Mod.Type, Mode=OneWay}" />
+                    <LineBreak/>
                 
-                <Run Text="Importance: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.Importance, Mode=OneWay}" />               
-                <LineBreak/>
+                    <Run Text="Importance: " FontWeight="Bold"/>
+                    <Run Text="{Binding DescriptionViewModel.Mod.Importance, Mode=OneWay}" />               
+                    <LineBreak/>
                 
-                <Run Text="Filename: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.CombinedModFileName, Mode=OneWay}" />
-                <LineBreak/>
+                    <Run Text="Filename: " FontWeight="Bold"/>
+                    <Run Text="{Binding DescriptionViewModel.Mod.CombinedModFileName, Mode=OneWay}" />
+                    <LineBreak/>
                 
-                <Run Text="Source page: " FontWeight="Bold"/>
-                <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">
-                    <TextBlock Text="{Binding DescriptionViewModel.Mod.ModPage}"/>
-                </Hyperlink>
-                <LineBreak/>
-                <LineBreak/>
+                    <Run Text="Source page: " FontWeight="Bold"/>
+                    <Hyperlink NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock Text="{Binding DescriptionViewModel.Mod.ModPage}"/>
+                    </Hyperlink>
+                    <LineBreak/>
+                    <LineBreak/>
                 
-                <Run Text="Description: " FontWeight="Bold"/>
-                <Run Text="{Binding DescriptionViewModel.Mod.Description, Mode=OneWay}" />
-                <LineBreak/>
-            </TextBlock>
+                    <Run Text="Description: " FontWeight="Bold"/>
+                    <Run Text="{Binding DescriptionViewModel.Mod.Description, Mode=OneWay}" />
+                    <LineBreak/>
+                </TextBlock>
+            </ScrollViewer>
             <Button
                 Content="Refresh Mods" 
                 Width="120" 
@@ -275,19 +282,21 @@
             HorizontalAlignment="Center" 
             Orientation="Vertical" 
             VerticalAlignment="Bottom" 
-            Height="200" 
+            Height="230" 
             Width="470" 
             Margin="10">
             <Label 
                 Content="Instructions"
                 HorizontalAlignment="Center"
+                FontSize="16"
+                FontWeight="Bold"
                 Margin="0,0,0,3"/>
             <Border BorderThickness="1" BorderBrush="Black">
                 <TextBox 
                     TextWrapping="Wrap" 
                     VerticalAlignment="Center" 
                     Text="{Binding ModConfigViewModel.Instructions}" 
-                    Height="100"
+                    Height="130"
                     Padding="5"
                     IsReadOnly="True"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
@@ -313,7 +322,7 @@
             gif:ImageBehavior.AnimatedSource="Resources/revan-star-wars.gif"
             VerticalAlignment="Bottom"
             HorizontalAlignment="Right"
-            Height="200"
-            Margin="30, 20, 50, 10"/>
+            Height="215"
+            Margin="0,0,42,17" Width="220"/>
     </Grid>
 </Window>
