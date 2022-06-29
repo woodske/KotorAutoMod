@@ -96,7 +96,6 @@
                         Text="Aspect Ratio" 
                         IsEditable="True" 
                         IsReadOnly="True" 
-                        HorizontalAlignment="Left"
                         Width="130">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
@@ -111,7 +110,6 @@
                         Text="Screen Resolution" 
                         IsEditable="True" 
                         IsReadOnly="True" 
-                        HorizontalAlignment="Left"
                         Width="130"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
@@ -204,33 +202,31 @@
                 <ComboBox 
                     ItemsSource="{Binding ModConfigViewModel.Types}" 
                     SelectedValue="{Binding ModConfigViewModel.SelectedType}" 
-                    Text="Type" 
+                    Text="Type Filter" 
                     IsEditable="True" 
                     IsReadOnly="True" 
-                    HorizontalAlignment="Left"
                     FontSize="10"
                     Padding="1"
                     Width="150"
-                    Height="25">
+                    Height="27">
                 </ComboBox>
                 <ComboBox 
                     ItemsSource="{Binding ModConfigViewModel.ImportanceTiers}" 
                     SelectedValue="{Binding ModConfigViewModel.SelectedImportanceTier}" 
-                    Text="Importance" 
+                    Text="Importance Filter" 
                     IsEditable="True" 
                     IsReadOnly="True" 
-                    HorizontalAlignment="Left"
                     FontSize="10"
                     Padding="1"
                     Width="150"
-                    Height="25">
+                    Height="27">
                 </ComboBox>
                 <TextBox 
                     Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}" 
                     Width="130"
                     VerticalContentAlignment="Center"
                     Margin="5"
-                    Height="25"/>
+                    Height="27"/>
             </StackPanel>
             <ScrollViewer 
                 HorizontalScrollBarVisibility="Disabled" 
