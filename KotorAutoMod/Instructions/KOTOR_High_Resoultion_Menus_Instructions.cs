@@ -39,7 +39,10 @@ namespace KotorAutoMod.Instructions
             //await Utils.runExecutable(Path.Combine(modConfig.SwkotorDirectory, "hires_patcher.bat"));
             Process.Start("explorer.exe", modConfig.SwkotorDirectory);
 
-            MessageBox.Show("Follow the instructions in the instructions box then press OK when done", "KOTOR High Resolution Menus", MessageBoxButton.OK);
+            MessageBox.Show("Follow the instructions in the instructions box then press OK when done",
+                "KOTOR High Resolution Menus",
+                MessageBoxButton.OK
+                );
 
             string aspectRatioDirectory;
             string resolutionDirectory = $"gui.{modConfig.SelectedResolution}";

@@ -214,9 +214,8 @@ namespace KotorAutoMod
                 modConfig.updateTaskProgress("Applying Universal Widescreen patcher");
                 await new UniWS_Patcher_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "uniws") }, modConfig, null);
 
-                //FileUnblocker fileUnblocker = new FileUnblocker();
-                //fileUnblocker.Unblock(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch", "4gb_patch.exe"));
-                // Four_GB_Patch_Instructions.applyMod(Path.Combine(Utils.getResourcesDirectory(), "4gb_patch"), modConfig, instructionsTextBlock);
+                modConfig.updateTaskProgress("Applying 4 GB patch");
+                await new Four_GB_Patch_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "4gb_patch") }, modConfig, null);
             }
 
             modConfig.Instructions = "Extracting mods... this may take a few minutes.";
