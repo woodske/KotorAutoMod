@@ -220,7 +220,8 @@
                     HorizontalAlignment="Left"
                     Width="130">
                 </ComboBox>
-                <TextBlock Text="Search" />
+                <TextBox 
+                    Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
             <TextBlock 
                 TextWrapping="Wrap" 

@@ -291,15 +291,28 @@ namespace KotorAutoMod
 
         public static IEnumerable<ModViewModel> filterMods(IEnumerable<ModViewModel> mods, ModConfigViewModel modConfig)
         {
+            // type filter
             IEnumerable<ModViewModel> typeFilteredMods = !string.IsNullOrEmpty(modConfig.SelectedType) ?
                 mods.Where(mod => mod.Type == modConfig.SelectedType) :
                 mods;
 
+            // importance filter
             IEnumerable<ModViewModel> importanceFilteredMods = !string.IsNullOrEmpty(modConfig.SelectedImportanceTier) ?
                 typeFilteredMods.Where(mod => mod.Importance == modConfig.SelectedImportanceTier) :
                 typeFilteredMods;
 
-            return importanceFilteredMods;
+            // search filter
+            IEnumerable<ModViewModel> searchFilteredMods = !string.IsNullOrEmpty(modConfig.SearchText) ?
+                importanceFilteredMods.Where(mod =>
+                {
+                    return
+                        mod.ListName.ToLower().Contains(modConfig.SearchText.ToLower()) ||
+                        mod.Author.ToLower().Contains(modConfig.SearchText.ToLower()) ||
+                        mod.Description.ToLower().Contains(modConfig.SearchText.ToLower());
+                }) :
+                importanceFilteredMods;
+
+            return searchFilteredMods;
         }
     }
 }

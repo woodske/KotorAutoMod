@@ -45,6 +45,8 @@ namespace KotorAutoMod.ViewModels
 
         private string _selectedImportanceTier = string.Empty;
 
+        private string _searchText;
+
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectCompressedModsFolderCommand { get; }
         public ICommand SelectAspectRatioCommand { get; }
@@ -240,6 +242,19 @@ namespace KotorAutoMod.ViewModels
             {
                 _selectedImportanceTier = value;
                 OnPropertyChanged(nameof(SelectedImportanceTier));
+            }
+        }
+
+        public string SearchText
+        {
+            get
+            {
+                return _searchText;
+            }
+            set
+            {
+                _searchText = value;
+                OnPropertyChanged(nameof(SearchText));
             }
         }
 
