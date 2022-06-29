@@ -7,26 +7,27 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="KOTOR Auto Mod" Height="550" Width="1100">
+        Title="KOTOR Auto Mod" Height="600" Width="1100">
     <Grid Margin="10, 10">
         <StackPanel 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
-            Height="250" 
+            Height="270" 
             Width="280" 
             Margin="10">
+            <TextBox 
+                TextAlignment="Center" 
+                Text="Available Mods"  
+                Height="20"
+                Margin="20 0 0 0"
+                BorderThickness="0"
+                IsReadOnly="True"/>
             <StackPanel Orientation="Horizontal">
                 <CheckBox 
                     Content="Select All" 
                     IsChecked="{Binding AvailableModsViewModel.SelectAllAvailableModsIsChecked}" 
-                    Command="{Binding AvailableModsViewModel.SelectAllAvailableModsCommand}"/>
-                <TextBox 
-                    TextAlignment="Center" 
-                    Text="Available Mods"  
-                    Height="20"
-                    Margin="20 0 0 0"
-                    BorderThickness="0"
-                    IsReadOnly="True"/>
+                    Command="{Binding AvailableModsViewModel.SelectAllAvailableModsCommand}"
+                    Margin="0, 0, 0, 2"/>
             </StackPanel>
             <ListBox 
                 ItemsSource="{Binding AvailableModsViewModel.AvailableMods}" 
@@ -146,18 +147,19 @@
             Height="250" 
             Width="280" 
             Margin="10">
+            <TextBox 
+                TextAlignment="Center" 
+                Text="Missing Mods" 
+                Height="20" 
+                Margin="20,0,0,0" 
+                BorderThickness="0"
+                IsReadOnly="True"/>
             <StackPanel Orientation="Horizontal">
                 <CheckBox 
                     Content="Select All" 
                     IsChecked="{Binding MissingModsViewModel.SelectAllMissingModsIsChecked}" 
-                    Command="{Binding MissingModsViewModel.SelectAllMissingModsCommand}"/>
-                <TextBox 
-                    TextAlignment="Center" 
-                    Text="Missing Mods" 
-                    Height="20" 
-                    Margin="20,0,0,0" 
-                    BorderThickness="0"
-                    IsReadOnly="True"/>
+                    Command="{Binding MissingModsViewModel.SelectAllMissingModsCommand}"
+                    Margin="0, 0, 0, 2"/>
             </StackPanel>
             <ListBox 
                 ItemsSource="{Binding MissingModsViewModel.MissingMods}" 
@@ -198,6 +200,28 @@
                 VerticalAlignment="Top" 
                 Height="20" 
                 BorderThickness="0"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="Filters:" />
+                <ComboBox 
+                    ItemsSource="{Binding ModConfigViewModel.Types}" 
+                    SelectedValue="{Binding ModConfigViewModel.SelectedType}" 
+                    Text="Type" 
+                    IsEditable="True" 
+                    IsReadOnly="True" 
+                    HorizontalAlignment="Left"
+                    Width="130">
+                </ComboBox>
+                <ComboBox 
+                    ItemsSource="{Binding ModConfigViewModel.ImportanceTiers}" 
+                    SelectedValue="{Binding ModConfigViewModel.SelectedImportanceTier}" 
+                    Text="Importance" 
+                    IsEditable="True" 
+                    IsReadOnly="True" 
+                    HorizontalAlignment="Left"
+                    Width="130">
+                </ComboBox>
+                <TextBlock Text="Search" />
+            </StackPanel>
             <TextBlock 
                 TextWrapping="Wrap" 
                 Background="#FFB0BBAD" 

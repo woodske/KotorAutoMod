@@ -35,6 +35,16 @@ namespace KotorAutoMod.ViewModels
 
         private string _activeTask = string.Empty;
 
+        public string[] AvailableAspectRatios => ModConfig.validAspectRatios;
+
+        public string[] Types => SupportedMods.types;
+
+        public string[] ImportanceTiers => SupportedMods.importanceTiers;
+
+        private string _selectedType = string.Empty;
+
+        private string _selectedImportanceTier = string.Empty;
+
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectCompressedModsFolderCommand { get; }
         public ICommand SelectAspectRatioCommand { get; }
@@ -117,14 +127,6 @@ namespace KotorAutoMod.ViewModels
             {
                 _firstTimeSetupIsChecked = value;
                 OnPropertyChanged(nameof(FirstTimeSetupIsChecked));
-            }
-        }
-
-        public string[] AvailableAspectRatios
-        {
-            get
-            {
-                return ModConfig.validAspectRatios;
             }
         }
 
@@ -212,6 +214,32 @@ namespace KotorAutoMod.ViewModels
                 {
                     return "Hidden";
                 }
+            }
+        }
+
+        public string SelectedType
+        {
+            get
+            {
+                return _selectedType;
+            }
+            set
+            {
+                _selectedType = value;
+                OnPropertyChanged(nameof(SelectedType));
+            }
+        }
+
+        public string SelectedImportanceTier
+        {
+            get
+            {
+                return _selectedImportanceTier;
+            }
+            set
+            {
+                _selectedImportanceTier = value;
+                OnPropertyChanged(nameof(SelectedImportanceTier));
             }
         }
 

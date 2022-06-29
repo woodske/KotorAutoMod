@@ -2,6 +2,7 @@
 using KotorAutoMod.Stores;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 
@@ -10,9 +11,11 @@ namespace KotorAutoMod.ViewModels
     public class AvailableModsViewModel : ViewModelBase
     {
 
+        private ObservableCollection<ModViewModel> _availableMods;
+
         private readonly ModStore _modStore;
 
-        private ObservableCollection<ModViewModel> _availableMods;
+        private ModConfigViewModel _modConfig;
 
         private bool _selectAllAvailableModsIsChecked;
 
@@ -26,6 +29,7 @@ namespace KotorAutoMod.ViewModels
             SelectAllAvailableModsCommand = new SelectAllAvailableModsCommand(this, modStore);
 
             _modStore.ModListUpdated += OnModsUpdated;
+            _modStore.ModConfigUpdated += OnModConfigUpdated;
         }
 
         private void OnModsUpdated(ObservableCollection<ModViewModel> mods)
@@ -33,11 +37,27 @@ namespace KotorAutoMod.ViewModels
             AvailableMods = mods;
         }
 
+        private void OnModConfigUpdated(ModConfigViewModel modConfig)
+        {
+            _modConfig = modConfig;
+            _modConfig.PropertyChanged += OnModConfigPropertyChanged;
+        }
+
+        private void OnModConfigPropertyChanged(object? sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(ModConfigViewModel.SelectedType)
+                || e.PropertyName == nameof(ModConfigViewModel.SelectedImportanceTier)
+                )
+            {
+                OnPropertyChanged(nameof(AvailableMods));
+            }
+        }
+
         public IEnumerable<ModViewModel> AvailableMods
         {
             get
             {
-                return _availableMods.Where(mod => mod.isAvailable);
+                return Utils.filterMods(_availableMods.Where(mod => mod.isAvailable), _modConfig);
             }
 
             set
@@ -63,6 +83,8 @@ namespace KotorAutoMod.ViewModels
         public override void Dispose()
         {
             _modStore.ModListUpdated -= OnModsUpdated;
+            _modStore.ModConfigUpdated -= OnModConfigUpdated;
+            _modConfig.PropertyChanged -= OnModConfigPropertyChanged;
             base.Dispose();
         }
     }

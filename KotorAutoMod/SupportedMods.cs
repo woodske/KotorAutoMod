@@ -5,11 +5,13 @@ namespace KotorAutoMod
 {
     internal static class SupportedMods
     {
-        // Tiers
+        // Importance
         const string Essential = "Essential";
         const string Recommended = "Recommended";
         const string Suggested = "Suggested";
         const string Optional = "Optional";
+
+        public static string[] importanceTiers = new string[] { "", Essential, Recommended, Suggested, Optional };
 
         // Types
         const string Menu = "Menus";
@@ -24,6 +26,8 @@ namespace KotorAutoMod
         const string Patch = "Patch";
         const string Added = "Added Content";
         const string Story = "Story Change";
+
+        public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story };
 
         /*
          * Managed list of supported mods. This maintains the order in which the mods are applyed to the game.

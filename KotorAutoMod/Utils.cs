@@ -89,14 +89,15 @@ namespace KotorAutoMod
                     }
                 }
 
+                ModViewModel modViewModel = new ModViewModel(supportedMod);
+                modViewModel.isAvailable = hasAllModFiles;
+                modViewModel.isChecked = hasAllModFiles;
+
                 // Default mod to unchecked
                 if (supportedMod.ListName == "Larger Text Fonts")
                 {
                     supportedMod.isChecked = false;
                 }
-
-                ModViewModel modViewModel = new ModViewModel(supportedMod);
-                modViewModel.isAvailable = hasAllModFiles;
 
                 mods.Add(modViewModel);
             }
@@ -286,6 +287,19 @@ namespace KotorAutoMod
             startInfo.UseShellExecute = true;
             startInfo.FileName = uri.AbsoluteUri;
             Process.Start(startInfo);
+        }
+
+        public static IEnumerable<ModViewModel> filterMods(IEnumerable<ModViewModel> mods, ModConfigViewModel modConfig)
+        {
+            IEnumerable<ModViewModel> typeFilteredMods = !string.IsNullOrEmpty(modConfig.SelectedType) ?
+                mods.Where(mod => mod.Type == modConfig.SelectedType) :
+                mods;
+
+            IEnumerable<ModViewModel> importanceFilteredMods = !string.IsNullOrEmpty(modConfig.SelectedImportanceTier) ?
+                typeFilteredMods.Where(mod => mod.Importance == modConfig.SelectedImportanceTier) :
+                typeFilteredMods;
+
+            return importanceFilteredMods;
         }
     }
 }
