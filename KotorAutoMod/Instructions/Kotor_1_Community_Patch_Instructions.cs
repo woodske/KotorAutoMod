@@ -13,7 +13,7 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod);
+            Utils.tslPatcherInstructions(modConfig, mod, "This will take several minutes to finish.");
             await Utils.runExecutable(Path.Combine(readyMods[0], "INSTALL.exe"));
         }
     }

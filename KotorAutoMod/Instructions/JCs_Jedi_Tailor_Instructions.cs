@@ -18,7 +18,7 @@ namespace KotorAutoMod.Instructions
             MessageBoxResult result = MessageBox.Show(
                 $"Question for {mod.ListName}:\n" +
                 "There is a compatibility patch for this mod depending on your choice for a previous mod: JC's Cloaked Robes.\n" +
-                "If your chose the 100% brown option, click yes. Otherwise, click no",
+                "If you chose the 100% brown option, click yes. Otherwise, click no",
                 "Overlay choice",
                 MessageBoxButton.YesNo,
                 MessageBoxImage.Question
