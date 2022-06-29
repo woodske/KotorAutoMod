@@ -5,6 +5,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="KOTOR Auto Mod" Height="600" Width="1100">
@@ -89,27 +90,23 @@
                         Margin="5"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <ComboBox 
+                    <xctk:WatermarkComboBox 
                         ItemsSource="{Binding ModConfigViewModel.AvailableAspectRatios}" 
                         SelectedValue="{Binding ModConfigViewModel.SelectedAspectRatio}" 
                         Visibility="{Binding ModConfigViewModel.ShowDisplaySelectionDropdown}" 
-                        Text="Aspect Ratio" 
-                        IsEditable="True" 
-                        IsReadOnly="True" 
+                        Watermark="Aspect Ratio" 
                         Width="130">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding ModConfigViewModel.SelectAspectRatioCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
-                    </ComboBox>
-                    <ComboBox 
+                    </xctk:WatermarkComboBox>
+                    <xctk:WatermarkComboBox  
                         ItemsSource="{Binding ModConfigViewModel.AvailableScreenResolutions}" 
                         SelectedValue="{Binding ModConfigViewModel.SelectedResolution}" 
                         Visibility="{Binding ModConfigViewModel.ShowDisplaySelectionDropdown}" 
-                        Text="Screen Resolution" 
-                        IsEditable="True" 
-                        IsReadOnly="True" 
+                        Watermark="Screen Resolution"
                         Width="130"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
@@ -199,30 +196,25 @@
             Width="470" 
             Margin="10">
             <StackPanel Orientation="Horizontal">
-                <ComboBox 
+                <xctk:WatermarkComboBox  
                     ItemsSource="{Binding ModConfigViewModel.Types}" 
                     SelectedValue="{Binding ModConfigViewModel.SelectedType}" 
-                    Text="Type Filter" 
-                    IsEditable="True" 
-                    IsReadOnly="True" 
+                    Watermark="Type Filter"
                     FontSize="10"
                     Padding="1"
                     Width="150"
-                    Height="27">
-                </ComboBox>
-                <ComboBox 
+                    Height="27"/>
+                <xctk:WatermarkComboBox 
                     ItemsSource="{Binding ModConfigViewModel.ImportanceTiers}" 
                     SelectedValue="{Binding ModConfigViewModel.SelectedImportanceTier}" 
-                    Text="Importance Filter" 
-                    IsEditable="True" 
-                    IsReadOnly="True" 
+                    Watermark="Importance Filter"
                     FontSize="10"
                     Padding="1"
                     Width="150"
-                    Height="27">
-                </ComboBox>
-                <TextBox 
-                    Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                    Height="27"/>
+                <xctk:WatermarkTextBox
+                    Text="{Binding ModConfigViewModel.SearchText, UpdateSourceTrigger=PropertyChanged}"
+                    Watermark="Search"
                     Width="130"
                     VerticalContentAlignment="Center"
                     Margin="5"
