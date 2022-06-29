@@ -45,9 +45,9 @@ namespace KotorAutoMod.ViewModels
 
         private void OnModConfigPropertyChanged(object? sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(ModConfigViewModel.SelectedType)
-                || e.PropertyName == nameof(ModConfigViewModel.SelectedImportanceTier)
-                || e.PropertyName == nameof(ModConfigViewModel.SearchText)
+            if (e.PropertyName == nameof(ModConfigViewModel.SelectedType) ||
+                e.PropertyName == nameof(ModConfigViewModel.SelectedImportanceTier) ||
+                e.PropertyName == nameof(ModConfigViewModel.SearchText)
                 )
             {
                 OnPropertyChanged(nameof(AvailableMods));
