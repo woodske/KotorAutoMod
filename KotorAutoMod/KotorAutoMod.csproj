@@ -5,10 +5,15 @@
 		<TargetFramework>net6.0-windows</TargetFramework>
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
+		<ApplicationIcon>kotorIcon.ico</ApplicationIcon>
 	</PropertyGroup>
 
 	<ItemGroup>
 	  <None Remove="Resources\revan-star-wars.gif" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="kotorIcon.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
