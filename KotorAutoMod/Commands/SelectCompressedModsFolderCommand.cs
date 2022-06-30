@@ -34,7 +34,10 @@ namespace KotorAutoMod.Commands
 
             Debug.WriteLine(_modConfig.ModsDirectory);
 
-            _modStore.updateModsList(Utils.getMods(_modConfig.ModsDirectory));
+            if (!string.IsNullOrEmpty(_modConfig.ModsDirectory))
+            {
+                _modStore.updateModsList(Utils.getMods(_modConfig.ModsDirectory));
+            }
         }
 
         public override void Dispose()
