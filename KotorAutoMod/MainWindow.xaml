@@ -50,7 +50,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Button 
-                Content="Apply mods" 
+                Content="Apply Mods" 
                 Width="120" 
                 Height="30" 
                 Margin="10" 
