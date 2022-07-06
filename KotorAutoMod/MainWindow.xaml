@@ -8,7 +8,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         ResizeMode="NoResize"
-        Title="KOTOR Auto Mod" Height="600" Width="1100">
+        Title="KOTOR Auto Mod v1.00" Height="600" Width="1100">
     <Grid Margin="10, 10">
         <StackPanel 
             HorizontalAlignment="Left" 
