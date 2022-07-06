@@ -1,6 +1,6 @@
 # KotorAutoMod
 
-This application aims to make modding KotoR I a little bit easier. When able, it will try to automatically apply your selected mods to your KotoR installation. There are many mods that rely on TSLPatcher which for now will require some clicking on your part, but this application will run those TSLPatchers one at a time in a compatible order.
+This application aims to make modding KotoR I a little bit easier. When able, it will try to automatically apply your selected mods to your KotoR installation. There are many mods that rely on TSLPatcher which for now will require some clicking on your part, but this application will run those TSLPatchers one at a time in a compatible order. This is intended to be used on a fresh KotoR installation.
 
 The ordering and instructions for the mods were taken from this page: https://www.nexusmods.com/kotor/mods/1463
 
