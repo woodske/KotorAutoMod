@@ -30,9 +30,18 @@ namespace KotorAutoMod
         public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story };
 
         /*
-         * Managed list of supported mods. This maintains the order in which the mods are applyed to the game.
+         * Managed lists of supported mods. This maintains the order in which the mods are applyed to the game.
+         * Different opinionated mod lists are supported
          */
-        public static List<Mod> supportedMods = new List<Mod>
+
+        // Lists
+        public const string Stellar = "StellarExile";
+        public const string Reddit = "Reddit";
+        public static readonly string[] supportedInstructions = { Stellar, Reddit };
+        public static readonly string[] StellarInfo = { Stellar, "https://www.nexusmods.com/kotor/mods/1463" };
+        public static readonly string[] RedditInfo = { Reddit, "https://old.reddit.com/r/kotor/wiki/kotormodbuildfull" };
+
+        public static List<Mod> supportedModsStellarExile = new List<Mod>
         {
             new Mod(
                 "Quicker TSL Patching",
@@ -1915,6 +1924,41 @@ namespace KotorAutoMod
                 "Remove_Duplicate_Files_Instructions",
                 "This is not really a mod, but rather a tool which will remove duplicate files from the override folder. We’ll use it to remove duplicate files from mods.",
                 new Uri("https://www.nexusmods.com/kotor2/mods/1127")
+                ),
+        };
+
+        public static List<Mod> supportedModsReddit = new List<Mod>
+        {
+            new Mod(
+                "Quicker TSL Patching",
+                "xypherh",
+                QoL,
+                Essential,
+                new string[] {"Script-1214-1-0.zip" },
+                "Quicker_TSL_Patching_Instructions",
+                "Creates a symlink to your swkotor folder for easier use of the TSLPatcher. (This is not a mod)",
+                new Uri("https://www.nexusmods.com/kotor/mods/1214")
+                ),
+            new Mod(
+                "KOTOR Dialouge Fixes",
+                "Salk & Kainzorus Prime",
+                Immersion,
+                Essential,
+                new string[] { "KotOR_Dialogue_Fixes_4_0.zip" },
+                "Reddit_KOTOR_Dialouge_Fixes_Instructions",
+                "In addition to fixing several typos, this mod takes the PC's dialogue--which is written in such a way as to make the PC sound constantly shocked, stupid, or needlessly and overtly evil--and replaces it with more moderate and reasonable responses, even for DS choices.",
+                new Uri("https://deadlystream.com/files/file/1313-kotor-dialogue-fixes/")
+                ),
+            new Mod(
+                "Character Startup Changes",
+                "jonathan7, patch by A Future Pilot",
+                Gameplay,
+                Recommended,
+                new string[] { "Character Start Up Changes.zip", "Character_Startup_Changes_Patch.rar" },
+                "Reddit_Character_Startup_Changes_Instructions",
+                "In a normal KOTOR start, your character's feats are pre-selected. This mod changes the initial level-up so that the number of feat points given is determined by class, but you can choose the feats you wish to invest into.",
+                new Uri("https://deadlystream.com/files/file/349-character-start-up-change/"),
+                "Patch found here: https://mega.nz/file/MFIByAKY#8MaLMEUvI-xMJ20buuugR8DTNHa6wab2RK3tk5kBMnk"
                 ),
         };
     }

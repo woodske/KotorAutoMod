@@ -15,6 +15,8 @@ namespace KotorAutoMod.Models
 
         public bool firstTimeSetup { get; set; } = true;
 
+        public string instructionsSource { get; set; } = string.Empty;
+
         public ObservableCollection<Mod> selectedMods { get; set; } = new ObservableCollection<Mod>();
 
         public ObservableCollection<Mod> missingMods { get; set; } = new ObservableCollection<Mod>();

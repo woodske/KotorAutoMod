@@ -47,20 +47,26 @@ namespace KotorAutoMod.ViewModels
 
         private string _searchText;
 
+        private string _instructionsSource;
+
+        public string[] InstructionSources => SupportedMods.supportedInstructions;
+
         public ICommand SelectSwkotorFolderCommand { get; }
-        public ICommand SelectCompressedModsFolderCommand { get; }
+        public ICommand SelectModsFolderCommand { get; }
         public ICommand SelectAspectRatioCommand { get; }
         public ICommand RefreshModsCommand { get; }
         public ICommand TestModCommand { get; }
+        public ICommand SelectInstructionSetCommand { get; }
 
         public ModConfigViewModel(ModStore modStore)
         {
             _modStore = modStore;
             SelectSwkotorFolderCommand = new SelectSwkotorFolderCommand(_modStore);
-            SelectCompressedModsFolderCommand = new SelectCompressedModsFolderCommand(_modStore);
+            SelectModsFolderCommand = new SelectModsFolderCommand(_modStore);
             SelectAspectRatioCommand = new SelectAspectRatioCommand(_modStore);
             RefreshModsCommand = new RefreshModsCommand(_modStore);
             TestModCommand = new TestModCommand(_modStore);
+            SelectInstructionSetCommand = new SelectInstructionSetCommand(_modStore);
 
             _modStore.updateModConfig(this);
             _modStore.ModListUpdated += OnModsUpdated;
@@ -255,6 +261,19 @@ namespace KotorAutoMod.ViewModels
             {
                 _searchText = value;
                 OnPropertyChanged(nameof(SearchText));
+            }
+        }
+
+        public string InstructionsSource
+        {
+            get
+            {
+                return _instructionsSource;
+            }
+            set
+            {
+                _instructionsSource = value;
+                OnPropertyChanged(nameof(InstructionsSource));
             }
         }
 

@@ -27,20 +27,23 @@ namespace KotorAutoMod.Commands
             modConfig.ModsDirectory = "D:\\compressedMods\\";
             modConfig.SwkotorDirectory = "D:\\test\\";
             modConfig.FirstTimeSetupIsChecked = false;
+            modConfig.InstructionsSource = "Reddit";
 
-            _modStore.updateModsList(Utils.getMods(modConfig.ModsDirectory));
+            _modStore.updateModsList(Utils.getMods(modConfig));
 
             modConfig.SelectedAspectRatio = "16:9";
             modConfig.SelectedResolution = "1920x1080";
 
             // Manually select mod
-            string modName = "KOTOR High Resolution Menus";
-            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods.First(mod => mod.ListName == modName));
+            //string modName = "Dialouge Fixes";
+            //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedModsReddit.First(mod => mod.ListName == modName));
 
-            //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedMods[SupportedMods.supportedMods.Count - 1]);
+            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedModsReddit[SupportedMods.supportedModsReddit.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
+            string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new KOTOR_High_Resoultion_Menus_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+
+            await new Reddit_Character_Startup_Changes_Instructions().applyMod(new List<string> { modDirectory1, modDirectory2 }, modConfig, selectedMod);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace KotorAutoMod.Commands
 
         public override void Execute(object? parameter)
         {
-            _modStore.updateModsList(Utils.getMods(_modConfig.ModsDirectory)); ;
+            _modStore.updateModsList(Utils.getMods(_modConfig)); ;
         }
 
         public override bool CanExecute(object? parameter)

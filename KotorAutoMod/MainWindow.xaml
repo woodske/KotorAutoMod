@@ -70,11 +70,25 @@
                     FontSize="16"
                     FontWeight="Bold"
                     />
-                <CheckBox 
-                    IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" 
-                    Content="Widescreen Setup" 
-                    VerticalAlignment="Center" 
-                    Margin="5"/>
+                <StackPanel Orientation="Horizontal">
+                    <CheckBox 
+                        IsChecked="{Binding ModConfigViewModel.FirstTimeSetupIsChecked}" 
+                        Content="Widescreen Setup" 
+                        VerticalAlignment="Center"
+                        Width="130"
+                        Margin="5"/>
+                    <xctk:WatermarkComboBox  
+                        ItemsSource="{Binding ModConfigViewModel.InstructionSources}" 
+                        SelectedValue="{Binding ModConfigViewModel.InstructionsSource}" 
+                        Watermark="Instructions Set"
+                        Width="130">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged">
+                                <i:InvokeCommandAction Command="{Binding ModConfigViewModel.SelectInstructionSetCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </xctk:WatermarkComboBox>
+                </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button 
                         Content="Select swkotor folder" 
@@ -84,7 +98,7 @@
                         Margin="5"/>
                     <Button 
                         Content="Select mods folder" 
-                        Command="{Binding ModConfigViewModel.SelectCompressedModsFolderCommand}" 
+                        Command="{Binding ModConfigViewModel.SelectModsFolderCommand}" 
                         HorizontalAlignment="Left"
                         Width="130"
                         Margin="5"/>
@@ -136,7 +150,7 @@
             </StackPanel>
             <Button 
                 Content="Test Mod"
-                Visibility="Hidden"
+                Visibility="Visible"
                 Command="{Binding ModConfigViewModel.TestModCommand}"/>
         </StackPanel>
 

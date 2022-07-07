@@ -83,18 +83,33 @@ namespace KotorAutoMod
         /*
          * Initializes mod list and sets checked and isAvailable based on if the compressed mods are present
          */
-        public static ObservableCollection<ModViewModel> getMods(string modsDirectory)
+        public static ObservableCollection<ModViewModel> getMods(ModConfigViewModel modConfig)
         {
             ObservableCollection<ModViewModel> mods = new ObservableCollection<ModViewModel>();
 
-            List<string> modsList = Directory.GetFiles(modsDirectory).ToList();
+            List<string> modsList = Directory.GetFiles(modConfig.ModsDirectory).ToList();
 
-            foreach (Mod supportedMod in SupportedMods.supportedMods)
+            List<Mod> supportedModsList;
+
+            switch (modConfig.InstructionsSource)
+            {
+                case SupportedMods.Reddit:
+                    supportedModsList = SupportedMods.supportedModsReddit;
+                    break;
+                case SupportedMods.Stellar:
+                    supportedModsList = SupportedMods.supportedModsStellarExile;
+                    break;
+                default:
+                    supportedModsList = new List<Mod>();
+                    break;
+            }
+
+            foreach (Mod supportedMod in supportedModsList)
             {
                 bool hasAllModFiles = true;
                 foreach (string modFile in supportedMod.ModFileName)
                 {
-                    if (!modsList.Contains(Path.Combine(modsDirectory, modFile)))
+                    if (!modsList.Contains(Path.Combine(modConfig.ModsDirectory, modFile)))
                     {
                         hasAllModFiles = false;
                         break;
