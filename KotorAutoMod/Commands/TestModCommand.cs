@@ -40,10 +40,10 @@ namespace KotorAutoMod.Commands
 
             ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedModsReddit[SupportedMods.supportedModsReddit.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
-            string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
+            //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
 
-            await new Reddit_Character_Startup_Changes_Instructions().applyMod(new List<string> { modDirectory1, modDirectory2 }, modConfig, selectedMod);
+            await new Reddit_Specularity_Tweaks_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

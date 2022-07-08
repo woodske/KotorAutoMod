@@ -1960,6 +1960,57 @@ namespace KotorAutoMod
                 new Uri("https://deadlystream.com/files/file/349-character-start-up-change/"),
                 "Patch found here: https://mega.nz/file/MFIByAKY#8MaLMEUvI-xMJ20buuugR8DTNHa6wab2RK3tk5kBMnk"
                 ),
+            new Mod(
+                "JC's Minor Fixes",
+                "JCarter426",
+                Bug,
+                Recommended,
+                new string[] { "JC's Minor Fixes for K1 v1.1.zip" },
+                "Reddit_JCs_Minor_Fixes_Instructions",
+                "KOTOR, like with any game, has a slew of little oversights, or things BioWare messed up by accident. The goal of this mod is to fix most of those small things not addressed in other, larger mods.",
+                new Uri("https://deadlystream.com/files/file/1333-jcs-minor-fixes-for-k1/")
+                ),
+            new Mod(
+                "Ultimate Character Overhaul",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Character Overhaul -REDUX- (FULL) - TGA Version-1282-4-1-1628534742.rar" },
+                "Reddit_Character_Overhaul_Instructions",
+                "Ultimate Character Overhaul is a comprehensive AI-upscale of every character and piece of equipment in the game. Unlike previous AI upscales, the Ultimate series has no transparency problems while still retaining reflections on character textures, all without any additional steps required. This is an incredibly high-quality mod, and ShiningRed has even gone through the trouble to make compatibility patches for the mod builds, upscaling some of the later textures we use!",
+                new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
+                ),
+            new Mod(
+                "Ajunta Pall Appearance",
+                "Silveredge9, Patch by A Future Pilot",
+                Graphics,
+                Recommended,
+                new string[] { "ajunta_pall_unique_appearance_1.1.rar", "Ajunta Pall Unique Appearance.zip" },
+                "Reddit_Ajunta_Pall_Appearance_Instructions",
+                "This mod reskins Ajunta Pall to have a unique appearance that matches the honorary statue in the tomb.",
+                new Uri("https://deadlystream.com/files/file/824-ajunta-pall-unique-appearance/"),
+                "Patch found here: https://mega.nz/file/McJF1AIC#Jywhu6zXWCRz4gRghxMxoBAWrbU_A3giD1INsOoHqmA"
+                ),
+            new Mod(
+                "KOTOR Community Patch",
+                "Various Authors; Darth Parametric, JCarter426 & A Future Pilot Collate",
+                Bug,
+                Essential,
+                new string[] { "K1_Community_Patch_v1.9.2.zip" },
+                "Reddit_Kotor_1_Community_Patch_Instructions",
+                "An ambitious compilation intending to be a comprehensive bugfix mod for the original game, the KOTOR Community Patch combines hundreds of various fixes and improvements from over a dozen other mods, as well as fixes put together by AFP, DP and JC on their own. With bugfixes as important to KOTOR as TSLRCM's are to KOTOR 2, I can't recommend its use highly enough.",
+                new Uri("https://deadlystream.com/files/file/1258-kotor-1-community-patch/")
+                ),
+            new Mod(
+                "Specularity Tweaks",
+                "ebmar",
+                Graphics,
+                Suggested,
+                new string[] { "[K1]_Placeables_Specularity_Tweaks_v0.1.0.7z" },
+                "Reddit_Specularity_Tweaks_Instructions",
+                "Alters the specularity of several placeable objects ingame to get the most out of the vanilla textures.",
+                new Uri("https://deadlystream.com/files/file/1359-k1-placeables-specularity-tweaks/")
+                ),
         };
     }
 }

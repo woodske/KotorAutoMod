@@ -321,10 +321,15 @@ namespace KotorAutoMod
         /*
          * Basic instructions for mods that move files to override
          */
-        public static void copyFilesToOverrideInstructions(ModConfigViewModel modConfig, ModViewModel mod)
+        public static void copyFilesToOverrideInstructions(ModConfigViewModel modConfig, ModViewModel mod, string addtionalMessage = "")
         {
             string message = $"Copying files from {mod.ListName} to the Override folder.\n" +
                 "No actions needed";
+
+            if (!string.IsNullOrEmpty(addtionalMessage))
+            {
+                message = message + "\n\n" + addtionalMessage;
+            }
 
             modConfig.Instructions = message;
         }
@@ -367,6 +372,20 @@ namespace KotorAutoMod
                 importanceFilteredMods;
 
             return searchFilteredMods;
+        }
+
+        /*
+         * Deletes list of files from override
+         */
+        public static async Task deleteFromOverride(ModConfigViewModel modConfig, string[] filesToDelete)
+        {
+            await Task.Run(() =>
+            {
+                foreach (string file in filesToDelete)
+                {
+                    File.Delete(Path.Combine(modConfig.SwkotorDirectory, "Override", file));
+                }
+            });
         }
     }
 }
