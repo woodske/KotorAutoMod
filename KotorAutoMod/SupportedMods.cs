@@ -2393,6 +2393,26 @@ namespace KotorAutoMod
                 "Improves a few miscellaneous textures, including planet textures on the galaxy map and companion textures in the character selection screen. Many of the companion selection screen textures will be overwritten with custom ones from subsequent mods, but Sdub's variants are miles ahead of vanilla.",
                 new Uri("https://deadlystream.com/files/file/1909-random-hd-ui-elements/")
                 ),
+            new Mod(
+                "HD NPC Portraits",
+                "ndix UR",
+                Graphics,
+                Suggested,
+                new string[] {"hd_npc_portraits-v2.0.7z" },
+                "HD_NPC_Portraits_Instructions",
+                "A companion to his PC portrait rework, HD NPC Portraits takes all the companion portraits and drastically improves their quality without modifying the underlying aesthetic.",
+                new Uri("https://deadlystream.com/files/file/1213-hd-npc-portraits/")
+                ),
+            new Mod(
+                "Bastila Shan HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Bastila Shan HD (clothing).rar" },
+                "Reddit_Bastila_Shan_HD_Instructions",
+                "Vastly improves the skin and default clothes textures of Bastila. Note that, for our purposes, we do not use this mod's changes to Bastila's head or face.",
+                new Uri("https://deadlystream.com/files/file/978-bastila-shan-hd-by-quanon-and-dark-hopa/")
+                ),
         };
     }
 }
