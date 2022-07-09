@@ -26,8 +26,9 @@ namespace KotorAutoMod
         const string Patch = "Patch";
         const string Added = "Added Content";
         const string Story = "Story Change";
+        const string Appearance = "Appearance Change";
 
-        public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story };
+        public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story, Appearance };
 
         /*
          * Managed lists of supported mods. This maintains the order in which the mods are applyed to the game.
@@ -2261,6 +2262,136 @@ namespace KotorAutoMod
                 "Reddit_PFHB02_Eye_Fix_Instructions",
                 "The eye overlays on the second black female head were input incorrectly and become offset as the player transitions to the Dark Side, creating the appearance of duplicated irises. This mod fixes that, as well as offering an upscale option which improves the base appearance of the head.",
                 new Uri("https://deadlystream.com/files/file/1762-player-head-pfhb02-dark-side-transition-eye-fix/")
+                ),
+            new Mod(
+                "High-Poly Grenades",
+                "MadDerp",
+                Graphics,
+                Optional,
+                new string[] { "hp_grenades-0-4-1209-0-4-1547556830.zip" },
+                "High_Poly_Grenades_Instructions",
+                "Fixes the models of the grenades to make them more spherical, and therefore ensure the basegame textures fit on them more accurately.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1209")
+                ),
+            new Mod(
+                "HD Gizka",
+                "Emperor Turnip",
+                Graphics,
+                Optional,
+                new string[] { "Emperor Turnip&#39;s Gizka.rar" },
+                "HD_Gizka_Instructions",
+                "Improves the base texture of the Gizka creature.",
+                new Uri("https://deadlystream.com/files/file/1190-emperor-turnips-hd-gizka/")
+                ),
+            new Mod(
+                "HD Rakghouls",
+                "Emperor Turnip",
+                Graphics,
+                Suggested,
+                new string[] { "Emperor Turnip&#39;s HD Rakghouls.rar" },
+                "Reddit_HD_Rakghouls_Instructions",
+                "Improves the base texture of the Rakghoul creature.",
+                new Uri("https://deadlystream.com/files/file/1187-emperor-turnips-hd-rakghouls/")
+                ),
+            new Mod(
+                "Gammorean Reskin Pack",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Quanon_Gammoreans.rar" },
+                "HD_Gammoreans_Instructions",
+                "Improves and upscales the textures of the game's Gammoreans.",
+                new Uri("https://deadlystream.com/files/file/1023-quanons-gammorean-reskin-pack/")
+                ),
+            new Mod(
+                "Better Twi'lek Heads",
+                "Ashton Scorpius",
+                Graphics,
+                Recommended,
+                new string[] { "K1 Twilek Heads v1.3.2.7z" },
+                "Reddit_Better_Twilek_Heads_Instructions",
+                "Unlike female Twi'lek, male Twi'lek are supposed to have ears. Operative word: supposed to. Their ears are barely visible at all in KOTOR, which this mod fixes using TOR ear geometry.",
+                new Uri("https://deadlystream.com/files/file/1430-k1-better-twilek-male-heads/")
+                ),
+            new Mod(
+                "HD Twi'lek Female",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "hd_twilek_female.rar" },
+                "HD_Twilek_Female_Instructions",
+                "Adds higher-resolution default clothing, lekku, faces and skin to female twi'lek in the game.",
+                new Uri("https://deadlystream.com/files/file/982-hd-twilek-female/")
+                ),
+            new Mod(
+                "Thigh-High Boots for Twi'lek",
+                "DarthParametric",
+                Graphics,
+                Recommended,
+                new string[] { "[K1]_Thigh-High_Boots_For_Twilek_Body_MODDERS_RESOURCE.7z" },
+                "Reddit_Thigh_High_Boots_For_Twilek_Instructions",
+                "In vanilla, female Twi'lek's thigh-high boots are painted on the character's texture rather than added to their equipped clothing as an item, which would give them realistic three-dimensional depth and higher resolution. This modder's resource serves to add the boots as an equipped object.",
+                new Uri("https://deadlystream.com/files/file/1087-k1-thigh-high-boots-for-female-twilek-body-modders-resource/")
+                ),
+            new Mod(
+                "Shaleena/Lashowe Mouth Fix",
+                "Ashton Scorpius",
+                Bug,
+                Suggested,
+                new string[] { "K1 SL Mouth Adjustment v1.1.0.7z" },
+                "Reddit_Shaleena_Lashowe_Mouth_Fix_Instructions",
+                "Fixes a bug with two female NPC heads which caused their upper teeth to be invisible during dialogue.",
+                new Uri("https://deadlystream.com/files/file/1480-k1-shaleenalashowe-mouth-adjustment/")
+                ),
+            new Mod(
+                "Shaleena Head Restoration",
+                "Stellar Exile",
+                Restored,
+                Suggested,
+                new string[] { "Shaleena Head Restoration.zip" },
+                "Shaleena_Original_Head_Restoration_Instructions",
+                "Restores a cut unique appearance for the NPC Shaleena on Taris. The above mod by Ashton will also fix the teeth issue in this mod.",
+                new Uri("https://deadlystream.com/files/file/1896-shaleena-original-head-restoration/")
+                ),
+            new Mod(
+                "Calo Nord Recolor",
+                "Watcher07",
+                Appearance,
+                Suggested,
+                new string[] { "Calo Nord Recolor.zip" },
+                "Reddit_Calo_Nord_Recolor_Instructions",
+                "Recolors Calo Nord's clothing to be more muted in tone; you wouldn't expect a famous bounty hunter to run around in bright colors, would you? Note that this does not allow you to play as Calo, nor does it add the custom blaster skin or republic uniform skin seen in the screenshots.",
+                new Uri("https://mega.nz/file/hJhGEbza#qemCHVzBcCWkL__n6mrmVNzD3P2qdV4MWEYQvJudtJY")
+                ),
+            new Mod(
+                "HD Darth Malak",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Malak.rar" },
+                "Reddit_HD_Darth_Malak_Instructions",
+                "Drastically improves the overall graphical quality of Malak. The screenshots really don't do this mod justice, it's excellent.",
+                new Uri("https://deadlystream.com/files/file/980-hd-darth-malak/")
+                ),
+            new Mod(
+                "HD Vrook",
+                "Dark Hope, edited by Publicola",
+                Graphics,
+                Recommended,
+                new string[] { "HD Vrook Recolored.zip" },
+                "Reddit_HD_Vrook_Instructions",
+                "Drastically improves the overall graphical quality of Vrook.",
+                new Uri("https://deadlystream.com/files/file/1962-hd-vrook-recolored/")
+                ),
+            new Mod(
+                "HD UI Elements",
+                "Sdub",
+                Graphics,
+                Suggested,
+                new string[] { "Random HD UI Elements.zip" },
+                "Reddit_HD_UI_Elements_Instructions",
+                "Improves a few miscellaneous textures, including planet textures on the galaxy map and companion textures in the character selection screen. Many of the companion selection screen textures will be overwritten with custom ones from subsequent mods, but Sdub's variants are miles ahead of vanilla.",
+                new Uri("https://deadlystream.com/files/file/1909-random-hd-ui-elements/")
                 ),
         };
     }
