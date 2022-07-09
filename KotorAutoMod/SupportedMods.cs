@@ -2011,6 +2011,257 @@ namespace KotorAutoMod
                 "Alters the specularity of several placeable objects ingame to get the most out of the vanilla textures.",
                 new Uri("https://deadlystream.com/files/file/1359-k1-placeables-specularity-tweaks/")
                 ),
+            new Mod(
+                "Ultimate Korriban",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Korriban High Resolution - TPC Version-1367-1-1-1607600772.rar" },
+                "Korriban_HD_Instructions",
+                "In addition to fully upscaling all of the NPCs and equipment in the game, ShiningRed has also produced a series of mods using the same techniques that update all the planet textures. This mod upscales the Sith world of Korriban.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1367")
+                ),
+            new Mod(
+                "Ultimate Kashyyyk",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Kashyyyk High Resolution - TPC Version-1365-1-1-1607596812.rar" },
+                "HD_Kashyyyk_Instructions",
+                "This mod upscales the forest-world of Kashyyyk, home of the Wookiees.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1365")
+                ),
+            new Mod(
+                "Ultimate Tatooine",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Tatooine High Resolution - TPC Version-1364-1-1-1607594654.rar" },
+                "HD_Tatooine_Instructions",
+                "This mod upscales the iconic desert world Tatooine.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1364")
+                ),
+            new Mod(
+                "Ultimate Dantooine",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Dantooine High Resolution - TPC Version-1368-1-1-1607550040.rar" },
+                "HD_Dantooine_Instructions",
+                "This mod upscales the peaceful retreat of Dantooine.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1368")
+                ),
+            new Mod(
+                "Ultimate Endar Spire +",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Endar Spire-Star Forgre-Yavin Station - TPC Version-1370-1-0-1607439060.rar" },
+                "HD_Ships_And_Stations_Instructions",
+                "This mod is a compilation upscale which includes upscales for three different areas: the Endar Spire, the Star Forge, and Yavin Station.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1370")
+                ),
+            new Mod(
+                "Ultimate Manaan",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Manaan High Resolution - TGA Version-1366-1-0-1607345982.rar" },
+                "HD_Manaan_Instructions",
+                "This mod upscales the water-world Manaan.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1366"),
+                "The TPC version is mislabeled as TGA, so make sure to download the TPC version"
+                ),
+            new Mod(
+                "Ultimate Unknown World",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Unknown World High Resolution - TPC Version-1369-1-1-1-1642331603.rar" },
+                "Reddit_Ultimate_Unknown_World_Instructions",
+                "This mod upscales the mysterious Lehon.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1369")
+                ),
+            new Mod(
+                "Ultimate Taris",
+                "ShiningRedHD",
+                Graphics,
+                Essential,
+                new string[] { "Ultimate Taris High Resolution - TGA Version-1360-2-2-1613057322.rar" },
+                "Reddit_Ultimate_Taris_Instructions",
+                "This mod upscales the sprawling world-city of Taris.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1360")
+                ),
+            new Mod(
+                "Duncan on Manaan",
+                "Seamhainn",
+                Restored,
+                Recommended,
+                new string[] { "Duncan on Manaan.7z" },
+                "Deadeye_Duncan_Restoration_Instructions",
+                "This mod restores content which was left on the disk but was never implemented which would have let the player interact with Deadeye Duncan later on in the story, on Manaan.",
+                new Uri("https://mega.nz/file/IR4QASTa#V28cTdgcNTMPwPrNbMElbnNVHkqhkKu7vJgL7PWVZ0U")
+                ),
+            new Mod(
+                "HD Pazaak Cards",
+                "CarthOnasty",
+                Graphics,
+                Suggested,
+                new string[] { "HD_Pazaak_Cards.zip" },
+                "Reddit_HD_Pazaak_Cards_Instructions",
+                "When you play space blackjack, you want the cards to at least look good, right?",
+                new Uri("https://deadlystream.com/files/file/1361-hd-pazaak-cards/")
+                ),
+            new Mod(
+                "Scoundrel Trousers",
+                "Darkbirdie",
+                Bug,
+                Optional,
+                new string[] { "Scoundrel Trousers.zip" },
+                "Reddit_Scoundrel_Trousers_Instructions",
+                "Fixes the trouser texture of the female scoundrel's default clothing. By default it's pulled in and up.",
+                new Uri("https://deadlystream.com/files/file/537-scoundrel-trousers/")
+                ),
+            new Mod(
+                "Republic Soldier Fix",
+                "JCarter426",
+                Graphics,
+                Recommended,
+                new string[] { "JC's Republic Soldier Fix for K1 v1.3.zip" },
+                "Reddit_Republic_Soldier_Fix_Instructions",
+                "Fixes the low-resolution default female Republic soldier skin, as well as fixing issues with the male model and making the Republic uniform the default clothing for the Soldier-class character.",
+                new Uri("https://deadlystream.com/files/file/1180-jcs-republic-soldier-fix-for-k1/")
+                ),
+            new Mod(
+                "Republic Soldier's New Shade",
+                "ebmar",
+                Graphics,
+                Recommended,
+                new string[] { "[K1]_Republic_Soldier's_New_Shade_v1.1.1.7z" },
+                "Reddit_Republic_Soldiers_New_Shade_Instructions",
+                "By default, despite being what looks like a mix of metallic and polymer elements, the Republic armor has no shine effect ingame. This mod fixes that so it's realistically reflective.",
+                new Uri("https://deadlystream.com/files/file/1365-k1-republic-soldiers-new-shade/")
+                ),
+            new Mod(
+                "HD PC Portraits",
+                "ndix UR",
+                Graphics,
+                Suggested,
+                new string[] {"hd_npc_portraits-v2.0.7z" },
+                "HD_NPC_Portraits_Instructions",
+                "ndix strikes again with a wonderful upscale that takes all the default player character portraits and sharpens them without altering their appearance. This mod is great for keeping a unified sense of high graphical fidelity, especially when playing in widescreen.",
+                new Uri("https://deadlystream.com/files/file/1213-hd-npc-portraits/")
+                ),
+            new Mod(
+                "\"Mullet Man\" Retexture",
+                "ZimmMaster",
+                Graphics,
+                Recommended,
+                new string[] { "Mullet Man Retexture.7z" },
+                "Reddit_Mullet_Man_Retexture_Instructions",
+                "This mod reskins and improves the resolution of the \"mullet man\" player head.",
+                new Uri("https://mega.nz/file/8UAUTJjJ#xE3MR4CVZ56M3mPM8NQF3ZrayxrZV0lHhDqGMBLbpFE")
+                ),
+            new Mod(
+                "PMHA05 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PMHA05 HD.rar" },
+                "PMHA05_HD_Instructions",
+                "This is the first in a series of high-resolution player heads from Dark Hope, complete with full Dark Side transitions and new player portraits. We aren't going to use all of the HD versions she made--I've been careful to only select those I think fit closely with the original player head, as well as making enough clear improvements that any aesthetic alterations are acceptable trade-offs for the improved texture quality.\n\nThis specific texture reskins the fifth Asian male head preset, including new facial hair.",
+                new Uri("https://deadlystream.com/files/file/1857-pmha05-hd/")
+                ),
+            new Mod(
+                "PMHA02 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PMHA02 HD.rar" },
+                "PMA02_HD_Instructions",
+                "This Dark Hope retexture reskins the second Asian male head preset. It is mostly a straight graphics improvement, with minimal deviation from the default appearance.",
+                new Uri("https://deadlystream.com/files/file/1843-pmha02-hd/")
+                ),
+            new Mod(
+                "PMHAO1 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PMHA01 HD.rar" },
+                "PMHAO1_HD_Instructions",
+                "This Dark Hope retexture reskins the first Asian male head preset. It is mostly a straight graphics improvement, but features a very minimalist DS transition.",
+                new Uri("https://deadlystream.com/files/file/1837-pmha01-hd/")
+                ),
+            new Mod(
+                "PMHB05 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PMHB05 HD.rar" },
+                "PMHB05_HD_Instructions",
+                "This Dark Hope retexture reskins the fifth black male head preset. It is mostly a straight graphics improvement, but does alter the default skin tone and has a minimalist DS transition.",
+                new Uri("https://deadlystream.com/files/file/1828-pmhb05-hd/")
+                ),
+            new Mod(
+                "PMHB01 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PMHB01 HD.rar" },
+                "PMHB01_HD_Instructions",
+                "Alright I'm not going to be cutesy, this basically makes the first Black male head preset into 'Ye. Why, I'm not sure. But I actually really like the texture work on it.",
+                new Uri("https://deadlystream.com/files/file/1826-pmhb01-hd/")
+                ),
+            new Mod(
+                "PFHB03 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "HD PFHB03.rar" },
+                "PFHB03_HD_Instructions",
+                "This Dark Hope retexture reskins the third Asian female head preset. It is mostly a straight graphics improvement, but features a very minimalist DS transition.",
+                new Uri("https://deadlystream.com/files/file/1799-hd-pfhb03/")
+                ),
+            new Mod(
+                "PFHC05 HD",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "PFHC05 HD.rar" },
+                "PFHC05_HD_Instructions",
+                "This Dark Hope retexture reskins the fifth Caucasian female head preset. Dark Hope took some liberties here, adding a more detailed hair ornament and a tattoo to the side of the player's head, but I really enjoy the changes.",
+                new Uri("https://deadlystream.com/files/file/1738-pfhc05-hd/")
+                ),
+            new Mod(
+                "PFHB01 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PFHB01 HD.rar" },
+                "PFHB01_HD_Instructions",
+                "This Dark Hope retexture reskins the first black female head preset. It is mostly a straight graphics improvement, but does feature a darker skin tone.",
+                new Uri("https://deadlystream.com/files/file/1735-pfhb01-hd/")
+                ),
+            new Mod(
+                "PFHB05 HD",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "PFHB05HD.rar" },
+                "PFHB05_HD_Instructions",
+                "This Dark Hope retexture reskins the fifth black female head preset. It is mostly a straight graphics improvement, but does feature a darker skin tone.",
+                new Uri("https://deadlystream.com/files/file/1725-pfhb05-hd/")
+                ),
+            new Mod(
+                "PFHB02 Eye Fix",
+                "Darth Parametric",
+                Bug,
+                Recommended,
+                new string[] { "[K1]_Player_Head_PFHB02_DS_Transition_Eye_Fix.7z" },
+                "Reddit_PFHB02_Eye_Fix_Instructions",
+                "The eye overlays on the second black female head were input incorrectly and become offset as the player transitions to the Dark Side, creating the appearance of duplicated irises. This mod fixes that, as well as offering an upscale option which improves the base appearance of the head.",
+                new Uri("https://deadlystream.com/files/file/1762-player-head-pfhb02-dark-side-transition-eye-fix/")
+                ),
         };
     }
 }
