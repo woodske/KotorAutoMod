@@ -1,19 +1,20 @@
 ﻿using KotorAutoMod.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KotorAutoMod.Instructions
 {
-    internal class Reddit_Turret_Minigame_Remover_Instructions : IInstructions
+    internal class Reddit_Tutorial_Remover_Instructions : IInstructions
     {
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
-            // Move all files to override
-            Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            await Utils.moveAllToOverrideDirectory(readyMods[0], modConfig.SwkotorDirectory);
+            // Ignore the "manual install" folder and only apply the TSLPatcher install.
+            Utils.tslPatcherInstructions(modConfig, mod);
+            await Utils.runExecutable(Path.Combine(readyMods[0], "Installer"));
         }
     }
 }

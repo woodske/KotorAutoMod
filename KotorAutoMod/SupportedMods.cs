@@ -2815,6 +2815,287 @@ namespace KotorAutoMod
                 "It's annoying at best to have to worry about potentially fighting Sith fighters before every hyperspace jump, especially when the fighting isn't particularly difficult and you don't gain anything for winning. This mod removes all such sequences, only leaving the scripted fighter engagements in place.",
                 new Uri("https://www.nexusmods.com/kotor/mods/90")
                 ),
+            new Mod(
+                "Repeater Attacks Restoration",
+                "R2-X2",
+                Mechanics,
+                Essential,
+                new string[] { "Repeating blaster attacks restoration.zip" },
+                "Reddit_Repeater_Attacks_Restoration_Instructions",
+                "Blasters in the original KOTOR are underpowered all-around, but out of the entire laughingstock none is worse than blaster repeaters, which cost more in return for equivalent damage and less crit chance. It turns out that these weapons were originally supposed to have two attack rounds, but BioWare didn't have the time or know-how to implement this before the game went gold. This mod restores this function, with only a few instances where it doesn't work due to hardcoded scripting.",
+                new Uri("https://deadlystream.com/files/file/1405-repeating-blaster-attacks-restoration/")
+                ),
+            new Mod(
+                "Tutorial Remover",
+                "Darthbdaman",
+                Mechanics,
+                Optional,
+                new string[] { "Tutorial Remover-1171-1-4-1-1654916692.7z" },
+                "Reddit_Tutorial_Remover_Instructions",
+                "If you're on your second playthrough, Trask, his annoying pauses to explain things you already know, and all the \"press the A button!\" dialogue doesn't just take you out of the experience, it's infuriating. This mod removes Trask entirely, and therefore all of the immersion-breaking dialogue that comes with him. It's just you fighting your way to Carth.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1171")
+                ),
+            new Mod(
+                "Saber Throw Knockdown",
+                "uwadmin12",
+                Mechanics,
+                Recommended,
+                new string[] { "saberthrow_kd.zip" },
+                "Saber_Throw_Knockdown_Instructions",
+                "By default, the \"Throw Lightsaber\" power is a little weak. Not only does it seem like it takes forever, it does much less damage in a much smaller AoE than powers like Lightning--or even Wave! The goal of this mod is giving Advanced Throw Lightsaber some additional functionality that makes using it worthwhile, namely the inclusion of a knockdown effect on the primary target if that target fails to pass a saving throw. This can make the ability useful for screening particular zones while also dealing damage--still somewhat less effective than Wave, but with more guaranteed damage.",
+                new Uri("https://deadlystream.com/files/file/1487-k1-saber-throw-knockdown-effect/")
+                ),
+            new Mod(
+                "Sunry Enhancement",
+                "FallenGuardian",
+                Added,
+                Recommended,
+                new string[] { "SMRE Version 3.0.zip" },
+                "Sunry_Murder_Recording_Enhancement_Instructions",
+                "Rather than having Sunry only verbally explain what happened when he murdered the Sith officer on Manaan, there's now a recording that goes along with the dialogue that shows what happened.",
+                new Uri("https://deadlystream.com/files/file/324-sunry-murder-recording-enhancement/")
+                ),
+            new Mod(
+                "Recruit T3-M4 Early",
+                "brents742",
+                Restored,
+                Suggested,
+                new string[] { "RecruitT3M4Early.rar" },
+                "Reddit_Recruit_T3M4_Early_Instructions",
+                "This mod restores the option to buy T3-M4 from Janice Nall as soon as you have the cash to do so. Dialogue was present in the files indicating that this was always meant to have been an option, but for some reason was scrapped from the final release. You can now buy T3 as soon as you're ready and use him until you unlock Mission, Zalbaar, and your other party members.",
+                new Uri("https://deadlystream.com/files/file/1868-recruit-t3-m4-early/")
+                ),
+            new Mod(
+                "Security Spikes for K1",
+                "JCarter426",
+                Bug,
+                Recommended,
+                new string[] { "JC's Security Spikes for K1 v1.2.zip" },
+                "JCs_Security_Spikes_Instructions",
+                "In all BioWare's infinite brilliance, when they ported KOTOR to PC they didn't just cap the menus to 800x600, they also broke security spikes so they're literally unusable. This mod can't fix that, but it can give you a workaround: either some hacky functionality that works just like spikes do, or cold, hard cash in the places where spikes would normally drop.",
+                new Uri("https://deadlystream.com/files/file/1439-jcs-security-spikes-for-k1/")
+                ),
+            new Mod(
+                "High Quality Blasters",
+                "Sithspecter",
+                Graphics,
+                Essential,
+                new string[] { "High Quality Blasters 1.1.zip" },
+                "Reddit_High_Quality_Blasters_Instructions",
+                "Massively improves the appearance of almost all blaster weapons in-game without altering their original design.",
+                new Uri("https://deadlystream.com/files/file/861-high-quality-blasters/")
+                ),
+            new Mod(
+                "Crashed Republic Cruiser",
+                "LDR",
+                Added,
+                Recommended,
+                new string[] { "ldr_repshipunknownworld.zip" },
+                "Crashed_Republic_Cruiser_Instructions",
+                "It's difficult for me to talk about this mod without gushing about it. In my opinion, this mod is the best piece of added quest content ever made for either KOTOR or KOTOR 2: best-written, best-structured, best-balanced, best-voiced, and most sensible. It brings the player's past into the equation without mandating anything about their nature, and provides a real and immersive look at what your character's past was, and future could be, all while being lore-friendly to BOTH KOTOR 2 and The Old Republic. The only reason this mod isn't marked as Essential is because it reuses one module in a way which doesn't allow for suspension of disbelief--everything else about this mod is perfect.",
+                new Uri("https://deadlystream.com/files/file/1878-a-crashed-republic-cruiser-on-a-nameless-world/")
+                ),
+            new Mod(
+                "Trandoshans Rescaled",
+                "DarthParametric",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Trandoshans_Rescale.7z" },
+                "Rescaled_Trandoshans_Instructions",
+                "Canonically Trandoshans are huge, as tall as Wookiees. This mod rescales them to stand about as high.",
+                new Uri("https://deadlystream.com/files/file/947-trandoshans-rescaled-for-k1/")
+                ),
+            new Mod(
+                "Custom Selkath Animation",
+                "Alvar007",
+                Bug,
+                Suggested,
+                new string[] { "Custom Selkath Animation.rar" },
+                "Custom_Selkath_Animation_Instructions",
+                "At many points in the files the Selkath are called on to make an \"angry\" animation type, but BioWare never made one for them. This is a custom animation for the Selkath that allow them to react properly whenever the files call for an angry emote.",
+                new Uri("https://deadlystream.com/files/file/1555-custom-selkath-animation/")
+                ),
+            new Mod(
+                "Sneak Attack Restoration",
+                "N-DReW25",
+                Mechanics,
+                Recommended,
+                new string[] { "Sneak Attack 10 Restoration.zip" },
+                "Sneak_Attack_X_Restoration_Instructions",
+                "Stealth builds already don't get enough love in KOTOR, so the restoration of Sneak Attack 10 is helpful for anyone wanting to try an alternate build. This significantly increases the damage of sneak attacks for Mission and a Scoundrel player when they reach level 19.",
+                new Uri("https://deadlystream.com/files/file/1124-sneak-attack-10-restoration/")
+                ),
+            new Mod(
+                "Sherruk with Lightsabers",
+                "Shem, patch by A Future Pilot & Darth Parametric",
+                Immersion,
+                Suggested,
+                new string[] { "sherruksabers.7z", "SAWL Patch.rar" },
+                "Reddit_Sherruk_With_Lightsabers_Instructions",
+                "Sherruk, the Mandalorian leader on Dantooine, likes to collect the lightsabers of the Jedi whom he's killed, and the settlers on the plains tell you that he's been heard to use them in battle. With this mod he really does use those lightsabers--and an impressively expanded inventory of equipment--to fuck your shit up.",
+                new Uri("https://deadlystream.com/files/file/693-sherruk-attacks-with-lightsabers/"),
+                "Patch found here: https://mega.nz/file/QNImBQSb#OPon0ZYbakcZpxZKMxSp559ezQWFU-wNXJ7Sj3ERBg4"
+                ),
+            new Mod(
+                "Helena Shan Improvement",
+                "VarsityPuppet",
+                Appearance,
+                Recommended,
+                new string[] { "Helena_Shan_Improvement.zip" },
+                "Helena_Shan_Improvement_Instructions",
+                "This mod changes Helana Shan's appearance to more closely resemble that of her daughter Bastila, while also improving on her texture.",
+                new Uri("https://deadlystream.com/files/file/1218-helena-shan-improvement/")
+                ),
+            new Mod(
+                "Bastila's Dark Bodysuit",
+                "Revanator",
+                Appearance,
+                Recommended,
+                new string[] { "Bastila's Dark Bodysuit TSLPatcher 1Step.zip" },
+                "Reddit_Bastilas_Dark_Bodysuit_Instructions",
+                "As much as I'd like to think that Malak is just too lazy to care, it's unlikely he'd let Bastila run around with the same pseudo-robes she used as a Jedi without marking her as subservient to the Dark Side. This mod adds a new, slick dark-themed version of Bastila's clothing which she receives for the temple mount encounter and beyond.",
+                new Uri("https://deadlystream.com/files/file/1006-bastilas-dark-bodysuit-by-quanon-revanator/")
+                ),
+            new Mod(
+                "Dueling Arena Adjustment",
+                "DarthParametric",
+                Appearance,
+                Recommended,
+                new string[] { "[K1]_Taris_Dueling_Arena_Adjustment_v1.3.7z" },
+                "Taris_Dueling_Arena_Adjustments_Instructions",
+                "The \"crowd\" in the Taris Dueling Arena is, by default, just a few sprites stuffed in the background. They look awful, and I bet they looked awful even in 2003. Blessedly, this mod fixes that by switching the sprites out with a much more dense crowd, as well as fixing other miscellaneous issues with the arena.",
+                new Uri("https://deadlystream.com/files/file/1404-taris-dueling-arena-adjustment/")
+                ),
+            new Mod(
+                "Bendak Non-Darkside Option",
+                "Thrak Farelle, edited by A Future Pilot",
+                Immersion,
+                Suggested,
+                new string[] { "tar02_duelorg021.dlg" },
+                "Bendak_Bounty_Non_Dark_Side_Option_Instructions",
+                "Since Selven can be killed as a government contract with no DS points gained, why can't Bendak? This mod allows the player to decide whether they're agreeing to the death match just because they want blood (DS) or because they simply want to ensure Bendak doesn't kill anyone else (LS).",
+                new Uri("https://drive.google.com/file/d/1NuewBFq390wkZuBkbJzN-mN4sIRlvXGd/view")
+                ),
+            new Mod(
+                "Kashyyyk Forcefield Rework",
+                "DarthParametric",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Control_Panel_For_Kashyyyk_Shadowlands_Forcefield_v1.1.7z" },
+                "Kashyyyk_Control_Panel_Instructions",
+                "By default, the forcefield in the Kashyyyk shadowlands doesn't have any point of interaction to it, and so to get around this oversight BioWare had to use some camera trickery to prevent the player from seeing what Jolee was doing. This mod fixes this, as well as some other issues with the area, allowing the area transition to work with a more normal camera angle.",
+                new Uri("https://deadlystream.com/files/file/1427-control-panel-for-kashyyyk-shadowlands-forcefield/")
+                ),
+            new Mod(
+                "Engine Lab Bench",
+                "DarthParametric",
+                Bug,
+                Suggested,
+                new string[] { "[K1]_Black_Vulkar_Base_Engine_Lab_Bench_For_Swoop_Accelerator.7z" },
+                "Vulkar_Lab_Bench_Instructions",
+                "Moves a bench out of the way of combat while sitting a highly valuable piece of hardware on it instead of, y'know, the floor. Helps with pathing issues.",
+                new Uri("https://deadlystream.com/files/file/1747-black-vulkar-base-engine-lab-bench-for-swoop-accelerator/")
+                ),
+            new Mod(
+                "Missing Lamps Fix",
+                "Ebmar",
+                Bug,
+                Optional,
+                new string[] { "[K1]_UWTMF_Missing_Lamps_Fix_v1.0.0.7z" },
+                "Reddit_Missing_Lamps_Fix_Instructions",
+                "Several lamps which are supposed to be visible had bad references assigned to them, which caused them to fail spawning in and led to phantom light sources. This mod fixes that, as well as fixing the positioning of a misaligned pillar in the same area.",
+                new Uri("https://deadlystream.com/files/file/1545-k1-temple-main-floor-missing-lamps-fix/")
+                ),
+            new Mod(
+                "Sith Texture Restoration",
+                "A Future Pilot",
+                Restored,
+                Suggested,
+                new string[] { "Sith Soldier Texture Restoration-v2.4.zip" },
+                "Sith_Soldier_Texture_Restoration_Instructions",
+                "It turns out there were several textures planned for Sith Troopers that didn't make it fully into the game. This mod restores an alternate white texture which was meant for Elite troopers, who by default simply share the appearance of regular troopers.",
+                new Uri("https://deadlystream.com/files/file/1289-sith-soldier-texture-restoration/")
+                ),
+            new Mod(
+                "Diversified Republic Soldiers",
+                "DarthParametric",
+                Appearance,
+                Suggested,
+                new string[] { "[K1]_Diversified_Wounded_Republic_Soldiers_On_Taris_v1.3.7z" },
+                "Reddit_Diversified_Wounded_Republic_Soldiers_Instructions",
+                "By default, the Republic soldiers in Zelka Forn's clinic on Taris all have the exact same model. This mod varies their appearance to preserve realism.",
+                new Uri("https://deadlystream.com/files/file/1179-diversified-wounded-republic-soldiers-on-taris/")
+                ),
+            new Mod(
+                "Diversified Jedi Captives",
+                "DarthParametric",
+                Appearance,
+                Recommended,
+                new string[] { "[K1]_Diversified_Jedi_Captives_on_the_SF_v1.2.2.7z" },
+                "Reddit_Diversified_Jedi_Captives_Instructions",
+                "This mod ensures all the Jedi captives on the Star Forge don't use the same model, and are instead realistically unique in appearance.",
+                new Uri("https://deadlystream.com/files/file/1199-diversified-jedi-captives-on-the-star-forge/")
+                ),
+            new Mod(
+                "Dodonna's Transmission",
+                "danil-ch",
+                Immersion,
+                Recommended,
+                new string[] { "[K1]_Dodonna's_Transmission_v1.1.rar" },
+                "Dodonnas_Transmission_Instructions",
+                "When just about to assault the Star Forge, Admiral Dodonna contacts the Ebon Hawk. Inexplicably, in the DS version of the cutscene the player is present, but in the LS version, despite the player's incredible importance, they're entirely absent. This mod adds the player into the LS version of the scene as well, so they match up.",
+                new Uri("https://deadlystream.com/files/file/1101-dodonna%E2%80%99s-transmission/")
+                ),
+            new Mod(
+                "Endgame Hologram Fix",
+                "DarthParametric",
+                Appearance,
+                Recommended,
+                new string[] { "[K1]_Movie-Style_Holograms_for_End_Game_Cutscenes_v1.1.7z" },
+                "Movie_Style_Endgame_Holograms_Instructions",
+                "Gets rid of the ugly, \"painted\" holograms used for Dodonna's transmission sequence and replaces them with variants closer to the movies, and KOTOR 2.",
+                new Uri("https://deadlystream.com/files/file/1342-movie-style-holograms-for-end-game-cutscenes/")
+                ),
+            new Mod(
+                "Twisted Rancor Trio Fix",
+                "DarthParametric",
+                Appearance,
+                Recommended,
+                new string[] { "[K1]_Movie-Style_Holograms_For_Twisted_Rancor_Trio_Puzzle.7z" },
+                "Movie_Style_Holograms_for_Twisted_Rancor_Trio_Instructions",
+                "Replaces the holograms for the Twisted Rancor Trio puzzle on Taris with variants closer to those seen in the movies, and KOTOR 2.",
+                new Uri("https://deadlystream.com/files/file/1736-movie-style-holograms-for-twisted-rancor-trio-puzzle/")
+                ),
+            new Mod(
+                "Rakatan Hologram Fix",
+                "DarthParametric",
+                Appearance,
+                Recommended,
+                new string[] { "[K1]_Movie-Style_Rakatan_Holograms_v1.2.1.7z" },
+                "Movie_Style_Rakatan_Holograms_Instructions",
+                "Replaces the Rakatan Elder holograms with variants closer to those seen in the movies, and KOTOR 2.",
+                new Uri("https://deadlystream.com/files/file/1346-movie-style-rakatan-holograms/")
+                ),
+            new Mod(
+                "Elder Droid Unique VO",
+                "ebmar",
+                Immersion,
+                Optional,
+                new string[] { "[K1]_Legends_-_Elder_Droids_Unique_VO_v1.0.0.7z" },
+                "Elder_Droid_Unique_VO_Instructions",
+                "By default, the droids in the Elder's compound on Lehon make beeping noises similar to what T3 and other utility droids do, despite the identical model on Dantooine having a VO that clearly indicates it was programmed to speak verbally, in an ancient version of the Rakatan language. This mod modifies the droid's VO set so it no longer beeps, and instead speaks ancient Rakata like the droid on Dantooine.",
+                new Uri("https://deadlystream.com/files/file/1531-k1-legends-elder-droids-unique-vo/")
+                ),
+            new Mod(
+                "Ajunta Pall's Swords",
+                "Rece",
+                Immersion,
+                Recommended,
+                new string[] { "Ajunta&#39;s Swords.7z" },
+                "Reddit_Ajunta_Palls_Swords_Instructions",
+                "Gives the swords in Ajunta Pall's tomb unique stats and the ability to be sold for credits, unlike in vanilla.",
+                new Uri("https://deadlystream.com/files/file/541-ajunta-palls-swords-revamped/")
+                ),
         };
     }
 }
