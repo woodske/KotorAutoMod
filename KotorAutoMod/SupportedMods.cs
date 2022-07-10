@@ -2534,6 +2534,26 @@ namespace KotorAutoMod
                 "Do your best to ignore the lighting of the screenshots. This mod actually looks very good, at least for its head textures. That's all we'll be using it for.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1192")
                 ),
+            new Mod(
+                "Zaalbar HD",
+                "corpsecotillion",
+                Graphics,
+                Suggested,
+                new string[] { "bigz.rar" },
+                "Reddit_Zaalbar_HD_Instructions",
+                "An improvement of Zaalbar's default texture, especially his hair and coloration.",
+                new Uri("https://deadlystream.com/files/file/1074-zaalbar-hd/")
+                ),
+            new Mod(
+                "Stylized Portraits",
+                "/u/Tinman888",
+                Appearance,
+                Optional,
+                new string[] { "Stylized Portraits by Tinman888.zip" },
+                "Reddit_Stylized_Portraits_Instructions",
+                "Presented as an alternative to the other HD companion portrait mods previously listed, as well as those companion pictures modified by some of the above graphics mods. If you prefer a more stylized look to your party selection wheel, this lovely mod is the pick for you. Bear in mind that the Revan portrait is optional, so you can exclude that if you would prefer to keep the PC's portraits vanilla.",
+                new Uri("https://deadlystream.com/files/file/1929-stylized-portraits-by-tinman888/")
+                ),
         };
     }
 }
