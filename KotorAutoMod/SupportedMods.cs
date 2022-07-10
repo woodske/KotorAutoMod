@@ -749,7 +749,7 @@ namespace KotorAutoMod
                 ),
             new Mod(
                 "JC's Back in Black",
-                "JCartrer426",
+                "JCarter426",
                 Immersion,
                 Recommended,
                 new string[] { "JC's Korriban - Back in Black for K1 v2.3.zip" },
@@ -2412,6 +2412,46 @@ namespace KotorAutoMod
                 "Reddit_Bastila_Shan_HD_Instructions",
                 "Vastly improves the skin and default clothes textures of Bastila. Note that, for our purposes, we do not use this mod's changes to Bastila's head or face.",
                 new Uri("https://deadlystream.com/files/file/978-bastila-shan-hd-by-quanon-and-dark-hopa/")
+                ),
+            new Mod(
+                "Party Model Fixes",
+                "redrob41",
+                Bug,
+                Recommended,
+                new string[] { "K1 Party Model fixes and HD Bastila by RedRob41.7z" },
+                "Reddit_Party_Model_Fixes_Instructions",
+                "Several of the companion models are messed up in ways that you don't really notice until you begin slapping hi-res textures on them. Since we're going to get to that, this mod is pretty important as a prerequisite.",
+                new Uri("https://deadlystream.com/files/file/1273-party-model-fixes-and-hd-bastila/")
+                ),
+            new Mod(
+                "Juhani Appearance Overhaul",
+                "Stormie97",
+                Appearance,
+                Recommended,
+                new string[] { "Juhani Appearance Overhaul.rar" },
+                "Reddit_Juhani_Appearance_Overhaul_Instructions",
+                "This mod is an all-in-one overhaul for Juhani, including a new body texture, new unique clothing, and a custom lightsaber for our favorite angry Cathar. Bear in mind we don't use this mod's changes to Juhani's head, instead relying on the below mod.",
+                new Uri("https://deadlystream.com/files/file/1669-juhani-appearance-overhaul/")
+                ),
+            new Mod(
+                "Juhani Cathar Head",
+                "Miro42",
+                Immersion,
+                Recommended,
+                new string[] { "juhaniCathar_head.zip" },
+                "Juhani_Real_Cathar_Head_Instructions",
+                "Juhani's head model has always been a disappointing reminder of the limitations of low resolution. This mod makes the best attempt of any I've seen so far to portray Juhani as truly Cathar, without going to extremes or failing to overcome the limitations of her original facial design.",
+                new Uri("https://deadlystream.com/files/file/702-juhani-real-cathar-head/")
+                ),
+            new Mod(
+                "Korriban: Back in Black",
+                "JCarter426",
+                Appearance,
+                Recommended,
+                new string[] { "JC's Korriban - Back in Black for K1 v2.3.zip" },
+                "Reddit_JCs_Back_in_Black_Instructions",
+                "Find it strange that all Sith at the Korriban academy are apparently officers and not Dark Jedi? This mod reskins all the Jedi in the Academy to wear proper robes, as well as fixing several other appearance issues on Korriban.",
+                new Uri("https://deadlystream.com/files/file/1293-jcs-korriban-back-in-black-for-k1/")
                 ),
         };
     }

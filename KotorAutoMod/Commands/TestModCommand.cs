@@ -43,7 +43,7 @@ namespace KotorAutoMod.Commands
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
 
-            await new Reddit_Bastila_Shan_HD_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new Reddit_JCs_Back_in_Black_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }
