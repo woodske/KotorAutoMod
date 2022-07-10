@@ -2453,6 +2453,77 @@ namespace KotorAutoMod
                 "Find it strange that all Sith at the Korriban academy are apparently officers and not Dark Jedi? This mod reskins all the Jedi in the Academy to wear proper robes, as well as fixing several other appearance issues on Korriban.",
                 new Uri("https://deadlystream.com/files/file/1293-jcs-korriban-back-in-black-for-k1/")
                 ),
+            new Mod(
+                "Cloaked Jedi Robes",
+                "JCarter426",
+                Appearance,
+                Recommended,
+                new string[] { "JC's Fashion Line I - Cloaked Jedi Robes for K1 v1.4.7z" },
+                "JCs_Cloaked_Robes_Instructions",
+                "If you preferred the robes in KOTOR 2, as most seem to, does JC have a mod for you. Cloaked Jedi Robes migrates all of the robe types from KOTOR 2 straight into KOTOR, while still managing to retain the unique color schemes of the original (should you choose to use one of the two options for that, anyway!). If you've long sought robe consistency across the two games, look no further.",
+                new Uri("https://deadlystream.com/files/file/1378-jcs-fashion-line-i-cloaked-jedi-robes-for-k1/")
+                ),
+            new Mod(
+                "JC's Jedi Tailor",
+                "JCarter426",
+                Immersion,
+                Optional,
+                new string[] { "JC's Jedi Tailor for K1 v1.4.zip" },
+                "JCs_Jedi_Tailor_Instructions",
+                "It's very annoying when you've got your party together and you want to show your swag off with color-coordinated outfits, but the game only gives you gaudy blue robes. Worry no longer! JC has given us a solution in the form of a skilled Trandoshan tailor, who will dye your robes on demand--it's also compatible with Cloaked Jedi Robes! He even has some very well-written and lore-friendly dialogue about current events.",
+                new Uri("https://deadlystream.com/files/file/1477-jcs-jedi-tailor-for-k1/")
+                ),
+            new Mod(
+                "Quanon's HK-47",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Quanons_HK47_Reskin.rar" },
+                "Quanons_HK47_Instructions",
+                "Improves the appearance of HK-47 by adding more detail, dimming the shine of his armor, and generally making his appearance in the first game more closely approximate a cleaner version of his appearance from KOTOR 2.",
+                new Uri("https://deadlystream.com/files/file/1001-quanons-hk-47-reskin/")
+                ),
+            new Mod(
+                "HD Astromech Droids",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "DrdAstro HD.rar" },
+                "Reddit_HD_Astromech_Droids_Instructions",
+                "Vastly improves the skin of not just T3-M4, but all astromech droids in the game. Also includes party and companion portraits.",
+                new Uri("https://deadlystream.com/files/file/1894-astromech-droid-hd/")
+                ),
+            new Mod(
+                "HD Carth Onasi",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "Carth Onasi (new clothes).rar" },
+                "Reddit_HD_Carth_Onasi_Instructions",
+                "Vastly improves the skin and default clothes textures of Carth. Note that, for our purposes, we do not use this mod's changes to Carth's head or face.",
+                new Uri("https://deadlystream.com/files/file/1133-hd-carth-onasi/")
+                ),
+            new Mod(
+                "HD Canderous Ordo and Patch",
+                "Dark Hope",
+                Graphics,
+                Recommended,
+                new string[] { "Canderous Ordo.rar", "Canderous Patch.rar" },
+                "Reddit_HD_Canderous_Ordo_and_Patch_Instructions",
+                "Vastly improves the skin and default clothes textures of Canderous. Note that, for our purposes, we do not use this mod's changes to Canderous's head or face; we use the head textures of the following mod.",
+                new Uri("https://deadlystream.com/files/file/1123-hd-canderous-ordo/"),
+                "Patch found here: https://mega.nz/file/dFJBEYhA#FY9h6AmYVDizyVPZo_I3vXqAIWVrK1TUzT42msGqtpQ"
+                ),
+            new Mod(
+                "Quanon's Canderous",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Quanon_CandOrdo_Reskin.rar" },
+                "Reddit_Quanons_Canderous_Instructions",
+                "Vastly improves the head and face texture of Canderous. Note that, for our purposes, we do not use this mod's changes to Canderous's body or clothes; we use those textures from the previous mod.",
+                new Uri("https://deadlystream.com/files/file/941-quanons-canderous-ordo-reskin/")
+                ),
         };
     }
 }
