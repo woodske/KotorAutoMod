@@ -2524,6 +2524,16 @@ namespace KotorAutoMod
                 "Vastly improves the head and face texture of Canderous. Note that, for our purposes, we do not use this mod's changes to Canderous's body or clothes; we use those textures from the previous mod.",
                 new Uri("https://deadlystream.com/files/file/941-quanons-canderous-ordo-reskin/")
                 ),
+            new Mod(
+                "Fen's Jolee",
+                "Fenharel",
+                Graphics,
+                Recommended,
+                new string[] { "Fen's - Jolee-1192-1.zip" },
+                "Reddit_Fens_Jolee_Instructions",
+                "Do your best to ignore the lighting of the screenshots. This mod actually looks very good, at least for its head textures. That's all we'll be using it for.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1192")
+                ),
         };
     }
 }
