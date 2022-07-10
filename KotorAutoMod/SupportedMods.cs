@@ -27,8 +27,9 @@ namespace KotorAutoMod
         const string Added = "Added Content";
         const string Story = "Story Change";
         const string Appearance = "Appearance Change";
+        const string Mechanics = "Mechanics Change";
 
-        public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story, Appearance };
+        public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story, Appearance, Mechanics };
 
         /*
          * Managed lists of supported mods. This maintains the order in which the mods are applyed to the game.
@@ -2553,6 +2554,266 @@ namespace KotorAutoMod
                 "Reddit_Stylized_Portraits_Instructions",
                 "Presented as an alternative to the other HD companion portrait mods previously listed, as well as those companion pictures modified by some of the above graphics mods. If you prefer a more stylized look to your party selection wheel, this lovely mod is the pick for you. Bear in mind that the Revan portrait is optional, so you can exclude that if you would prefer to keep the PC's portraits vanilla.",
                 new Uri("https://deadlystream.com/files/file/1929-stylized-portraits-by-tinman888/")
+                ),
+            new Mod(
+                "Star Map Revamp",
+                "CarthOnasty",
+                Graphics,
+                Suggested,
+                new string[] { "Star-Map_Revamp_1-1.zip" },
+                "Star_Map_Revamp_Instructions",
+                "Reskins the Star Maps to a new HD texture, with similar improvements to the map of the galaxy the star maps display.",
+                new Uri("https://deadlystream.com/files/file/1262-star-map-revamp/")
+                ),
+            new Mod(
+                "Background Improvements",
+                "Dark Hope",
+                Graphics,
+                Suggested,
+                new string[] { "hd_kt_400_military_droid_carrier_and_lethisk_class_armed_freighter.rar" },
+                "HD_Ships_Instructions",
+                "Reskins some of the ships seen in the background of the game. By default their appearances are awful, because the players were never meant to look too closely at them.",
+                new Uri("https://deadlystream.com/files/file/1125-hd-kt-400-military-droid-carrier-and-lethisk-class-armed-freighter/")
+                ),
+            new Mod(
+                "Hi-Res Ebon Hawk",
+                "Vurt",
+                Graphics,
+                Recommended,
+                new string[] { "vurt_k1_eh_retexture_v10.rar" },
+                "Ebon_Hawk_High_Resolution_Instructions",
+                "Reskins the vessel the Ebon Hawk to extreme high resolution.",
+                new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/vurt-s-k1-hi-res-ebon-hawk-retexture")
+                ),
+            new Mod(
+                "HQ Cockpit Skyboxes",
+                "Sithspecter",
+                Graphics,
+                Suggested,
+                new string[] { "High Quality Cockpit Skyboxes XL.zip" },
+                "High_Quality_Cockpit_Skyboxes_Instructions",
+                "Vastly improves the quality of exterior areas as seen from the cockpit of the Ebon Hawk.",
+                new Uri("https://deadlystream.com/files/file/938-high-quality-cockpit-skyboxes/")
+                ),
+            new Mod(
+                "Taris Reskin",
+                "Quanon",
+                Graphics,
+                Recommended,
+                new string[] { "Taris_Reskin-10-1-0.zip" },
+                "Reddit_Taris_Reskin_Instructions",
+                "Reskins the streets of Taris to resemble a more realistically grimy, run-down appearance. Also gives certain locations (like Davik's estate) a more grandiose, elegant appearance.",
+                new Uri("https://www.nexusmods.com/kotor/mods/10/")
+                ),
+            new Mod(
+                "High Quality Starfields",
+                "Kexikus",
+                Graphics,
+                Suggested,
+                new string[] { "K1_HDStarsAndNebulas_1_3.zip" },
+                "High_Quality_Starfields_Instructions",
+                "Upscales and beautifies the various starfields encountered throughout the game.",
+                new Uri("https://deadlystream.com/files/file/491-kotor-high-quality-starfields-and-nebulas/")
+                ),
+            new Mod(
+                "HQ Skyboxes II",
+                "Kexikus",
+                Graphics,
+                Recommended,
+                new string[] { "HQSkyboxesII_K1.7z" },
+                "High_Quality_Skyboxes_Instructions",
+                "Massively improves and increases the resolution of all skyboxes for all planets in the game.",
+                new Uri("https://deadlystream.com/files/file/723-high-quality-skyboxes-ii/")
+                ),
+            new Mod(
+                "High Resolution Beam Effects",
+                "InSidious",
+                Graphics,
+                Recommended,
+                new string[] { "DI_HRBM_2.7z" },
+                "High_Resolution_Beam_Effects_Instructions",
+                "An ambitious effect replacer for most \"beam\" style attacks in the game. Don't let the still screenshots fool you, this is an extremely well-made mod that looks excellent compared to the original textures when in-game.",
+                new Uri("https://deadlystream.com/files/file/260-k1-hi-res-beam-effects/")
+                ),
+            new Mod(
+                "HD Fire & Ice",
+                "Cinder Skye",
+                Graphics,
+                Recommended,
+                new string[] { "FireandIceHDWhee.zip" },
+                "HD_Fire_And_Ice_Instructions",
+                "Makes further improvements to the fire and ice textures above and beyond those included in the above mod.",
+                new Uri("https://deadlystream.com/files/file/455-hd-fire-and-ice-whee/")
+                ),
+            new Mod(
+                "Animated Cantina Sign",
+                "Sith Holocron",
+                Graphics,
+                Suggested,
+                new string[] { "SH_AnimatedCantinaSign.7z" },
+                "Reddit_Animated_Cantina_Sign_Instructions",
+                "Animates some cantina signs which were previously stationary.",
+                new Uri("https://deadlystream.com/files/file/1129-animated-cantina-sign-for-kotor-1/")
+                ),
+            new Mod(
+                "Animated Swoop Monitors",
+                "ebmar",
+                Immersion,
+                Suggested,
+                new string[] { "[K1]_Animated_Swoop_Screen_[TSLPort].7z" },
+                "Animated_Swoop_Monitors_Instructions",
+                "Replaces the static swoop racing viewscreens with animated versions, for your immersive benefit.",
+                new Uri("https://deadlystream.com/files/file/1398-k1-animated-swoop-screen-tslport/")
+                ),
+            new Mod(
+                "Loadscreens in Color",
+                "Sithspecter",
+                Appearance,
+                Suggested,
+                new string[] { "Loadscreens in Color.zip" },
+                "Reddit_Loadscreens_in_Color_Instructions",
+                "Colorizes the previously blue-grey loadscreens of the game, to add a bit of life to module changes.",
+                new Uri("https://deadlystream.com/files/file/916-loadscreens-in-color/")
+                ),
+            new Mod(
+                "Reflective Lightsaber Blades",
+                "Crazy34",
+                Appearance,
+                Essential,
+                new string[] { "New_Lightsaber_Blades_K1_v_1.rar" },
+                "Reddit_Reflective_Lightsaber_Blades_Instructions",
+                "With this mod, Crazy34 walked into the community, slammed down one of the most impressive mods ever made for this game, and dared us to do better. Not only have they split the blade texture in two to allow for lightsabers with cores of a different color (currently unsupported in the build release, but hopefully coming soon), they've also added dynamic reflections to each and every lightsaber across every area of the game. When you're fighting a Dark Jedi, you're going to see your faces bathed in shifting colors, fading and brightening as you swing your lightsabers; when you ignite your saber in a hallway, it will reflect on the floor and walls, and will realistically increase in intensity as the blade draws nearer to the surface. This is an incredible project, and easily one of the most important--and impressive--mods ever released for KOTOR. In the next few years, it could completely change the face of lightsaber modding.",
+                new Uri("https://deadlystream.com/files/file/1846-new_lightsaber_blade_model_k1/")
+                ),
+            new Mod(
+                "Blaster Visual Effects",
+                "JCarter426",
+                Graphics,
+                Suggested,
+                new string[] { "JC's Blaster Visual Effects for K1.zip" },
+                "Reddit_Blaster_Visual_Effects_Instructions",
+                "Sharpens the color and texture of blaster bolts fired in the game.",
+                new Uri("https://deadlystream.com/files/file/1271-jcs-blaster-visual-effects-for-k1/")
+                ),
+            new Mod(
+                "Wookiee Warblade Fix",
+                "RedRob",
+                Bug,
+                Suggested,
+                new string[] { "WookieWarbladeFix-Redrob41.7z" },
+                "Reddit_Wookiee_Warblade_Fix_Instructions",
+                "A reuploaded variant of an older fix by RedRob, this mod elongates the handle of the Wookiee Warblade weapon so that the player no longer tries to grip it directly with their hands.",
+                new Uri("https://deadlystream.com/files/file/1899-wookie-warblade-fix/")
+                ),
+            new Mod(
+                "Kill The Czerka Guard",
+                "TamerBill",
+                Added,
+                Suggested,
+                new string[] { "KillCzerkaJerk.zip" },
+                "Reddit_Kill_The_Czerka_Guard_Instructions",
+                "If you're feeling a bit sociopathic, this mod lets you kill a particularly rude Czerka employee on Kashyyyk.",
+                new Uri("https://deadlystream.com/files/file/1856-request-kill-the-czerka-jerk-on-kashyyyk/")
+                ),
+            new Mod(
+                "Korriban Workbench",
+                "InSidious",
+                Added,
+                Suggested,
+                new string[] { "di_kaw2.7z" },
+                "Korriban_Workbench_Instructions",
+                "By default, there's no workbench on Korriban, which can result in some tedious back-and-forth between planets if you want to switch out crystals or upgrade some armor. This mod fixes that.",
+                new Uri("https://deadlystream.com/files/file/375-korriban-academy-workbench/")
+                ),
+            new Mod(
+                "Sharina Fizark Restoration",
+                "Sekan",
+                Restored,
+                Suggested,
+                new string[] { "sharina_fizark_restoration_1.1.zip"},
+                "Reddit_Sharina_Fizark_Restoration_Instructions",
+                "If you remember the woman on Tatooine who offers to sell you her dead husband's Wraid plate, this mod restores a later appearance by her on Dantooine, should you have helped her.",
+                new Uri("https://www.gamefront.com/games/knights-of-the-old-republic/file/sharina-fizark-restoration-1")
+                ),
+            new Mod(
+                "Senni Vek Restoration",
+                "N-DReW25",
+                Restored,
+                Optional,
+                new string[] { "Senni Vek Restoration.zip" },
+                "Senni_Vek_Restoration_Instructions",
+                "Restores the initial character who leads you to the Geno'Haradan as one of Hulas's henchmen for the showdown on Tatooine.",
+                new Uri("https://deadlystream.com/files/file/1090-senni-vek-restoration/")
+                ),
+            new Mod(
+                "Hidden Bek Control Room",
+                "N-DReW25",
+                Restored,
+                Optional,
+                new string[] { "Bek Control Room Restoration 1.1.zip" },
+                "Hidden_Bek_Control_Room_Instructions",
+                "The annoying locked door in the Hidden Bek base was, it turns out, probably not intentionally locked in the first place. This mod restores the player's ability to access it, if you turn on Gadon.",
+                new Uri("https://deadlystream.com/files/file/908-hidden-bek-control-room-restoration/")
+                ),
+            new Mod(
+                "Vision Enhancement",
+                "JCarter426",
+                Appearance,
+                Recommended,
+                new string[] { "JC's Vision Enhancement for K1 v1.2.zip" },
+                "JCs_Vision_Enhancement_Instructions",
+                "Some of the visions which the player is meant to have of the past and the Star Maps have some issues, both of location and of the player's strange decision to wear armor to bed. This mod fixes that.",
+                new Uri("https://deadlystream.com/files/file/1402-jcs-vision-enhancement-for-k1/")
+                ),
+            new Mod(
+                "New Leviathan Dialogue",
+                "Revanator",
+                Added,
+                Suggested,
+                new string[] { "Leviathan Differentiated Dialogue.7z" },
+                "Leviathan_Differentiated_Dialogue_Instructions",
+                "Gives different companions different dialogue choices when speaking to the Rodian prisoner on board the Leviathan.",
+                new Uri("https://deadlystream.com/files/file/895-leviathan-differentiated-dialogue/")
+                ),
+            new Mod(
+                "Balanced Pazaak",
+                "A Future Pilot",
+                Mechanics,
+                Suggested,
+                new string[] { "Balanced Pazaak.zip" },
+                "Balanced_Pazaak_Instructions",
+                "Pazaak players in the original KOTOR cheat, badly. While there's no way to prevent the computer from favoring NPCs in draws, there is a way to drastically reduce their ability to help themselves, and that's to give them all decks one tier lower than what their difficulty says they should have.",
+                new Uri("https://deadlystream.com/files/file/1270-balanced-pazaak/")
+                ),
+            new Mod(
+                "Camera Replacement",
+                "LDR",
+                Mechanics,
+                Essential,
+                new string[] { "ebon_hawk_camera.zip" },
+                "Ebon_Hawk_Camera_Replacement_Instructions",
+                "By default, the camera angle inside the Ebon Hawk is ridiculously close to the PC, which not only makes the PC take up the majority of the screen, it also makes it very hard to see around you. This mod replaces the Ebon Hawk camera angle with one closer to the camera angles present in the rest of the game, and similar to KOTOR 2's Ebon Hawk camera angle.",
+                new Uri("https://deadlystream.com/files/file/827-ebon-hawk-camera-replacement/")
+                ),
+            new Mod(
+                "Improved Grenades",
+                "jc2",
+                Mechanics,
+                Suggested,
+                new string[] { "Improved Grenades.7z" },
+                "Improved_Grenades_Instructions",
+                "In the base-game, grenades typically aren't very useful after the first few planets, once Force powers and the PC's combat capabilities begin to spin up. This mod seeks not only to increase the value of grenades throughout the game but to also make the enemies wielding them more dangerous by tying the total damage output of a grenade to the demolitions stat of the thrower.",
+                new Uri("https://deadlystream.com/files/file/1191-improved-grenades/")
+                ),
+            new Mod(
+                "Turret Minigame Remover",
+                "KittyKitty",
+                Mechanics,
+                Suggested,
+                new string[] { "NO_Fighters.zip-90-v1-0.zip" },
+                "Reddit_Turret_Minigame_Remover_Instructions",
+                "It's annoying at best to have to worry about potentially fighting Sith fighters before every hyperspace jump, especially when the fighting isn't particularly difficult and you don't gain anything for winning. This mod removes all such sequences, only leaving the scripted fighter engagements in place.",
+                new Uri("https://www.nexusmods.com/kotor/mods/90")
                 ),
         };
     }
