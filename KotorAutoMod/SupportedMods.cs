@@ -610,8 +610,8 @@ namespace KotorAutoMod
             new Mod(
                 "Ajunta Pall's Blade",
                 "ebmar",
-                Recommended,
                 Immersion,
+                Recommended,
                 new string[] { "[K1]_Legends_Ajunta_Pall's_Blade_v1.0.2b.7z" },
                 "Ajunta_Palls_Blade_Instructions",
                 "Pall had quite a famous sword. This mod gives it a new rendition so it’s unique.",
@@ -3095,6 +3095,16 @@ namespace KotorAutoMod
                 "Reddit_Ajunta_Palls_Swords_Instructions",
                 "Gives the swords in Ajunta Pall's tomb unique stats and the ability to be sold for credits, unlike in vanilla.",
                 new Uri("https://deadlystream.com/files/file/541-ajunta-palls-swords-revamped/")
+                ),
+            new Mod(
+                "Ajunta Pall's Blade",
+                "ebmar",
+                Appearance,
+                Suggested,
+                new string[] { "[K1]_Legends_Ajunta_Pall's_Blade_v1.0.2b.7z" },
+                "Reddit_Ajunta_Palls_Blade_Instructions",
+                "Rather than working on all the Sith specter's weapons, this mod focuses on making Ajunta Pall's true blade a visually unique representation of the terror of the Sith Lord.",
+                new Uri("https://deadlystream.com/files/file/1338-k1-legends-ajunta-palls-blade/")
                 ),
         };
     }
