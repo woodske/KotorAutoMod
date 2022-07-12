@@ -13,7 +13,7 @@ namespace KotorAutoMod.ViewModels
     {
         private ModStore _modStore;
 
-        private ObservableCollection<ModViewModel> _mods;
+        public ObservableCollection<ModViewModel> _mods;
 
         private string _swkotorDirectory = string.Empty;
 

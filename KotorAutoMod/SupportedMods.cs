@@ -3106,6 +3106,115 @@ namespace KotorAutoMod
                 "Rather than working on all the Sith specter's weapons, this mod focuses on making Ajunta Pall's true blade a visually unique representation of the terror of the Sith Lord.",
                 new Uri("https://deadlystream.com/files/file/1338-k1-legends-ajunta-palls-blade/")
                 ),
+            new Mod(
+                "JC's Mandalorian Armor",
+                "JCarter426",
+                Appearance,
+                Recommended,
+                new string[] { "JC's Mandalorian Armor for K1 v1.2.zip" },
+                "Reddit_JCs_Mandalorian_Armor_Instructions",
+                "Makes Mandalorian armor consistent throughout the game, and ensures that all models use the colored ranking system present in KOTOR.",
+                new Uri("https://deadlystream.com/files/file/1454-jcs-mandalorian-armor-for-k1/")
+                ),
+            new Mod(
+                "Weapon Stats Rebalance",
+                "TK-664",
+                Mechanics,
+                Essential,
+                new string[] { "Weapon Base Stats Re-balance K1.rar" },
+                "Weapon_Base_Stats_Rebalance_Instructions",
+                "In the original KOTOR blasters are significantly underpowered, both in base damage and critical hit range. This mod alters blasters along the same lines KOTOR 2 did, increasing their versatility especially on Taris.",
+                new Uri("https://deadlystream.com/files/file/1248-weapon-base-stats-re-balance-k1/")
+                ),
+            new Mod(
+                "HQ Gaffi Stick",
+                "Fallen Guardian",
+                Graphics,
+                Suggested,
+                new string[] { "Gaffi Stick Improvement.zip" },
+                "HD_Gaffi_Sticks_Instructions",
+                "Improves the textures for the gaffi sticks with a unique texture for the chieftain.",
+                new Uri("https://deadlystream.com/files/file/312-gaffi-stick-improvement/")
+                ),
+            new Mod(
+                "Training Lightsabers",
+                "Kexikus",
+                Immersion,
+                Suggested,
+                new string[] { "DantTrainingLS-66-1-0.zip" },
+                "Reddit_Training_Lightsabers_Instructions",
+                "Canonically, Jedi fought with low-power training lightsabers during their training, not swords. This mod provides the PC and Bastila with a training lightsaber for the purposes of the Dantooine training montage, replacing the scene's default longswords.",
+                new Uri("https://www.nexusmods.com/kotor/mods/66/")
+                ),
+            new Mod(
+                "Realistic Visual Effects",
+                "Shem",
+                Immersion,
+                Recommended,
+                new string[] { "visual_effects_k1.7z" },
+                "Reddit_Realistic_Visual_Effects_Instructions",
+                "Removes the glowing and other unrealistic visual effects when using flurry, critical strike, etc.",
+                new Uri("https://deadlystream.com/files/file/681-realistic-visual-effects/")
+                ),
+            new Mod(
+                "NPC Alignment Fix",
+                "TK-664",
+                Bug,
+                Recommended,
+                new string[] { "NPC_Alignment_Fix_v1_1.rar" },
+                "NPC_Alignment_Fix_Instructions",
+                "Corrects a vanilla oversight where many enemies did not have an alignment at all, thereby rendering most items which gave bonus damage/resistances to LS/DS pointless.",
+                new Uri("https://deadlystream.com/files/file/1866-npc-alignment-fix/")
+                ),
+            new Mod(
+                "True 3D Sound",
+                "kcat",
+                Immersion,
+                Suggested,
+                new string[] { "DSOAL - True 3D Sound for Headphones (HRTF mod) v1.31a-65094-v1-31a-1559689726.zip" },
+                "Reddit_True_3D_Sound_Instructions",
+                "Yes, that's taking you to the New Vegas nexus. No, you're not crazy, and neither am I (yet). This mod works for KOTOR as well, and patches in directional sound to the game, provided you have the necessary hardware (only useful with headphones or surround-sound equipment) and Windows software (I'm unsure of its functionality on other systems).",
+                new Uri("https://www.nexusmods.com/newvegas/mods/65094")
+                ),
+            new Mod(
+                "Remove Duplicate TGA/TPC",
+                "Flachzangen",
+                Patch,
+                Essential,
+                new string[] { "Remove Duplicate TGA-TPC-1384-1-2-1616219479.zip" },
+                "Remove_Duplicate_Files_Instructions",
+                "This is a script written by Flachzangen which allows you to remove duplicate .TGA or .TPC files in your game directory. Files with the .TPC filetype take priority, so for several of the patches we've downloaded which are of the .tga filetype, we need to delete any .TPC duplicates in order to get them to read properly. That's what this script will do.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1384")
+                ),
+            new Mod(
+                "Ultimate Character Overhaul Patches",
+                "ShiningRedHD",
+                Patch,
+                Essential,
+                new string[] {
+                    "JC's Minor Fixes - Compatibility Patch-1282-4-1-1629713341.rar",
+                    "KOTOR 1 Community Patch - Compatibility Patch-1282-4-1-1629713397.rar",
+                    "Better Twi'lek Male Heads - Compatibility Patch-1282-4-1-1629713230.rar",
+                    "JC's Mandalorian Armor - Compatibility Patch-1282-4-1-1629713289.rar",
+                    "Miscellaneous Compatibility Patches-1282-4-1-1629713437.rar",
+                    "Republic Soldier's New Shade - Compatibility Patch-1282-4-1-1629713494.rar"
+                },
+                "Reddit_Ultimate_Character_Overhaul_Patches_Instructions",
+                "This is the point at which we're going to install all the various patches produced for the Ultimate Character Overhaul for any of the other texture mods which you've installed.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
+                ),
+
+            // Use after widescreen menus installation
+            //new Mod(
+            //    "Galaxy Map Fix Pack",
+            //    "Kexikus",
+            //    Immersion,
+            //    Suggested,
+            //    new string[] { "K1 Galaxy Map Fix Pack.zip", "HR Menu Patch.zip" },
+            //    "Galaxy_Map_Fix_Pack_Instructions",
+            //    "Fixes the positioning of planets on the Ebon Hawk’s galaxy map so they are in their canonical positions.",
+            //    new Uri("https://deadlystream.com/files/file/1068-k1-galaxy-map-fix-pack/")
+            //    ),
         };
     }
 }
