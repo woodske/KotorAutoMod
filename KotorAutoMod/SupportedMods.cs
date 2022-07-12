@@ -3203,18 +3203,89 @@ namespace KotorAutoMod
                 "This is the point at which we're going to install all the various patches produced for the Ultimate Character Overhaul for any of the other texture mods which you've installed.",
                 new Uri("https://www.nexusmods.com/kotor/mods/1282?tab=files")
                 ),
-
+            new Mod(
+                "Turret Cockpit Widescreen",
+                "MadDerp",
+                Bug,
+                Suggested,
+                new string[] { "ws models for swkotor-1211-0-22-1550195260.zip" },
+                "Widescreen_Cockpit_And_Racing_Instructions",
+                "Fixes visual issues in the turret cockpit caused by widescreen showing angles which were never supposed to be visible.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1211")
+                ),
+            new Mod(
+                "KOTOR High Resolution Menus",
+                "ndix UR",
+                Graphics,
+                Essential,
+                new string[] { "k1hrm-1.5.7z" },
+                "KOTOR_High_Resoultion_Menus_Instructions",
+                "Edits your game's .exe file to allow the in-game menus to be represented at your game's edited resolution rather than the permanent 800x600 of the default port. This hack will only work on the GoG, 4-disk, iOS, and UniWS-patched Steam versions of the game; for it to be effective, the game must be pre-patched to your widescreen resolution of choice!",
+                new Uri("https://deadlystream.com/files/file/1159-kotor-high-resolution-menus/")
+                ),
             // Use after widescreen menus installation
-            //new Mod(
-            //    "Galaxy Map Fix Pack",
-            //    "Kexikus",
-            //    Immersion,
-            //    Suggested,
-            //    new string[] { "K1 Galaxy Map Fix Pack.zip", "HR Menu Patch.zip" },
-            //    "Galaxy_Map_Fix_Pack_Instructions",
-            //    "Fixes the positioning of planets on the Ebon Hawk’s galaxy map so they are in their canonical positions.",
-            //    new Uri("https://deadlystream.com/files/file/1068-k1-galaxy-map-fix-pack/")
-            //    ),
+            new Mod(
+                "Galaxy Map Fix Pack",
+                "Kexikus",
+                Graphics,
+                Suggested,
+                new string[] { "K1 Galaxy Map Fix Pack.zip", "HR Menu Patch.zip" },
+                "Galaxy_Map_Fix_Pack_Instructions",
+                "Fixes the positioning of planets on the Ebon Hawk’s galaxy map so they are in their canonical positions.",
+                new Uri("https://deadlystream.com/files/file/1068-k1-galaxy-map-fix-pack/")
+                ),
+            new Mod(
+                "HD UI Menu Pack",
+                "ndix UR",
+                Patch,
+                Essential,
+                new string[] { "hd_ui_menupack_PV.7z" },
+                "Reddit_HD_UI_Menu_Pack_Instructions",
+                "While the previous mod allows the in-game menus to display at higher resolutions, it doesn't include the rebuilt icons and UI elements that would make those menus appear functional and sharp at higher resolution. This mod is designed to visually improve all the various menu UI elements so they're functional and clear at the higher resolutions. For all intents, it's a mandatory patch of the above mod.",
+                new Uri("https://deadlystream.com/files/file/1226-hd-ui-menu-pack/")
+                ),
+            new Mod(
+                "Workbench Upgrade Screen Camera Tweak",
+                "Darth Parametric",
+                Graphics,
+                Optional,
+                new string[] { "[K1]_Workbench_Upgrade_Screen_Camera_Tweak.7z" },
+                "Reddit_Workbench_Upgrade_Screen_Camera_Tweak_Instructions",
+                "A camera tweak for running the game at higher resolutions intended to allow you to examine weapon models with a little bit more detail in the Workbench upgrade screen.",
+                new Uri("https://deadlystream.com/files/file/1742-workbench-upgrade-screen-camera-tweak-for-k1/")
+                ),
+            new Mod(
+                "Pretty Good! Icons",
+                "ajdrenter",
+                Graphics,
+                Recommended,
+                new string[] { "Pretty Good! Icons for KotOR 1.0.7z" },
+                "Reddit_Pretty_Good_Icons_Instructions",
+                "A comprehensive upscale of all the various icons in the game. Very well-done and essential for visual clarity while using HR Menus.",
+                new Uri("https://deadlystream.com/files/file/1815-pretty-good-icons-for-kotor/")
+                ),
+            new Mod(
+                "Widescreen Fade Fix",
+                "Doiinko",
+                Bug,
+                Suggested,
+                new string[] { "KOTOR 1 Fade widescreen fix.zip" },
+                "Reddit_Widescreen_Fade_Fix_Instructions",
+                "At modded resolutions, part of the screen fades in at a different speed than the rest of the screen. This simple mod fixes the fade so it's uniform.",
+                new Uri("https://deadlystream.com/files/file/1792-kotor-widescreen-fade-fix/")
+                ),
+            new Mod(
+                "Main Menu Widescreen Fix",
+                "DarthParametric",
+                Bug,
+                Recommended,
+                new string[] { "[K1]_Main_Menu_Widescreen_Fix_v1.2.7z" },
+                "Main_Menu_Widescreen_Fix_Instructions",
+                "Like the turret cockpit, by default the game's main menu isn't intended to be viewed in widescreen. This fix widens the viewing angle of the main menu and moves the smoke effects to the edge of the screen, so the menu appears as it should even in higher resolutions.",
+                new Uri("https://deadlystream.com/files/file/1173-k1-main-menu-widescreen-fix/")
+                ),
+
+
         };
     }
 }

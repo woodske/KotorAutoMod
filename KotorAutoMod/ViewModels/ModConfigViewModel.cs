@@ -280,7 +280,7 @@ namespace KotorAutoMod.ViewModels
         // We need aspect ratio and screen resolution for first time setup and high resolution menus mod
         public bool needsAspectRatioAndResolution()
         {
-            string[] modsNeedingAspectRatioOrResolution = new string[] { "KOTOR High Resolution Menus", "HD Loadscreens (16:9)", "HD Loadscreens (4:3)", "Pazaak UI", "Galaxy Map Fix Pack" };
+            string[] modsNeedingAspectRatioOrResolution = new string[] { "KOTOR High Resolution Menus", "HD Loadscreens (16:9)", "HD Loadscreens (4:3)", "Pazaak UI", "Galaxy Map Fix Pack", "Widescreen Fade Fix" };
             return FirstTimeSetupIsChecked || _mods.Any(mod => modsNeedingAspectRatioOrResolution.Contains(mod.ListName) && mod.isAvailable && mod.isChecked);
         }
 
