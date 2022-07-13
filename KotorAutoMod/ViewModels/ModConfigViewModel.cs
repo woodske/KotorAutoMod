@@ -284,7 +284,10 @@ namespace KotorAutoMod.ViewModels
                 typeList.Add("");
                 foreach (var mod in _mods)
                 {
-                    typeList.Add(mod.Type);
+                    foreach (string type in mod.Type)
+                    {
+                        typeList.Add(type);
+                    }
                 }
                 return typeList.ToArray();
             }

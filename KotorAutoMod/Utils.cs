@@ -352,7 +352,7 @@ namespace KotorAutoMod
         {
             // type filter
             IEnumerable<ModViewModel> typeFilteredMods = !string.IsNullOrEmpty(modConfig.SelectedType) ?
-                mods.Where(mod => mod.Type == modConfig.SelectedType) :
+                mods.Where(mod => mod.Type.Any(type => type == modConfig.SelectedType)) :
                 mods;
 
             // importance filter

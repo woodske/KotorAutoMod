@@ -7,7 +7,7 @@ namespace KotorAutoMod
         public Mod(
             string listName,
             string author,
-            string type,
+            string[] type,
             string importance,
             string[] modFileName,
             string instructionsName,
@@ -30,7 +30,7 @@ namespace KotorAutoMod
 
         public string Author { get; set; }
 
-        public string Type { get; set; }
+        public string[] Type { get; set; }
 
         public string Importance { get; set; }
 
