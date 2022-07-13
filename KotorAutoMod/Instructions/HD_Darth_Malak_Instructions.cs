@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             //  Decide whether or not you want the blue or red eyes version, and move the files to your Override (including N_DarthMalak01.tga).
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes for red eyes or no for blue eyes\n\n" +

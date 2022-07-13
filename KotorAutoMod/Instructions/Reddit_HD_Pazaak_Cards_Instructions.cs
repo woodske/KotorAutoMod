@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             // Move all the files to your Override. Decide if you want KOTOR 2 styled green cards and move them over too.
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes to use KOTOR 2 styled green cards, or no to use KOTOR 1 styled.\n\n" +

@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             //  Decide whether or not you want the Transparent/Non-Transparent and Sith eyes or not, then move the appropriate files to override. Then run the patcher.
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult transparencyResult = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes to make Ajunta Pall transparent, or no to make him opaque.\n\n" +

@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             // Move everything from the override folder to your game's override directory, unless you would like yellow/green disruptors, in which case those files should be moved from the optional folder after moving all loose files to the override first.
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes to use yellow disrupters, no for green disrupters, or cancel to stick with the original.\n\n" +

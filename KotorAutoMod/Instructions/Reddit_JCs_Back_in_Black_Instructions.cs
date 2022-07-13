@@ -17,7 +17,7 @@ namespace KotorAutoMod.Instructions
             // Run the installer.
             // If running the Community Patch (you should be), install the Community Patch-Compatible install option; otherwise, select Basic.
             // If you would like Master Uthar or Yuthura Ban (the two top Sith at the academy) to wear alternate outfits instead of robes, re-run the patcher to select your preferred options AFTER running the initial install.          
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes if you would like to install alternate outfits, choose no if not.\n\n" +

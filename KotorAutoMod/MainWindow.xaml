@@ -251,7 +251,7 @@
                     <LineBreak/>
                 
                     <Run Text="Type: " FontWeight="Bold"/>
-                    <Run Text="{Binding DescriptionViewModel.Mod.CombinedType, Mode=OneWay}" />
+                    <Run Text="{Binding DescriptionViewModel.Mod.Type, Mode=OneWay}" />
                     <LineBreak/>
                 
                     <Run Text="Importance: " FontWeight="Bold"/>

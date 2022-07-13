@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             // Run the installer
             Utils.tslPatcherInstructions(modConfig, mod, $"Check the mod page for examples of the different options: {mod.ModPage}\n\nBrown-Red-Blue Alternative is recommended");
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 "If you choose 100% brown, there is a patch in a later mod so remember your choice.",
                 "Reminder",

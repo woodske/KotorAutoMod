@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             //  Decide whether or not you want with or without glass version, and move the files to your Override.
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes for with glass overlays or no for without glass overlays.\n\n" +

@@ -15,7 +15,7 @@ namespace KotorAutoMod.ViewModels
         public string CombinedModFileName => String.Join(" && ", _mod.ModFileName);
         public string InstructionsName => _mod.InstructionsName;
         public string Description => _mod.Description;
-        public Uri ModPage => _mod.ModPage;
+        public Uri[] ModPage => _mod.ModPage;
         public string AdditionalInformation => _mod.AdditionalInformation;
         public bool isChecked
         {

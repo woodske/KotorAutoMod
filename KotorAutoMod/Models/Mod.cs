@@ -12,7 +12,7 @@ namespace KotorAutoMod
             string[] modFileName,
             string instructionsName,
             string description,
-            Uri modPage,
+            Uri[] modPage,
             string additionalInstructions = ""
             )
         {
@@ -40,7 +40,7 @@ namespace KotorAutoMod
 
         public string Description { get; set; }
 
-        public Uri ModPage { get; set; }
+        public Uri[] ModPage { get; set; }
 
         public string AdditionalInformation { get; set; }
 

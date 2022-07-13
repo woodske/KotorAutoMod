@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             // Move all files to override. Choose whether or not to include the PC.
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes to use PC portrait and companions, or no to just use companions.\n\n" +

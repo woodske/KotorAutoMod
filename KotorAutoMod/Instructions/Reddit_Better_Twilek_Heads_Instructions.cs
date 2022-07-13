@@ -15,7 +15,7 @@ namespace KotorAutoMod.Instructions
         {
             //  Decide whether or not you want the slim or original then move the appropriate files to override. After, move all files from textures to override.
             Utils.copyFilesToOverrideInstructions(modConfig, mod);
-            Utils.openUrl(mod.ModPage);
+            Utils.openUrl(mod.ModPage[0]);
             MessageBoxResult result = MessageBox.Show(
                 $"Options for {mod.ListName}:\n" +
                 "Choose yes to use slim necks, or no to use original necks.\n\n" +
