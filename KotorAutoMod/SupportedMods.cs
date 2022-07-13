@@ -318,7 +318,7 @@ namespace KotorAutoMod
             new Mod(
                 "Kashyyyk Control Panel",
                 "DarthParametric",
-                new string[] { Bug },
+                new string[] { Immersion, Bug },
                 Recommended,
                 new string[] { "[K1]_Control_Panel_For_Kashyyyk_Shadowlands_Forcefield_v1.1.7z" },
                 "Kashyyyk_Control_Panel_Instructions",
@@ -328,7 +328,7 @@ namespace KotorAutoMod
             new Mod(
                 "JC's Security Spikes",
                 "JCarter426",
-                new string[] { Bug },
+                new string[] { Bug, Gameplay },
                 Recommended,
                 new string[] { "JC's Security Spikes for K1 v1.2.zip" },
                 "JCs_Security_Spikes_Instructions",
@@ -348,7 +348,7 @@ namespace KotorAutoMod
             new Mod(
                 "JC's Republic Soldier Fix",
                 "JCarter426",
-                new string[] { QoL },
+                new string[] { Bug, QoL },
                 Recommended,
                 new string[] { "JC's Republic Soldier Fix for K1 v1.3.zip" },
                 "JCs_Republic_Soldier_Fix_Instructions",
@@ -428,7 +428,7 @@ namespace KotorAutoMod
             new Mod(
                 "Force Enlightenment",
                 "uwadmin12",
-                new string[] { Gameplay },
+                new string[] { Gameplay, Added },
                 Recommended,
                 new string[] { "k1_enlightenment.zip" },
                 "Force_Enlightenment_Instructions",
@@ -478,7 +478,7 @@ namespace KotorAutoMod
             new Mod(
                 "Vulkar Lab Bench",
                 "DarthParametric",
-                new string[] { Immersion },
+                new string[] { Immersion, Bug },
                 Suggested,
                 new string[] { "[K1]_Black_Vulkar_Base_Engine_Lab_Bench_For_Swoop_Accelerator.7z" },
                 "Vulkar_Lab_Bench_Instructions",
@@ -528,7 +528,7 @@ namespace KotorAutoMod
             new Mod(
                 "Rakghoul Fiend",
                 "ebmar",
-                new string[] { Gameplay },
+                new string[] { Immersion, Gameplay },
                 Suggested,
                 new string[] { "[K1]_Rakghoul_Fiend_v1.0.0.7z" },
                 "Rakghoul_Fiend_Instructions",
@@ -548,7 +548,7 @@ namespace KotorAutoMod
             new Mod(
                 "Selven Legends",
                 "ebmar",
-                new string[] { Gameplay },
+                new string[] { Gameplay, Immersion },
                 Recommended,
                 new string[] { "[K1]_Selven_'Legends'_v1.3.7z" },
                 "Selven_Legends_Instructions",
@@ -618,7 +618,7 @@ namespace KotorAutoMod
             new Mod(
                 "Sherruk With Lightsabers",
                 "Milo49, edited by StellarExile",
-                new string[] { Immersion },
+                new string[] { Immersion, Gameplay },
                 Recommended,
                 new string[] { "dan14_sherruk.utc" },
                 "Sherruk_With_Lightsabers_Instructions",
@@ -738,7 +738,7 @@ namespace KotorAutoMod
             new Mod(
                 "JC's Robe Adjustment",
                 "JCarter426",
-                new string[] { Immersion },
+                new string[] { Gameplay, Immersion },
                 Recommended,
                 new string[] { "JC's Robe Adjustment for K1 v1.2.zip" },
                 "JCs_Robe_Adjustment_Instructions",
@@ -758,7 +758,7 @@ namespace KotorAutoMod
             new Mod(
                 "Senni Vek Restoration",
                 "N-DReW25",
-                new string[] { Immersion },
+                new string[] { Immersion, Restored },
                 Optional,
                 new string[] { "Senni Vek Restoration.zip" },
                 "Senni_Vek_Restoration_Instructions",
@@ -768,7 +768,7 @@ namespace KotorAutoMod
             new Mod(
                 "Sith Soldier Texture Restoration",
                 "A Future Pilot",
-                new string[] { Immersion },
+                new string[] { Immersion, Restored },
                 Suggested,
                 new string[] { "Sith Soldier Texture Restoration-v2.4.zip" },
                 "Sith_Soldier_Texture_Restoration_Instructions",
@@ -778,7 +778,7 @@ namespace KotorAutoMod
             new Mod(
                 "Female Republic Soldier Restoration",
                 "N-DReW25",
-                new string[] { Immersion },
+                new string[] { Immersion, Restored },
                 Suggested,
                 new string[] { "Female Republic Soldier RestorationA.7z" },
                 "Female_Republic_Soldier_Restoration_Instructions",
@@ -858,7 +858,7 @@ namespace KotorAutoMod
             new Mod(
                 "Iriaz Restoration",
                 "Cerez",
-                new string[] { Restored },
+                new string[] { Restored, Immersion },
                 Optional,
                 new string[] { "iriaz.zip" },
                 "Iriaz_Restoration_Instructions",
@@ -888,7 +888,7 @@ namespace KotorAutoMod
             new Mod(
                 "Czerka Overhaul",
                 "garm343",
-                new string[] { Immersion },
+                new string[] { Immersion, Gameplay },
                 Recommended,
                 new string[] { "Czerka Armor and Appearance Fix 1.4.zip" },
                 "Czerka_Overhaul_Instructions",
@@ -958,7 +958,7 @@ namespace KotorAutoMod
             new Mod(
                 "Movie Style Endgame Holograms",
                 "DarthParametric",
-                new string[] { Immersion },
+                new string[] { Immersion, Restored },
                 Recommended,
                 new string[] { "[K1]_Movie-Style_Holograms_for_End_Game_Cutscenes_v1.1.7z" },
                 "Movie_Style_Endgame_Holograms_Instructions",
@@ -1008,7 +1008,7 @@ namespace KotorAutoMod
             new Mod(
                 "NPC Alignment Fix",
                 "TK-664",
-                new string[] { Gameplay },
+                new string[] { Gameplay, Immersion },
                 Suggested,
                 new string[] { "NPC_Alignment_Fix_v1_1.rar" },
                 "NPC_Alignment_Fix_Instructions",
@@ -1894,7 +1894,7 @@ namespace KotorAutoMod
             new Mod(
                 "GenoHaradan Light Side",
                 "DarthRevan101",
-                new string[] { Added },
+                new string[] { Story, Added },
                 Recommended,
                 new string[] { "Genoharadan - Light Side.rar" },
                 "GenoHaradan_Light_Side_Instructions",
@@ -1958,7 +1958,7 @@ namespace KotorAutoMod
             new Mod(
                 "JC's Minor Fixes",
                 "JCarter426",
-                new string[] { Bug },
+                new string[] { Bug, Graphics },
                 Recommended,
                 new string[] { "JC's Minor Fixes for K1 v1.1.zip" },
                 "Reddit_JCs_Minor_Fixes_Instructions",
@@ -1978,7 +1978,7 @@ namespace KotorAutoMod
             new Mod(
                 "Ajunta Pall Appearance",
                 "Silveredge9, Patch by A Future Pilot",
-                new string[] { Graphics },
+                new string[] { Appearance, Graphics },
                 Recommended,
                 new string[] { "ajunta_pall_unique_appearance_1.1.rar", "Ajunta Pall Unique Appearance.zip" },
                 "Reddit_Ajunta_Pall_Appearance_Instructions",
@@ -1988,7 +1988,7 @@ namespace KotorAutoMod
             new Mod(
                 "KOTOR Community Patch",
                 "Various Authors; Darth Parametric, JCarter426 & A Future Pilot Collate",
-                new string[] { Bug },
+                new string[] { Bug, Graphics, Immersion },
                 Essential,
                 new string[] { "K1_Community_Patch_v1.9.2.zip" },
                 "Reddit_Kotor_1_Community_Patch_Instructions",
@@ -2119,7 +2119,7 @@ namespace KotorAutoMod
             new Mod(
                 "Republic Soldier Fix",
                 "JCarter426",
-                new string[] { Graphics },
+                new string[] { Graphics, Appearance },
                 Recommended,
                 new string[] { "JC's Republic Soldier Fix for K1 v1.3.zip" },
                 "Reddit_Republic_Soldier_Fix_Instructions",
@@ -2159,7 +2159,7 @@ namespace KotorAutoMod
             new Mod(
                 "PMHA05 HD",
                 "Dark Hope",
-                new string[] { Graphics },
+                new string[] { Graphics, Appearance },
                 Suggested,
                 new string[] { "PMHA05 HD.rar" },
                 "PMHA05_HD_Instructions",
@@ -2199,7 +2199,7 @@ namespace KotorAutoMod
             new Mod(
                 "PMHB01 HD",
                 "Dark Hope",
-                new string[] { Graphics },
+                new string[] { Graphics, Appearance },
                 Suggested,
                 new string[] { "PMHB01 HD.rar" },
                 "PMHB01_HD_Instructions",
@@ -2219,7 +2219,7 @@ namespace KotorAutoMod
             new Mod(
                 "PFHC05 HD",
                 "Dark Hope",
-                new string[] { Graphics },
+                new string[] { Graphics, Appearance },
                 Recommended,
                 new string[] { "PFHC05 HD.rar" },
                 "PFHC05_HD_Instructions",
@@ -2249,7 +2249,7 @@ namespace KotorAutoMod
             new Mod(
                 "PFHB02 Eye Fix",
                 "Darth Parametric",
-                new string[] { Bug },
+                new string[] { Bug, Graphics },
                 Recommended,
                 new string[] { "[K1]_Player_Head_PFHB02_DS_Transition_Eye_Fix.7z" },
                 "Reddit_PFHB02_Eye_Fix_Instructions",
@@ -2339,7 +2339,7 @@ namespace KotorAutoMod
             new Mod(
                 "Shaleena Head Restoration",
                 "Stellar Exile",
-                new string[] { Restored },
+                new string[] { Restored, Appearance },
                 Suggested,
                 new string[] { "Shaleena Head Restoration.zip" },
                 "Shaleena_Original_Head_Restoration_Instructions",
@@ -2419,7 +2419,7 @@ namespace KotorAutoMod
             new Mod(
                 "Juhani Appearance Overhaul",
                 "Stormie97",
-                new string[] { Appearance },
+                new string[] { Appearance, Immersion, Graphics },
                 Recommended,
                 new string[] { "Juhani Appearance Overhaul.rar" },
                 "Reddit_Juhani_Appearance_Overhaul_Instructions",
@@ -2429,7 +2429,7 @@ namespace KotorAutoMod
             new Mod(
                 "Juhani Cathar Head",
                 "Miro42",
-                new string[] { Immersion },
+                new string[] { Appearance, Graphics },
                 Recommended,
                 new string[] { "juhaniCathar_head.zip" },
                 "Juhani_Real_Cathar_Head_Instructions",
@@ -2439,7 +2439,7 @@ namespace KotorAutoMod
             new Mod(
                 "Korriban: Back in Black",
                 "JCarter426",
-                new string[] { Appearance },
+                new string[] { Appearance, Bug },
                 Recommended,
                 new string[] { "JC's Korriban - Back in Black for K1 v2.3.zip" },
                 "Reddit_JCs_Back_in_Black_Instructions",
@@ -2659,7 +2659,7 @@ namespace KotorAutoMod
             new Mod(
                 "Loadscreens in Color",
                 "Sithspecter",
-                new string[] { Appearance },
+                new string[] { Appearance, Immersion },
                 Suggested,
                 new string[] { "Loadscreens in Color.zip" },
                 "Reddit_Loadscreens_in_Color_Instructions",
@@ -2669,7 +2669,7 @@ namespace KotorAutoMod
             new Mod(
                 "Reflective Lightsaber Blades",
                 "Crazy34",
-                new string[] { Appearance },
+                new string[] { Appearance, Immersion, Graphics },
                 Essential,
                 new string[] { "New_Lightsaber_Blades_K1_v_1.rar" },
                 "Reddit_Reflective_Lightsaber_Blades_Instructions",
@@ -2759,7 +2759,7 @@ namespace KotorAutoMod
             new Mod(
                 "New Leviathan Dialogue",
                 "Revanator",
-                new string[] { Added },
+                new string[] { Added, Immersion },
                 Suggested,
                 new string[] { "Leviathan Differentiated Dialogue.7z" },
                 "Leviathan_Differentiated_Dialogue_Instructions",
@@ -2809,7 +2809,7 @@ namespace KotorAutoMod
             new Mod(
                 "Repeater Attacks Restoration",
                 "R2-X2",
-                new string[] { Mechanics },
+                new string[] { Mechanics, Bug },
                 Essential,
                 new string[] { "Repeating blaster attacks restoration.zip" },
                 "Reddit_Repeater_Attacks_Restoration_Instructions",
@@ -2819,7 +2819,7 @@ namespace KotorAutoMod
             new Mod(
                 "Tutorial Remover",
                 "Darthbdaman",
-                new string[] { Mechanics },
+                new string[] { Mechanics, Immersion },
                 Optional,
                 new string[] { "Tutorial Remover-1171-1-4-1-1654916692.7z" },
                 "Reddit_Tutorial_Remover_Instructions",
@@ -2839,7 +2839,7 @@ namespace KotorAutoMod
             new Mod(
                 "Sunry Enhancement",
                 "FallenGuardian",
-                new string[] { Added },
+                new string[] { Added, Immersion },
                 Recommended,
                 new string[] { "SMRE Version 3.0.zip" },
                 "Sunry_Murder_Recording_Enhancement_Instructions",
@@ -2879,7 +2879,7 @@ namespace KotorAutoMod
             new Mod(
                 "Crashed Republic Cruiser",
                 "LDR",
-                new string[] { Added },
+                new string[] { Added, Immersion },
                 Recommended,
                 new string[] { "ldr_repshipunknownworld.zip" },
                 "Crashed_Republic_Cruiser_Instructions",
@@ -2939,7 +2939,7 @@ namespace KotorAutoMod
             new Mod(
                 "Bastila's Dark Bodysuit",
                 "Revanator",
-                new string[] { Appearance },
+                new string[] { Appearance, Immersion },
                 Recommended,
                 new string[] { "Bastila's Dark Bodysuit TSLPatcher 1Step.zip" },
                 "Reddit_Bastilas_Dark_Bodysuit_Instructions",
@@ -2949,7 +2949,7 @@ namespace KotorAutoMod
             new Mod(
                 "Dueling Arena Adjustment",
                 "DarthParametric",
-                new string[] { Appearance },
+                new string[] { Appearance, Bug, Graphics },
                 Recommended,
                 new string[] { "[K1]_Taris_Dueling_Arena_Adjustment_v1.3.7z" },
                 "Taris_Dueling_Arena_Adjustments_Instructions",
@@ -3099,7 +3099,7 @@ namespace KotorAutoMod
             new Mod(
                 "JC's Mandalorian Armor",
                 "JCarter426",
-                new string[] { Appearance },
+                new string[] { Appearance, Immersion },
                 Recommended,
                 new string[] { "JC's Mandalorian Armor for K1 v1.2.zip" },
                 "Reddit_JCs_Mandalorian_Armor_Instructions",
@@ -3149,7 +3149,7 @@ namespace KotorAutoMod
             new Mod(
                 "NPC Alignment Fix",
                 "TK-664",
-                new string[] { Bug },
+                new string[] { Bug, Immersion },
                 Recommended,
                 new string[] { "NPC_Alignment_Fix_v1_1.rar" },
                 "NPC_Alignment_Fix_Instructions",
@@ -3179,7 +3179,7 @@ namespace KotorAutoMod
             new Mod(
                 "Ultimate Character Overhaul Patches",
                 "ShiningRedHD",
-                new string[] { Patch },
+                new string[] { Patch, Graphics },
                 Essential,
                 new string[] {
                     "JC's Minor Fixes - Compatibility Patch-1282-4-1-1629713341.rar",
