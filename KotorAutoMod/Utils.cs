@@ -291,7 +291,7 @@ namespace KotorAutoMod
             foreach (ModViewModel selectedMod in selectedMods)
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo();
-                startInfo.FileName = selectedMod.ModPage.ToString();
+                startInfo.FileName = selectedMod.ModPage[0].ToString();
                 startInfo.UseShellExecute = true;
 
                 using (Process exeProcess = Process.Start(startInfo))
