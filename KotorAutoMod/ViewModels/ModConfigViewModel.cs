@@ -2,6 +2,7 @@
 using KotorAutoMod.Models;
 using KotorAutoMod.Stores;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -36,8 +37,6 @@ namespace KotorAutoMod.ViewModels
         private string _activeTask = string.Empty;
 
         public string[] AvailableAspectRatios => ModConfig.validAspectRatios;
-
-        public string[] Types => SupportedMods.types;
 
         public string[] ImportanceTiers => SupportedMods.importanceTiers;
 
@@ -277,6 +276,24 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
+        public string[] Types
+        {
+            get
+            {
+                HashSet<string> typeList = new HashSet<string>();
+                typeList.Add("");
+                foreach (var mod in _mods)
+                {
+                    typeList.Add(mod.Type);
+                }
+                return typeList.ToArray();
+            }
+            set
+            {
+                OnPropertyChanged(nameof(Types));
+            }
+        }
+
         // We need aspect ratio and screen resolution for first time setup and high resolution menus mod
         public bool needsAspectRatioAndResolution()
         {
@@ -292,6 +309,7 @@ namespace KotorAutoMod.ViewModels
             {
                 mod.PropertyChanged += OnModPropertyChanged;
             }
+            OnPropertyChanged(nameof(Types));
         }
 
         private void OnModPropertyChanged(object? sender, PropertyChangedEventArgs e)

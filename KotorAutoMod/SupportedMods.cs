@@ -29,8 +29,6 @@ namespace KotorAutoMod
         const string Appearance = "Appearance Change";
         const string Mechanics = "Mechanics Change";
 
-        public static string[] types = new string[] { "", Menu, UI, Movies, Bug, QoL, Graphics, Gameplay, Immersion, Restored, Patch, Added, Story, Appearance, Mechanics };
-
         /*
          * Managed lists of supported mods. This maintains the order in which the mods are applyed to the game.
          * Different opinionated mod lists are supported
@@ -3284,8 +3282,66 @@ namespace KotorAutoMod
                 "Like the turret cockpit, by default the game's main menu isn't intended to be viewed in widescreen. This fix widens the viewing angle of the main menu and moves the smoke effects to the edge of the screen, so the menu appears as it should even in higher resolutions.",
                 new Uri("https://deadlystream.com/files/file/1173-k1-main-menu-widescreen-fix/")
                 ),
-
-
+            new Mod(
+                "KOTOR Remastered Cutscenes (720)",
+                "Naelavok",
+                Graphics,
+                Essential,
+                new string[] { "Resolution 1280x720-1306-1-1-1575389942.zip" },
+                "HD_Cutscenes_Instructions",
+                "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1306")
+                ),
+            new Mod(
+                "KOTOR Remastered Cutscenes (768)",
+                "Naelavok",
+                Graphics,
+                Essential,
+                new string[] { "Resolution 1366x768-1306-1-1-1575389946.zip" },
+                "HD_Cutscenes_Instructions",
+                "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1306")
+                ),
+            new Mod(
+                "KOTOR Remastered Cutscenes (1080)",
+                "Naelavok",
+                Graphics,
+                Essential,
+                new string[] { "Resolution 1920x1080-1306-1-1-1575389950.zip" },
+                "HD_Cutscenes_Instructions",
+                "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1306")
+                ),
+            new Mod(
+                "KOTOR Remastered Cutscenes (1440)",
+                "Naelavok",
+                Graphics,
+                Essential,
+                new string[] { "Resolution 2560x1440-1306-1-1-1575389956.zip" },
+                "HD_Cutscenes_Instructions",
+                "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1306")
+                ),
+            new Mod(
+                "KOTOR Remastered Cutscenes (2160)",
+                "Naelavok",
+                Graphics,
+                Essential,
+                new string[] { "Resolution 3840x2160-1306-1-1-1575389961.zip" },
+                "HD_Cutscenes_Instructions",
+                "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
+                new Uri("https://www.nexusmods.com/kotor/mods/1306")
+                ),
+            new Mod(
+                "Larger Text Fonts",
+                "sovietshipgirl",
+                Bug,
+                Recommended,
+                new string[] { "LargerTextFontsK1.7z" },
+                "Larger_Text_Fonts_Instructions",
+                "Inexplicably, the Russian version of the game has larger English font sizes packaged with it, which allows text to appear larger even on English versions of the game. For those who want to play KOTOR at very high resolutions, this can make it a bit more viable, as otherwise the text is often so small it's almost impossible to play.",
+                new Uri("https://deadlystream.com/files/file/1891-larger-text-fonts-for-kotor-1/")
+                ),
         };
     }
 }
