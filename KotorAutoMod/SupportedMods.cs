@@ -3280,7 +3280,7 @@ namespace KotorAutoMod
                 new string[] { Graphics },
                 Essential,
                 new string[] { "Resolution 1280x720-1306-1-1-1575389942.zip" },
-                "HD_Cutscenes_Instructions",
+                "Reddit_KOTOR_Remastered_Cutscenes_Instructions",
                 "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
                 new Uri[] { new Uri("https://www.nexusmods.com/kotor/mods/1306") }
                 ),
@@ -3290,7 +3290,7 @@ namespace KotorAutoMod
                 new string[] { Graphics },
                 Essential,
                 new string[] { "Resolution 1366x768-1306-1-1-1575389946.zip" },
-                "HD_Cutscenes_Instructions",
+                "Reddit_KOTOR_Remastered_Cutscenes_Instructions",
                 "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
                 new Uri[] { new Uri("https://www.nexusmods.com/kotor/mods/1306") }
                 ),
@@ -3300,7 +3300,7 @@ namespace KotorAutoMod
                 new string[] { Graphics },
                 Essential,
                 new string[] { "Resolution 1920x1080-1306-1-1-1575389950.zip" },
-                "HD_Cutscenes_Instructions",
+                "Reddit_KOTOR_Remastered_Cutscenes_Instructions",
                 "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
                 new Uri[] { new Uri("https://www.nexusmods.com/kotor/mods/1306") }
                 ),
@@ -3310,7 +3310,7 @@ namespace KotorAutoMod
                 new string[] { Graphics },
                 Essential,
                 new string[] { "Resolution 2560x1440-1306-1-1-1575389956.zip" },
-                "HD_Cutscenes_Instructions",
+                "Reddit_KOTOR_Remastered_Cutscenes_Instructions",
                 "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
                 new Uri[] { new Uri("https://www.nexusmods.com/kotor/mods/1306") }
                 ),
@@ -3320,7 +3320,7 @@ namespace KotorAutoMod
                 new string[] { Graphics },
                 Essential,
                 new string[] { "Resolution 3840x2160-1306-1-1-1575389961.zip" },
-                "HD_Cutscenes_Instructions",
+                "Reddit_KOTOR_Remastered_Cutscenes_Instructions",
                 "Using predictive AI, /u/naelavok has upscaled the cutscenes for both games out of their horrendous default resolution, to be much more crisp and viewable. A movie replacer like this is necessary to fix the fullscreen bug (plus they're just really good), so it's hugely recommended to use it whether you experience issues with fullscreen play or not.",
                 new Uri[] { new Uri("https://www.nexusmods.com/kotor/mods/1306") }
                 ),
