@@ -251,7 +251,7 @@
                     <LineBreak/>
                 
                     <Run Text="Type: " FontWeight="Bold"/>
-                    <Run Text="{Binding DescriptionViewModel.Mod.Type, Mode=OneWay}" />
+                    <Run Text="{Binding DescriptionViewModel.Mod.CombinedType, Mode=OneWay}" />
                     <LineBreak/>
                 
                     <Run Text="Importance: " FontWeight="Bold"/>
@@ -264,10 +264,17 @@
                 
                     <Run Text="Source page: " FontWeight="Bold"/>
                     <Hyperlink 
-                        NavigateUri="{Binding DescriptionViewModel.Mod.ModPage, Mode=OneWay}" 
+                        NavigateUri="{Binding DescriptionViewModel.Mod.ModPage[0], Mode=OneWay}" 
                         RequestNavigate="Hyperlink_RequestNavigate">
                         <TextBlock 
-                            Text="{Binding DescriptionViewModel.Mod.ModPage}"
+                            Text="{Binding DescriptionViewModel.Mod.ModPage[0]}"
+                            FontSize="10"/>
+                    </Hyperlink>
+                    <Hyperlink 
+                        NavigateUri="{Binding DescriptionViewModel.Mod.ModPage[1], Mode=OneWay}" 
+                        RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock 
+                            Text="{Binding DescriptionViewModel.Mod.ModPage[1]}"
                             FontSize="10"/>
                     </Hyperlink>
                     <LineBreak/>

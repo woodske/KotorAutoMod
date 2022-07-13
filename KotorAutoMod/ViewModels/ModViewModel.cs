@@ -12,7 +12,7 @@ namespace KotorAutoMod.ViewModels
         public string CombinedType => String.Join("/", _mod.Type);
         public string Importance => _mod.Importance;
         public string[] ModFileName => _mod.ModFileName;
-        public string CombinedModFileName => String.Join(" && ", _mod.ModFileName);
+        public string CombinedModFileName => String.Join(" & ", _mod.ModFileName);
         public string InstructionsName => _mod.InstructionsName;
         public string Description => _mod.Description;
         public Uri[] ModPage => _mod.ModPage;
