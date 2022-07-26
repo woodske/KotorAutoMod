@@ -1,5 +1,6 @@
 ﻿using KotorAutoMod.Instructions;
 using KotorAutoMod.Stores;
+using KotorAutoMod.SupportedMods;
 using KotorAutoMod.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -41,7 +42,7 @@ namespace KotorAutoMod.Commands
             //string modName = "Dialouge Fixes";
             //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedModsReddit.First(mod => mod.ListName == modName));
 
-            ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedModsReddit[SupportedMods.supportedModsReddit.Count - 1]);
+            ModViewModel selectedMod = new ModViewModel(Reddit_Kotor_1_Full_Build.supportedModsReddit[Reddit_Kotor_1_Full_Build.supportedModsReddit.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 

@@ -1,6 +1,7 @@
 ﻿using KotorAutoMod.Commands;
 using KotorAutoMod.Models;
 using KotorAutoMod.Stores;
+using KotorAutoMod.SupportedMods;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,8 +39,6 @@ namespace KotorAutoMod.ViewModels
 
         public string[] AvailableAspectRatios => ModConfig.validAspectRatios;
 
-        public string[] ImportanceTiers => SupportedMods.importanceTiers;
-
         private string _selectedType = string.Empty;
 
         private string _selectedImportanceTier = string.Empty;
@@ -48,7 +47,7 @@ namespace KotorAutoMod.ViewModels
 
         private string _instructionsSource;
 
-        public string[] InstructionSources => SupportedMods.supportedInstructions;
+        public string[] InstructionSources => Common.supportedInstructions;
 
         public ICommand SelectSwkotorFolderCommand { get; }
         public ICommand SelectModsFolderCommand { get; }
@@ -297,6 +296,24 @@ namespace KotorAutoMod.ViewModels
             }
         }
 
+        public string[] ImportanceTiers
+        {
+            get
+            {
+                HashSet<string> importanceList = new HashSet<string>();
+                importanceList.Add("");
+                foreach (var mod in _mods)
+                {
+                    importanceList.Add(mod.Importance);
+                }
+                return importanceList.ToArray();
+            }
+            set
+            {
+                OnPropertyChanged(nameof(ImportanceTiers));
+            }
+        }
+
         // We need aspect ratio and screen resolution for first time setup and high resolution menus mod
         public bool needsAspectRatioAndResolution()
         {
@@ -313,6 +330,7 @@ namespace KotorAutoMod.ViewModels
                 mod.PropertyChanged += OnModPropertyChanged;
             }
             OnPropertyChanged(nameof(Types));
+            OnPropertyChanged(nameof(ImportanceTiers));
         }
 
         private void OnModPropertyChanged(object? sender, PropertyChangedEventArgs e)

@@ -10,6 +10,7 @@ using KotorAutoMod.ViewModels;
 using KotorAutoMod.Models;
 using KotorAutoMod.Instructions;
 using SevenZipExtractor;
+using KotorAutoMod.SupportedMods;
 
 namespace KotorAutoMod
 {
@@ -93,11 +94,11 @@ namespace KotorAutoMod
 
             switch (modConfig.InstructionsSource)
             {
-                case SupportedMods.Reddit:
-                    supportedModsList = SupportedMods.supportedModsReddit;
+                case Common.Reddit:
+                    supportedModsList = Reddit_Kotor_1_Full_Build.supportedModsReddit;
                     break;
-                case SupportedMods.Stellar:
-                    supportedModsList = SupportedMods.supportedModsStellarExile;
+                case Common.Stellar:
+                    supportedModsList = Stellar_Exile_Kotor_1.supportedModsStellarExile;
                     break;
                 default:
                     supportedModsList = new List<Mod>();
@@ -386,6 +387,25 @@ namespace KotorAutoMod
                     File.Delete(Path.Combine(modConfig.SwkotorDirectory, "Override", file));
                 }
             });
+        }
+
+        public static async Task runTSLPatcher(ModConfigViewModel modConfig, String tslPatcherPath, int? installOption)
+        {
+            // arg1 = swkotor directory
+            // arg2 = mod directory (where TSLPatcher lives)
+            // arg3 = (optional) install option index
+            string args = $"\"{modConfig.SwkotorDirectory}\" \"{Directory.GetParent(tslPatcherPath)}\" {installOption}";
+
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = false;
+            startInfo.FileName = Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe");
+            startInfo.WindowStyle = ProcessWindowStyle.Normal;
+            startInfo.Arguments = args;
+
+            using (Process exeProcess = Process.Start(startInfo))
+            {
+                await exeProcess.WaitForExitAsync();
+            }
         }
     }
 }

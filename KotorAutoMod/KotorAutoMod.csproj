@@ -36,6 +36,9 @@
 		<None Update="Resources\KOTOR Editable Executable.rar">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Resources\TSLPatcherCLI.exe">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<None Update="Resources\uniws.zip">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
