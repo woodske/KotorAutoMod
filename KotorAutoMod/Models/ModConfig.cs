@@ -17,6 +17,8 @@ namespace KotorAutoMod.Models
 
         public string instructionsSource { get; set; } = string.Empty;
 
+        public bool useAuto { get; set; } = true;
+
         public ObservableCollection<Mod> selectedMods { get; set; } = new ObservableCollection<Mod>();
 
         public ObservableCollection<Mod> missingMods { get; set; } = new ObservableCollection<Mod>();

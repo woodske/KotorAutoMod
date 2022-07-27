@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<CodeSnippet Format="1.0.0">
+		<Header>
+			<Title>TSLPatcher</Title>
+			<Author>woodske</Author>
+			<Shortcut>auto</Shortcut>
+			<Description>Add TSLPatcher to instructions</Description>
+		</Header>
+		<Snippet>
+			<Code Language="csharp">
+				<![CDATA[string TSLPatcherPath = Path.Combine();
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod);
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod);
+                await Utils.runExecutable(TSLPatcherPath);
+            }]]>
+			</Code>
+		</Snippet>
+	</CodeSnippet>
+</CodeSnippets>

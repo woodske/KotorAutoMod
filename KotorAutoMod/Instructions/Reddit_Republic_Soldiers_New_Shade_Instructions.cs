@@ -14,27 +14,45 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer.
-            // If using both components of JC's Republic Soldier Fix mod, install Options 3 and 5; if using only the main component of JC's mod, install only Option 5; if not using JC's mod, install the Main file and Option 2.           
-            MessageBoxResult result = MessageBox.Show(
-                $"Options for {mod.ListName}:\n" +
-                "Choose yes if you are using JC's Republic Soldier Fix mod (the option right before this mod), or no if you skipped it.",
-                "Mod choice",
-                MessageBoxButton.YesNo,
-                MessageBoxImage.Question
-                );
-            if (result == MessageBoxResult.Yes)
+            // If using both components of JC's Republic Soldier Fix mod, install Options 3 and 5;
+            // if using only the main component of JC's mod, install only Option 5;
+            // if not using JC's mod, install the Main file and Option 2.
+
+
+            string TSLPatcherPath = Path.Combine(readyMods[0], "[K1]_Republic_Soldier's_New_Shade_v1.1.1", "TSLPatcher");
+            if (modConfig.UseAuto)
             {
-                Utils.tslPatcherInstructions(modConfig, mod, "Choose option 3");
-                await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Republic_Soldier's_New_Shade_v1.1.1", "TSLPatcher"));
-                Utils.tslPatcherInstructions(modConfig, mod, "Choose option 5");
-                await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Republic_Soldier's_New_Shade_v1.1.1", "TSLPatcher"));
+                if (Utils.isModInstalled("Republic Soldier Fix", modConfig))
+                {
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing option 3");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 3);
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing option 5");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 5);
+                }
+                else
+                {
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the Main option");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing option 2");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 2);
+                }
             }
             else
             {
-                Utils.tslPatcherInstructions(modConfig, mod, "Choose the Main option");
-                await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Republic_Soldier's_New_Shade_v1.1.1", "TSLPatcher"));
-                Utils.tslPatcherInstructions(modConfig, mod, "Choose option 2");
-                await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Republic_Soldier's_New_Shade_v1.1.1", "TSLPatcher"));
+                if (Utils.isModInstalled("Republic Soldier Fix", modConfig))
+                {
+                    Utils.tslPatcherInstructions(modConfig, mod, "Choose option 3");
+                    await Utils.runExecutable(TSLPatcherPath);
+                    Utils.tslPatcherInstructions(modConfig, mod, "Choose option 5");
+                    await Utils.runExecutable(TSLPatcherPath);
+                }
+                else
+                {
+                    Utils.tslPatcherInstructions(modConfig, mod, "Choose the Main option");
+                    await Utils.runExecutable(TSLPatcherPath);
+                    Utils.tslPatcherInstructions(modConfig, mod, "Choose option 2");
+                    await Utils.runExecutable(TSLPatcherPath);
+                }
             }
         }
     }

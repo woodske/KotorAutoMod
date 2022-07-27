@@ -14,8 +14,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Use the Body & Lightsaber version, we will use a different head model.
-            Utils.tslPatcherInstructions(modConfig, mod, "Choose the Body & Lightsaber version only");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Juhani Appearance Overhaul"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Juhani Appearance Overhaul");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the Body & Lightsaber version only");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 2);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Choose the Body & Lightsaber version only");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

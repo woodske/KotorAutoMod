@@ -26,27 +26,28 @@ namespace KotorAutoMod.Commands
             ModConfigViewModel modConfig = new ModConfigViewModel(_modStore);
 
             modConfig.ModsDirectory = "D:\\compressedMods\\";
-            modConfig.SwkotorDirectory = "D:\\test\\";
+            modConfig.SwkotorDirectory = "D:\\SteamGames\\steamapps\\common\\swkotor";
             modConfig.FirstTimeSetupIsChecked = false;
-            modConfig.InstructionsSource = "Reddit";
+            modConfig.InstructionsSource = Common.Reddit;
+            modConfig.UseAuto = true;
 
             _modStore.updateModsList(Utils.getMods(modConfig));
 
             modConfig.SelectedAspectRatio = "16:9";
             modConfig.SelectedResolution = "250x1440";
 
-            //ModViewModel mod = modConfig._mods.First(mod => mod.ListName.Equals("JC's Minor Fixes"));
+            //ModViewModel mod = modConfig._mods.First(mod => mod.ListName.Equals("KOTOR Community Patch"));
             //mod.isChecked = false;
 
             // Manually select mod
-            //string modName = "Dialouge Fixes";
-            //ModViewModel selectedMod = new ModViewModel(SupportedMods.supportedModsReddit.First(mod => mod.ListName == modName));
+            string modName = "Security Spikes for K1";
+            ModViewModel selectedMod = new ModViewModel(Reddit_Kotor_1_Full_Build.supportedModsReddit.First(mod => mod.ListName == modName));
 
-            ModViewModel selectedMod = new ModViewModel(Reddit_Kotor_1_Full_Build.supportedModsReddit[Reddit_Kotor_1_Full_Build.supportedModsReddit.Count - 1]);
+            //ModViewModel selectedMod = new ModViewModel(Reddit_Kotor_1_Full_Build.supportedModsReddit[Reddit_Kotor_1_Full_Build.supportedModsReddit.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
             //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Reddit_Widescreen_Fade_Fix_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
+            await new JCs_Security_Spikes_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

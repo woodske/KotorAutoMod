@@ -29,6 +29,8 @@ namespace KotorAutoMod.ViewModels
 
         private bool _firstTimeSetupIsChecked = true;
 
+        private bool _useAuto = true;
+
         private string _instructions = getInitialInstructions();
 
         private int _progressBarMaximum = 1;
@@ -133,6 +135,19 @@ namespace KotorAutoMod.ViewModels
             {
                 _firstTimeSetupIsChecked = value;
                 OnPropertyChanged(nameof(FirstTimeSetupIsChecked));
+            }
+        }
+
+        public bool UseAuto
+        {
+            get
+            {
+                return _useAuto;
+            }
+            set
+            {
+                _useAuto = value;
+                OnPropertyChanged(nameof(UseAuto));
             }
         }
 

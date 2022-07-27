@@ -13,8 +13,18 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Choose one of the two options.");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Security_Spikes_K1"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Security_Spikes_K1");
+            if (modConfig.UseAuto)
+            {
+                // default to option A - security spikes give boost to security
+                Utils.tslPatcherCLIInstructions(modConfig, mod);
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Choose one of the two options.");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }
