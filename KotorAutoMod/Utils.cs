@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using KotorAutoMod.ViewModels;
-using KotorAutoMod.Models;
 using KotorAutoMod.Instructions;
 using SevenZipExtractor;
 using KotorAutoMod.SupportedMods;
