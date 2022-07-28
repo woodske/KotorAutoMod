@@ -12,9 +12,18 @@ namespace KotorAutoMod.Instructions
     {
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
-            // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the 'Revisited' version");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Dodonna's_Transmission_v1.1", "Transmission"));
+            // Run the installer, revisted option is recommended
+            string TSLPatcherPath = Path.Combine(readyMods[0], "[K1]_Dodonna's_Transmission_v1.1", "Transmission");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the Revisted option");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install the Revisted option");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

@@ -13,8 +13,18 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the Base installation");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Diversified_Jedi_Captives_on_the_SF_v1.2.2", "INSTALL"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "[K1]_Diversified_Jedi_Captives_on_the_SF_v1.2.2", "INSTALL");
+            if (modConfig.UseAuto)
+            {
+                // Default to base install only
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing Base option");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Select the Base option");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

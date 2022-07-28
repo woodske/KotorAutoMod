@@ -13,10 +13,22 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Install Option A, then re-run the patcher and also install the extra textures.
-            Utils.tslPatcherInstructions(modConfig, mod, "Install Option A");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Mandalorian_Armor_K1"));
-            Utils.tslPatcherInstructions(modConfig, mod, "Install Extra Textures");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Mandalorian_Armor_K1"));
+
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Mandalorian_Armor_K1");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing Option A");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing Extra Textures");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 2);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install Option A");
+                await Utils.runExecutable(TSLPatcherPath);
+                Utils.tslPatcherInstructions(modConfig, mod, "Install Extra Textures");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

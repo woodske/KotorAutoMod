@@ -13,8 +13,18 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Use the version not for the Weapon Model Overhaul, unless you choose to install it separately (NOT tested and NOT recommended).
-            Utils.tslPatcherInstructions(modConfig, mod, "Choose the No Weapon Overhaul option");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "TSLPatcher"));
+
+            string TSLPatcherPath = Path.Combine(readyMods[0], "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the No Weapon Overhaul option");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install the No Weapon Overhaul option");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

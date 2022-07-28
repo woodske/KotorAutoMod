@@ -13,12 +13,41 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // After installing the main mod, install the patches for HQ Blasters and Colored Loadscreens.
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the main mod");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "ldr_repshipunknownworld", "TSLPatcher"));
-            Utils.tslPatcherInstructions(modConfig, mod, "If using the HQ Blasters mod, install the HQ Blasters patch. Otherwise, close the TSLPatcher.");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "ldr_repshipunknownworld", "TSLPatcher"));
-            Utils.tslPatcherInstructions(modConfig, mod, "If using the Colored Loadscreens mod, install the Colored Loadscreens patch. Otherwise, close the TSLPatcher");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "ldr_repshipunknownworld", "TSLPatcher"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "ldr_repshipunknownworld", "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the main mod.");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+
+                if (Utils.isModInstalled("High Quality Blasters", modConfig))
+                {
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the HQ Blasters patch.");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+                }
+
+                if (Utils.isModInstalled("Loadscreens in Color", modConfig))
+                {
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the Colored Loadscreens patch.");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 2);
+                }
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install the main mod");
+                await Utils.runExecutable(TSLPatcherPath);
+
+                if (Utils.isModInstalled("High Quality Blasters", modConfig))
+                {
+                    Utils.tslPatcherInstructions(modConfig, mod, "Install the HQ Blasters patch.");
+                    await Utils.runExecutable(TSLPatcherPath);
+                }
+
+                if (Utils.isModInstalled("Loadscreens in Color", modConfig))
+                {
+                    Utils.tslPatcherInstructions(modConfig, mod, "Install the Colored Loadscreens patch.");
+                    await Utils.runExecutable(TSLPatcherPath);
+                }
+            }
         }
     }
 }

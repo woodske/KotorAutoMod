@@ -13,8 +13,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // After the install has completed, delete the following files from your override directory: w_ionrfl_04.mdl, w_ionrfl_04.mdx, w_rptnblstr_004.mdl, w_rptnblstr_004.mdx, w_blstrpstl_006.mdl and w_blstrpstl_006.mdx
-            Utils.tslPatcherInstructions(modConfig, mod);
-            await Utils.runExecutable(Path.Combine(readyMods[0], "High Quality Blasters 1.1", "High Quality Blasters Installer"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "High Quality Blasters 1.1", "High Quality Blasters Installer");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod);
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod);
+                await Utils.runExecutable(TSLPatcherPath);
+            }
 
             string[] filesToDelete = new string[]
             {

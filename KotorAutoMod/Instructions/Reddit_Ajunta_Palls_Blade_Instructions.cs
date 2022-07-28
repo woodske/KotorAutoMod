@@ -13,8 +13,34 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Install the Sith Specter/Rece compatibility option if using Ajunta Pall's Swords.
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the Sith Specter/Rece compatibility option if using the Ajunta Pall's Swords mod");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Legends_Ajunta_Pall's_Blade_v1.0.2b", "TSLPatcher"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "[K1]_Legends_Ajunta_Pall's_Blade_v1.0.2b", "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                if (Utils.isModInstalled("Ajunta Pall's Swords", modConfig))
+                {
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the Sith Specter/Rece compatibility option");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 2);
+                }
+                else
+                {
+                    Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the base option");
+                    await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+                }
+            }
+            else
+            {
+                if (Utils.isModInstalled("Ajunta Pall's Swords", modConfig))
+                {
+                    Utils.tslPatcherInstructions(modConfig, mod, "Install the Sith Specter/Rece compatibility option");
+                    await Utils.runExecutable(TSLPatcherPath);
+                }
+                else
+                {
+                    Utils.tslPatcherInstructions(modConfig, mod, "Install the base option");
+                    await Utils.runExecutable(TSLPatcherPath);
+                }
+
+            }
         }
     }
 }
