@@ -43,7 +43,7 @@ namespace KotorAutoMod
                     {
                         using (ArchiveFile archiveFile = new ArchiveFile(modPath))
                         {
-                            archiveFile.Extract(extractDirectory);
+                            archiveFile.Extract(extractDirectory, true);
                         }
                     });
                 }
@@ -71,12 +71,15 @@ namespace KotorAutoMod
 
             foreach (string compressedSetupTool in compressedSetupTools)
             {
-                string extractDirectory = Path.Combine(getResourcesDirectory(), Path.GetFileNameWithoutExtension(compressedSetupTool));
-                Directory.CreateDirectory(extractDirectory);
-
-                using (ArchiveFile archiveFile = new ArchiveFile(compressedSetupTool))
+                if (!Path.GetFileNameWithoutExtension(compressedSetupTool).Equals("TSLPatcherCLI"))
                 {
-                    archiveFile.Extract(extractDirectory);
+                    string extractDirectory = Path.Combine(getResourcesDirectory(), Path.GetFileNameWithoutExtension(compressedSetupTool));
+                    Directory.CreateDirectory(extractDirectory);
+
+                    using (ArchiveFile archiveFile = new ArchiveFile(compressedSetupTool))
+                    {
+                        archiveFile.Extract(extractDirectory);
+                    }
                 }
             }
         }
@@ -411,24 +414,25 @@ namespace KotorAutoMod
             // arg3 = (optional) install option index
             string args = $"\"{modConfig.SwkotorDirectory}\" \"{Directory.GetParent(tslPatcherPath)}\" {installOption}";
 
-            //ProcessStartInfo startInfo = new ProcessStartInfo();
-            //startInfo.CreateNoWindow = false;
-            //startInfo.FileName = Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe");
-            //startInfo.WindowStyle = ProcessWindowStyle.Normal;
-            //startInfo.Arguments = args;
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            startInfo.CreateNoWindow = false;
+            startInfo.FileName = Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe");
+            startInfo.WindowStyle = ProcessWindowStyle.Normal;
+            startInfo.Arguments = args;
 
-            //using (Process exeProcess = Process.Start(startInfo))
-            //{
-            //    await exeProcess.WaitForExitAsync();
-            //}
+            using (Process exeProcess = Process.Start(startInfo))
+            {
+                await exeProcess.WaitForExitAsync();
+            }
 
-            Process p = new Process();
-            ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = "CMD.EXE";
-            psi.Arguments = $"/K {Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe")} {args}";
-            p.StartInfo = psi;
-            p.Start();
-            p.WaitForExit();
+            //// Use for testing
+            //Process p = new Process();
+            //ProcessStartInfo psi = new ProcessStartInfo();
+            //psi.FileName = "CMD.EXE";
+            //psi.Arguments = $"/K {Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe")} {args}";
+            //p.StartInfo = psi;
+            //p.Start();
+            //p.WaitForExit();
         }
 
         public static bool isModInstalled(string modListName, ModConfigViewModel modConfig)
