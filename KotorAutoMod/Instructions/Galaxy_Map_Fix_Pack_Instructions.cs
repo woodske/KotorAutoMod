@@ -26,12 +26,21 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer for Galaxy Map Fix Pack and move to override for HR Menu Patch
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the vanilla version");
-
             string mapFixModFile = readyMods.First(readyMod => readyMod.Contains("K1 Galaxy Map Fix Pack"));
             string hrMenuPatchModFile = readyMods.First(readyMod => readyMod.Contains("HR Menu Patch"));
 
-            await Utils.runExecutable(Path.Combine(mapFixModFile, "TSLPatcher"));
+            // Run the installer for Galaxy Map Fix Pack and move to override for HR Menu Patch
+            string TSLPatcherPath = Path.Combine(mapFixModFile, "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the vanilla version");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install the vanilla version");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
 
             // Check that the HR Menu Patch supports the ratio/resolution
             if (modConfig.SelectedAspectRatio == ModConfig.thirtytwo_by_nine)
