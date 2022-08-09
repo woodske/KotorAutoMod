@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Only install the 'INSTALL' option");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Legends_Marlena_Venn_v1.1.0", "TSLPatcher"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "[K1]_Legends_Marlena_Venn_v1.1.0", "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Install 'INSTALL: [K1] Marlena Venn \"Legends\" v1.1.0'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install 'INSTALL: [K1] Marlena Venn \"Legends\" v1.1.0'");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

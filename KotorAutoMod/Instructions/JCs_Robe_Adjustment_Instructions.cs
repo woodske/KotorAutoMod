@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Install 'Early Jedi Robes'");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Robe_Adjustment_K1"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Robe_Adjustment_K1");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing 'JC's Robe Adjustment for K1: Early Jedi Robes'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install 'JC's Robe Adjustment for K1: Early Jedi Robes'");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

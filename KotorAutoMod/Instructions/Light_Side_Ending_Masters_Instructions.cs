@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the fixed version");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Ending Fix 1.1", "TSLPatcher"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Ending Fix 1.1", "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing 'Fixed Version'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install 'Fixed Version'");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

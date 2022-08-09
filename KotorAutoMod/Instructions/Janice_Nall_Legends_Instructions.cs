@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Select and install the main mod only");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "[K1]_Legends_Janice_Nall_and_the_Incomplete_Droids_v1.1.1", "TSLPatcher"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "[K1]_Legends_Janice_Nall_and_the_Incomplete_Droids_v1.1.1", "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing 'Main: Janice Nall \"Legends\" and the Incomplete Droids'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install 'Main: Janice Nall \"Legends\" and the Incomplete Droids'");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

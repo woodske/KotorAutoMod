@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the KOTOR Community Patch compatible option");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Korriban_Back_in_Black_K1"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Korriban_Back_in_Black_K1");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing 'KOTOR Community Patch-Compatible Installation'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install 'KOTOR Community Patch-Compatible Installation'");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

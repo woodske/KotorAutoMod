@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Choose the 'plus' option");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "TSLPatcher"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "TSLPatcher");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the 'plus' option");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install the 'plus' option");
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }
