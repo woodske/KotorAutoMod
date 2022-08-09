@@ -124,6 +124,14 @@
                         Width="130"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
+                    <CheckBox 
+                        IsChecked="{Binding ModConfigViewModel.UseAuto}" 
+                        Content="Auto Apply Mods" 
+                        VerticalAlignment="Center"
+                        Width="130"
+                        Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <TextBlock 
                         Text="Swkotor folder: "
                         Padding="2"
@@ -150,7 +158,7 @@
             </StackPanel>
             <Button 
                 Content="Test Mod"
-                Visibility="Visible"
+                Visibility="Hidden"
                 Command="{Binding ModConfigViewModel.TestModCommand}"/>
         </StackPanel>
 

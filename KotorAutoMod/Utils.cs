@@ -414,7 +414,7 @@ namespace KotorAutoMod
             string args = $"\"{modConfig.SwkotorDirectory}\" \"{Directory.GetParent(tslPatcherPath)}\" {installOption}";
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.CreateNoWindow = false;
+            startInfo.CreateNoWindow = true;
             startInfo.FileName = Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe");
             startInfo.WindowStyle = ProcessWindowStyle.Normal;
             startInfo.Arguments = args;

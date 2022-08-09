@@ -2,6 +2,8 @@
 using KotorAutoMod.ViewModels;
 using Ookii.Dialogs.Wpf;
 using System.Diagnostics;
+using System.IO;
+using System.Windows;
 
 namespace KotorAutoMod.Commands
 {
@@ -32,7 +34,14 @@ namespace KotorAutoMod.Commands
                 _modConfig.SwkotorDirectory = dialog.SelectedPath;
             }
 
-            Debug.WriteLine(_modConfig.SwkotorDirectory);
+            if (!File.Exists(Path.Combine(_modConfig.SwkotorDirectory, "swkotor.exe"))) {
+                MessageBox.Show(
+                    "No swkotor.exe found in selected folder. Make sure that this is the swkotor game folder.", 
+                    "No swkotor.exe file found", 
+                    MessageBoxButton.OK, 
+                    MessageBoxImage.Error
+                    );
+            }
         }
 
         public override void Dispose()
