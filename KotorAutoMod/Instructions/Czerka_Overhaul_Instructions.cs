@@ -10,8 +10,17 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod);
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Czerka Armor and Appearance Fix 1.4", "Czerka Installer"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Czerka Armor and Appearance Fix 1.4", "Czerka Installer");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod);
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod);
+                await Utils.runExecutable(TSLPatcherPath);
+            }
         }
     }
 }

@@ -10,11 +10,23 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the installer
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the main mod");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Installer"));
+            string TSLPatcherPath = Path.Combine(readyMods[0], "Installer");
+            if (modConfig.UseAuto)
+            {
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing '1. Main Mod Installation'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
 
-            Utils.tslPatcherInstructions(modConfig, mod, "Install the K1CP compatibility patch for the Queedle Fix");
-            await Utils.runExecutable(Path.Combine(readyMods[0], "Installer"));
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing '2. K1CP/Queedle Fix Compatibility Patch'");
+                await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 1);
+            }
+            else
+            {
+                Utils.tslPatcherInstructions(modConfig, mod, "Install '1. Main Mod Installation'");
+                await Utils.runExecutable(TSLPatcherPath);
+
+                Utils.tslPatcherInstructions(modConfig, mod, "Install '2. K1CP/Queedle Fix Compatibility Patch'");
+                await Utils.runExecutable(TSLPatcherPath);
+            }       
         }
     }
 }
