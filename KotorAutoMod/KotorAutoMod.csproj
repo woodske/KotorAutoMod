@@ -7,6 +7,7 @@
 		<UseWPF>true</UseWPF>
 		<ApplicationIcon>kotorIcon.ico</ApplicationIcon>
 		<IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+		<ApplicationManifest>app.manifest</ApplicationManifest>
 	</PropertyGroup>
 
 	<ItemGroup>

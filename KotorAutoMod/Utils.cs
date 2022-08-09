@@ -383,6 +383,8 @@ namespace KotorAutoMod
                 message = message + "\n\n" + addtionalMessage;
             }
 
+            message = message + "\n\n" + "Close the TSLPatcher after the installation is complete. Some installation may have warnings, these can be ignored.";
+
             modConfig.Instructions = message;
         }
 

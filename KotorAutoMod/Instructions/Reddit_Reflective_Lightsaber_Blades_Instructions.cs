@@ -13,12 +13,12 @@ namespace KotorAutoMod.Instructions
             string TSLPatcherPath = Path.Combine(readyMods[0], "New_Lightsaber_Blades_K1_v_1", "TSLPatcher");
             if (modConfig.UseAuto)
             {
-                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the standard option");
+                Utils.tslPatcherCLIInstructions(modConfig, mod, "Installing the Modify Standard Lightsaber (Vanilla sabers) option");
                 await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath, 0);
             }
             else
             {
-                Utils.tslPatcherInstructions(modConfig, mod, "Install only the Standard option");
+                Utils.tslPatcherInstructions(modConfig, mod, "Install only the 'Modify Standard Lightsaber (Vanilla sabers)' option");
                 await Utils.runExecutable(TSLPatcherPath);
             }
         }
