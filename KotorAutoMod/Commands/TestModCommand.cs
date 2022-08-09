@@ -22,8 +22,8 @@ namespace KotorAutoMod.Commands
         {
             ModConfigViewModel modConfig = new ModConfigViewModel(_modStore);
 
-            modConfig.ModsDirectory = "D:\\compressedMods\\";
-            modConfig.SwkotorDirectory = "D:\\SteamGames\\steamapps\\common\\swkotor";
+            modConfig.ModsDirectory = "C:\\KotorMods\\";
+            modConfig.SwkotorDirectory = "C:\\swkotor";
             modConfig.FirstTimeSetupIsChecked = false;
             modConfig.InstructionsSource = Common.Reddit;
             modConfig.UseAuto = true;
@@ -37,14 +37,14 @@ namespace KotorAutoMod.Commands
             //mod.isChecked = false;
 
             // Manually select mod
-            string modName = "Galaxy Map Fix Pack";
+            string modName = "Sunry Enhancement";
             ModViewModel selectedMod = new ModViewModel(Reddit_Kotor_1_Full_Build.supportedModsReddit.First(mod => mod.ListName == modName));
 
             //ModViewModel selectedMod = new ModViewModel(Reddit_Kotor_1_Full_Build.supportedModsReddit[Reddit_Kotor_1_Full_Build.supportedModsReddit.Count - 1]);
             string modDirectory1 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[0]));
-            string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
+            //string modDirectory2 = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(selectedMod.ModFileName[1]));
 
-            await new Galaxy_Map_Fix_Pack_Instructions().applyMod(new List<string> { modDirectory1, modDirectory2 }, modConfig, selectedMod);
+            await new Sunry_Murder_Recording_Enhancement_Instructions().applyMod(new List<string> { modDirectory1 }, modConfig, selectedMod);
         }
     }
 }

@@ -11,8 +11,9 @@ namespace KotorAutoMod.Instructions
         {
             // Run the installer
             string TSLPatcherPath = Path.Combine(readyMods[0], "SMRE", "SMRE Installer");
+
             if (modConfig.UseAuto)
-            {
+            {              
                 Utils.tslPatcherCLIInstructions(modConfig, mod);
                 await Utils.runTSLPatcherCLI(modConfig, TSLPatcherPath);
             }
@@ -21,6 +22,11 @@ namespace KotorAutoMod.Instructions
                 Utils.tslPatcherInstructions(modConfig, mod);
                 await Utils.runExecutable(TSLPatcherPath);
             }
+
+            // Manual installation instructions if needed
+            //modConfig.Instructions = "Copying file to modules folder";
+            //string filePath = Path.Combine(readyMods[0], "SMRE", "Manual Installation", "manm26ae.mod");
+            //await Task.Run(() => File.Copy(filePath, Path.Combine(modConfig.SwkotorDirectory, "modules", Path.GetFileName(filePath)), true));
         }
     }
 }
