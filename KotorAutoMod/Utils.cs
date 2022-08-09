@@ -129,6 +129,10 @@ namespace KotorAutoMod
                 {
                     supportedMod.isChecked = false;
                 }
+                if (supportedMod.ListName == "Quicker TSL Patching" && modConfig.UseAuto)
+                {
+                    supportedMod.isChecked = false;
+                }
 
                 mods.Add(modViewModel);
             }

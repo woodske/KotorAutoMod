@@ -11,7 +11,7 @@ namespace KotorAutoMod.Instructions
         public async Task applyMod(List<string> readyMods, ModConfigViewModel modConfig, ModViewModel mod)
         {
             // Run the executable
-            modConfig.Instructions = $"Follow the instructions provided by the {mod.ListName} tool";
+            modConfig.Instructions = $"Follow the instructions provided by the {mod.ListName} tool. If using 'Auto Apply Mods', this tool is unnecessary and can be closed.";
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.FileName = Path.Combine(readyMods[0], "KotOR_Linker.vbs");
