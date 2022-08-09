@@ -10,6 +10,7 @@ using KotorAutoMod.ViewModels;
 using KotorAutoMod.Instructions;
 using SevenZipExtractor;
 using KotorAutoMod.SupportedMods;
+using System.Windows;
 
 namespace KotorAutoMod
 {
@@ -206,8 +207,8 @@ namespace KotorAutoMod
         {
             int maximum = 0;
 
-            // Extract setup tool + 2 setup mods
-            if (modConfig.FirstTimeSetupIsChecked) maximum += 3;
+            // Extract setup tool + 3 setup mods
+            if (modConfig.FirstTimeSetupIsChecked) maximum += 4;
 
             // One tick for unzipping and 1 tick for applying mod
             maximum += selectedMods.Count() * 2;
@@ -223,17 +224,31 @@ namespace KotorAutoMod
             // Apply setup tools
             if (modConfig.FirstTimeSetupIsChecked)
             {
-                modConfig.updateTaskProgress("Extracting setup tools");
-                Utils.extractSetupTools();
+                try
+                {
+                    modConfig.updateTaskProgress("Extracting setup tools");
+                    Utils.extractSetupTools();
 
-                modConfig.updateTaskProgress("Applying KOTOR exe setup tools");
-                await new KOTOR_Editable_Executable_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable") }, modConfig, null);
+                    modConfig.updateTaskProgress("Applying KOTOR exe setup tools");
+                    await new KOTOR_Editable_Executable_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable") }, modConfig, null);
 
-                modConfig.updateTaskProgress("Applying Universal Widescreen patcher");
-                await new UniWS_Patcher_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "uniws") }, modConfig, null);
+                    modConfig.updateTaskProgress("Applying Universal Widescreen patcher");
+                    await new UniWS_Patcher_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "uniws") }, modConfig, null);
 
-                modConfig.updateTaskProgress("Applying 4 GB patch");
-                await new Four_GB_Patch_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "4gb_patch") }, modConfig, null);
+                    modConfig.updateTaskProgress("Applying 4 GB patch");
+                    await new Four_GB_Patch_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "4gb_patch") }, modConfig, null);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(
+                        $"Something went wrong trying to install the setup tools. Aborting installation. See KotorAutoModError.txt in your swkotor folder.",
+                        "Installation Error",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error
+                    );
+                    writeExceptionToFile(ex, modConfig);
+                    return;
+                }
             }
 
             modConfig.Instructions = "Extracting mods... this may take a few minutes.";
@@ -281,8 +296,43 @@ namespace KotorAutoMod
                 var applyMod = type.GetMethod("applyMod");
                 var classInstance = Activator.CreateInstance(type);
                 object[] parameters = new object[] { readyMods, modConfig, selectedMod };
-                await (Task)applyMod.Invoke(classInstance, parameters);
+                try
+                {
+                    await (Task)applyMod.Invoke(classInstance, parameters);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(
+                        $"Something went wrong trying to install mod: {selectedMod.ListName}. Aborting installation. See KotorAutoModError.txt in your swkotor folder.",
+                        "Installation Error",
+                        MessageBoxButton.OK, 
+                        MessageBoxImage.Error
+                    );
+                    writeExceptionToFile(ex, modConfig);
+                    return;
+                }
+                
                 modCount++;
+            }
+        }
+
+        private static void writeExceptionToFile(Exception ex, ModConfigViewModel modConfig)
+        {
+            string errorFilePath = Path.Combine(modConfig.SwkotorDirectory, "KotorAutoModError.txt");
+            using (StreamWriter writer = new StreamWriter(errorFilePath, true))
+            {
+                writer.WriteLine("-----------------------------------------------------------------------------");
+                writer.WriteLine("Date : " + DateTime.Now.ToString());
+                writer.WriteLine();
+
+                while (ex != null)
+                {
+                    writer.WriteLine(ex.GetType().FullName);
+                    writer.WriteLine("Message : " + ex.Message);
+                    writer.WriteLine("StackTrace : " + ex.StackTrace);
+
+                    ex = ex.InnerException;
+                }
             }
         }
 
