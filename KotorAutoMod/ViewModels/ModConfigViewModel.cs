@@ -383,13 +383,14 @@ namespace KotorAutoMod.ViewModels
 
         private static string getInitialInstructions()
         {
-            return "\u2022 On the left are some configurations needed before running the KOTOR Auto Mod tool.\n\n" +
+            return 
+                "\u2022 On the left are some configurations needed before running the KOTOR Auto Mod tool.\n\n" +
                 "\u2022 Check the 'Widescreen Setup' box if this is a fresh install and you want the tool to setup the game for widescreen (highly recommended, some mods may not work without this).\n\n" +
                 "\u2022 Choose a mod build from the dropdown 'Instructions Set'. These are the supported opinionated mod builds. Links to the source of each build are listed below.\n\n" +
                 "\u2022 Select the folder that your swkotor.exe lives in as well as the folder where all of your compressed mods live.\n\n" +
-                "\u2022 Check the 'Auto Apply Mods' box to run the TSLPatcher in the background and use default choices for some mods. Using this requires much less clicking during installation at the cost of some customization (like choosing eye colors). If this option is check there will be a text file called TSLPatcherInstallSummary.txt in your swkotor folder with a summary of each TSLPatcher installation. For further logs, look at the installlog.rtf file in the extracted mod folder.\n\n" +
+                "\u2022 Check the 'Auto Apply Mods' box to run the TSLPatcher in the background and use default choices for some mods. Using this requires much less clicking during installation at the cost of some customization (like choosing eye colors). If this option is checked there will be a text file called TSLPatcherInstallSummary.txt in your swkotor folder with a summary of each TSLPatcher installation. For further logs, look at the installlog.rtf file in the extracted mod folder.\n\n" +
                 "\u2022 After choosing your compressed mods folder, the mods that are available and compatible with this tool will show up on the left. Note, this tool does not support automatically downloading mods. They must be pre-downloaded.\n\n" +
-                "\u2022 Mods that were not located will show on the right. You will need to download the compressed mod at the link in the mod description and put it in your mods folder. Some mods have multiple files so make sure it matches the filename in the mod description.\n\n" +
+                "\u2022 Mods that were not located will show on the right. You will need to download the compressed mod at the link in the mod description and put it in your mods folder. Some mods have multiple files so make sure you have all of the required files in the mod description.\n\n" +
                 "\u2022 Choose your aspect ratio and screen resolution if the dropdowns are visible.\n\n" +
                 "\u2022 Finally, press the 'Apply Mods' button. Some mods require executables to be run and manual clicking on your part. There will be instructions in this box with what to press and what values to enter. It is highly recommended to remove any previously extracted mods in your mod folder before proceeding as this tool will extract the compressed mods auotmatically.\n\n" +
                 "Available Instruction Sets:\n" +
