@@ -131,7 +131,7 @@
                         Width="130"
                         Margin="5"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal" Margin="0, 15, 0, 0">
                     <TextBlock 
                         Text="Swkotor folder: "
                         Padding="2"
