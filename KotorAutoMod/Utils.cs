@@ -157,7 +157,7 @@ namespace KotorAutoMod
                         {
                             File.Copy(modFile, Path.Combine(overrideDirectory, Path.GetFileName(modFile)), overwrite);
                         }
-                        catch (System.IO.IOException e) { } //Don't throw error if overwrite is false
+                        catch (IOException e) { } //Don't throw error if overwrite is false
                     }
                 }
             });
@@ -181,7 +181,7 @@ namespace KotorAutoMod
                         {
                             File.Copy(modFile, Path.Combine(movieDirectory, Path.GetFileName(modFile)), overwrite);
                         }
-                        catch (System.IO.IOException e) { } //Don't throw error if overwrite is false
+                        catch (IOException e) { } //Don't throw error if overwrite is false
                     }
                 }
             });
@@ -399,12 +399,16 @@ namespace KotorAutoMod
         /*
          * Opens URL, used for mods that require a choice
          */
-        public static void openUrl(Uri uri)
+        public static async Task openUrl(Uri uri)
         {
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.UseShellExecute = true;
             startInfo.FileName = uri.AbsoluteUri;
-            Process.Start(startInfo);
+
+            using (Process exeProcess = Process.Start(startInfo))
+            {
+                await exeProcess.WaitForExitAsync();
+            }
         }
 
         /*

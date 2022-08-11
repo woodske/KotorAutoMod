@@ -9,17 +9,17 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         Title="KOTOR Auto Mod v1.1.0" Height="600" Width="1100">
-    <Grid Margin="10, 10">
+    <Grid Margin="10, 5">
         <StackPanel 
             HorizontalAlignment="Left" 
             VerticalAlignment="Top" 
-            Height="270" 
+            Height="285" 
             Width="280" 
             Margin="10">
             <TextBox 
                 TextAlignment="Center" 
                 Text="Available Mods"  
-                Height="20"
+                Height="25"
                 Margin="20 0 0 0"
                 BorderThickness="0"
                 IsReadOnly="True"
@@ -77,17 +77,32 @@
                         VerticalAlignment="Center"
                         Width="130"
                         Margin="5"/>
+                    <CheckBox 
+                        IsChecked="{Binding ModConfigViewModel.UseAuto}" 
+                        Content="Auto Apply Mods" 
+                        VerticalAlignment="Center"
+                        Width="130"
+                        Margin="5"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
                     <xctk:WatermarkComboBox  
                         ItemsSource="{Binding ModConfigViewModel.InstructionSources}" 
                         SelectedValue="{Binding ModConfigViewModel.InstructionsSource}" 
                         Watermark="Instructions Set"
-                        Width="130">
+                        Width="130"
+                        Margin="5">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction Command="{Binding ModConfigViewModel.SelectInstructionSetCommand}"/>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </xctk:WatermarkComboBox>
+                    <Button 
+                        Content="Open instructions set"  
+                        Command="{Binding ModConfigViewModel.OpenInstructionsSetCommand}" 
+                        HorizontalAlignment="Left"
+                        Width="130"
+                        Margin="5"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Button 
@@ -123,14 +138,6 @@
                         Watermark="Screen Resolution"
                         Width="130"/>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <CheckBox 
-                        IsChecked="{Binding ModConfigViewModel.UseAuto}" 
-                        Content="Auto Apply Mods" 
-                        VerticalAlignment="Center"
-                        Width="130"
-                        Margin="5"/>
-                </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0, 15, 0, 0">
                     <TextBlock 
                         Text="Swkotor folder: "
@@ -165,13 +172,13 @@
         <StackPanel 
             HorizontalAlignment="Right" 
             VerticalAlignment="Top" 
-            Height="280" 
+            Height="285" 
             Width="280" 
             Margin="10">
             <TextBox 
                 TextAlignment="Center" 
                 Text="Missing Mods" 
-                Height="20" 
+                Height="25" 
                 Margin="20,0,0,0" 
                 BorderThickness="0"
                 IsReadOnly="True"
@@ -214,9 +221,20 @@
             HorizontalAlignment="Center" 
             Orientation="Vertical" 
             VerticalAlignment="Top" 
-            Height="280" 
+            Height="285" 
             Width="470" 
-            Margin="10">
+            Margin="10, 0, 10, 10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <TextBlock Height="15">
+                    <Hyperlink 
+                        NavigateUri="https://github.com/woodske/KotorAutoMod" 
+                        RequestNavigate="Hyperlink_RequestNavigate">
+                        <TextBlock 
+                            Text="GitHub"
+                            FontSize="10"/>
+                    </Hyperlink>
+                </TextBlock>
+            </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <xctk:WatermarkComboBox  
                     ItemsSource="{Binding ModConfigViewModel.Types}" 
@@ -320,7 +338,9 @@
                 FontSize="16"
                 FontWeight="Bold"
                 Margin="0,0,0,3"/>
-            <Border BorderThickness="1" BorderBrush="Black">
+            <Border 
+                BorderThickness="1" 
+                BorderBrush="Black">
                 <TextBox 
                     TextWrapping="Wrap" 
                     VerticalAlignment="Center" 
