@@ -25,6 +25,7 @@ namespace KotorAutoMod
             int modCount = 1;
             foreach (ModViewModel selectedMod in selectedMods)
             {
+                modConfig.updateTaskProgress($"Extracting {modCount}/{selectedMods.Count()}: {selectedMod.ListName}");
                 foreach (string modFile in selectedMod.ModFileName)
                 {
                     string fileExtension = Path.GetExtension(modFile);
@@ -36,9 +37,6 @@ namespace KotorAutoMod
                     string modPath = Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFile));
                     Directory.CreateDirectory(extractDirectory);
 
-                    modConfig.updateTaskProgress($"Extracting {modCount}/{selectedMods.Count()}: {Path.GetFileName(modFile)}");
-                    Debug.WriteLine($"Extracting {Path.GetFileNameWithoutExtension(modFile)}");
-
                     await Task.Run(() =>
                     {
                         using (ArchiveFile archiveFile = new ArchiveFile(modPath))
@@ -49,8 +47,6 @@ namespace KotorAutoMod
                 }
                 modCount++;
             }
-
-            Debug.WriteLine("All done extracting mods");
         }
 
         /*
@@ -65,7 +61,7 @@ namespace KotorAutoMod
         /*
          * Extracts compressed files from the Resource directory
          */
-        public static void extractSetupTools()
+        public static async Task extractSetupTools()
         {
             string[] compressedSetupTools = Directory.GetFiles(getResourcesDirectory());
 
@@ -76,10 +72,13 @@ namespace KotorAutoMod
                     string extractDirectory = Path.Combine(getResourcesDirectory(), Path.GetFileNameWithoutExtension(compressedSetupTool));
                     Directory.CreateDirectory(extractDirectory);
 
-                    using (ArchiveFile archiveFile = new ArchiveFile(compressedSetupTool))
+                    await Task.Run(() =>
                     {
-                        archiveFile.Extract(extractDirectory);
-                    }
+                        using (ArchiveFile archiveFile = new ArchiveFile(compressedSetupTool))
+                        {
+                            archiveFile.Extract(extractDirectory);
+                        }
+                    });           
                 }
             }
         }
@@ -225,13 +224,13 @@ namespace KotorAutoMod
          */
         public static async Task applyMods(ModConfigViewModel modConfig, IEnumerable<ModViewModel> selectedMods)
         {
-            // Apply setup tools
+            // Extract and apply setup tools
             if (modConfig.FirstTimeSetupIsChecked)
             {
                 try
                 {
                     modConfig.updateTaskProgress("Extracting setup tools");
-                    Utils.extractSetupTools();
+                    await Utils.extractSetupTools();
 
                     modConfig.updateTaskProgress("Applying KOTOR exe setup tools");
                     await new KOTOR_Editable_Executable_Instructions().applyMod(new List<string> { Path.Combine(Utils.getResourcesDirectory(), "KOTOR Editable Executable") }, modConfig, null);
@@ -255,53 +254,40 @@ namespace KotorAutoMod
                 }
             }
 
+            // Extract mods
             modConfig.Instructions = "Extracting mods... this may take a few minutes.";
             await Utils.extractMods(modConfig, selectedMods);
-            int modCount = 1;
 
+            // Execute mod instructions
+            int modCount = 1;
             foreach (ModViewModel selectedMod in selectedMods)
             {
+                modConfig.updateTaskProgress($"Applying mod {modCount}/{selectedMods.Count()}: {selectedMod.ListName}");
+
+                // Prepares the full path of mod folders/files to pass to instructions
                 List<string> readyMods = new List<string>();
                 foreach (string modFileName in selectedMod.ModFileName)
                 {
-                    // Some mods have single file downloads, add them here.
-                    string[] singleFileMods = new string[] { "dan14_sherruk.utc", "dan13_zzshari.utc", "N_DarthMalak01.tga", "P_MissionH01.txi", "P_CandBB01.txi", "tar02_duelorg021.dlg" };
-                    if (singleFileMods.Any(singleFileMod => singleFileMod.Contains(modFileName)))
+                    string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFileName));
+                    if (Directory.Exists(modFilePath))
                     {
-                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFileName)));
-
-                        // Mods with multiple downloads that include a single file and folder should not decrement the progress bar max
-                        string[] singleFileModsWithFolders = new string[] { "N_DarthMalak01.tga", "P_MissionH01.txi", "P_CandBB01.txi" };
-                        if (!singleFileModsWithFolders.Any(singleFileModWithFolders => singleFileModWithFolders.Contains(modFileName)))
-                        {
-                            modConfig.ProgressBarMaximum--;
-                        }
+                        readyMods.Add(modFilePath);
                     }
                     else
                     {
-                        string modFilePath = Path.Combine(modConfig.ModsDirectory, Path.GetFileNameWithoutExtension(modFileName));
-                        if (Directory.Exists(modFilePath))
-                        {
-                            readyMods.Add(modFilePath);
-                        }
-                        else
-                        {
-                            readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFileName)));
-                        }
+                        // Some mods have single files rather than directories
+                        readyMods.Add(Path.Combine(modConfig.ModsDirectory, Path.GetFileName(modFileName)));
                     }
                 }
 
-                string className = $"KotorAutoMod.Instructions.{selectedMod.InstructionsName}";
-
-                modConfig.updateTaskProgress($"Applying mod {modCount}/{selectedMods.Count()}: {selectedMod.ListName}");
-
-                // Invoke the 'applyMod' method in the appropriate instruction class
-                var type = Type.GetType(className);
-                var applyMod = type.GetMethod("applyMod");
-                var classInstance = Activator.CreateInstance(type);
-                object[] parameters = new object[] { readyMods, modConfig, selectedMod };
+                // Uses reflection to invoke the 'applyMod' method in the appropriate instruction class               
                 try
                 {
+                    string className = $"KotorAutoMod.Instructions.{selectedMod.InstructionsName}";
+                    var type = Type.GetType(className);
+                    var applyMod = type.GetMethod("applyMod");
+                    var classInstance = Activator.CreateInstance(type);
+                    object[] parameters = new object[] { readyMods, modConfig, selectedMod };
                     await (Task)applyMod.Invoke(classInstance, parameters);
                 }
                 catch(Exception ex)
@@ -314,12 +300,14 @@ namespace KotorAutoMod
                     );
                     writeExceptionToFile(ex, modConfig);
                     return;
-                }
-                
+                }             
                 modCount++;
             }
         }
 
+        /*
+         * Writes exception logs to KotorAutoModError.txt in the swkotor folder
+         */
         private static void writeExceptionToFile(Exception ex, ModConfigViewModel modConfig)
         {
             string errorFilePath = Path.Combine(modConfig.SwkotorDirectory, "KotorAutoModError.txt");
@@ -462,6 +450,9 @@ namespace KotorAutoMod
             });
         }
 
+        /*
+         * Uses TSLPatcherCLI.exe to execute TSLPatcher mods in the background
+         */
         public static async Task runTSLPatcherCLI(ModConfigViewModel modConfig, String tslPatcherPath, int? installOption = null)
         {
             // arg1 = swkotor directory
@@ -490,6 +481,9 @@ namespace KotorAutoMod
             //p.WaitForExit();
         }
 
+        /*
+         * Checks if a mod has been installed via if it is checked and available
+         */
         public static bool isModInstalled(string modListName, ModConfigViewModel modConfig)
         {
             return modConfig._mods.Any(mod => mod.ListName.Equals(modListName) && mod.isChecked == true && mod.isAvailable == true);
