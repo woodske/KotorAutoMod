@@ -1,19 +1,31 @@
 # KotorAutoMod
 
-This application aims to make modding KotoR I a little bit easier. When able, it will try to automatically apply your selected mods to your KotoR installation. There are many mods that rely on TSLPatcher which for now will require some clicking on your part, but this application will run those TSLPatchers one at a time in a compatible order. This is intended to be used on a fresh KotoR installation.
+There are a lot of KotoR mods so many people have come up with mod builds that have been tested and validated to work. This application aims to make modding KotoR a little bit easier by automating the install process for some of these builds. The builds supported at the moment are listed below:
 
-The ordering and instructions for the mods were taken from this page: https://www.nexusmods.com/kotor/mods/1463
+1. StellarExile's KotoR 1 build: https://www.nexusmods.com/kotor/mods/1463
+2. Snigaroo's KotoR 1 build: https://reddit.com/r/kotor/wiki/kotormodbuildfull
 
 ## How to use
 
+This application is intended to be used on a fresh installation.
+
 There are some configuration selections to the bottom left of the application. You will need to... 
+* Select the mod build you want to use
 * Select your swkotor installation folder 
 * Select the folder with all of your *compressed* mods (the files needed can be found by clicking a mod in the available mods or missing mods sections)
 * Checkbox for doing a widescreen setup (this is highly recommended)
+* Checkbox for automatically applying mods. This uses the TSLPatcherCLI to run TSLPatcher in the background as well as makes default choices for some mods, such as eye color. Otherwise, you will need to run TSLPatcher by hand and be prompted for choices during some mod installations.
 * Some mods require your aspect ratio and screen resolution so select those if available
 
-Mods that are supported by the application and found in your mods folder will be listed under 'Available Mods'. Check the ones you would like to apply, then hit 'Apply Mods'. There will be instructions for each mod in the instructions box. Most mods just simply need you to press install on TSLPatcher.
+Once all of the configuration options are set, the 'Apply Mods' button will clickable. Click 'Apply Mods' and follow the instructions in the instructions box.
+
+## TSLPatcherCLI
+
+The source code for TSLPatcher was recently released. I stripped out the GUI and added CLI options to set the install path, mod path, and mod option in order to run the TSLPatcher in the background. Using TSLPatcherCLI creates a TSLPatcherInstallSummary.txt file in your swkotor folder. This gives a summary of errors/warning that you can further investigate by locating the installlog.rtf file in each extracted mod folder that uses TSLPatcher.
+
+https://github.com/woodske/TSLPatcher
 
 ## Screenshot
 
-![image](https://user-images.githubusercontent.com/20936822/177652686-147cbfaf-ef01-4474-9a33-c00e948b0267.png)
+![image](https://user-images.githubusercontent.com/20936822/184259761-df84fae6-3aa0-4a7e-9652-3f125a5ea705.png)
+
