@@ -5,6 +5,16 @@ There are a lot of KotoR mods so many people have come up with mod builds that h
 1. StellarExile's KotoR 1 build: https://www.nexusmods.com/kotor/mods/1463
 2. Snigaroo's KotoR 1 build: https://reddit.com/r/kotor/wiki/kotormodbuildfull
 
+## Prerequisites
+
+.NET 6.0 Runtime x86 for Windows desktop apps is required to run this program:    
+
+Microsoft page:    
+https://dotnet.microsoft.com/en-us/download/dotnet/6.0/runtime?cid=getdotnetcore
+
+Direct Install:    
+https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.8-windows-x86-installer
+
 ## How to use
 
 This application is intended to be used on a fresh installation.
