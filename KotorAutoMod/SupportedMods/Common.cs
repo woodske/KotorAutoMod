@@ -6,8 +6,8 @@ namespace KotorAutoMod.SupportedMods
 {
     internal static class Common
     {
-        public const string Reddit = "StellarExile KOTOR 1";
-        public const string Stellar = "Reddit KOTOR 1 Full Build";
+        public const string Reddit = "Reddit KOTOR 1 Full Build";
+        public const string Stellar = "StellarExile KOTOR 1";
 
         private static List<InstructionsSet> InstructionsSet = new List<InstructionsSet> {
             new InstructionsSet(Reddit, new Uri("https://www.nexusmods.com/kotor/mods/1463")),
