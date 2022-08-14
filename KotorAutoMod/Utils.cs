@@ -243,13 +243,13 @@ namespace KotorAutoMod
                 }
                 catch (Exception ex)
                 {
+                    writeExceptionToFile(ex, modConfig);
                     MessageBox.Show(
                         $"Something went wrong trying to install the setup tools. Aborting installation. See KotorAutoModError.txt in your swkotor folder.",
                         "Installation Error",
                         MessageBoxButton.OK,
                         MessageBoxImage.Error
-                    );
-                    writeExceptionToFile(ex, modConfig);
+                    );                    
                     return;
                 }
             }
@@ -292,13 +292,13 @@ namespace KotorAutoMod
                 }
                 catch(Exception ex)
                 {
+                    writeExceptionToFile(ex, modConfig);
                     MessageBox.Show(
                         $"Something went wrong trying to install mod: {selectedMod.ListName}. Aborting installation. See KotorAutoModError.txt in your swkotor folder.",
                         "Installation Error",
                         MessageBoxButton.OK, 
                         MessageBoxImage.Error
-                    );
-                    writeExceptionToFile(ex, modConfig);
+                    );                   
                     return;
                 }             
                 modCount++;
@@ -466,7 +466,7 @@ namespace KotorAutoMod
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.CreateNoWindow = true;
-            startInfo.FileName = Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe");
+            startInfo.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TSLPatcherCLI.exe");
             startInfo.WindowStyle = ProcessWindowStyle.Normal;
             startInfo.Arguments = args;
 
