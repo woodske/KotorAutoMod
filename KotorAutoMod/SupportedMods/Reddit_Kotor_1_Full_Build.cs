@@ -12,9 +12,6 @@ namespace KotorAutoMod.SupportedMods
         const string Optional = "Optional";
 
         // Types
-        const string Menu = "Menus";
-        const string UI = "UI";
-        const string Movies = "Movies";
         const string Bug = "Bug Fix";
         const string QoL = "QoL";
         const string Graphics = "Graphics Improvements";
@@ -23,7 +20,6 @@ namespace KotorAutoMod.SupportedMods
         const string Restored = "Restored Content";
         const string Patch = "Patch";
         const string Added = "Added Content";
-        const string Story = "Story Change";
         const string Appearance = "Appearance Change";
         const string Mechanics = "Mechanics Change";
 
