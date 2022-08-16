@@ -37,8 +37,7 @@
 		<None Update="Resources\KOTOR Editable Executable.rar">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="TSLPatcherCLI.exe">
-	      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+		<None Update="Resources\TSLPatcherCLI.exe">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Resources\uniws.zip">

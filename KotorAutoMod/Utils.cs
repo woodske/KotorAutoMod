@@ -466,7 +466,7 @@ namespace KotorAutoMod
 
             ProcessStartInfo startInfo = new ProcessStartInfo();
             startInfo.CreateNoWindow = true;
-            startInfo.FileName = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "TSLPatcherCLI.exe");
+            startInfo.FileName = Path.Combine(getResourcesDirectory(), "TSLPatcherCLI.exe");
             startInfo.WindowStyle = ProcessWindowStyle.Normal;
             startInfo.Arguments = args;
 
