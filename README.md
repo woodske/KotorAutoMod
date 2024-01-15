@@ -1,4 +1,4 @@
-This is no longer being developed, check out this project for an active mod manager: https://github.com/th3w1zard1/KOTORModSync
+KotorAutoMod is no longer being developed, check out this project for an active mod manager: https://github.com/th3w1zard1/KOTORModSync
 
 # KotorAutoMod
 
