@@ -1,3 +1,5 @@
+This is no longer being developed, check out this project for an active mod manager: https://github.com/th3w1zard1/KOTORModSync
+
 # KotorAutoMod
 
 There are a lot of KotoR mods so many people have come up with mod builds that have been tested and validated to work. This application aims to make modding KotoR a little bit easier by automating the install process for some of these builds. The builds supported at the moment are listed below:
